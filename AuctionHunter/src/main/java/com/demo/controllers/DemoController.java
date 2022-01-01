@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class DemoController {
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index() {	
-		System.out.println("Dai dep trai :))");
+		System.out.println("cc Dai  :))");
 		return "demo/index";
 	}
 }

@@ -31,7 +31,7 @@
                     		<tbody>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/product-image30.jpg" alt="Elastic Waist Dress - Navy / Small"></a>
+                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image30.jpg" alt="Elastic Waist Dress - Navy / Small"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -61,7 +61,7 @@
                                 </tr>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/home7-product5.jpg" alt="3/4 Sleeve Kimono Dress"></a>
+                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/home7-product5.jpg" alt="3/4 Sleeve Kimono Dress"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                     <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="assets/images/product-images/home7-product4.jpg" alt="Minerva Dress black"></a>
+                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/home7-product4.jpg" alt="Minerva Dress black"></a>
                                     </td>
                                     <td class="cart__meta small--text-left cart-flex-item">
                                         <div class="list-view-item__title">
@@ -413,7 +413,7 @@
 								</label>
                               </p>
                               <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Proceed To Checkout" disabled="disabled">
-                              <div class="paymnet-img"><img src="assets/images/payment-img.jpg" alt="Payment"></div>
+                              <div class="paymnet-img"><img src="${pageContext.request.contextPath }/resources/user/assets/images/payment-img.jpg" alt="Payment"></div>
                               <p><a href="#;">Checkout with Multiple Addresses</a></p>
                             </div>
         

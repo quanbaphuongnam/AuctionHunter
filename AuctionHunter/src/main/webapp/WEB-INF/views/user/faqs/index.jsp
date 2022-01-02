@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
-<mt:layout_user title="aboutus">
+<mt:layout_user title="faqs">
 	<jsp:attribute name="content">
 		<!--Page Title-->
     	<div class="page section-header text-center">

@@ -148,35 +148,35 @@
                                     <div class="grid__item">
                                       <div class="mini-list-item">
                                         <div class="mini-view_image">
-                                            <a class="grid-view-item__link" href="#">
+                                            <a class="grid-view-item__link" href="${pageContext.request.contextPath }/product/productdetail">
                                                 <img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img.jpg" alt="" />
                                             </a>
                                         </div>
-                                        <div class="details"> <a class="grid-view-item__title" href="#">Cena Skirt</a>
+                                        <div class="details"> <a class="grid-view-item__title" href="${pageContext.request.contextPath }/product/productdetail">Cena Skirt</a>
                                           <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$173.60</span></span></div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="grid__item">
                                       <div class="mini-list-item">
-                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img1.jpg" alt="" /></a> </div>
-                                        <div class="details"> <a class="grid-view-item__title" href="#">Block Button Up</a>
+                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="${pageContext.request.contextPath }/product/productdetail"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img1.jpg" alt="" /></a> </div>
+                                        <div class="details"> <a class="grid-view-item__title" href="${pageContext.request.contextPath }/product/productdetail">Block Button Up</a>
                                           <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$378.00</span></span></div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="grid__item">
                                       <div class="mini-list-item">
-                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img2.jpg" alt="" /></a> </div>
-                                        <div class="details"> <a class="grid-view-item__title" href="#">Balda Button Pant</a>
+                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="${pageContext.request.contextPath }/product/productdetail"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img2.jpg" alt="" /></a> </div>
+                                        <div class="details"> <a class="grid-view-item__title" href="${pageContext.request.contextPath }/product/productdetail">Balda Button Pant</a>
                                           <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$278.60</span></span></div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="grid__item">
                                       <div class="mini-list-item">
-                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img3.jpg" alt="" /></a> </div>
-                                        <div class="details"> <a class="grid-view-item__title" href="#">Border Dress in Black/Silver</a>
+                                        <div class="mini-view_image"> <a class="grid-view-item__link" href="${pageContext.request.contextPath }/product/productdetail"><img class="grid-view-item__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/mini-product-img3.jpg" alt="" /></a> </div>
+                                        <div class="details"> <a class="grid-view-item__title" href="${pageContext.request.contextPath }/product/productdetail">Border Dress in Black/Silver</a>
                                           <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$228.00</span></span></div>
                                         </div>
                                       </div>
@@ -204,33 +204,33 @@
                           </div>
                           <div class="widget-content">
                             <ul class="product-tags">
-                              <li><a href="#" title="Show products matching tag $100 - $400">$100 - $400</a></li>
-                              <li><a href="#" title="Show products matching tag $400 - $600">$400 - $600</a></li>
-                              <li><a href="#" title="Show products matching tag $600 - $800">$600 - $800</a></li>
-                              <li><a href="#" title="Show products matching tag Above $800">Above $800</a></li>
-                              <li><a href="#" title="Show products matching tag Allen Vela">Allen Vela</a></li>
-                              <li><a href="#" title="Show products matching tag Black">Black</a></li>
-                              <li><a href="#" title="Show products matching tag Blue">Blue</a></li>
-                              <li><a href="#" title="Show products matching tag Cantitate">Cantitate</a></li>
-                              <li><a href="#" title="Show products matching tag Famiza">Famiza</a></li>
-                              <li><a href="#" title="Show products matching tag Gray">Gray</a></li>
-                              <li><a href="#" title="Show products matching tag Green">Green</a></li>
-                              <li><a href="#" title="Show products matching tag Hot">Hot</a></li>
-                              <li><a href="#" title="Show products matching tag jean shop">jean shop</a></li>
-                              <li><a href="#" title="Show products matching tag jesse kamm">jesse kamm</a></li>
-                              <li><a href="#" title="Show products matching tag L">L</a></li>
-                              <li><a href="#" title="Show products matching tag Lardini">Lardini</a></li>
-                              <li><a href="#" title="Show products matching tag lareida">lareida</a></li>
-                              <li><a href="#" title="Show products matching tag Lirisla">Lirisla</a></li>
-                              <li><a href="#" title="Show products matching tag M">M</a></li>
-                              <li><a href="#" title="Show products matching tag mini-dress">mini-dress</a></li>
-                              <li><a href="#" title="Show products matching tag Monark">Monark</a></li>
-                              <li><a href="#" title="Show products matching tag Navy">Navy</a></li>
-                              <li><a href="#" title="Show products matching tag new">new</a></li>
-                              <li><a href="#" title="Show products matching tag new arrivals">new arrivals</a></li>
-                              <li><a href="#" title="Show products matching tag Orange">Orange</a></li>
-                              <li><a href="#" title="Show products matching tag oxford">oxford</a></li>
-                              <li><a href="#" title="Show products matching tag Oxymat">Oxymat</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag $100 - $400">$100 - $400</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag $400 - $600">$400 - $600</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag $600 - $800">$600 - $800</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Above $800">Above $800</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Allen Vela">Allen Vela</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Black">Black</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Blue">Blue</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Cantitate">Cantitate</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Famiza">Famiza</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Gray">Gray</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Green">Green</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Hot">Hot</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag jean shop">jean shop</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag jesse kamm">jesse kamm</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag L">L</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Lardini">Lardini</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag lareida">lareida</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Lirisla">Lirisla</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag M">M</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag mini-dress">mini-dress</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Monark">Monark</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Navy">Navy</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag new">new</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag new arrivals">new arrivals</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Orange">Orange</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag oxford">oxford</a></li>
+                              <li><a href="${pageContext.request.contextPath }/product/productdetail" title="Show products matching tag Oxymat">Oxymat</a></li>
                             </ul>
                             <span class="btn btn--small btnview">View all</span> </div>
                         </div>
@@ -290,7 +290,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg" alt="image" title="product">
                                             <!-- End image -->
@@ -316,7 +316,7 @@
                                                 <i class="icon anm anm-search-plus-r"></i>
                                             </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -334,7 +334,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Edna Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Edna Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -371,7 +371,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image2.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image2.jpg" alt="image" title="product">
                                             <!-- End image -->
@@ -390,7 +390,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -408,7 +408,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Elastic Waist Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Elastic Waist Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -438,7 +438,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image3.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image3.jpg" alt="image" title="product">
                                             <!-- End image -->
@@ -460,7 +460,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -478,7 +478,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">3/4 Sleeve Kimono Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">3/4 Sleeve Kimono Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -509,7 +509,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image4.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image4.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -531,7 +531,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -549,7 +549,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Cape Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Cape Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -581,7 +581,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image5.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image5.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -603,7 +603,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -621,7 +621,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Paper Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Paper Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -652,7 +652,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image17.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image17.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -674,7 +674,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -692,7 +692,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Buttercup Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Buttercup Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -715,7 +715,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image18.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image18.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -734,7 +734,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -752,7 +752,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Lima Shirt</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Lima Shirt</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -783,7 +783,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image19.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image19.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -802,7 +802,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -820,7 +820,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Romary Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Romary Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -843,7 +843,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image20.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image20.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -865,7 +865,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -883,7 +883,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Floral Sleeveless Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Floral Sleeveless Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -906,7 +906,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image21.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image21.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -925,7 +925,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -943,7 +943,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Button Up Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Button Up Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -966,7 +966,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image22.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image22.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -985,7 +985,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1003,7 +1003,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Lexie Shirt</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Lexie Shirt</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1026,7 +1026,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image23.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image23.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1045,7 +1045,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1063,7 +1063,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">One Shoulder Dress in Navy</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">One Shoulder Dress in Navy</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1086,7 +1086,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image24.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image24.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1105,7 +1105,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1123,7 +1123,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Triangle Sleeveless Dress in Multi</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Triangle Sleeveless Dress in Multi</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1146,7 +1146,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image25.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image25.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1165,7 +1165,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1183,7 +1183,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">ACB Top</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">ACB Top</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1206,7 +1206,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image26.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image26.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1225,7 +1225,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1243,7 +1243,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">A-Line Jacket</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">A-Line Jacket</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1266,7 +1266,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="grid-view-item__image primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image27.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image27.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1282,7 +1282,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Camelia Reversible Jacket in Navy/Blue</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Camelia Reversible Jacket in Navy/Blue</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1305,7 +1305,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image28.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image28.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1324,7 +1324,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1342,7 +1342,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Wrinkled Tux Shirt in Navy</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Wrinkled Tux Shirt in Navy</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1365,7 +1365,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image29.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image29.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1384,7 +1384,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1402,7 +1402,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">A-Line Mini Dress in Blue</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">A-Line Mini Dress in Blue</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1425,7 +1425,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image30.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image30.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1444,7 +1444,7 @@
                                                 <i class="icon anm anm-search-plus-r"></i>
                                             </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1462,7 +1462,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Asymmetric Dress in Black</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Asymmetric Dress in Black</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1485,7 +1485,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image31.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image31.jpg" alt="image" title="product" />
                                             <!-- End image -->
@@ -1504,7 +1504,7 @@
                                                         <i class="icon anm anm-search-plus-r"></i>
                                                     </a>
                                             <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <a class="wishlist add-to-wishlist" href="${pageContext.request.contextPath }/product/productdetail" title="Add to Wishlist">
                                                     <i class="icon anm anm-heart-l"></i>
                                                 </a>
                                             </div>
@@ -1522,7 +1522,7 @@
                                     <div class="product-details text-center">
                                         <!-- product name -->
                                         <div class="product-name">
-                                            <a href="#">Babydoll Bow Dress</a>
+                                            <a href="${pageContext.request.contextPath }/product/productdetail">Babydoll Bow Dress</a>
                                         </div>
                                         <!-- End product name -->
                                         <!-- product price -->
@@ -1546,7 +1546,7 @@
                     </div>
                     <div class="infinitpaginOuter">
                         <div class="infinitpagin">	
-                            <a href="#" class="btn loadMore">Load More</a>
+                            <a href="${pageContext.request.contextPath }/product/productdetail" class="btn loadMore">Load More</a>
                         </div>
                     </div>
                 </div>

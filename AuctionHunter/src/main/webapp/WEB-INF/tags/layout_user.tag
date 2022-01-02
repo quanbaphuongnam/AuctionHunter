@@ -68,7 +68,7 @@
                     <ul class="customer-links list-inline">
                         <li><a href="${pageContext.request.contextPath }/account/login">Login</a></li>
                         <li><a href="${pageContext.request.contextPath }/account/register">Register</a></li>
-                       <!--  <li><a href="wishlist.html">Wishlist</a></li> -->
+                        <li><a href="${pageContext.request.contextPath }/admin">Admin</a></li>
                     </ul>
                 </div>
             </div>

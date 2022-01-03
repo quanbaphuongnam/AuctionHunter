@@ -21,6 +21,8 @@
 <!-- Main Style CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/user/assets/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/user/assets/css/responsive.css">
+
+   <script src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 </head>
 <body class="template-collection belle">
 <div class="pageWrapper">
@@ -494,6 +496,7 @@
      <script src="${pageContext.request.contextPath }/resources/user/assets/js/popper.min.js"></script>
      <script src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
      <script src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 </div>
 </body>
 

@@ -4,6 +4,7 @@
 
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
+	
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">

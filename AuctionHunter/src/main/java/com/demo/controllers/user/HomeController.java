@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index(Authentication authentication) {
-		System.out.println("username: " + authentication.getName());
-		if(authentication.getName().equalsIgnoreCase("admin")) {
-			return "redirect:/admin/index";
-		}else {
-			return "user/home/index";
+		if(authentication != null) {
+			if(authentication.getName().equalsIgnoreCase("admin")) {
+				return "redirect:/admin/index";
+			}else {
+				return "user/home/index";
+			}
 		}
+		return "user/home/index";
 	}
 }

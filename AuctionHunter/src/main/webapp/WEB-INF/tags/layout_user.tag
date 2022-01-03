@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ attribute name="title" required="true" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="content" fragment="true"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -66,9 +67,17 @@
                 <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
                 	<span class="user-menu d-block d-lg-none"><i class="anm anm-user-al" aria-hidden="true"></i></span>
                     <ul class="customer-links list-inline">
-                        <li><a href="${pageContext.request.contextPath }/account/login">Login</a></li>
+                    <c:choose> 
+					  <c:when test="${pageContext.request.userPrincipal.name != null}">
+					    <li><a href="${pageContext.request.contextPath }/admin">${pageContext.request.userPrincipal.name }</a></li>
+					  </c:when>
+					  <c:otherwise>
+					    <li><a href="${pageContext.request.contextPath }/account/login">Login</a></li>
                         <li><a href="${pageContext.request.contextPath }/account/register">Register</a></li>
+					  </c:otherwise>
+					</c:choose>
                         <li><a href="${pageContext.request.contextPath }/admin">Admin</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -114,7 +123,7 @@
                             <li><a href="${pageContext.request.contextPath }/account/myauctions" class="site-nav">My Auction</a></li>
                             <li><a href="${pageContext.request.contextPath }/account/myproduct" class="site-nav">My Product</a></li>
                             <li><a href="${pageContext.request.contextPath }/account/myinvoice" class="site-nav">My Invoice</a></li>
-                            <li><a href="${pageContext.request.contextPath }/account/index" class="site-nav">Logout</a></li>
+                            <li><a href="${pageContext.request.contextPath }/account/logout" class="site-nav">Logout</a></li>
                           </ul>
                         </li>
                        

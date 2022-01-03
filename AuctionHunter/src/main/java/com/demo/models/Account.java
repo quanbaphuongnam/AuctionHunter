@@ -192,7 +192,7 @@ public class Account implements java.io.Serializable {
 		this.report = report;
 	}
 
-	@Column(name = "isDelete", nullable = false)
+	@Column(name = "is_delete", nullable = false)
 	public boolean isIsDelete() {
 		return this.isDelete;
 	}

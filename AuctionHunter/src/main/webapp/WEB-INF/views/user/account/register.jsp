@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <mt:layout_user title="register">
 	<jsp:attribute name="content">
 		<!--Page Title-->
@@ -15,30 +16,30 @@
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
                 	<div class="mb-4">
-                       <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
+                       <s:form method="post" modelAttribute="account" action="${pageContext.request.contextPath }/account/register" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
                           <div class="row">
 	                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="FirstName">First Name</label>
-                                    <input type="text" name="customer[first_name]" placeholder="" id="FirstName" autofocus="">
+                                    <label for="Username">Username</label>
+                                    <s:input path="username" placeholder="" id="Username" autofocus=""/>
                                 </div>
                                </div>
                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                    <label for="LastName">Last Name</label>
-                                    <input type="text" name="customer[last_name]" placeholder="" id="LastName">
+                                    <label for="Full Name">Full Name</label>
+                                    <s:input type="text" path="fullName" placeholder="" id="LastName"/>
                                 </div>
                                </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label for="CustomerEmail">Email</label>
-                                    <input type="email" name="customer[email]" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
+                                    <s:input type="email" path="email" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus=""/>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label for="CustomerPassword">Password</label>
-                                    <input type="password" value="" name="customer[password]" placeholder="" id="CustomerPassword" class="">                        	
+                                    <s:password value="" path="password" placeholder="" id="CustomerPassword" class=""/>                        	
                                 </div>
                             </div>
                           </div>
@@ -47,7 +48,7 @@
                                 <input type="submit" class="btn mb-3" value="Create">
                             </div>
                          </div>
-                     </form>
+                     </s:form>
                     </div>
                	</div>
             </div>

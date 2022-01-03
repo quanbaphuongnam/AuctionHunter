@@ -12,7 +12,7 @@
 <meta name="description" content="description">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/user/assets/images/favicon.png" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/user/assets/images/logo_icon.png" />
 <!-- Plugins CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/user/assets/css/plugins.css">
 <!-- Bootstap CSS -->
@@ -82,7 +82,7 @@
             	<!--Desktop Logo-->
                 <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
                     <a href="${pageContext.request.contextPath }/home">
-                    	<img src="${pageContext.request.contextPath }/resources/user/assets/images/logo.svg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                    	<img src="${pageContext.request.contextPath }/resources/user/assets/images/logo_1.png" alt="Auction Hunter" title="Auction Hunter" />
                     </a>
                 </div>
                 <!--End Desktop Logo-->

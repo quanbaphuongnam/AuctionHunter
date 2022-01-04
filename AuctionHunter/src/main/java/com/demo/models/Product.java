@@ -32,7 +32,7 @@ public class Product implements java.io.Serializable {
 	private double priceStart;
 	private Date startDate;
 	private Date endDate;
-	private int isAuction;
+	private double priceStep;
 	private Date created;
 	private boolean status;
 	private boolean isDelete;
@@ -47,7 +47,7 @@ public class Product implements java.io.Serializable {
 	}
 
 	public Product(Account account, String name, String description, double price, double priceStart, Date startDate,
-			Date endDate, int isAuction, Date created, boolean status, boolean isDelete, String emailPayment) {
+			Date endDate, double priceStep, Date created, boolean status, boolean isDelete, String emailPayment) {
 		this.account = account;
 		this.name = name;
 		this.description = description;
@@ -55,7 +55,7 @@ public class Product implements java.io.Serializable {
 		this.priceStart = priceStart;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.isAuction = isAuction;
+		this.priceStep = priceStep;
 		this.created = created;
 		this.status = status;
 		this.isDelete = isDelete;
@@ -63,7 +63,7 @@ public class Product implements java.io.Serializable {
 	}
 
 	public Product(Account account, String name, String description, double price, double priceStart, Date startDate,
-			Date endDate, int isAuction, Date created, boolean status, boolean isDelete, String emailPayment,
+			Date endDate, double priceStep, Date created, boolean status, boolean isDelete, String emailPayment,
 			Set<CategoryProduct> categoryProducts, Set<HistoryAuction> historyAuctions, Set<ProductPhoto> productPhotos,
 			Set<Cart> carts, Set<Invoice> invoices) {
 		this.account = account;
@@ -73,7 +73,7 @@ public class Product implements java.io.Serializable {
 		this.priceStart = priceStart;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.isAuction = isAuction;
+		this.priceStep = priceStep;
 		this.created = created;
 		this.status = status;
 		this.isDelete = isDelete;
@@ -163,13 +163,13 @@ public class Product implements java.io.Serializable {
 		this.endDate = endDate;
 	}
 
-	@Column(name = "is_auction", nullable = false)
-	public int getIsAuction() {
-		return this.isAuction;
+	@Column(name = "price_step", nullable = false, precision = 22, scale = 0)
+	public double getPriceStep() {
+		return this.price;
 	}
 
-	public void setIsAuction(int isAuction) {
-		this.isAuction = isAuction;
+	public void setPriceStep(double priceStep) {
+		this.priceStep = priceStep;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)

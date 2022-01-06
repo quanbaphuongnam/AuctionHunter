@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
@@ -467,6 +469,8 @@
                         <div class="grid-products grid--view-items">
                             <div class="row">
   <!----------------------------------Product----------------------------------->
+  <c:forEach var="listProduct" items="${listProducts }">
+  
                                 <div
 									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
                                     <!-- start product image -->
@@ -477,16 +481,16 @@
                                             <!-- image -->
                                             <img
 											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
+											data-src="${pageContext.request.contextPath }/resources/user/uploads/"
+											src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
 											alt="image" title="product">
                                             <!-- End image -->
                                             <!-- Hover image -->
-                                            <img
+                                          <%--   <img
 											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
+											data-src="${pageContext.request.contextPath }/img/upload/1.jpg"
+											src="${pageContext.request.contextPath }/img/upload/1.jpg"
+											alt="img"> --%>
                                             <!-- End hover image -->
                                             <!-- product label -->
                                            
@@ -496,7 +500,7 @@
                                         
                                         <!-- countdown start -->
                                         <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
+											data-countdown="${listProduct.endDate }"></div>
                                         <!-- countdown end -->
     
                                         <!-- Start product button -->
@@ -531,19 +535,19 @@
                                     <div
 										class="product-details text-center">
                                         <!-- product name -->
-                                        <div class="product-name">
+                                        <div style="height: 70px" class="product-name">
                                             <a
-												href="${pageContext.request.contextPath }/product/productdetail">Utraboot</a>
+												href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
 												
                                         </div>
                                        <br> 	
                                            <ul class="product-tags">
                               <li><a
 										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
+										>${listProduct.account.username }</a></li>
                               <li><a
 										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
+										>Adidas</a></li>
                             
                             </ul>
                                         
@@ -570,546 +574,24 @@
 										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
 									</div>
                                     <!-- countdown end -->
+                             
                                 </div>
-                               <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                                    <!-- start product image -->
-                                    <div class="product-image">
-                                        <!-- start product image -->
-                                        <a
-											href="${pageContext.request.contextPath }/product/productdetail">
-                                            <!-- image -->
-                                            <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											alt="image" title="product">
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
-                                            <!-- End hover image -->
-                                            <!-- product label -->
-                                            <div
-												class="product-labels rectangular">
-												<span class="lbl on-sale">-16%</span> <span
-													class="lbl pr-label1">new</span>
-											</div>
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
-                                            <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
-                                        </form>
-                                        <div class="button-set">
-                                            <a href="javascript:void(0)"
-												title="Quick View" class="quick-view-popup quick-view"
-												data-toggle="modal" data-target="#content_quickview">
-                                                <i
-												class="icon anm anm-search-plus-r"></i>
-                                            </a>
-                                           
-                                            <div class="compare-btn">
-                                                <a
-													class="compare add-to-compare" href="compare.html"
-													title="Add to Compare">
-                                                    <i
-													class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-										class="product-details text-center">
-                                        <!-- product name -->
-                                        <div class="product-name">
-                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">Giày Utraboot</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="product-price">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
-												</button>
-												  </a>
-</div>
+                                
                                           
                                         
-                                    </div>
+                                   
                                     <!-- End product details -->
                                     <!-- countdown start -->
                                     <div class="timermobile">
 										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
 									</div>
                                     <!-- countdown end -->
-                                </div>
-                                <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                                    <!-- start product image -->
-                                    <div class="product-image">
-                                        <!-- start product image -->
-                                        <a
-											href="${pageContext.request.contextPath }/product/productdetail">
-                                            <!-- image -->
-                                            <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											alt="image" title="product">
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
-                                            <!-- End hover image -->
-                                            <!-- product label -->
-                                            <div
-												class="product-labels rectangular">
-												<span class="lbl on-sale">-16%</span> <span
-													class="lbl pr-label1">new</span>
-											</div>
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
-                                            <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
-                                        </form>
-                                        <div class="button-set">
-                                            <a href="javascript:void(0)"
-												title="Quick View" class="quick-view-popup quick-view"
-												data-toggle="modal" data-target="#content_quickview">
-                                                <i
-												class="icon anm anm-search-plus-r"></i>
-                                            </a>
-                                           
-                                            <div class="compare-btn">
-                                                <a
-													class="compare add-to-compare" href="compare.html"
-													title="Add to Compare">
-                                                    <i
-													class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-										class="product-details text-center">
-                                        <!-- product name -->
-                                        <div class="product-name">
-                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">Utraboot</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="product-price">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
-												</button>
-												  </a>
-</div>
-                                          
-                                        
-                                    </div>
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
-                                    <!-- countdown end -->
-                                </div>
-                                <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                                    <!-- start product image -->
-                                    <div class="product-image">
-                                        <!-- start product image -->
-                                        <a
-											href="${pageContext.request.contextPath }/product/productdetail">
-                                            <!-- image -->
-                                            <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											alt="image" title="product">
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
-                                            <!-- End hover image -->
-                                            <!-- product label -->
-                                            <div
-												class="product-labels rectangular">
-												<span class="lbl on-sale">-16%</span> <span
-													class="lbl pr-label1">new</span>
-											</div>
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
-                                            <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
-                                        </form>
-                                        <div class="button-set">
-                                            <a href="javascript:void(0)"
-												title="Quick View" class="quick-view-popup quick-view"
-												data-toggle="modal" data-target="#content_quickview">
-                                                <i
-												class="icon anm anm-search-plus-r"></i>
-                                            </a>
-                                           
-                                            <div class="compare-btn">
-                                                <a
-													class="compare add-to-compare" href="compare.html"
-													title="Add to Compare">
-                                                    <i
-													class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-										class="product-details text-center">
-                                        <!-- product name -->
-                                        <div class="product-name">
-                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">Utraboot</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="product-price">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
-												</button>
-												  </a>
-</div>
-                                          
-                                        
-                                    </div>
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
-                                    <!-- countdown end -->
-                                </div>
-                                <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                                    <!-- start product image -->
-                                    <div class="product-image">
-                                        <!-- start product image -->
-                                        <a
-											href="${pageContext.request.contextPath }/product/productdetail">
-                                            <!-- image -->
-                                            <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											alt="image" title="product">
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
-                                            <!-- End hover image -->
-                                            <!-- product label -->
-                                            <div
-												class="product-labels rectangular">
-												<span class="lbl on-sale">-16%</span> <span
-													class="lbl pr-label1">new</span>
-											</div>
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
-                                            <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
-                                        </form>
-                                        <div class="button-set">
-                                            <a href="javascript:void(0)"
-												title="Quick View" class="quick-view-popup quick-view"
-												data-toggle="modal" data-target="#content_quickview">
-                                                <i
-												class="icon anm anm-search-plus-r"></i>
-                                            </a>
-                                           
-                                            <div class="compare-btn">
-                                                <a
-													class="compare add-to-compare" href="compare.html"
-													title="Add to Compare">
-                                                    <i
-													class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-										class="product-details text-center">
-                                        <!-- product name -->
-                                        <div class="product-name">
-                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">Utraboot</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="product-price">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
-												</button>
-												  </a>
-</div>
-                                          
-                                        
-                                    </div>
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
-                                    <!-- countdown end -->
-                                </div>
-                                <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                                    <!-- start product image -->
-                                    <div class="product-image">
-                                        <!-- start product image -->
-                                        <a
-											href="${pageContext.request.contextPath }/product/productdetail">
-                                            <!-- image -->
-                                            <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg"
-											alt="image" title="product">
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1-1.jpg"
-											alt="image" title="product">
-                                            <!-- End hover image -->
-                                            <!-- product label -->
-                                        
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-											data-countdown="2022/09/20 23:47:08"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
-                                            <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
-                                        </form>
-                                        <div class="button-set">
-                                            <a href="javascript:void(0)"
-												title="Quick View" class="quick-view-popup quick-view"
-												data-toggle="modal" data-target="#content_quickview">
-                                                <i
-												class="icon anm anm-search-plus-r"></i>
-                                            </a>
-                                           
-                                            <div class="compare-btn">
-                                                <a
-													class="compare add-to-compare" href="compare.html"
-													title="Add to Compare">
-                                                    <i
-													class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-										class="product-details text-center">
-                                        <!-- product name -->
-                                        <div class="product-name">
-                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">Utraboot</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $100 - $400">Nike</a></li>
-                              <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										title="Show products matching tag $400 - $600">Adidas</a></li>
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="product-price">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
-												</button>
-												  </a>
-</div>
-                                          
-                                        
-                                    </div>
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
-                                    <!-- countdown end -->
+                                    	</c:forEach>
+                                    
                                 </div>
                                
                                     <!-- End product details -->
-                              
+                             
                                 
                         </div>
                     </div>

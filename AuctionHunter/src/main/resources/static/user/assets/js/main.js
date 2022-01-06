@@ -875,12 +875,13 @@
 		$(".qtyBtn").on("click", function() {
 		  var qtyField = $(this).parent(".qtyField"),
 			 oldValue = $(qtyField).find(".qty").val(),
+			  oldValue2 = $(qtyField).find(".qty2").val(),
 			  newVal = 1;
-	
+			
 		  if ($(this).is(".plus")) {
-			newVal = parseInt(oldValue) + 1;
+			newVal = parseInt(oldValue) + parseInt(oldValue2);
 		  } else if (oldValue > 1) {
-			newVal = parseInt(oldValue) - 1;
+			newVal = parseInt(oldValue) - parseInt(oldValue2);
 		  }
 		  $(qtyField).find(".qty").val(newVal);
 		});

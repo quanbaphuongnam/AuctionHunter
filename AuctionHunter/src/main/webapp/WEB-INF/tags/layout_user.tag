@@ -33,6 +33,8 @@
 	 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 	 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/button.css">
+	
+	
 </head>
 <body class="template-collection belle">
 
@@ -593,6 +595,8 @@
 			src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
 		<script
 			src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	 
 	</div>
 </body>
 

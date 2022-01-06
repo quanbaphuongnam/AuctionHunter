@@ -12,12 +12,8 @@ import com.demo.models.Product;
 @Repository
 public interface ProductRepository  extends CrudRepository<Product, Integer>{
 
-	
-	/*
-	 * @Query("SELECT new com.demo.models.ProductInfo(id, account, name, description, price, priceStart, startDate, endDate, created, status, isDelete, productPhotos) FROM Product"
-	 * ) public List<ProductInfo> listProductInfo();
-	 */
-	
+//	@Query("select new com.demo.models.ProductInfo(id, name, description, price, priceStart, startDate, endDate, priceStep, created, status, isDelete, account) from Product")
+//	public List<ProductInfo> listProductInfo();
 
-	 
+	
 }

@@ -474,16 +474,17 @@
                                 <div
 									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
                                     <!-- start product image -->
-                                    <div class="product-image">
+                                    <div class="product-image" style="height: 200px">
                                         <!-- start product image -->
                                         <a
 											href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
+                                            <c:forEach var="productPhoto" items="${listProduct.productPhotos }">
                                             <img
 											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/uploads/"
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
+											data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
 											alt="image" title="product">
+											</c:forEach>
                                             <!-- End image -->
                                             <!-- Hover image -->
                                           <%--   <img
@@ -535,7 +536,7 @@
                                     <div
 										class="product-details text-center">
                                         <!-- product name -->
-                                        <div style="height: 70px" class="product-name">
+                                        <div style="height: 85px" class="product-name">
                                             <a
 												href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
 												
@@ -545,9 +546,11 @@
                               <li><a
 										href="${pageContext.request.contextPath }/product/productdetail"
 										>${listProduct.account.username }</a></li>
+                              <c:forEach var="categoryProduct" items="${listProduct.categoryProducts }">
                               <li><a
 										href="${pageContext.request.contextPath }/product/productdetail"
-										>Adidas</a></li>
+										>${categoryProduct.category.name }</a></li>
+							  </c:forEach>		
                             
                             </ul>
                                         

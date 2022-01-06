@@ -19,10 +19,10 @@ public class ProductServiceImpl implements ProductService{
 
 		return productRepository.findAll();
 	}
-	/*
-	 * @Override public List<ProductInfo> listProductInfo() { // TODO Auto-generated
-	 * method stub return productRepository.listProductInfo(); }
-	 */
+	
+//	@Override public List<ProductInfo> listProductInfo() { 
+//		return productRepository.listProductInfo(); 
+//	}
 
 	
 

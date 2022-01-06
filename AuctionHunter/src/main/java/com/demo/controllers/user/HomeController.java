@@ -17,6 +17,7 @@ import com.demo.services.ProductService;
 @Controller
 @RequestMapping(value={"","home"})
 public class HomeController implements ServletContextAware{
+	
 	private ServletContext servletContext;
 	@Autowired
 	private ProductService productService;

@@ -1,33 +1,31 @@
 package com.demo.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProductInfo {
-	private Integer id;
-	private Account account;
+	
+	private int id;
 	private String name;
 	private String description;
 	private double price;
 	private double priceStart;
 	private Date startDate;
 	private Date endDate;
+	private double priceStep;
 	private Date created;
 	private boolean status;
 	private boolean isDelete;
-	private Set<ProductPhoto> productPhotos = new HashSet<ProductPhoto>(0);
-	public Integer getId() {
+	private Account account;
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
 	}
 	public String getName() {
 		return name;
@@ -65,6 +63,12 @@ public class ProductInfo {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	public double getPriceStep() {
+		return priceStep;
+	}
+	public void setPriceStep(double priceStep) {
+		this.priceStep = priceStep;
+	}
 	public Date getCreated() {
 		return created;
 	}
@@ -83,33 +87,31 @@ public class ProductInfo {
 	public void setDelete(boolean isDelete) {
 		this.isDelete = isDelete;
 	}
-	public Set<ProductPhoto> getProductPhotos() {
-		return productPhotos;
+	public Account getAccount() {
+		return account;
 	}
-	public void setProductPhotos(Set<ProductPhoto> productPhotos) {
-		this.productPhotos = productPhotos;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
-	public ProductInfo(Integer id, Account account, String name, String description, double price, double priceStart,
-			Date startDate, Date endDate, Date created, boolean status, boolean isDelete,
-			Set<ProductPhoto> productPhotos) {
+	
+	public ProductInfo(int id, String name, String description, double price, double priceStart, Date startDate,
+			Date endDate, double priceStep, Date created, boolean status, boolean isDelete, Account account) {
 		super();
 		this.id = id;
-		this.account = account;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.priceStart = priceStart;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.priceStep = priceStep;
 		this.created = created;
 		this.status = status;
 		this.isDelete = isDelete;
-		this.productPhotos = productPhotos;
+		this.account = account;
 	}
 	public ProductInfo() {
 		super();
-	
+		
 	}
-
-   
 }

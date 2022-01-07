@@ -6,22 +6,7 @@
 
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
-<style>
 
-#tv {
-  position: relative;
-
-  background: white;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-  color: white;
-  box-shadow: 10px 10px rgba(0,0,0,.15);
-  transition: all .4s ease;
-}
-#tv:hover {
-  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-  box-shadow: 10px 10px rgba(0,0,0,.25);
-}
-</style>
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">

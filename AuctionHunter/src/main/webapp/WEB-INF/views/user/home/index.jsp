@@ -6,7 +6,22 @@
 
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
+<style>
 
+#tv {
+  position: relative;
+
+  background: white;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  color: white;
+  box-shadow: 10px 10px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+#tv:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+</style>
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">
@@ -469,10 +484,11 @@
                         <div class="grid-products grid--view-items">
                             <div class="row">
   <!----------------------------------Product----------------------------------->
-  <c:forEach var="listProduct" items="${listProducts }">
-  
+  					<c:forEach var="listProduct" items="${listProducts }">
+  				
                                 <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+									class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
+										<div id="tv">
                                     <!-- start product image -->
                                     <div class="product-image" style="height: 200px">
                                         <!-- start product image -->
@@ -585,11 +601,10 @@
                                    
                                     <!-- End product details -->
                                     <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
+                                   
                                     <!-- countdown end -->
-                                    	</c:forEach>
+                         </div>
+                      </c:forEach>
                                     
                                 </div>
                                

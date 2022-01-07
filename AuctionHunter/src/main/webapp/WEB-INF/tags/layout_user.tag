@@ -35,6 +35,7 @@
 	href="${pageContext.request.contextPath }/resources/user/assets/css/button.css">
 	
 	
+	
 </head>
 <body class="template-collection belle">
 

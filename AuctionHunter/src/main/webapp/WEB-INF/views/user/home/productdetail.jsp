@@ -18,243 +18,10 @@
         <div class="container">
         	<div class="row">
             	<!--Sidebar-->
-            	<div
-					class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
-                	<div class="closeFilter d-block d-md-none d-lg-none">
-						<i class="icon icon anm anm-times-l"></i>
-					</div>
-                	<div class="sidebar_tags">
-                    	<!--Categories-->
-                    	<div
-							class="sidebar_widget categories filter-widget">
-                            <div class="widget-title">
-								<h2>Categories</h2>
-							</div>
-                            <div class="widget-content">
-                                <ul class="sidebar_categories">
-                                    <li class="level1 sub-level"><a
-										href="#;" class="site-nav">Clothing</a>
-                                    	<ul class="sublinks">
-                                        	<li class="level2"><a
-												href="#;" class="site-nav">Men</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Women</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Child</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">View All Clothing</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="level1 sub-level"><a
-										href="#;" class="site-nav">Jewellery</a>
-                                    	<ul class="sublinks">
-                                        	<li class="level2"><a
-												href="#;" class="site-nav">Ring</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Neckalses</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Eaarings</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">View All Jewellery</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Shoes</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Accessories</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Collections</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Sale</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Page</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--Categories-->
-                        <!--Price Filter-->
-                        <div
-							class="sidebar_widget filterBox filter-widget">
-                            <div class="widget-title">
-                            	<h2>Price</h2>
-                            </div>
-                            <form action="#" method="post"
-								class="price-filter">
-                                <div id="slider-range"
-									class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                                	<div
-										class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                    <span
-										class="ui-slider-handle ui-state-default ui-corner-all"
-										tabindex="0"></span>
-                                    <span
-										class="ui-slider-handle ui-state-default ui-corner-all"
-										tabindex="0"></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="no-margin">
-											<input id="amount" type="text">
-										</p>
-                                    </div>
-                                    <div
-										class="col-6 text-right margin-25px-top">
-                                        <button
-											class="btn btn-secondary btn--small">filter</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!--End Price Filter-->
-                        <!--Size Swatches-->
-                        <div
-							class="sidebar_widget filterBox filter-widget size-swacthes">
-                            <div class="widget-title">
-								<h2>Size</h2>
-							</div>
-                            <div class="filter-color swacth-list">
-                            	<ul>
-                                    <li><span
-										class="swacth-btn checked">X</span></li>
-                                    <li><span class="swacth-btn">XL</span></li>
-                                    <li><span class="swacth-btn">XLL</span></li>
-                                    <li><span class="swacth-btn">M</span></li>
-                                    <li><span class="swacth-btn">L</span></li>
-                                    <li><span class="swacth-btn">S</span></li>
-                                    <li><span class="swacth-btn">XXXL</span></li>
-                                    <li><span class="swacth-btn">XXL</span></li>
-                                    <li><span class="swacth-btn">XS</span></span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--End Size Swatches-->
-                      
-                        <!--End Color Swatches-->
-                        <!--Brand-->
-                        <div
-							class="sidebar_widget filterBox filter-widget">
-                            <div class="widget-title">
-								<h2>Brands</h2>
-							</div>
-                            <ul>
-                                <li>
-                                  <input type="checkbox"
-									value="allen-vela" id="check1">
-                                  <label for="check1"><span><span></span></span>Allen Vela</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="oxymat"
-									id="check3">
-                                  <label for="check3"><span><span></span></span>Oxymat</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="vanelas"
-									id="check4">
-                                  <label for="check4"><span><span></span></span>Vanelas</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="pagini"
-									id="check5">
-                                  <label for="check5"><span><span></span></span>Pagini</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="monark"
-									id="check6">
-                                  <label for="check6"><span><span></span></span>Monark</label>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--End Brand-->
-                        <!--Popular Products-->
-						
-                        <!--End Popular Products-->
-                        <!--Banner-->
-                        <div class="sidebar_widget static-banner">
-                        	<img
-								src="${pageContext.request.contextPath }/resources/user/${pageContext.request.contextPath }/resources/user/assets/images/side-banner-2.jpg"
-								alt="" />
-                        </div>
-                        <!--Banner-->
-                        <!--Information-->
-                        <div class="sidebar_widget">
-                            <div class="widget-title">
-								<h2>Information</h2>
-							</div>
-                            <div class="widget-content">
-								<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>
-							</div>
-                        </div>
-                        <!--end Information-->
-                        <!--Product Tags-->
-                        <div class="sidebar_widget">
-                          <div class="widget-title">
-                            <h2>Product Tags</h2>
-                          </div>
-                          <div class="widget-content">
-                            <ul class="product-tags">
-                              <li><a href="#"
-										title="Show products matching tag $100 - $400">$100 - $400</a></li>
-                              <li><a href="#"
-										title="Show products matching tag $400 - $600">$400 - $600</a></li>
-                              <li><a href="#"
-										title="Show products matching tag $600 - $800">$600 - $800</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Above $800">Above $800</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Allen Vela">Allen Vela</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Black">Black</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Blue">Blue</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Cantitate">Cantitate</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Famiza">Famiza</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Gray">Gray</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Green">Green</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Hot">Hot</a></li>
-                              <li><a href="#"
-										title="Show products matching tag jean shop">jean shop</a></li>
-                              <li><a href="#"
-										title="Show products matching tag jesse kamm">jesse kamm</a></li>
-                              <li><a href="#"
-										title="Show products matching tag L">L</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Lardini">Lardini</a></li>
-                              <li><a href="#"
-										title="Show products matching tag lareida">lareida</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Lirisla">Lirisla</a></li>
-                              <li><a href="#"
-										title="Show products matching tag M">M</a></li>
-                              <li><a href="#"
-										title="Show products matching tag mini-dress">mini-dress</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Monark">Monark</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Navy">Navy</a></li>
-                              <li><a href="#"
-										title="Show products matching tag new">new</a></li>
-                              <li><a href="#"
-										title="Show products matching tag new arrivals">new arrivals</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Orange">Orange</a></li>
-                              <li><a href="#"
-										title="Show products matching tag oxford">oxford</a></li>
-                              <li><a href="#"
-										title="Show products matching tag Oxymat">Oxymat</a></li>
-                            </ul>
-                            <span class="btn btn--small btnview">View all</span> </div>
-                        </div>
-                        <!--end Product Tags-->
-                    </div>
-                </div>
+            	
                 <!--End Sidebar-->
                 <!--Main Content-->
-                <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
+          
                 	
                           <!--MainContent-->
             <div id="MainContent" class="main-content" role="main">
@@ -278,114 +45,25 @@
                                     <div class="product-thumb">
                                         <div id="gallery"
 													class="product-dec-slider-2 product-tab-left">
+                                           
                                             <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big1.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big1.jpg"
-														class="slick-slide slick-cloned" data-slick-index="-4"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible0.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big2.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big2.jpg"
-														class="slick-slide slick-cloned" data-slick-index="-3"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big3.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big3.jpg"
-														class="slick-slide slick-cloned" data-slick-index="-2"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible6.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible7-big.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible7-big.jpg"
-														class="slick-slide slick-cloned" data-slick-index="-1"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible7.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big4.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big4.jpg"
-														class="slick-slide slick-cloned" data-slick-index="0"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible8.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big5.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big5.jpg"
-														class="slick-slide slick-cloned" data-slick-index="1"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible9.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big6.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big6.jpg"
-														class="slick-slide slick-cloned" data-slick-index="2"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible1.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big7.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big7.jpg"
-														class="slick-slide slick-cloned" data-slick-index="3"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible2.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big8.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big8.jpg"
-														class="slick-slide slick-cloned" data-slick-index="4"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible3.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big9.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big9.jpg"
-														class="slick-slide slick-cloned" data-slick-index="5"
-														aria-hidden="true" tabindex="-1">
-                                                <img
-														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible4.jpg"
-														alt="" />
-                                            </a>
-                                            <a
-														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big10.jpg"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big10.jpg"
+														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
+														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
 														class="slick-slide slick-cloned" data-slick-index="6"
 														aria-hidden="true" tabindex="-1">
                                                 <img
 														class="blur-up lazyload"
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible5.jpg"
+														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
+														alt="" />
+                                            </a>
+                                             <a
+														data-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
+														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
+														class="slick-slide slick-cloned" data-slick-index="6"
+														aria-hidden="true" tabindex="-1">
+                                                <img
+														class="blur-up lazyload"
+														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
 														alt="" />
                                             </a>
                                         </div>
@@ -395,14 +73,11 @@
                                         <div class="zoompro-span">
                                             <img
 														class="zoomproblur-up lazyload"
-														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big1.jpg"
+														data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
 														alt=""
-														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big1.jpg" />
+														src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg" />
                                         </div>
-                                        <div class="product-labels">
-													<span class="lbl on-sale">Sale</span><span
-														class="lbl pr-label1">new</span>
-												</div>
+                                        
                                         <div class="product-buttons">
                                             <a
 														href="https://www.youtube.com/watch?v=93A2jOW5Mog"
@@ -447,8 +122,7 @@
                                         <a
 													href="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/camelia-reversible-big10.jpg"
 													data-size="731x1024"></a>
-                                    </div>
-        
+                                    </div>        
                                 </div>
                             </div>
                             <div
@@ -540,12 +214,16 @@
                                                     <div
 														class="qtyField">
                                                         <a
-															class="qtyBtn minus" href="javascript:void(0);"><i
-															class="fa anm anm-minus-r" aria-hidden="true"></i></a>
+															class="qtyBtn minus" href="javascript:void(0);" ><i
+															class="fa anm anm-minus-r" aria-hidden="true" ></i></a>
+														
                                                         <input
 															style="width: 80px;" type="number" step="100" min="220"
 															max="10000" id="Quantity" name="quantity" value="200"
 															class="product-form__input qty items">
+															<input
+															name="quantity" value="50"
+															class="product-form__input qty2 items " hidden>
                                                         <a
 															class="qtyBtn plus" href="javascript:void(0);"><i
 															class="fa anm anm-plus-r" aria-hidden="true"></i></a>

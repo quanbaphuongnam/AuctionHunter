@@ -36,5 +36,15 @@ public class AccountServiceImpl implements AccountService {
 			return new User(account.getUsername(), account.getPassword(), grantedAuthorities);
 		}
 	}
+	@Override
+	public Account findByUsername(String username) {
+		Account account = accountRepository.findByUsername(username);
+		return account;
+	}
 
+	@Override
+	public Account find(int id) {
+		
+		return accountRepository.findById(id).get();
+	}
 }

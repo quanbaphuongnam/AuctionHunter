@@ -36,3 +36,26 @@ body {
 	border-radius: 100%;
 	border: 5px solid #fff;
 }
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.btnFile {
+	border: 2px solid gray;
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+	font-size: 500px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}

@@ -30,18 +30,20 @@
 
 <script
 	src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
-	 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-	 <link rel="stylesheet"
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/button.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-	
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#birthday" ).datepicker();
-  } );
-  </script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#birthday").datepicker();
+	});
+</script>
 </head>
 <body class="template-collection belle">
 
@@ -103,7 +105,8 @@
 						<ul class="customer-links list-inline">
 							<c:choose>
 								<c:when test="${pageContext.request.userPrincipal.name != null}">
-									<li><a href="${pageContext.request.contextPath }/account/index">${pageContext.request.userPrincipal.name }</a></li>
+									<li><a
+										href="${pageContext.request.contextPath }/account/index">${pageContext.request.userPrincipal.name }</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a
@@ -112,7 +115,8 @@
 										href="${pageContext.request.contextPath }/account/register">Register</a></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="${pageContext.request.contextPath }/admin">Admin </a></li>
+							<li><a href="${pageContext.request.contextPath }/admin">Admin
+							</a></li>
 						</ul>
 					</div>
 				</div>
@@ -171,9 +175,17 @@
 										<li><a
 											href="${pageContext.request.contextPath }/account/myinvoice"
 											class="site-nav">My Invoice</a></li>
-										<li><a
-											href="${pageContext.request.contextPath }/account/logout"
-											class="site-nav">Logout</a></li>
+										<c:choose>
+											<c:when
+												test="${pageContext.request.userPrincipal.name != null}">
+												<li><a
+													href="${pageContext.request.contextPath }/account/logout"
+													class="site-nav">Logout</a></li>
+											</c:when>
+											<c:otherwise>
+											
+											</c:otherwise>
+										</c:choose>
 									</ul></li>
 
 							</ul>
@@ -320,7 +332,7 @@
 
 		<!--Footer-->
 		<footer id="footer">
-			
+
 			<div class="site-footer">
 				<div class="container">
 					<!--Footer Links-->
@@ -602,8 +614,9 @@
 			src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
 		<script
 			src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	 
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
 	</div>
 </body>
 

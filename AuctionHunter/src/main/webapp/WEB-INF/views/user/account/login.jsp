@@ -4,7 +4,7 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <mt:layout_user title="login">
 	<jsp:attribute name="content">
-		
+
 		<script type="text/javascript">
 			var msg1 = '${msg}';
 			if (msg1 == 'Login unsuccessful') {

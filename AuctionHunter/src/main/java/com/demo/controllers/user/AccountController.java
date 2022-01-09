@@ -82,20 +82,7 @@ public class AccountController implements ServletContextAware{
 	}
 	
 		 
-		/*
-		 * if(account.getPassword().isEmpty()) {
-		 * account.setPassword(account.getPassword()); }else {
-		 * account.setPassword(BCrypt.hashpw(account.getPassword(),BCrypt.gensalt())); }
-		 * 
-		 * if(BCrypt.matches(oldPassword, pass)) {
-		 * if(account.getPassword().equalsIgnoreCase(confirmPassword)){
-		 * 
-		 * 
-		 * account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
-		 * this.accountService.save(account); modelMap.put("msg", "succesfull"); }else {
-		 * modelMap.put("msg", "NotCorrect"); } }else { modelMap.put("msg",
-		 * "OldPassNotCorrect"); }
-		 */
+		
 	
 	
 	@RequestMapping(value="login", method = RequestMethod.GET)

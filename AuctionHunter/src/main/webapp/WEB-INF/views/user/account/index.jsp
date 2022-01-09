@@ -8,17 +8,31 @@
 <mt:layout_user title="account">
 	<jsp:attribute name="content">
 	<script type="text/javascript">
-			var msg3 = '${UpdateSuccessful}';
-			if (msg3 == "Update successful") {
-				Swal.fire({
-					position : 'center',
-					icon : 'success',
-					title : 'Update Successful',
-					showConfirmButton : false,
-					timer : 2000
-				});
-			} else{}
-		</script>
+		var msg3 = '${UpdateSuccessful}';
+		if (msg3 == "Update successful") {
+			Swal.fire({
+				position : 'center',
+				icon : 'success',
+				title : 'Update Successful',
+				showConfirmButton : false,
+				timer : 2000
+			});
+		} else {
+		}
+
+		var msg1 = '${msg}';
+		if (msg1 == "Login successful") {
+			Swal.fire({
+				position : 'center',
+				icon : 'success',
+				title : 'Login successful',
+				showConfirmButton : false,
+				timer : 2000
+			});
+		} else {
+		}
+	</script>
+
   
 	<link rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,7 +40,8 @@
 			href="${pageContext.request.contextPath }/resources/user/profile/css/style.css">
 		
 	
-	<s:form method="post" modelAttribute="account" enctype="multipart/form-data"
+	<s:form method="post" modelAttribute="account"
+			enctype="multipart/form-data"
 			action="${pageContext.request.contextPath }/account/updateProfile">
 		<div class="container">
 			<h2 class="mb-5"> </h2>
@@ -37,7 +52,8 @@
 						<a href="${pageContext.request.contextPath }/account/index">
 							<img id="preview"
 									src="${pageContext.request.contextPath }/assets/uploads/${account.avatar }"
-									alt="Image" class="shadow"></a>
+									alt="Image" class="shadow">
+								</a>
 						</div>
 				
 						<input id="imageFile" type="file" name="fileavatar"

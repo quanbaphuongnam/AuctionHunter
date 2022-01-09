@@ -88,13 +88,14 @@ public class AccountController implements ServletContextAware{
 	@RequestMapping(value="login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request,@RequestParam(value = "error", required = false) String error, 
 						@RequestParam(value = "logout", required = false) String logout,
-						ModelMap modelMap) {
+						RedirectAttributes redirectAttributes) {
 		if(error != null) {
-			 
-			modelMap.put("msg", "Login unsuccessful");
+			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");
+			return "redirect:/account/login";
 		}
 		if(logout != null) {
-			modelMap.put("msg", "Logout Successfully");
+			redirectAttributes.addFlashAttribute("msg", "Logout Successfully");
+			return "redirect:/account/login";
 			
 		}
 		return "user/account/login";

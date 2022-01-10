@@ -165,7 +165,7 @@ public class Product implements java.io.Serializable {
 
 	@Column(name = "price_step", nullable = false, precision = 22, scale = 0)
 	public double getPriceStep() {
-		return this.price;
+		return this.priceStep;
 	}
 
 	public void setPriceStep(double priceStep) {

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
@@ -472,27 +471,29 @@
   					<c:forEach var="listProduct" items="${listProducts }">
   				
                                 <div
-									class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
+										class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
 										<div id="tv">
                                     <!-- start product image -->
-                                    <div class="product-image" style="height: 200px">
+                                    <div class="product-image"
+												style="height: 200px">
                                         <!-- start product image -->
                                         <a
-											href="${pageContext.request.contextPath }/product/productdetail">
+													href="${pageContext.request.contextPath }/product/productdetail">
                                             <!-- image -->
-                                            <c:forEach var="productPhoto" items="${listProduct.productPhotos }">
+                                            <c:forEach
+														var="productPhoto" items="${listProduct.productPhotos }">
                                             <img
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-											alt="image" title="product">
+															class="primary blur-up lazyload"
+															data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
+															alt="image" title="product">
 										
                                             <!-- End image -->
                                             <!-- Hover image -->
                                             <img
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-											src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-											alt="img"> 
+															class="hover blur-up lazyload"
+															data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
+															src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
+															alt="img"> 
                                            
                                            	</c:forEach>
                                             <!-- End product label -->
@@ -501,15 +502,15 @@
                                         
                                         <!-- countdown start -->
                                         <div class="saleTime desktop"
-											data-countdown="${listProduct.endDate }"></div>
+													data-countdown="${listProduct.endDate }"></div>
                                         <!-- countdown end -->
     
                                         <!-- Start product button -->
                                         <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
+													action="#" onclick="window.location.href='cart.html'"
+													method="post">
                                             <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
+														class="btn btn-addto-cart" type="button">Auction now</button>
                                         </form>
                                         
                                         <!-- end product button -->
@@ -518,22 +519,22 @@
     
                                     <!--start product details -->
                                     <div
-										class="product-details text-center">
+												class="product-details text-center">
                                         <!-- product name -->
-                                        <div style="height: 85px" class="product-name">
+                                        <div style="height: 85px"
+													class="product-name">
                                             <a
-												href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
+														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
 												
                                         </div>
                                        <br> 	
                                            <ul class="product-tags">
                               <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										>${listProduct.account.username }</a></li>
-                              <c:forEach var="categoryProduct" items="${listProduct.categoryProducts }">
+														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
+                              <c:forEach var="categoryProduct"
+														items="${listProduct.categoryProducts }">
                               <li><a
-										href="${pageContext.request.contextPath }/product/productdetail"
-										>${categoryProduct.category.name }</a></li>
+															href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
 							  </c:forEach>		
                             
                             </ul>
@@ -542,13 +543,21 @@
                                         <!-- product price -->
                                         <div class="">
                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">
+														href="${pageContext.request.contextPath }/product/productdetail">
                                            
                                           
   												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
+													<img height="25" width="30" alt=""
+																src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  
+													<c:choose>
+														<c:when test="${listProduct.historyAuctions } != null}">
+															${listProduct.historyAuctions.priceBid }
+														</c:when>
+														<c:otherwise>
+															${listProduct.priceStart }
+														</c:otherwise>
+													</c:choose> 
+													<br>
 												</button>
 												  </a>
 </div>
@@ -584,8 +593,8 @@
                     <div class="infinitpaginOuter">
                         <div class="infinitpagin">	
                             <a
-									href="${pageContext.request.contextPath }/product/productdetail"
-									class="btn loadMore">Load More</a>
+								href="${pageContext.request.contextPath }/product/productdetail"
+								class="btn loadMore">Load More</a>
                         </div>
                     </div>
                 </div>

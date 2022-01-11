@@ -478,20 +478,20 @@
                                     <div class="product-image" style="height: 200px">
                                         <!-- start product image -->
                                         <a
-											href="${pageContext.request.contextPath }/product/productdetail">
+											href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
                                             <!-- image -->
                                             <c:forEach var="productPhoto" items="${listProduct.productPhotos }">
                                             <img
 											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
+											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
 											alt="image" title="product">
 										
                                             <!-- End image -->
                                             <!-- Hover image -->
                                             <img
 											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-											src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
+											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+											src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
 											alt="img"> 
                                            
                                            	</c:forEach>
@@ -505,11 +505,11 @@
                                         <!-- countdown end -->
     
                                         <!-- Start product button -->
-                                        <form class="variants add"
-											action="#" onclick="window.location.href='cart.html'"
-											method="post">
+                                        <form  class="variants add"
+											action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
+											method="get">
                                             <button
-												class="btn btn-addto-cart" type="button">Auction now</button>
+												class="btn btn-addto-cart" type="submit">Auction now</button>
                                         </form>
                                         
                                         <!-- end product button -->
@@ -542,7 +542,7 @@
                                         <!-- product price -->
                                         <div class="">
                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail">
+												href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
                                            
                                           
   												<button class="custom-btn btn-16">

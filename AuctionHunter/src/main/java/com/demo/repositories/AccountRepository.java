@@ -13,7 +13,6 @@ import com.demo.models.Account;
 public interface AccountRepository extends CrudRepository<Account, Integer> {
 	
 	@Query("from Account where username = :username")
-	public Account
-	findByUsername(@Param("username") String username);
+	public Account findByUsername(@Param("username") String username);
 	
 }

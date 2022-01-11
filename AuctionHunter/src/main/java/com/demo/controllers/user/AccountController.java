@@ -46,8 +46,8 @@ public class AccountController implements ServletContextAware{
 		if(authentication != null) {
 		
 			HttpSession session = request.getSession();
-			session.setAttribute("id", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("id");
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			 id = (int) session.getAttribute("idAcc");
 			 modelMap.put("account", accountService.find(id));
 			 //model.addAttribute("id", session.getAttribute("id"));
 			 //session.removeAttribute("msg");

@@ -9,6 +9,5 @@ public interface ProductService {
 	
 	public Iterable<Product> findAll();
 	
-//	public List<ProductInfo> listProductInfo();
-	
+	public Product find(int id);
 }

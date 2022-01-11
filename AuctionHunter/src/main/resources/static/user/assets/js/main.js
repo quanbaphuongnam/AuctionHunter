@@ -871,6 +871,7 @@
 	/*----------------------------------
 	  26. Quantity Plus Minus
 	------------------------------------*/
+	
 	function qnt_incre(){
 		$(".qtyBtn").on("click", function() {
 		  var qtyField = $(this).parent(".qtyField"),
@@ -887,7 +888,6 @@
 		});
 	}
 	qnt_incre();
-	
 	/*----------------------------------
 	  27. Visitor Fake Message
 	------------------------------------*/

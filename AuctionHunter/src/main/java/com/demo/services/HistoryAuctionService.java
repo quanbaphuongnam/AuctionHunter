@@ -13,4 +13,6 @@ public interface HistoryAuctionService {
 	public Iterable<HistoryAuction> findAll();
 	public List<HistoryAuctionAjax> findAllAjax();
 	public List<HistoryAuctionAjax> findWinnerAjax(int product_id);
+	
+	public HistoryAuction save(HistoryAuction historyAuction);
 }

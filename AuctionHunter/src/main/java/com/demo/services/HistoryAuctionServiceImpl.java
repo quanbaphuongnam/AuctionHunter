@@ -33,5 +33,10 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 		
 		return historyAuctionRepository.findWinnerAjax(product_id);
 	}
+	@Override
+	public HistoryAuction save(HistoryAuction historyAuction) {
+		
+		return historyAuctionRepository.save(historyAuction);
+	}
 
 }

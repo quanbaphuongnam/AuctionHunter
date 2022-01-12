@@ -25,12 +25,13 @@ public class Invoice implements java.io.Serializable {
 	private String email;
 	private String phone;
 	private String address;
+	private String payment;
 	private double total;
 
 	public Invoice() {
 	}
 
-	public Invoice(Account account, Product product, String fullName, String email, String phone, String address,
+	public Invoice(Account account, Product product, String fullName, String email, String phone, String address,String payment,
 			double total) {
 		this.account = account;
 		this.product = product;
@@ -38,6 +39,7 @@ public class Invoice implements java.io.Serializable {
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
+		this.payment = payment;
 		this.total = total;
 	}
 
@@ -107,6 +109,14 @@ public class Invoice implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	@Column(name = "payment", nullable = false, length = 100)
+	public String getPayment() {
+		return this.payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
 	}
 
 	@Column(name = "total", nullable = false, precision = 22, scale = 0)

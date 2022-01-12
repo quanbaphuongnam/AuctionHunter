@@ -93,9 +93,11 @@ public class AccountController implements ServletContextAware{
 	@RequestMapping(value="login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request,@RequestParam(value = "error", required = false) String error, 
 						@RequestParam(value = "logout", required = false) String logout,
-						RedirectAttributes redirectAttributes) {
+						RedirectAttributes redirectAttributes,Authentication authentication) {
 		if(error != null) {
 			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");
+		
+			 
 			return "redirect:/account/login";
 		}
 		if(logout != null) {

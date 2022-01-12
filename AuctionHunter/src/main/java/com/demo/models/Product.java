@@ -34,9 +34,9 @@ public class Product implements java.io.Serializable {
 	private Date endDate;
 	private double priceStep;
 	private Date created;
-	private boolean status;
+	private int status;
 	private boolean isDelete;
-	private String emailPayment;
+	
 	private Set<CategoryProduct> categoryProducts = new HashSet<CategoryProduct>(0);
 	private Set<HistoryAuction> historyAuctions = new HashSet<HistoryAuction>(0);
 	private Set<ProductPhoto> productPhotos = new HashSet<ProductPhoto>(0);
@@ -47,7 +47,7 @@ public class Product implements java.io.Serializable {
 	}
 
 	public Product(Account account, String name, String description, double price, double priceStart, Date startDate,
-			Date endDate, double priceStep, Date created, boolean status, boolean isDelete, String emailPayment) {
+			Date endDate, double priceStep, Date created, int status, boolean isDelete) {
 		this.account = account;
 		this.name = name;
 		this.description = description;
@@ -59,11 +59,11 @@ public class Product implements java.io.Serializable {
 		this.created = created;
 		this.status = status;
 		this.isDelete = isDelete;
-		this.emailPayment = emailPayment;
+		
 	}
 
 	public Product(Account account, String name, String description, double price, double priceStart, Date startDate,
-			Date endDate, double priceStep, Date created, boolean status, boolean isDelete, String emailPayment,
+			Date endDate, double priceStep, Date created, int status, boolean isDelete, 
 			Set<CategoryProduct> categoryProducts, Set<HistoryAuction> historyAuctions, Set<ProductPhoto> productPhotos,
 			Set<Cart> carts, Set<Invoice> invoices) {
 		this.account = account;
@@ -77,7 +77,7 @@ public class Product implements java.io.Serializable {
 		this.created = created;
 		this.status = status;
 		this.isDelete = isDelete;
-		this.emailPayment = emailPayment;
+		
 		this.categoryProducts = categoryProducts;
 		this.historyAuctions = historyAuctions;
 		this.productPhotos = productPhotos;
@@ -183,11 +183,11 @@ public class Product implements java.io.Serializable {
 	}
 
 	@Column(name = "status", nullable = false)
-	public boolean isStatus() {
+	public int isStatus() {
 		return this.status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
@@ -200,14 +200,7 @@ public class Product implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
-	@Column(name = "email_payment", nullable = false, length = 50)
-	public String getEmailPayment() {
-		return this.emailPayment;
-	}
-
-	public void setEmailPayment(String emailPayment) {
-		this.emailPayment = emailPayment;
-	}
+	
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	public Set<CategoryProduct> getCategoryProducts() {

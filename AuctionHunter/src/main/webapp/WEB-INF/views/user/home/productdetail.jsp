@@ -7,15 +7,7 @@
 	<jsp:attribute name="content">
 
 	
-	<script>
-		setInterval(function(){
-		 var dateNow = new Date(); 
-			var dateEnd = new Date(${product.endDate});
-			if(dateNow.getTime() > dateEnd.getTime()){
-				document.getElementById("buttonBid").disabled = true;
-			}
-		}, 1000)
-	</script>
+	
 	
 	<script>
 	setInterval(function(){
@@ -87,12 +79,63 @@
 					}
 				});
 				
-				
+				$.ajax({
+					
+					type: 'GET',
+					url: '${pageContext.request.contextPath }/ajax/findProductAjax',
+					data: {
+						product_id: value
+					},
+					success: function(result){
+						if(result == "invalid")
+						{
+							Swal.fire({
+								  position: 'top',
+								  icon: 'success',
+								  title: 'End',
+								  showConfirmButton: false,
+								  timer: 3000
+								})
+						}
+						
+					}
+				});
 	}, 1000)
+	$(document).ready(function(){
+		$('#buttonBid').click(function(){
+			var priceBid = document.getElementById("priceBid").value;
+			var idAcc = ${idAcc};
+			var idPro = ${idPro};
+			
+			$.ajax({
+				type: 'GET',
+				url: '${pageContext.request.contextPath }/ajax/buttonBid',
+				data:{
+					priceBid: parseInt(priceBid),
+					idAcc: idAcc,
+					idPro: idPro
+				},
+				success: function(data){
+					//$('#resultpriceBid').html(data);
+					Swal.fire({
+					  position: 'top',
+					  icon: 'success',
+					  title: 'You have just stained the price',
+					  showConfirmButton: false,
+					  timer: 1000
+					})
+				}
+			});
+		});
+		
+		
+	});
 	
 	</script>
 	
-	<button id="proid" value="${idPro}" disabled="disabled" hidden=""></button>
+	<button id="proid" value="${idPro}" >${idPro}</button>
+	<button id="accid" value="${idAcc}" >${idAcc}</button>
+	<button id="resultpriceBid"  ></button>
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">
@@ -306,9 +349,9 @@
 														class="fa anm anm-minus-r" aria-hidden="true" ></i></a>
 														
                                                         <input
-														style="width: 80px;" type="number" step="100" min="220"
-														max="10000" id="priceBid" value="${product.priceStart}"
-														class="product-form__input qty items"  disabled="disabled">
+														style="width: 80px;" type="number" step="${product.priceStep}" 
+														 id="priceBid" value="${product.priceStart}"
+														class="product-form__input qty items"  >
 															<input name="quantity" value="${product.priceStep}"
 														class="product-form__input qty2 items " hidden>
 														

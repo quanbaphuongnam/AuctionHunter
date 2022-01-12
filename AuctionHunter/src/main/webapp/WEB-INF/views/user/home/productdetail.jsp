@@ -13,6 +13,7 @@
 	setInterval(function(){
 		var value = $('#proid').val();
 		
+		
 		$.ajax({
 			
 			type: 'GET',

@@ -1,3 +1,4 @@
+
 package com.demo.controllers.user;
 
 import java.util.Date;
@@ -75,4 +76,13 @@ public class AjaxController {
 		return null;
 	}
 	
+	
+	
+	@RequestMapping(value = { "", "search" }, method = RequestMethod.GET,
+	produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
+	public List<String> search(@RequestParam("term")String term) {
+		return productService.searchByTerm(term);
+	}
+	
 }
+

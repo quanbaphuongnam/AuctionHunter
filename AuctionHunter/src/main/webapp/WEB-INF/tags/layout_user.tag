@@ -1,3 +1,4 @@
+
 <%@ tag language="java" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ attribute name="title" required="true" rtexprvalue="true"
 	type="java.lang.String"%>
@@ -34,15 +35,23 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/button.css">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.6.0.min.js"></script> 
+	<script src="http://code.jquery.com/ui/1.13.0/jquery-ui.js" ></script>
+	
+	
 <script>
-	$(function() {
-		$("#birthday").datepicker();
+$(document).ready(function() {
+	
+	$('#keyword').autocomplete({
+		source: '${pageContext.request.contextPath }/ajax/search',
+		minLength:5,
+			select: function( event, ui ) {
+		       location.href = '${pageContext.request.contextPath }/product/search?keyword=' +ui.item.value;
+		      }
 	});
+
+});
 </script>
 </head>
 <body class="template-collection belle">
@@ -51,17 +60,13 @@
 		<!--Search Form Drawer-->
 		<div class="search">
 			<div class="search__form">
-				<form class="search-bar__form" action="#">
-					<button class="go-btn search__button" type="submit">
-						<i class="icon anm anm-search-l"></i>
-					</button>
-					<input class="search__input" type="search" name="q" value=""
+				<form class="search-bar__form">
+
+					<input class="search__input" type="text"
 						placeholder="Search entire store..." aria-label="Search"
-						autocomplete="off">
+						id="keyword">
 				</form>
-				<button type="button" class="search-trigger close-btn">
-					<i class="icon anm anm-times-l"></i>
-				</button>
+
 			</div>
 		</div>
 		<!--End Search Form Drawer-->
@@ -183,7 +188,7 @@
 													class="site-nav">Logout</a></li>
 											</c:when>
 											<c:otherwise>
-											
+
 											</c:otherwise>
 										</c:choose>
 									</ul></li>

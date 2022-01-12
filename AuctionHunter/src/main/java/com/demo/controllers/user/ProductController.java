@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.models.Product;
 import com.demo.services.AccountService;
@@ -55,5 +56,11 @@ public class ProductController {
 	public String productdetail(ModelMap modelMap) {	
 		//modelMap.put("product", productService.find(id));
 		return "user/home/productdetail";
+	}
+	@RequestMapping(value = { "", "search" }, method = RequestMethod.GET)
+	public String search(@RequestParam("keyword")String keyword,ModelMap map) {
+		map.put("searchProducts", productService.searchByKeyword(keyword));
+
+		return "user/home/index";
 	}
 }

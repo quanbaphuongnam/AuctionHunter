@@ -1,6 +1,7 @@
 package com.demo.controllers.user;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
 import com.demo.services.AccountService;
+import com.demo.services.MailSenderService;
 
 @Controller
 @RequestMapping(value="account")
@@ -40,6 +42,9 @@ public class AccountController implements ServletContextAware{
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	private ServletContext servletContext;
+	
+	@Autowired
+	private MailSenderService mailSenderService;
 	
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index(HttpServletRequest request,Authentication authentication,ModelMap modelMap, Model model, Account account,RedirectAttributes redirectAttributes) {	
@@ -109,13 +114,22 @@ public class AccountController implements ServletContextAware{
 
 	//------------------register----------------------------------
 	@RequestMapping(value="register", method = RequestMethod.GET)
-	public String register(ModelMap modelMap) {	
+	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail, HttpSession session) {
+		if(checkEmail != null) {
+			Account account1 = (Account) session.getAttribute("account");
+			System.out.println(account1.getUsername());
+			
+			//accountService.save(account);
+			
+			session.removeAttribute("account");
+			return "redirect:/account/login";
+		}
 		Account account = new Account();
 		modelMap.put("account", account);
 		return "user/account/register";
 	}
 	@RequestMapping(value="register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("account") Account account) {
+	public String register(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes, HttpSession session) {
 		account.setAddress("");
 		account.setAvatar("");
 		account.setPhone("");
@@ -126,8 +140,18 @@ public class AccountController implements ServletContextAware{
 		String hash = new BCryptPasswordEncoder().encode(account.getPassword());
 		account.setPassword(hash);
 		account.setRole("ROLE_USER");
-		accountService.save(account);
-		return "redirect:/account/login";
+		
+		int code = (int) Math.floor(((Math.random() * 899999) + 100000));
+		System.out.println("Random Integer: " + code); 
+		if(mailSenderService.sendEmailConfirm(account.getEmail(), code)) {
+			redirectAttributes.addFlashAttribute("msg", "Check email");
+			redirectAttributes.addFlashAttribute("code", code);
+			session.setAttribute("account", account);
+			return "redirect:/account/register";
+		}else {
+			return "redirect:/account/register";
+		}
+		//return "redirect:/account/login";
 	}
 	
 	@RequestMapping(value="myproduct", method = RequestMethod.GET)

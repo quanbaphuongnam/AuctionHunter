@@ -21,6 +21,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<String> searchByTerm(String term) {
 		// TODO Auto-generated method stub
 		return productRepository.searchByTerm(term);
@@ -30,6 +31,16 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> searchByKeyword(String keyword) {
 		// TODO Auto-generated method stub
 		return productRepository.searchByKeyword(keyword);
+=======
+	public Product find(int id) {
+		
+		return productRepository.findById(id).get();
+	}
+
+	@Override
+	public String namePhoto(int product_id) {
+		return productRepository.namePhoto(product_id);
+>>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
 	}
 	
 //	@Override public List<ProductInfo> listProductInfo() { 

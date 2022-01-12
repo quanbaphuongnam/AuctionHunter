@@ -51,8 +51,8 @@ public class AccountController implements ServletContextAware{
 		if(authentication != null) {
 		
 			HttpSession session = request.getSession();
-			session.setAttribute("id", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("id");
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			 id = (int) session.getAttribute("idAcc");
 			 modelMap.put("account", accountService.find(id));
 			 //model.addAttribute("id", session.getAttribute("id"));
 			 //session.removeAttribute("msg");
@@ -87,20 +87,7 @@ public class AccountController implements ServletContextAware{
 	}
 	
 		 
-		/*
-		 * if(account.getPassword().isEmpty()) {
-		 * account.setPassword(account.getPassword()); }else {
-		 * account.setPassword(BCrypt.hashpw(account.getPassword(),BCrypt.gensalt())); }
-		 * 
-		 * if(BCrypt.matches(oldPassword, pass)) {
-		 * if(account.getPassword().equalsIgnoreCase(confirmPassword)){
-		 * 
-		 * 
-		 * account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
-		 * this.accountService.save(account); modelMap.put("msg", "succesfull"); }else {
-		 * modelMap.put("msg", "NotCorrect"); } }else { modelMap.put("msg",
-		 * "OldPassNotCorrect"); }
-		 */
+		
 	
 	
 	@RequestMapping(value="login", method = RequestMethod.GET)

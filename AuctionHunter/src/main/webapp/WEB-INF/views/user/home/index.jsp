@@ -478,22 +478,33 @@
 												style="height: 200px">
                                         <!-- start product image -->
                                         <a
-													href="${pageContext.request.contextPath }/product/productdetail">
+
+											href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+
+												
                                             <!-- image -->
                                             <c:forEach
 														var="productPhoto" items="${listProduct.productPhotos }">
                                             <img
-															class="primary blur-up lazyload"
-															data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-															alt="image" title="product">
+
+											class="primary blur-up lazyload"
+											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+											alt="image" title="product">
+
+														
+
 										
                                             <!-- End image -->
                                             <!-- Hover image -->
                                             <img
-															class="hover blur-up lazyload"
-															data-src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-															src="${pageContext.request.contextPath }/resources/user/uploads/${productPhoto.name }"
-															alt="img"> 
+
+											class="hover blur-up lazyload"
+											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+											src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+											alt="img"> 
+
+															
+
                                            
                                            	</c:forEach>
                                             <!-- End product label -->
@@ -506,11 +517,12 @@
                                         <!-- countdown end -->
     
                                         <!-- Start product button -->
-                                        <form class="variants add"
-													action="#" onclick="window.location.href='cart.html'"
-													method="post">
+
+                                        <form  class="variants add"
+											action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
+											method="get">
                                             <button
-														class="btn btn-addto-cart" type="button">Auction now</button>
+												class="btn btn-addto-cart" type="submit">Auction now</button>
                                         </form>
                                         
                                         <!-- end product button -->
@@ -543,21 +555,16 @@
                                         <!-- product price -->
                                         <div class="">
                                            <a
-														href="${pageContext.request.contextPath }/product/productdetail">
-                                           
-                                          
+												href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
   												<button class="custom-btn btn-16">
-													<img height="25" width="30" alt=""
-																src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  
-													<c:choose>
-														<c:when test="${listProduct.historyAuctions } != null}">
-															${listProduct.historyAuctions.priceBid }
-														</c:when>
-														<c:otherwise>
-															${listProduct.priceStart }
-														</c:otherwise>
-													</c:choose> 
+													<img
+												height="25" width="30" alt=""
+												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
+														class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
+
+													
 													<br>
+
 												</button>
 												  </a>
 </div>

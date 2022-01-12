@@ -548,7 +548,8 @@
   												<button class="custom-btn btn-16">
 													<img
 												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $600.00 <br>
+												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
+														class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
 												</button>
 												  </a>
 </div>

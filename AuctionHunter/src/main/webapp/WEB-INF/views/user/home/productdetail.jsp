@@ -32,11 +32,17 @@
 					}
 				$('#winnerAuctions').html(result);
 				$('#winnerAuctions2').html(result2);
-				/* if(winnerAuctions == "[]"){
-					document.getElementById("priceBid").value = ${product.priceStart};
-				} */
+				/* if(winnerAuctions == ''){
+					document.getElementById("priceBid").value = ${product.priceStart} + priceStep;
+				} 
+				 */
+				
 				if(parseInt(result3) >= document.getElementById("priceBid").value){
 					document.getElementById("priceBid").value = parseInt(result3) + priceStep;
+					document.getElementById("buttonBid").disabled = true;
+				
+				}else{
+					document.getElementById("buttonBid").disabled = false;
 				}
 				
 			}
@@ -52,10 +58,19 @@
 						var result = '';
 						for(var i = 0;i < historyAuctions.length; i++)
 							{
+							 var dt = new Date(historyAuctions[i].dateBid); 
+							
+							
 							result += '<tr>';
 							result += '<td>' + historyAuctions[i].accUsername  + '</td>';
 							result += '<td>' + historyAuctions[i].priceBid + '</td>';
-							result += '<td>' + historyAuctions[i].dateBid  + '</td>';
+							result += '<td>' +  
+							    (dt.getMonth()+1).toString().padStart(2, '0')+'/'+
+						    dt.getDate().toString().padStart(2, '0')+'/'+
+						    dt.getFullYear().toString().padStart(4, '0') + ' '+
+						    dt.getHours().toString().padStart(2, '0')+':'+
+						    dt.getMinutes().toString().padStart(2, '0')+':'+
+						    dt.getSeconds().toString().padStart(2, '0')  + '</td>';
 							result += '</tr>';
 							}
 						$('#tableHistoryAuction tbody').html(result);
@@ -238,8 +253,8 @@
                                                 <span
 													class="product-price__price product-price__price-product-template product-price__sale product-price__sale--single">
                                                 <span
-													id="ProductPrice-product-template" >$<span
-														class="money" id="winnerAuctions"></span>
+													id="ProductPrice-product-template" >$ <span
+														class="money" id="winnerAuctions" >${product.priceStart}</span>
 														</span>
                                             </span>
                                               </p>
@@ -272,7 +287,7 @@
                                                 <div class="wrapQtyBtn">
                                                     <div
 													class="qtyField">
-													<c:choose>
+													<%-- <c:choose>
 														<c:when
 															test="${pageContext.request.userPrincipal.name != null}">
 															<li><a
@@ -282,14 +297,14 @@
 														<c:otherwise>
 														
 														</c:otherwise>
-													</c:choose>
+													</c:choose> --%>
                                                         <a
 														class="qtyBtn minus" href="javascript:void(0);"><i
-														class="fa anm anm-minus-r" aria-hidden="false" ></i></a>
+														class="fa anm anm-minus-r" aria-hidden="true" ></i></a>
 														
                                                         <input
 														style="width: 80px;" type="number" step="100" min="220"
-														max="10000" id="priceBid" 
+														max="10000" id="priceBid" value="${product.priceStart}"
 														class="product-form__input qty items"  disabled="disabled">
 															<input name="quantity" value="${product.priceStep}"
 														class="product-form__input qty2 items " hidden>
@@ -304,7 +319,7 @@
 											class="product-form__item--submit">
                                                 <button
 												style="margin-top: 2px" type="button" name="add"
-												class="btn product-form__cart-submit">
+												class="btn product-form__cart-submit" id="buttonBid">
                                                     <span>Place Bid</span>
                                                 </button>
                                             </div>

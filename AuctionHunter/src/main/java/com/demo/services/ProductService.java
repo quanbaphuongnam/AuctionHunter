@@ -11,16 +11,15 @@ public interface ProductService {
 	
 	public Iterable<Product> findAll();
 	
-<<<<<<< HEAD
+
 //	public List<ProductInfo> listProductInfo();
 	public List<String> searchByTerm(String term);
-=======
+
 	public Product find(int id);
->>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
-	
-<<<<<<< HEAD
+
+
 	public List<Product> searchByKeyword(String keyword);
-=======
+
 	public String namePhoto(int product_id);
->>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
+
 }

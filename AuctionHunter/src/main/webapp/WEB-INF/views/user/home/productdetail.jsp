@@ -5,12 +5,22 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
-	<script>
+
 	
+	<script>
+		setInterval(function(){
+		 var dateNow = new Date(); 
+			var dateEnd = new Date(${product.endDate});
+			if(dateNow.getTime() > dateEnd.getTime()){
+				document.getElementById("buttonBid").disabled = true;
+			}
+		}, 1000)
 	</script>
+	
 	<script>
 	setInterval(function(){
 		var value = $('#proid').val();
+		
 		$.ajax({
 			
 			type: 'GET',
@@ -314,8 +324,12 @@
 														class="fa anm anm-plus-r" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
-                                            </div>                                
-                                            <div
+                                                
+                                            </div> 
+                                            <c:choose>
+											<c:when
+												test="${pageContext.request.userPrincipal.name != null}">
+												 <div
 											class="product-form__item--submit">
                                                 <button
 												style="margin-top: 2px" type="button" name="add"
@@ -323,6 +337,21 @@
                                                     <span>Place Bid</span>
                                                 </button>
                                             </div>
+											</c:when>
+											<c:otherwise>
+											 <a href="${pageContext.request.contextPath }/account/login">
+											 <div
+											class="product-form__item--submit">
+                                                <button
+												style="margin-top: 2px" type="button" name="add"
+												class="btn product-form__cart-submit" >
+                                                   <span>You must be logged in</span>
+                                                </button>
+                                            </div>
+                                            </a>
+											</c:otherwise>
+										</c:choose>                               
+                                           
                                                <!-- countdown start -->
                                     <div
 											class="saleTime product-countdown"
@@ -330,13 +359,11 @@
                                     <!-- countdown end -->
                                             <div
 											class="shopify-payment-button" data-shopify="payment-button">
-                                                <button
-												style="margin: 0px; margin-top: 2px;" type="button"
-												class="shopify-payment-button__button shopify-payment-button__button--unbranded">Buy it now</button>
+                                               
                                             </div>
                                         </div>
                                         <!-- End Product Action -->
-                                    </form>
+                                   
                                      <div
 										class="product-single__description rte">
                                         <ul>

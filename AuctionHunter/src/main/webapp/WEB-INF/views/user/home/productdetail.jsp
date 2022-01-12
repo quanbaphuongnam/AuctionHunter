@@ -124,30 +124,23 @@
                                     <div class="product-thumb">
                                         <div id="gallery"
 												class="product-dec-slider-2 product-tab-left">
-												<c:forEach var="productPhoto" items="${product.productPhotos }">
-                                           
-                                            <a
-													data-image="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-													data-zoom-image="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-													class="slick-slide slick-cloned" data-slick-index="6"
-													aria-hidden="true" tabindex="-1">
-                                                <img
-													class="blur-up lazyload"
-													src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-													alt="" />
-                                            </a>
-                                         
-                                              	</c:forEach>
+											<c:forEach var="productPhoto" items="${product.productPhotos }">
+	                                            <a data-image="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" 
+	                                            data-zoom-image="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" 
+	                                            class="slick-slide slick-cloned" data-slick-index="6" 
+	                                            aria-hidden="true" tabindex="-1">
+	                                                <img class="blur-up lazyload" 
+	                                                src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" alt="" />
+	                                            </a>                                         
+                                            </c:forEach>
                                         </div>
                                     </div>
                                     <div
 											class="zoompro-wrap product-zoom-right pl-20">
-                                        <div class="zoompro-span">
-                                            <img
-													class="zoomproblur-up lazyload"
-													data-zoom-image="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg"
-													alt=""
-													src="${pageContext.request.contextPath }/resources/user/assets/images/product-detail-page/1.jpg" />
+                                         <div class="zoompro-span">
+                                            <img class="blur-up lazyload zoompro" 
+                                            data-zoom-image="${pageContext.request.contextPath }/assets/uploads/${namePhoto }" alt="" 
+                                            src="${pageContext.request.contextPath }/assets/uploads/${namePhoto }" />
                                         </div>
                                         
                                         <div class="product-buttons">

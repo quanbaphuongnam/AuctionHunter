@@ -32,6 +32,7 @@ public class ProductController {
 		
 		
 		modelMap.put("product", productService.find(id));
+		modelMap.put("namePhoto", productService.namePhoto(id));
 		HttpSession session = request.getSession();
 		session.setAttribute("idPro",product.getId());
 		modelMap.put("historyAuctions", historyAuctionService.findAllById(id));

@@ -25,6 +25,11 @@ public class ProductServiceImpl implements ProductService{
 		
 		return productRepository.findById(id).get();
 	}
+
+	@Override
+	public String namePhoto(int product_id) {
+		return productRepository.namePhoto(product_id);
+	}
 	
 //	@Override public List<ProductInfo> listProductInfo() { 
 //		return productRepository.listProductInfo(); 

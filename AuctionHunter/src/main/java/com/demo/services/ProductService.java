@@ -13,7 +13,7 @@ public interface ProductService {
 	
 
 //	public List<ProductInfo> listProductInfo();
-	public List<String> searchByTerm(String term);
+//	public List<String> searchByTerm(String term);
 
 	public Product find(int id);
 

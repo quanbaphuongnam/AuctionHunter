@@ -10,7 +10,7 @@ import com.demo.models.ProductInfo;
 import com.demo.repositories.ProductRepository;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public  class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -40,11 +40,11 @@ public class ProductServiceImpl implements ProductService{
 
 
 
-	@Override
-	public List<String> searchByTerm(String term) {
-		// TODO Auto-generated method stub
-		return productRepository.searchByTerm(term);
-	}
+//	@Override
+//	public List<String> searchByTerm(String term) {
+//		// TODO Auto-generated method stub
+//		return productRepository.searchByTerm(term);
+//	}
 	
 //	@Override public List<ProductInfo> listProductInfo() { 
 //		return productRepository.listProductInfo(); 

@@ -57,10 +57,6 @@ public class ProductController {
 		//modelMap.put("product", productService.find(id));
 		return "user/home/productdetail";
 	}
-	@RequestMapping(value = { "", "search" }, method = RequestMethod.GET)
-	public String search(@RequestParam("keyword")String keyword,ModelMap map) {
-		map.put("searchProducts", productService.searchByKeyword(keyword));
-
-		return "user/home/index";
-	}
+	
+	
 }

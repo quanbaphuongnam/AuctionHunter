@@ -39,7 +39,7 @@
 	<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.6.0.min.js"></script> 
 	<script src="http://code.jquery.com/ui/1.13.0/jquery-ui.js" ></script>
 	
-	
+<!--  
 <script>
 $(document).ready(function() {
 	
@@ -52,7 +52,7 @@ $(document).ready(function() {
 	});
 
 });
-</script>
+</script> -->	
 </head>
 <body class="template-collection belle">
 
@@ -60,11 +60,11 @@ $(document).ready(function() {
 		<!--Search Form Drawer-->
 		<div class="search">
 			<div class="search__form">
-				<form class="search-bar__form">
+				<form class="search-bar__form" action="${pageContext.request.contextPath }/home/search" method="get">
 
 					<input class="search__input" type="text"
 						placeholder="Search entire store..." aria-label="Search"
-						id="keyword">
+						id="keyword" name="keyword">
 				</form>
 
 			</div>

@@ -38,6 +38,16 @@ public class HomeController implements ServletContextAware{
 				());
 		return "user/home/index";
 	}
+	@RequestMapping(value = {"search"}, method = RequestMethod.GET)
+	public String search(@RequestParam("keyword")String keyword,ModelMap modelMap) {
+		if(keyword == null) {
+			modelMap.put("listProducts", productService.findAll());
+			return "redirect:/home/index";
+		}else {
+			modelMap.put("searchProducts", productService.searchByKeyword(keyword));
+			return "user/home/search";
+		}
+	}
 	
 
 	@Override

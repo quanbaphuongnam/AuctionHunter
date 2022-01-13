@@ -468,7 +468,9 @@
                         <div class="grid-products grid--view-items">
                             <div class="row">
   <!----------------------------------Product----------------------------------->
-  					<c:forEach var="listProduct" items="${listProducts }">
+  					
+   <!------------------------------------------------------ Product Search ---------------------------------------------------------->
+                      <c:forEach var="searchProduct" items="${searchProducts }">
   				
                                 <div
 										class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
@@ -479,12 +481,12 @@
                                         <!-- start product image -->
                                         <a
 
-											href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+											href="${pageContext.request.contextPath }/product/productdetail/${searchProduct.id }">
 
 												
                                             <!-- image -->
                                             <c:forEach
-														var="productPhoto" items="${listProduct.productPhotos }">
+														var="productPhoto" items="${searchProduct.productPhotos }">
                                             <img
 
 											class="primary blur-up lazyload"
@@ -517,13 +519,13 @@
                                         
                                         <!-- countdown start -->
                                         <div class="saleTime desktop"
-													data-countdown="${listProduct.endDate }"></div>
+													data-countdown="${searchProduct.endDate }"></div>
                                         <!-- countdown end -->
     
                                         <!-- Start product button -->
 
                                         <form  class="variants add"
-											action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
+											action="${pageContext.request.contextPath }/product/productdetail/${searchProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
 											method="get">
                                             <button
 												class="btn btn-addto-cart" type="submit">Auction now</button>
@@ -533,22 +535,22 @@
                                     </div>
                                     <!-- end product image -->
     
-                                    <!--start product details -->
+                                   <!--start product details -->
                                     <div
 												class="product-details text-center">
                                         <!-- product name -->
                                         <div style="height: 85px"
 													class="product-name">
                                             <a
-														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
+														href="${pageContext.request.contextPath }/product/productdetail">${searchProduct.name }</a>
 												
                                         </div>
                                        <br> 	
                                            <ul class="product-tags">
                               <li><a
-														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
+														href="${pageContext.request.contextPath }/product/productdetail">${searchProduct.account.username }</a></li>
                               <c:forEach var="categoryProduct"
-														items="${listProduct.categoryProducts }">
+														items="${searchProduct.categoryProducts }">
                               <li><a
 															href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
 							  </c:forEach>		
@@ -559,12 +561,12 @@
                                         <!-- product price -->
                                         <div class="">
                                            <a
-												href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+												href="${pageContext.request.contextPath }/product/productdetail/${listsearchProductProduct.id }">
   												<button class="custom-btn btn-16">
 													<img
 												height="25" width="30" alt=""
 												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
-														class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
+														class="money" id="priceBid" >${searchProduct.priceStart }</span> <br>
 
 													
 													<br>
@@ -575,7 +577,7 @@
                                           
                                         
                                     </div>
-                                    <!-- End product details -->
+                                    <!-- End product details --> 
                                     <!-- countdown start -->
                                     <div class="timermobile">
 										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
@@ -593,8 +595,7 @@
                                     <!-- countdown end -->
                          </div>
                       </c:forEach>
-  
-                      
+                                    
                                 </div>
                                
                                     <!-- End product details -->

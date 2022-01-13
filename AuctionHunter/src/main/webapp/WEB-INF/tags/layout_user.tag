@@ -201,7 +201,7 @@ $(document).ready(function() {
 						class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
 						<div class="logo">
 							<a href="index.html"> <img
-								src="${pageContext.request.contextPath }/resources/user/assets/images/logo.svg"
+								src=""
 								alt="Belle Multipurpose Html Template"
 								title="Belle Multipurpose Html Template" />
 							</a>
@@ -217,7 +217,7 @@ $(document).ready(function() {
 							<div id="header-cart" class="block block-cart">
 								<ul class="mini-products-list">
 									<li class="item"><a class="product-image" href="#"> <img
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/cape-dress-1.jpg"
+											src=""
 											alt="3/4 Sleeve Kimono Dress" title="" />
 									</a>
 										<div class="product-details">
@@ -244,7 +244,7 @@ $(document).ready(function() {
 											</div>
 										</div></li>
 									<li class="item"><a class="product-image" href="#"> <img
-											src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/cape-dress-2.jpg"
+											src=""
 											alt="Elastic Waist Dress - Black / Small" title="" />
 									</a>
 										<div class="product-details">

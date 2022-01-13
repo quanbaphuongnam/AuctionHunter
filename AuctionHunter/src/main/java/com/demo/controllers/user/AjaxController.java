@@ -1,6 +1,10 @@
 
 package com.demo.controllers.user;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,11 +40,7 @@ public class AjaxController {
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
 	
-	@RequestMapping(value="findAllAjax", method = RequestMethod.GET,produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-	public List<HistoryAuctionAjax> findAllAjax(ModelMap modelMap) {
 	
-		return historyAuctionService.findAllAjax();
-	}
 	@RequestMapping(value="findWinnerAjax", method = RequestMethod.GET,produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 	public List<HistoryAuctionAjax> findWinnerAjax(@RequestParam("product_id")int product_id,ModelMap modelMap,Product product) {
 		return historyAuctionService.findWinnerAjax(product_id);
@@ -48,6 +48,43 @@ public class AjaxController {
 	@RequestMapping(value = "buttonBid" , method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
 	public String buttonBid(@RequestParam("priceBid") String priceBid,@RequestParam("idAcc") String idAcc,@RequestParam("idPro") String idPro) {
 	
+	
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");  
+		Product product = productService.find(Integer.parseInt(idPro));
+		Date dateEnd = product.getEndDate();
+		Date dateNow =  new Date();
+		
+		long diff = dateEnd.getTime() - dateNow.getTime();
+		long diffSeconds = diff / 1000;         
+		//long diffMinutes = diff / (60 * 1000);         
+		//long diffHours = diff / (60 * 60 * 1000);                      
+		//System.out.println("Time in minutes: " + diffMinutes + " minutes.");         
+		//System.out.println("Time in hours: " + diffHours + " hours."); 
+		System.out.println("Time now: " + dateNow);  
+		if(diffSeconds <= 20) {
+			System.out.println("Time con lai: " + diffSeconds + " s");  
+	        Calendar c1 = Calendar.getInstance();
+	        // Định nghĩa mốc thời gian ban đầu 
+	        Date date = dateNow;
+	        c1.setTime(date);
+	        System.out.println("Time ban đầu : " + format.format(c1.getTime()));
+	 
+	        // Tăng thêm 20s -- Sử dụng phương thức roll()
+	        if(c1.getTime().getSeconds() >= 40) {
+	        	 c1.roll(Calendar.SECOND, 20);
+	        	 c1.roll(Calendar.MINUTE, 1);
+	        }else {
+	        	 c1.roll(Calendar.SECOND, 20);
+	        }
+	       
+	        
+	        System.out.println("Time mới : " + c1.getTime());
+	        
+	
+	    	product.setEndDate(c1.getTime());
+			productService.save(product);
+	       } 
+	        
 		HistoryAuction historyAuction = new HistoryAuction();
 		historyAuction.setAccount(accountService.find(Integer.parseInt(idAcc)));
 		historyAuction.setProduct(productService.find(Integer.parseInt(idPro)));
@@ -56,11 +93,9 @@ public class AjaxController {
 		historyAuction.setDateBid(new Date());
 		historyAuction.setCode("");
 		historyAuctionService.save(historyAuction);
+		
 		return "valid";
-		/*
-		 * if(username.equalsIgnoreCase("abc") && password.equalsIgnoreCase("123")) {
-		 * return "Valid"; }else { return "Invalid"; }
-		 */
+		
 	}
 	@RequestMapping(value="findProductAjax", method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
 	public String findProductAjax(@RequestParam("product_id")int product_id,ModelMap modelMap) {
@@ -68,12 +103,17 @@ public class AjaxController {
 		
 		Date dateEnd = product.getEndDate();
 		Date dateNow =  new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String dateNew = format.format(dateEnd);
 		if(dateNow.compareTo(dateEnd) >= 0) {
 			product.setStatus(2);
+			productService.save(product);
 			return "invalid";
 			
+		}else {
+			return dateNew;
 		}
-		return null;
+		
 	}
 	
 	

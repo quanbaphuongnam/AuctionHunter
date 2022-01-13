@@ -6,16 +6,11 @@
 <mt:layout_user title="home">
 	<jsp:attribute name="content">
 
-	
-	
-	
 	<script>
 	setInterval(function(){
 		var value = $('#proid').val();
 		
-		
 		$.ajax({
-			
 			type: 'GET',
 			url: '${pageContext.request.contextPath }/ajax/findWinnerAjax',
 			data: {
@@ -90,13 +85,20 @@
 					success: function(result){
 						if(result == "invalid")
 						{
-							Swal.fire({
-								  position: 'top',
-								  icon: 'success',
-								  title: 'End',
-								  showConfirmButton: false,
-								  timer: 3000
-								})
+							document.getElementById("buttonBid").hidden = true;
+							document.getElementById("alertInfo").value = "Has over the auction time !";
+							document.getElementById("alertInfo").hidden = false;
+							
+						}else if(result != null){
+							$('[data-countdown]').each(function () {
+								var $this = $(this),
+									finalDate = result;
+									
+								$this.countdown(finalDate, function (event) {
+									$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
+								});
+							});
+						
 						}
 						
 					}
@@ -325,6 +327,7 @@
                                    
                                         <p class="infolinks"> <a
 											href="#productInquiry" class="emaillink btn">Price step: ${product.priceStep}</a>
+															
 										</p>
                                         <!-- Product Action -->
                                         <div
@@ -366,15 +369,30 @@
                                             <c:choose>
 											<c:when
 												test="${pageContext.request.userPrincipal.name != null}">
-												 <div
-											class="product-form__item--submit">
-                                                <button
-												style="margin-top: 2px" type="button" name="add"
-												class="btn product-form__cart-submit" id="buttonBid">
-                                                    <span>Place Bid</span>
-                                                </button>
-                                            </div>
+												
+                                            <c:choose>
+		                                            <c:when test="${pageContext.request.userPrincipal.name == product.account.username}">
+															  <div
+													class="product-form__item--submit">
+								
+	                                               
+	                                            </div>
+		                                                
+												</c:when>
+												<c:otherwise>
+													 <div
+													class="product-form__item--submit">
+									
+		                                                <button
+														style="margin-top: 2px" type="button" name="add"
+														class="btn product-form__cart-submit" id="buttonBid">
+		                                                    Place Bid
+		                                                </button>
+		                                            </div>
+												</c:otherwise>
+                                            </c:choose>  
 											</c:when>
+											
 											<c:otherwise>
 											 <a href="${pageContext.request.contextPath }/account/login">
 											 <div
@@ -388,23 +406,22 @@
                                             </a>
 											</c:otherwise>
 										</c:choose>                               
-                                           
-                                               <!-- countdown start -->
-                                    <div
+                                           <input style="color:red;
+                                             border-color: red;" type="text" id="alertInfo"disabled="disabled" hidden="true"></input>
+                                             
+                                       <div id="timeEnd"><div
 											class="saleTime product-countdown"
-											data-countdown="${product.endDate}"></div>
+											data-countdown="${product.endDate}" id="timeNew"></div></div>        <!-- countdown start -->
+                                    
                                     <!-- countdown end -->
-                                            <div
-											class="shopify-payment-button" data-shopify="payment-button">
-                                               
-                                            </div>
+                                           
                                         </div>
                                         <!-- End Product Action -->
                                    
                                      <div
 										class="product-single__description rte">
                                         <ul>
-                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                            <li>${product.endDate}</li>
                                           
                                         </ul>
                                     </div>

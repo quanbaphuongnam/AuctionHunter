@@ -38,9 +38,6 @@ public class AccountController implements ServletContextAware{
 	@Autowired
 	private AccountService accountService;
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
 	private ServletContext servletContext;
 	
 	@Autowired

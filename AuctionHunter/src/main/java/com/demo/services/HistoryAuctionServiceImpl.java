@@ -23,11 +23,7 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 		
 		return historyAuctionRepository.findAll();
 	}
-	@Override
-	public List<HistoryAuctionAjax> findAllAjax() {
-		
-		return historyAuctionRepository.findAllAjax();
-	}
+	
 	@Override
 	public List<HistoryAuctionAjax> findWinnerAjax(int product_id) {
 		

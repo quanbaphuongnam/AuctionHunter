@@ -16,39 +16,33 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	public Iterable<Product> findAll() {
-
 		return productRepository.findAll();
 	}
 
 	@Override
 	public List<Product> searchByKeyword(String keyword) {
-		// TODO Auto-generated method stub
 		return productRepository.searchByKeyword(keyword);
 	}
     @Override
 	public Product find(int id) {
-		
 		return productRepository.findById(id).get();
 	}
 
 	@Override
 	public String namePhoto(int product_id) {
 		return productRepository.namePhoto(product_id);
-
 	}
-
-
-
 
 	@Override
 	public List<String> searchByTerm(String term) {
-		// TODO Auto-generated method stub
 		return productRepository.searchByTerm(term);
 	}
+
+	@Override
+	public Product save(Product product) {
+		return productRepository.save(product);
+	}
 	
-//	@Override public List<ProductInfo> listProductInfo() { 
-//		return productRepository.listProductInfo(); 
-//	}
 
 	
 

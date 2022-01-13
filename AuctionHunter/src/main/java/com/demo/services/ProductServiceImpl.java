@@ -10,7 +10,7 @@ import com.demo.models.ProductInfo;
 import com.demo.repositories.ProductRepository;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public  class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -33,15 +33,26 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.namePhoto(product_id);
 	}
 
-	@Override
-	public List<String> searchByTerm(String term) {
-		return productRepository.searchByTerm(term);
-	}
+
+	/*
+	 * @Override public List<String> searchByTerm(String term) { return
+	 * productRepository.searchByTerm(term); }
+	 */
 
 	@Override
 	public Product save(Product product) {
 		return productRepository.save(product);
 	}
+
+
+
+
+//	@Override
+//	public List<String> searchByTerm(String term) {
+//		// TODO Auto-generated method stub
+//		return productRepository.searchByTerm(term);
+//	}
+
 	
 
 	

@@ -38,21 +38,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 	<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.6.0.min.js"></script> 
 	<script src="http://code.jquery.com/ui/1.13.0/jquery-ui.js" ></script>
-	
-<!--  
-<script>
-$(document).ready(function() {
-	
-	$('#keyword').autocomplete({
-		source: '${pageContext.request.contextPath }/ajax/search',
-		minLength:5,
-			select: function( event, ui ) {
-		       location.href = '${pageContext.request.contextPath }/product/search?keyword=' +ui.item.value;
-		      }
-	});
+	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.datetimepicker.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
-});
-</script> -->	
 </head>
 <body class="template-collection belle">
 
@@ -621,6 +609,8 @@ $(document).ready(function() {
 			src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.js"></script>
+        <script src="${pageContext.request.contextPath }/resources/user/assets/datetime/build/jquery.datetimepicker.full.js"></script>
 
 	</div>
 </body>

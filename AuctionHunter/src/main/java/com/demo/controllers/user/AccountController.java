@@ -27,7 +27,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
 import com.demo.services.AccountService;
+import com.demo.services.HistoryAuctionService;
+import com.demo.services.InvoiceService;
 import com.demo.services.MailSenderService;
+import com.demo.services.ProductService;
 
 @Controller
 @RequestMapping(value="account")
@@ -39,9 +42,15 @@ public class AccountController implements ServletContextAware{
 	private AccountService accountService;
 
 	private ServletContext servletContext;
+	@Autowired
+	private HistoryAuctionService historyAuctionService;
 	
 	@Autowired
 	private MailSenderService mailSenderService;
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private InvoiceService invoiceService;
 	
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index(HttpServletRequest request,Authentication authentication,ModelMap modelMap, Model model, Account account,RedirectAttributes redirectAttributes) {	
@@ -106,9 +115,21 @@ public class AccountController implements ServletContextAware{
 	}
 	
 	@RequestMapping(value="myauctions", method = RequestMethod.GET)
-	public String myauctions() {	
+	public String myauctions(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
+		if(authentication != null) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			 id = (int) session.getAttribute("idAcc");
+			 modelMap.put("historyAuctions", historyAuctionService.findAllByIdAcc(id));
+			 //model.addAttribute("id", session.getAttribute("id"));
+			 //session.removeAttribute("msg");
 	
-		return "user/account/myauctions";
+			 return "user/account/myauctions";
+		}else {
+			return "user/account/login";
+		}
+		
 	}
 
 	//------------------register----------------------------------
@@ -154,15 +175,39 @@ public class AccountController implements ServletContextAware{
 	}
 	
 	@RequestMapping(value="myproduct", method = RequestMethod.GET)
-	public String myproduct() {	
+	public String myproduct(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
+if(authentication != null) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			 id = (int) session.getAttribute("idAcc");
+			 modelMap.put("AllProducts", productService.findAllByIdAcc(id));
+			 //model.addAttribute("id", session.getAttribute("id"));
+			 //session.removeAttribute("msg");
 	
-		return "user/account/myproduct";
+			 return "user/account/myproduct";
+		}else {
+			return "user/account/login";
+		}
+		
 	}
 	
 	@RequestMapping(value="myinvoice", method = RequestMethod.GET)
-	public String myinvoice() {	
+	public String myinvoice(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
+if(authentication != null) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			 id = (int) session.getAttribute("idAcc");
+			 modelMap.put("Invoices", invoiceService.findAllByIdAcc(id));
+			 //model.addAttribute("id", session.getAttribute("id"));
+			 //session.removeAttribute("msg");
 	
-		return "user/account/myinvoice";
+			 return "user/account/myinvoice";
+		}else {
+			return "user/account/login";
+		}
+		
 	}
 	@Override
 	public void setServletContext(ServletContext servletContext) {

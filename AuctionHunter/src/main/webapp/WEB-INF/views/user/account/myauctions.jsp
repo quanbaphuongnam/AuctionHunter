@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <mt:layout_user title="myauctions">
 	<jsp:attribute name="content">
 		<!--Page Title-->
@@ -19,51 +21,27 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                    	<th class="product-name text-center alt-font">Images</th>
+                                    	<th class="product-name text-center alt-font">ID</th>
                                         <th class="product-price text-center alt-font">Name</th>
-                                        <th class="product-name alt-font">Product</th>
-                                        <th class="product-price text-center alt-font">Unit Price</th>
-                                        <th class="stock-status text-center alt-font">Stock Status</th>
+                                        <th class="product-name alt-font">Product</th>                                    
+                                        <th class="stock-status text-center alt-font">Status</th>
+                                           <th class="product-price text-center alt-font"> Price</th>
                                         <th class="product-subtotal text-center alt-font">Add to Cart</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach var="historyAuction" items="${historyAuctions }">
                                     <tr>
-                                    	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
-                                        <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image8.jpg" alt="" title="" /></a>
-                                        </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Minerva Dress black</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$165.00</span></td>
+                                    	<td class="product-remove text-center" valign="middle">${historyAuction.id } </td>
+                                        <td class="product-thumbnail text-center">${historyAuction.account.fullName }</td>
+                                        <td class="product-name">${historyAuction.product.name }</td>
+                                        <td class="product-price text-center">${historyAuction.status }</td>
                                         <td class="stock text-center">
-                                            <span class="in-stock">in stock</span>
+                                            ${historyAuction.priceBid }
                                         </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
+                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Button ???</button></td>
                                     </tr>
-                                    <tr>
-                                    	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
-                                        <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image4.jpg" alt="" title="" /></a>
-                                        </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Sueded Cotton Pant in Khaki</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$150.00</span></td>
-                                        <td class="stock text-center">
-                                            <span class="out-stock">Out Of stock</span>
-                                        </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
-                                    </tr>
-                                    <tr>
-                                    	<td class="product-remove text-center" valign="middle"><a href="#"><i class="icon icon anm anm-times-l"></i></a></td>
-                                        <td class="product-thumbnail text-center">
-                                            <a href="#"><img src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image5.jpg" alt="" title="" /></a>
-                                        </td>
-                                        <td class="product-name"><h4 class="no-margin"><a href="#">Woven Solid Midi Shirt Dress</a></h4></td>
-                                        <td class="product-price text-center"><span class="amount">$150.00</span></td>
-                                        <td class="stock text-center">
-                                            <span class="in-stock">in stock</span>
-                                        </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Add To Cart</button></td>
-                                    </tr>
+                                  </c:forEach>
                                 </tbody>
                             </table>
                         </div>

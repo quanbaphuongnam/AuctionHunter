@@ -21,7 +21,10 @@ public interface ProductService {
 	public List<Product> searchByKeyword(String keyword);
 
 	public String namePhoto(int product_id);
+	
 	public Product save(Product product);
+	
+	public List<Product> findAllByIdAcc(int account_id);
 	
 
 }

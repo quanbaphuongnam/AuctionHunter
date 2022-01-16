@@ -20,7 +20,7 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 //	@Query("select name from Product where name like %:term%")
 //	public List<String> searchByTerm(@Param("term")String term);
 	
-	@Query("from Product where name like %:keyword%")
+	@Query("from Product where name  like %:keyword%")
 	public List<Product> searchByKeyword(@Param("keyword") String keyword);
 
 
@@ -28,7 +28,8 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	public String namePhoto(@Param("product_id") int product_id);
 
 
-	
+	@Query("from Product where account_id = :account_id  order by id desc")
+	public List<Product> findAllByIdAcc(@Param("account_id")int account_id);
 
 	
 }

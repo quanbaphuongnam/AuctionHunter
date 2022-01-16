@@ -34,5 +34,10 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 		
 		return historyAuctionRepository.save(historyAuction);
 	}
+	@Override
+	public List<HistoryAuction> findAllByIdAcc(int account_id) {
+		// TODO Auto-generated method stub
+		return historyAuctionRepository.findAllByIdAcc(account_id);
+	}
 
 }

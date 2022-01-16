@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <mt:layout_user title="myproduct">
 	<jsp:attribute name="content">
 		<!--Page Title-->
@@ -18,96 +20,48 @@
                 		<table>
                             <thead class="cart__row cart__header">
                                 <tr>
-                                    <th colspan="2" class="text-center">Product</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Quantity</th>
-                                    <th class="text-right">Total</th>
+                                    <th >ID</th>
+                                    <th class="text-center">ProductName</th>                                   
+                                    <th class="text-right">Price</th>
+                                     <th class="text-right">PriceStart</th>
+                                      <th class="text-right">StartDate</th>
+                                       <th class="text-right">EndDate</th>
+                                        <th class="text-right">PriceStep</th>
+                                         <th class="text-right">Created</th>
+                                         
+                                        
                                     <th class="action">&nbsp;</th>
                                 </tr>
                             </thead>
                     		<tbody>
+                    		  <c:forEach var="AllProduct" items="${AllProducts }">
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                    <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image1.jpg" alt="Elastic Waist Dress - Navy / Small"></a>
+                                    <td >${AllProduct.id } </td>
+                                    <td class="cart__meta small--text-left cart-flex-item">${AllProduct.name }                                     
                                     </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">
-                                        <div class="list-view-item__title">
-                                            <a href="#">Elastic Waist Dress </a>
-                                        </div>
-                                        
-                                        <div class="cart__meta-text">
-                                            Color: Navy<br>Size: Small<br>
-                                        </div>
+                                    <td class="cart__price-wrapper cart-flex-item">  ${AllProduct.price }$                                    
                                     </td>
+                                    <td class="cart__price-wrapper cart-flex-item">   ${AllProduct.priceStart }$                                    
+                                    </td>
+                                    <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day"
+								value="${AllProduct.startDate }"
+								pattern="dd/MM/yyyy"/>
+				                       ${day }</td>
+                                    <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day2"
+								value="${AllProduct.endDate }"
+								pattern="dd/MM/yyyy"/>
+				                       ${day2 }</td>
                                     <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$735.00</span>
+                                       ${AllProduct.priceStep }$
                                     </td>
-                                    <td class="cart__update-wrapper cart-flex-item text-right">
-                                        <div class="cart__qty text-center">
-                                            <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
-                                    </td>
+                                   <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day3"
+								value="${AllProduct.created }"
+								pattern="dd/MM/yyyy"/>
+				                       ${day3 }</td>                               
+                                  
                                     <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
                                 </tr>
-                                <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                    <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image3.jpg" alt="3/4 Sleeve Kimono Dress"></a>
-                                    </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">
-                                        <div class="list-view-item__title">
-                                            <a href="#">3/4 Sleeve Kimono Dress</a>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$735.00</span>
-                                    </td>
-                                    <td class="cart__update-wrapper cart-flex-item text-right">
-                                        <div class="cart__qty text-center">
-                                            <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
-                                    </td>
-                                    <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
-                                </tr>
-                                <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                    <td class="cart__image-wrapper cart-flex-item">
-                                        <a href="#"><img class="cart__image" src="${pageContext.request.contextPath }/resources/user/assets/images/product-images/product-image6.jpg" alt="Minerva Dress black"></a>
-                                    </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">
-                                        <div class="list-view-item__title">
-                                            <a href="#">Minerva Dress black</a>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price-wrapper cart-flex-item">
-                                        <span class="money">$526.00</span>
-                                    </td>
-                                    <td class="cart__update-wrapper cart-flex-item text-right">
-                                        <div class="cart__qty text-center">
-                                            <div class="qtyField">
-                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right small--hide cart-price">
-                                        <div><span class="money">$735.00</span></div>
-                                    </td>
-                                    <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
-                                </tr>
+                               </c:forEach>
                             </tbody>
                     		<tfoot>
                                 <tr>
@@ -123,7 +77,7 @@
                    
                     </form>                   
                	</div>
-                <div class="col-12 col-sm-12 col-md-4 col-lg-3 cart__footer">
+                <div class="col-15 col-sm-15 col-md-4 col-lg-3 cart__footer">
                 	
                     <div class="solid-border">
                       <div class="row">

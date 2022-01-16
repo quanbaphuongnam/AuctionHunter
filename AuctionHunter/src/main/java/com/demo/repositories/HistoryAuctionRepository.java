@@ -18,5 +18,7 @@ public interface HistoryAuctionRepository extends CrudRepository<HistoryAuction,
 	@Query("select new com.demo.models.HistoryAuctionAjax(id, priceBid, dateBid, account.id, account.username) from HistoryAuction where product_id = :product_id order by priceBid desc")
 	public List<HistoryAuctionAjax> findWinnerAjax(@Param("product_id") int product_id);
 	
+	@Query("from HistoryAuction where account_id = :account_id  order by id desc")
+	public List<HistoryAuction> findAllByIdAcc(@Param("account_id") int account_id);
 	
 }

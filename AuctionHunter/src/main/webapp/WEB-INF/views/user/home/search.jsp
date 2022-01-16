@@ -467,7 +467,7 @@
                         <!--End Toolbar-->
                         <div class="grid-products grid--view-items">
                             <div class="row">
-  <!----------------------------------Product----------------------------------->
+
   					
    <!------------------------------------------------------ Product Search ---------------------------------------------------------->
                       <c:forEach var="searchProduct" items="${searchProducts }">

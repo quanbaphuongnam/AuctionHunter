@@ -15,4 +15,6 @@ public interface HistoryAuctionService {
 	public List<HistoryAuctionAjax> findWinnerAjax(int product_id);
 	
 	public HistoryAuction save(HistoryAuction historyAuction);
+	
+	public List<HistoryAuction> findAllByIdAcc(int account_id);
 }

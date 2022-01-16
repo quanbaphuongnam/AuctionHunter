@@ -44,6 +44,12 @@ public  class ProductServiceImpl implements ProductService{
 		return productRepository.save(product);
 	}
 
+	@Override
+	public List<Product> findAllByIdAcc(int account_id) {
+		// TODO Auto-generated method stub
+		return productRepository.findAllByIdAcc(account_id);
+	}
+
 
 
 

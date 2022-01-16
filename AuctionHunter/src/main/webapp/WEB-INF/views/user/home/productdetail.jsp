@@ -392,7 +392,6 @@
 												</c:otherwise>
                                             </c:choose>  
 											</c:when>
-											
 											<c:otherwise>
 											 <a href="${pageContext.request.contextPath }/account/login">
 											 <div

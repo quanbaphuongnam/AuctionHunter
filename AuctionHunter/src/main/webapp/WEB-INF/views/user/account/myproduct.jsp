@@ -23,14 +23,9 @@
                          <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Post new" >
                       </a>
                     </div>
-                              
                              <div style="float: right"> <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update</button>      </div>    
-                             
-                        
                 	<form action="#" method="post" class="cart style2">
                 		<table>
-                		
-                            
                             <thead class="cart__row cart__header">
                                 <tr>
                                 	<th class="text-right">Product Photo</th>
@@ -72,19 +67,13 @@
                                 </tr>
                                </c:forEach>
                             </tbody>
-                    		
                     </table>
-                    
-                   
                     <hr>
-					
-                   
                     </form>                   
                	</div>
                 
             </div>
         </div>
-		
        
 	</jsp:attribute>
 </mt:layout_user>

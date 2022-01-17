@@ -331,16 +331,7 @@
 					<!--Footer Links-->
 					<div class="footer-top">
 						<div class="row">
-							<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-								<h4 class="h4">Quick Shop</h4>
-								<ul>
-									<li><a href="#">Women</a></li>
-									<li><a href="#">Men</a></li>
-									<li><a href="#">Kids</a></li>
-									<li><a href="#">Sportswear</a></li>
-									<li><a href="#">Sale</a></li>
-								</ul>
-							</div>
+							
 							<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
 								<h4 class="h4">Informations</h4>
 								<ul>
@@ -383,7 +374,7 @@
 							<!--Footer Copyright-->
 							<div
 								class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left">
-								<span></span> <a href="templateshub.net">Templates Hub</a>
+								<span></span> <a href="#">Acution hunter</a>
 							</div>
 							<!--End Footer Copyright-->
 							<!--Footer Payment Icon-->
@@ -584,7 +575,19 @@
 			</div>
 		</div>
 		<!--End Quick View popup-->
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/61e54edab84f7301d32b6807/1fpjro23f';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+		</script>
+<!--End of Tawk.to Script-->
 		<!-- Including Jquery -->
 		<script
 			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.3.1.min.js"></script>

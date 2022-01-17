@@ -404,212 +404,244 @@
                 <!--End Sidebar-->
                 <!--Main Content-->
                 <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
-                	<div class="category-description">
-                	 <a href="${pageContext.request.contextPath }/product/productpost"><button class="btn btn-secondary btn--small">Post</button></a>
-                    	<h3>Category Description</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                    </div>
-                    <hr>
-                	<div class="productList product-load-more">
-                    	<!--Toolbar-->
-                        <button type="button"
-							class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
-                    	<div class="toolbar">
-                        	<div class="filters-toolbar-wrapper">
-                            	<div class="row">
-                                	<div
-										class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
-                                    	<a href="shop-left-sidebar.html"
-											title="Grid View" class="change-view change-view--active">
-                                        	<img
-											src="${pageContext.request.contextPath }/resources/user/assets/images/grid.jpg"
-											alt="Grid" />
-                                        </a>
-                                        <a href="shop-listview.html"
-											title="List View" class="change-view">
-                                        	<img
-											src="${pageContext.request.contextPath }/resources/user/assets/images/list.jpg"
-											alt="List" />
-                                        </a>
-                                    </div>
-                                    <div
-										class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
-                                    	<span
-											class="filters-toolbar__product-count">Showing: 22</span>
-                                    </div>
-                                    <div
-										class="col-4 col-md-4 col-lg-4 text-right">
-                                    	<div class="filters-toolbar__item">
-                                      		<label for="SortBy"
-												class="hidden">Sort</label>
-                                      		<select name="SortBy"
-												id="SortBy"
-												class="filters-toolbar__input filters-toolbar__input--sort">
-                                                <option
-													value="title-ascending" selected="selected">Sort</option>
-                                                <option>Best Selling</option>
-                                                <option>Alphabetically, A-Z</option>
-                                                <option>Alphabetically, Z-A</option>
-                                                <option>Price, low to high</option>
-                                                <option>Price, high to low</option>
-                                                <option>Date, new to old</option>
-                                                <option>Date, old to new</option>
-                                      		</select>
-                                      		<input
-												class="collection-header__default-sort" type="hidden"
-												value="manual">
+               
+                            <div  class=" col-lg-3 cart__footer ">
+									     <a href="${pageContext.request.contextPath }/product/productpost">
+									    
+									         <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Post new" >
+									     </a>
+									   </div>
+									    <br>
+                 <div class="card">
+                            <div class="card-body">
+                                <div class="custom-tab">
+									
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-home" role="tab" aria-controls="custom-nav-home" aria-selected="true">Happenning</a>
+                                            <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab" href="#custom-nav-profile" role="tab" aria-controls="custom-nav-profile" aria-selected="false">Hasn't yet started</a>
+                                           <!--  <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab" href="#custom-nav-contact" role="tab" aria-controls="custom-nav-contact" aria-selected="false">Contact</a> -->
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="custom-nav-home" role="tabpanel" aria-labelledby="custom-nav-home-tab">
+                                            	<div class="category-description">
+								                         </div>
+								                   
+								                	<div class="productList product-load-more">
+								                    	<!--Toolbar-->
+								                        <button type="button"
+															class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+								                    	<div class="toolbar">
+								                        	<div class="filters-toolbar-wrapper">
+								                            	<div class="row">
+								                                	<div
+																		class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
+								                                    	<a href="shop-left-sidebar.html"
+																			title="Grid View" class="change-view change-view--active">
+								                                        	<img
+																			src="${pageContext.request.contextPath }/resources/user/assets/images/grid.jpg"
+																			alt="Grid" />
+								                                        </a>
+								                                        <a href="shop-listview.html"
+																			title="List View" class="change-view">
+								                                        	<img
+																			src="${pageContext.request.contextPath }/resources/user/assets/images/list.jpg"
+																			alt="List" />
+								                                        </a>
+								                                    </div>
+								                                    <div
+																		class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
+								                                    	<span
+																			class="filters-toolbar__product-count">Showing: 22</span>
+								                                    </div>
+								                                    <div
+																		class="col-4 col-md-4 col-lg-4 text-right">
+								                                    	<div class="filters-toolbar__item">
+								                                      		<label for="SortBy"
+																				class="hidden">Sort</label>
+								                                      		<select name="SortBy"
+																				id="SortBy"
+																				class="filters-toolbar__input filters-toolbar__input--sort">
+								                                                <option
+																					value="title-ascending" selected="selected">Sort</option>
+								                                                <option>Best Selling</option>
+								                                                <option>Alphabetically, A-Z</option>
+								                                                <option>Alphabetically, Z-A</option>
+								                                                <option>Price, low to high</option>
+								                                                <option>Price, high to low</option>
+								                                                <option>Date, new to old</option>
+								                                                <option>Date, old to new</option>
+								                                      		</select>
+								                                      		<input
+																				class="collection-header__default-sort" type="hidden"
+																				value="manual">
+								                                        </div>
+								                                    </div>
+								
+								                                </div>
+								                            </div>
+								                        </div>
+								                        <!--End Toolbar-->
+								                        <div class="grid-products grid--view-items">
+								                            <div class="row">
+								  <!----------------------------------Product----------------------------------->
+								  					<c:forEach var="listProduct" items="${listProducts }">
+								  				
+								                                <div
+																		class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
+																		<div id="tv">
+								                                    <!-- start product image -->
+								                                    <div class="product-image"
+																				style="height: 200px">
+								                                        <!-- start product image -->
+								                                        <a
+								
+																			href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+								
+																				
+								                                            <!-- image -->
+								                                            <c:forEach
+																						var="productPhoto" items="${listProduct.productPhotos }">
+								                                            <img
+								
+																			class="primary blur-up lazyload"
+																			data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			alt="image" title="product">
+								
+																						
+								
+																		
+								                                            <!-- End image -->
+								                                            <!-- Hover image -->
+								                                            <img
+								
+																			class="hover blur-up lazyload"
+																			data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			alt="img"> 
+								
+																							
+								
+								                                           
+								                                           	</c:forEach>
+								                                           	
+								                   
+								                                           	
+								                                           
+								                                            <!-- End product label -->
+								                                        </a>
+								                                        <!-- end product image -->
+								                                        
+								                                        <!-- countdown start -->
+								                                        <div class="saleTime desktop"
+																					data-countdown="${listProduct.endDate }"></div>
+								                                        <!-- countdown end -->
+								    
+								                                        <!-- Start product button -->
+								
+								                                        <form  class="variants add"
+																			action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
+																			method="get">
+								                                            <button
+																				class="btn btn-addto-cart" type="submit">Auction now</button>
+								                                        </form>
+								                                        
+								                                        <!-- end product button -->
+								                                    </div>
+								                                    <!-- end product image -->
+								    
+								                                    <!--start product details -->
+								                                    <div
+																				class="product-details text-center">
+								                                        <!-- product name -->
+								                                        <div style="height: 85px"
+																					class="product-name">
+								                                            <a
+																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
+																				
+								                                        </div>
+								                                       <br> 	
+								                                           <ul class="product-tags">
+								                              <li><a
+																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
+								                              <c:forEach var="categoryProduct"
+																						items="${listProduct.categoryProducts }">
+								                              <li><a
+																							href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
+															  </c:forEach>		
+								                            
+								                            </ul>
+								                                        
+								                                        <!-- End product name -->
+								                                        <!-- product price -->
+								                                        <div class="">
+								                                           <a
+																				href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+								  												<button class="custom-btn btn-16">
+																					<img
+																				height="25" width="30" alt=""
+																				src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
+																						class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
+								
+																					
+																					<br>
+								
+																				</button>
+																				  </a>
+								</div>
+								                                          
+								                                        
+								                                    </div>
+								                                    <!-- End product details -->
+								                                    <!-- countdown start -->
+								                                    <div class="timermobile">
+																		<div class="saleTime desktop" data-countdown="2022/09/20"></div>
+																	</div>
+								                                    <!-- countdown end -->
+								                             
+								                                </div>
+								                                
+								                                          
+								                                        
+								                                   
+								                                    <!-- End product details -->
+								                                    <!-- countdown start -->
+								                                   
+								                                    <!-- countdown end -->
+								                         </div>
+								                      </c:forEach>
+								  
+								                      
+								                                </div>
+								                               
+								                                    <!-- End product details -->
+								                             
+								                                
+								                        </div>
+								                    </div>
+								                    <div class="infinitpaginOuter">
+								                        <div class="infinitpagin">	
+								                            <a
+																href="${pageContext.request.contextPath }/product/productdetail"
+																class="btn loadMore">Load More</a>
+								                        </div>
+								                    </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-nav-profile" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
+                                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                                                butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="custom-nav-contact" role="tabpanel" aria-labelledby="custom-nav-contact-tab">
+                                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                                                butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <!--End Toolbar-->
-                        <div class="grid-products grid--view-items">
-                            <div class="row">
-  <!----------------------------------Product----------------------------------->
-  					<c:forEach var="listProduct" items="${listProducts }">
-  				
-                                <div
-										class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
-										<div id="tv">
-                                    <!-- start product image -->
-                                    <div class="product-image"
-												style="height: 200px">
-                                        <!-- start product image -->
-                                        <a
-
-											href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
-
-												
-                                            <!-- image -->
-                                            <c:forEach
-														var="productPhoto" items="${listProduct.productPhotos }">
-                                            <img
-
-											class="primary blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-											alt="image" title="product">
-
-														
-
-										
-                                            <!-- End image -->
-                                            <!-- Hover image -->
-                                            <img
-
-											class="hover blur-up lazyload"
-											data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-											src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
-											alt="img"> 
-
-															
-
-                                           
-                                           	</c:forEach>
-                                           	
-                   
-                                           	
-                                           
-                                            <!-- End product label -->
-                                        </a>
-                                        <!-- end product image -->
-                                        
-                                        <!-- countdown start -->
-                                        <div class="saleTime desktop"
-													data-countdown="${listProduct.endDate }"></div>
-                                        <!-- countdown end -->
-    
-                                        <!-- Start product button -->
-
-                                        <form  class="variants add"
-											action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
-											method="get">
-                                            <button
-												class="btn btn-addto-cart" type="submit">Auction now</button>
-                                        </form>
-                                        
-                                        <!-- end product button -->
-                                    </div>
-                                    <!-- end product image -->
-    
-                                    <!--start product details -->
-                                    <div
-												class="product-details text-center">
-                                        <!-- product name -->
-                                        <div style="height: 85px"
-													class="product-name">
-                                            <a
-														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
-												
-                                        </div>
-                                       <br> 	
-                                           <ul class="product-tags">
-                              <li><a
-														href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
-                              <c:forEach var="categoryProduct"
-														items="${listProduct.categoryProducts }">
-                              <li><a
-															href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
-							  </c:forEach>		
-                            
-                            </ul>
-                                        
-                                        <!-- End product name -->
-                                        <!-- product price -->
-                                        <div class="">
-                                           <a
-												href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
-  												<button class="custom-btn btn-16">
-													<img
-												height="25" width="30" alt=""
-												src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
-														class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
-
-													
-													<br>
-
-												</button>
-												  </a>
-</div>
-                                          
-                                        
-                                    </div>
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                    <div class="timermobile">
-										<div class="saleTime desktop" data-countdown="2022/09/20"></div>
-									</div>
-                                    <!-- countdown end -->
-                             
-                                </div>
-                                
-                                          
-                                        
-                                   
-                                    <!-- End product details -->
-                                    <!-- countdown start -->
-                                   
-                                    <!-- countdown end -->
-                         </div>
-                      </c:forEach>
-  
-                      
-                                </div>
-                               
-                                    <!-- End product details -->
-                             
-                                
-                        </div>
-                    </div>
-                    <div class="infinitpaginOuter">
-                        <div class="infinitpagin">	
-                            <a
-								href="${pageContext.request.contextPath }/product/productdetail"
-								class="btn loadMore">Load More</a>
-                        </div>
-                    </div>
+              
                 </div>
                 <!--End Main Content-->
             </div>

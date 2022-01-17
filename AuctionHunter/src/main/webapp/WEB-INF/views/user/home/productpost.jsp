@@ -108,15 +108,11 @@
                         <div id="customer-login" class="collapse customer-content">
                             <div class="customer-info">
                                 <p class="coupon-text">If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing &amp; Shipping section.</p>
-                               
                             </div>
                         </div>
                     </div>
                 </div>
-
-               
             </div>
-
             <div class="row billing-fields">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 sm-margin-30px-bottom">
                     <div class="create-ac-content bg-light-gray padding-20px-all">

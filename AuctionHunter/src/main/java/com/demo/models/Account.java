@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Jan 3, 2022, 9:43:46 AM by Hibernate Tools 5.1.10.Final
+// Generated Jan 18, 2022, 8:06:39 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -39,6 +39,7 @@ public class Account implements java.io.Serializable {
 	private String role;
 	private int report;
 	private boolean isDelete;
+	private Set<Notification> notifications = new HashSet<Notification>(0);
 	private Set<Cart> carts = new HashSet<Cart>(0);
 	private Set<HistoryAuction> historyAuctions = new HashSet<HistoryAuction>(0);
 	private Set<Invoice> invoices = new HashSet<Invoice>(0);
@@ -64,8 +65,9 @@ public class Account implements java.io.Serializable {
 	}
 
 	public Account(String username, String password, String fullName, String sex, String avatar, String email,
-			String phone, String address, Date dob, String role, int report, boolean isDelete, Set<Cart> carts,
-			Set<HistoryAuction> historyAuctions, Set<Invoice> invoices, Set<Product> products) {
+			String phone, String address, Date dob, String role, int report, boolean isDelete,
+			Set<Notification> notifications, Set<Cart> carts, Set<HistoryAuction> historyAuctions,
+			Set<Invoice> invoices, Set<Product> products) {
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
@@ -78,6 +80,7 @@ public class Account implements java.io.Serializable {
 		this.role = role;
 		this.report = report;
 		this.isDelete = isDelete;
+		this.notifications = notifications;
 		this.carts = carts;
 		this.historyAuctions = historyAuctions;
 		this.invoices = invoices;
@@ -203,6 +206,15 @@ public class Account implements java.io.Serializable {
 
 	public void setIsDelete(boolean isDelete) {
 		this.isDelete = isDelete;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+	public Set<Notification> getNotifications() {
+		return this.notifications;
+	}
+
+	public void setNotifications(Set<Notification> notifications) {
+		this.notifications = notifications;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")

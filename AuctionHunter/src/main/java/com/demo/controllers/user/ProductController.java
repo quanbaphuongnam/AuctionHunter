@@ -54,7 +54,6 @@ public class ProductController {
 		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 		 id = (int) session.getAttribute("idAcc");
 		 product.setAccount(accountService.find(id));
-		product.setPrice(0);
 		product.setCreated(new Date());
 		product.setStatus(0);
 		product.setIsDelete(false);

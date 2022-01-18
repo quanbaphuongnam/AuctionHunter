@@ -91,7 +91,7 @@ public class AjaxController {
 		historyAuction.setStatus(true);
 		historyAuction.setPriceBid(Double.parseDouble(priceBid));
 		historyAuction.setDateBid(new Date());
-		historyAuction.setCode("");
+		
 		historyAuctionService.save(historyAuction);
 		
 		return "valid";

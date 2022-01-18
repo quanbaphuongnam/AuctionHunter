@@ -279,7 +279,7 @@
                                                 <span
 												id="SaveAmount-product-template"
 												class="product-single__save-amount">
-                                                <span class="money">$${product.price}</span>
+                                                <span class="money">$</span>
                                                 </span>
                                                 
                                             </span>  

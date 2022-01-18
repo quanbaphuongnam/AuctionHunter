@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Jan 3, 2022, 9:43:46 AM by Hibernate Tools 5.1.10.Final
+// Generated Jan 18, 2022, 8:06:39 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -31,19 +31,16 @@ public class HistoryAuction implements java.io.Serializable {
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date dateBid;
-	private String code;
 
 	public HistoryAuction() {
 	}
 
-	public HistoryAuction(Account account, Product product, boolean status, double priceBid, Date dateBid,
-			String code) {
+	public HistoryAuction(Account account, Product product, boolean status, double priceBid, Date dateBid) {
 		this.account = account;
 		this.product = product;
 		this.status = status;
 		this.priceBid = priceBid;
 		this.dateBid = dateBid;
-		this.code = code;
 	}
 
 	@Id
@@ -104,15 +101,6 @@ public class HistoryAuction implements java.io.Serializable {
 
 	public void setDateBid(Date dateBid) {
 		this.dateBid = dateBid;
-	}
-
-	@Column(name = "code", nullable = false, length = 599)
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 }

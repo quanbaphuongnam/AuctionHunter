@@ -57,6 +57,7 @@ public class ProductController {
 		product.setCreated(new Date());
 		product.setStatus(0);
 		product.setIsDelete(false);
+		
 		System.out.println(id);
 		 productService.save(product);
 		}

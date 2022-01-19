@@ -14,10 +14,7 @@ public  class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@Override
-	public Iterable<Product> findAll() {
-		return productRepository.findAll();
-	}
+	
 
 	@Override
 	public List<Product> searchByKeyword(String keyword) {
@@ -48,6 +45,17 @@ public  class ProductServiceImpl implements ProductService{
 	public List<Product> findAllByIdAcc(int account_id) {
 		// TODO Auto-generated method stub
 		return productRepository.findAllByIdAcc(account_id);
+	}
+
+	@Override
+	public List<Product> findAllProHappenning() {
+		
+		return productRepository.findAllProHappenning();
+	}
+	@Override
+	public List<Product> findAllProHasnotStarted() {
+		
+		return productRepository.findAllProHasnotStarted();
 	}
 
 

@@ -11,8 +11,8 @@
 			<div class="collection-hero">
         		<div class="collection-hero__image">
 					<img class="blur-up lazyload"
-						data-src="${pageContext.request.contextPath }/resources/user/assets/images/cat-women.jpg"
-						src="${pageContext.request.contextPath }/resources/user/assets/images/cat-women.jpg"
+						data-src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
+						src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
 						alt="Women" title="Women" />
 				</div>
         		<div class="collection-hero__title-wrapper">
@@ -135,33 +135,7 @@
                             </div>
                         </div>
                         <!--End Size Swatches-->
-                        <!--Color Swatches-->
-                        <div
-							class="sidebar_widget filterBox filter-widget">
-                            <div class="widget-title">
-								<h2>Color</h2>
-							</div>
-                            <div
-								class="filter-color swacth-list clearfix">
-                                <span class="swacth-btn black"></span>
-                                <span class="swacth-btn white checked"></span>
-                                <span class="swacth-btn red"></span>
-                                <span class="swacth-btn blue"></span>
-                                <span class="swacth-btn pink"></span>
-                                <span class="swacth-btn gray"></span>
-                                <span class="swacth-btn green"></span>
-                                <span class="swacth-btn orange"></span>
-                                <span class="swacth-btn yellow"></span>
-                                <span class="swacth-btn blueviolet"></span>
-                                <span class="swacth-btn brown"></span>
-                                <span class="swacth-btn darkGoldenRod"></span> 
-                                <span class="swacth-btn darkGreen"></span> 
-                                <span class="swacth-btn darkRed"></span> 
-                                <span class="swacth-btn dimGrey"></span>
-                                <span class="swacth-btn khaki"></span> 
-                            </div>
-                        </div>
-                        <!--End Color Swatches-->
+                        
                         <!--Brand-->
                         <div
 							class="sidebar_widget filterBox filter-widget">
@@ -425,6 +399,7 @@
                                     </nav>
                                     <div class="tab-content pl-3 pt-2" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="custom-nav-home" role="tabpanel" aria-labelledby="custom-nav-home-tab">
+                                            
                                             	<div class="category-description">
 								                         </div>
 								                   
@@ -612,10 +587,10 @@
 								                         </div>
 								                      </c:forEach>
 								  
-								                      
+								                            <!-- End product  -->
 								                                </div>
 								                               
-								                                    <!-- End product details -->
+								                              
 								                             
 								                                
 								                        </div>
@@ -627,10 +602,212 @@
 																class="btn loadMore">Load More</a>
 								                        </div>
 								                    </div>
+								          
                                         </div>
                                         <div class="tab-pane fade" id="custom-nav-profile" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
-                                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-                                                butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                                            
+                                            	<div class="category-description">
+								                         </div>
+								                   
+								                	<div class="productList product-load-more">
+								                    	<!--Toolbar-->
+								                        <button type="button"
+															class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+								                    	<div class="toolbar">
+								                        	<div class="filters-toolbar-wrapper">
+								                            	<div class="row">
+								                                	<div
+																		class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
+								                                    	<a href="shop-left-sidebar.html"
+																			title="Grid View" class="change-view change-view--active">
+								                                        	<img
+																			src="${pageContext.request.contextPath }/resources/user/assets/images/grid.jpg"
+																			alt="Grid" />
+								                                        </a>
+								                                        <a href="shop-listview.html"
+																			title="List View" class="change-view">
+								                                        	<img
+																			src="${pageContext.request.contextPath }/resources/user/assets/images/list.jpg"
+																			alt="List" />
+								                                        </a>
+								                                    </div>
+								                                    <div
+																		class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
+								                                    	<span
+																			class="filters-toolbar__product-count">Showing: 22</span>
+								                                    </div>
+								                                    <div
+																		class="col-4 col-md-4 col-lg-4 text-right">
+								                                    	<div class="filters-toolbar__item">
+								                                      		<label for="SortBy"
+																				class="hidden">Sort</label>
+								                                      		<select name="SortBy"
+																				id="SortBy"
+																				class="filters-toolbar__input filters-toolbar__input--sort">
+								                                                <option
+																					value="title-ascending" selected="selected">Sort</option>
+								                                                <option>Best Selling</option>
+								                                                <option>Alphabetically, A-Z</option>
+								                                                <option>Alphabetically, Z-A</option>
+								                                                <option>Price, low to high</option>
+								                                                <option>Price, high to low</option>
+								                                                <option>Date, new to old</option>
+								                                                <option>Date, old to new</option>
+								                                      		</select>
+								                                      		<input
+																				class="collection-header__default-sort" type="hidden"
+																				value="manual">
+								                                        </div>
+								                                    </div>
+								
+								                                </div>
+								                            </div>
+								                        </div>
+								                        <!--End Toolbar-->
+								                        <div class="grid-products grid--view-items">
+								                            <div class="row">
+								  <!----------------------------------Product----------------------------------->
+								  					<c:forEach var="listProduct" items="${listProductHSs }">
+								  				
+								                                <div
+																		class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
+																		<div id="tv">
+								                                    <!-- start product image -->
+								                                    <div class="product-image"
+																				style="height: 200px">
+								                                        <!-- start product image -->
+								                                        <a
+								
+																			href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+								
+																				
+								                                            <!-- image -->
+								                                            <c:forEach
+																						var="productPhoto" items="${listProduct.productPhotos }">
+								                                            <img
+								
+																			class="primary blur-up lazyload"
+																			data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			alt="image" title="product">
+								
+																						
+								
+																		
+								                                            <!-- End image -->
+								                                            <!-- Hover image -->
+								                                            <img
+								
+																			class="hover blur-up lazyload"
+																			data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
+																			alt="img"> 
+								
+																							
+								
+								                                           
+								                                           	</c:forEach>
+								                                           	
+								                   
+								                                           	
+								                                           
+								                                            <!-- End product label -->
+								                                        </a>
+								                                        <!-- end product image -->
+								                                        
+								                                        <!-- countdown start -->
+								                                        <div class="saleTime desktop"
+																					data-countdown="${listProduct.endDate }"></div>
+								                                        <!-- countdown end -->
+								    
+								                                        <!-- Start product button -->
+								
+								                                        <form  class="variants add"
+																			action="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }" onclick="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }"
+																			method="get">
+								                                            <button
+																				class="btn btn-addto-cart" type="submit">Auction now</button>
+								                                        </form>
+								                                        
+								                                        <!-- end product button -->
+								                                    </div>
+								                                    <!-- end product image -->
+								    
+								                                    <!--start product details -->
+								                                    <div
+																				class="product-details text-center">
+								                                        <!-- product name -->
+								                                        <div style="height: 85px"
+																					class="product-name">
+								                                            <a
+																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
+																				
+								                                        </div>
+								                                       <br> 	
+								                                           <ul class="product-tags">
+								                              <li><a
+																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
+								                              <c:forEach var="categoryProduct"
+																						items="${listProduct.categoryProducts }">
+								                              <li><a
+																							href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
+															  </c:forEach>		
+								                            
+								                            </ul>
+								                                        
+								                                        <!-- End product name -->
+								                                        <!-- product price -->
+								                                        <div class="">
+								                                           <a
+																				href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">
+								  												<button class="custom-btn btn-16">
+																					<img
+																				height="25" width="30" alt=""
+																				src="${pageContext.request.contextPath }/resources/user/assets/images/auction_icon_product.png">&emsp;&emsp;  $ <span
+																						class="money" id="priceBid" >${listProduct.priceStart }</span> <br>
+								
+																					
+																					<br>
+								
+																				</button>
+																				  </a>
+								</div>
+								                                          
+								                                        
+								                                    </div>
+								                                    <!-- End product details -->
+								                                    <!-- countdown start -->
+								                                    <div class="timermobile">
+																		<div class="saleTime desktop" data-countdown="2022/09/20"></div>
+																	</div>
+								                                    <!-- countdown end -->
+								                             
+								                                </div>
+								                                
+								                                          
+								                                        
+								                                   
+								                                    <!-- End product details -->
+								                                    <!-- countdown start -->
+								                                   
+								                                    <!-- countdown end -->
+								                         </div>
+								                      </c:forEach>
+								  
+								                            <!-- End product  -->
+								                                </div>
+								                               
+								                              
+								                             
+								                                
+								                        </div>
+								                    </div>
+								                    <div class="infinitpaginOuter">
+								                        <div class="infinitpagin">	
+								                            <a
+																href="${pageContext.request.contextPath }/product/productdetail"
+																class="btn loadMore">Load More</a>
+								                        </div>
+								                    </div>
                                         </div>
                                         <div class="tab-pane fade" id="custom-nav-contact" role="tabpanel" aria-labelledby="custom-nav-contact-tab">
                                             <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit

@@ -9,9 +9,11 @@ import com.demo.models.ProductInfo;
 
 public interface ProductService {
 	
-	public Iterable<Product> findAll();
 	
-
+	
+	public List<Product> findAllProHappenning();
+	
+	public List<Product> findAllProHasnotStarted();
 //	public List<ProductInfo> listProductInfo();
 //	public List<String> searchByTerm(String term);
 

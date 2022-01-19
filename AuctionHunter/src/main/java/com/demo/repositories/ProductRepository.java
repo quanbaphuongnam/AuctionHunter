@@ -20,6 +20,14 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 //	@Query("select name from Product where name like %:term%")
 //	public List<String> searchByTerm(@Param("term")String term);
 	
+
+	@Query("from Product where is_delete = 1 and status = 1")
+	public List<Product> findAllProHappenning();
+	
+	@Query("from Product where is_delete = 1 and status = 1")
+	public List<Product> findAllProHasnotStarted();
+	
+	
 	@Query("from Product where name  like %:keyword%")
 	public List<Product> searchByKeyword(@Param("keyword") String keyword);
 

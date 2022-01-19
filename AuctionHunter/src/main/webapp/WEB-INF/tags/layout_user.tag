@@ -89,7 +89,7 @@
 					<div
 						class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
 						<div class="text-center">
-							<p class="top-header_middle-text">Worldwide Express Shipping</p>
+							<p class="top-header_middle-text">Auction products anywhere worldwide</p>
 						</div>
 					</div>
 					<div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">

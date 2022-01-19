@@ -30,18 +30,18 @@ public class HomeController implements ServletContextAware{
 				return "redirect:/admin/index";
 			}else {
 				 
-				modelMap.put("listProducts", productService.findAll());
+				modelMap.put("listProducts", productService.findAllProHappenning());
+				modelMap.put("listProductHSs", productService.findAllProHasnotStarted());
 				return "user/home/index";
 			}
 		}
-		modelMap.put("listProducts", productService.findAll
-				());
+		modelMap.put("listProducts", productService.findAllProHappenning());
 		return "user/home/index";
 	}
 	@RequestMapping(value = {"search"}, method = RequestMethod.GET)
 	public String search(@RequestParam("keyword")String keyword,ModelMap modelMap) {
 		if(keyword == null) {
-			modelMap.put("listProducts", productService.findAll());
+			modelMap.put("listProducts", productService.findAllProHappenning());
 			return "redirect:/home/index";
 		}else {
 			modelMap.put("searchProducts", productService.searchByKeyword(keyword));

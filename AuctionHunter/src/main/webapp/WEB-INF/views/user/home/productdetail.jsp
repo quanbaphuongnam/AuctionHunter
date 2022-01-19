@@ -7,9 +7,9 @@
 	<jsp:attribute name="content">
 
 	<script>
-	setInterval(function(){
+	var refreshIntervalId = setInterval(function(){
 		var value = $('#proid').val();
-		
+		var idAcc2 = ${idAcc};
 		$.ajax({
 			type: 'GET',
 			url: '${pageContext.request.contextPath }/ajax/findWinnerAjax',
@@ -22,26 +22,26 @@
 				var result = '';
 				var result2 = '';
 				var result3 = '';
+				var result4 = '';
 				for(var i = 0;i < 1; i++)
 					{
 					result += '<span>' + winnerAuctions[i].priceBid + '</span>';
+					result4 +=   winnerAuctions[i].accid ;
 					result2 += '<span>' + winnerAuctions[i].accUsername  + '</span>';
 					result3 +=   winnerAuctions[i].priceBid ;
 					}
 				$('#winnerAuctions').html(result);
 				$('#winnerAuctions2').html(result2);
-				/* if(winnerAuctions == ''){
-					document.getElementById("priceBid").value = ${product.priceStart} + priceStep;
-				} 
-				 */
-				
-				if(parseInt(result3) >= document.getElementById("priceBid").value){
-					document.getElementById("priceBid").value = parseInt(result3) + priceStep;
-					document.getElementById("buttonBid").disabled = true;
-				
-				}else{
-					document.getElementById("buttonBid").disabled = false;
-				}
+
+					if(parseInt(result3) >= document.getElementById("priceBid").value){
+						document.getElementById("priceBid").value = parseInt(result3) + priceStep;
+						document.getElementById("buttonBid").disabled = true;
+					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 != idAcc2){
+						document.getElementById("buttonBid").disabled = false;
+					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 == idAcc2){
+						document.getElementById("buttonBid").disabled = true;
+					}
+					
 				
 			}
 		});
@@ -85,10 +85,11 @@
 					success: function(result){
 						if(result == "invalid")
 						{
+							
 							document.getElementById("buttonBid").hidden = true;
 							document.getElementById("alertInfo").value = "Has over the auction time !";
 							document.getElementById("alertInfo").hidden = false;
-							
+							clearInterval(refreshIntervalId);
 						}else if(result != null){
 							$('[data-countdown]').each(function () {
 								var $this = $(this),
@@ -258,40 +259,29 @@
 												aria-hidden="true"></i></a>
                                         </div>
                                         <div class="prInfoRow">
-                                           
-                                            <div class="product-sku">Category:  <c:forEach
-													var="categoryProduct" items="${product.categoryProducts }">
-													<span class="variant-sku">${categoryProduct.category.name }</span> </c:forEach>		
+
+												
+												 <div class="product-stock"> by <span class="instock ">${product.account.username }</span> <span class="outstock hide">Unavailable</span> </div>
+												
 												</div>
-                                           
-                                        </div>
-                                        
-                                        <p
-											class="product-single__price product-single__price-product-template">
-                                            <span
-												class="visually-hidden">Regular price</span>
-                                           
-                                
-                                     
-                                            <span class="discount-badge"> <span
-												class="devider"></span>&nbsp;
-                                                <span>Buy prices now </span>
-                                                <span
-												id="SaveAmount-product-template"
-												class="product-single__save-amount">
-                                                <span class="money">$</span>
-                                                </span>
-                                                
-                                            </span>  
-                                        </p>
+												    <div class="product-info">
+                                      					<p class="product-type"> <a href="http://annimexweb.com/collections/types?q=Women%27s" title="Women's">Trademark</a><span class="lbl"> NIKE</span> &emsp; | &emsp;
+                                      					<a href="http://annimexweb.com/collections/notifications" title="">Category</a>   <c:forEach var="categoryProduct" items="${product.categoryProducts }"><span class="lbl"> ${categoryProduct.category.name }</span> </c:forEach></p>
+                                      					
+                                    				</div>                                      	
+												
+												<br>
+												<div class="product-single__description rte">
+												    <ul>
+												        <li>START  &emsp;&nbsp;<fmt:formatDate var="startDate" value="${product.startDate}" pattern="dd/MM/yyyy HH:mm"/>${startDate}
+												        </li>
+												        <li >END  &emsp; &emsp;<fmt:formatDate var="endDate" value="${product.endDate}" pattern="dd/MM/yyyy HH:mm"/>${endDate}
+												        </li>
+												    </ul>
+												</div>
                                       <!--   winner -->
-                                       
-                                            
-                                            
                                              <div class="orderMsg"
 											data-user="23" data-time="24">
-                                       
-                                       
                                                 <img
 												style="margin-top: 8px"
 												src="${pageContext.request.contextPath }/resources/user/assets/images/order-icon.jpg"
@@ -420,7 +410,7 @@
                                      <div
 										class="product-single__description rte">
                                         <ul>
-                                            <li>${product.endDate}</li>
+                                            <li>When auction you must comply with our <a href="#">policy</a></li>
                                           
                                         </ul>
                                     </div>

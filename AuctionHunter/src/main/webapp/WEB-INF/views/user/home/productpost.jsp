@@ -124,37 +124,35 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                        <label for="input-firstname">Product Name <span  class="required-f">*</span></label>
-                                        <s:input path="name"  type="text"/> 
+                                        <s:input path="name"  type="text" required="required" /> 
                                         
                                     </div>
                                     <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Start <span class="required-f">*</span></label>
                                        
                                          <div class="icon-addon addon-lg">
-						                    <s:input path="priceStart" type="number"  class="form-control"/>
+						                    <s:input path="priceStart" type="number"  class="form-control" required="required"/>
 						                    <label  for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
                                     </div>
-                                    
                                        <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Step <span class="required-f">*</span></label>
                                         <div class="icon-addon addon-lg">
-						                    <s:input path="priceStep" type="number" class="form-control" />
+						                    <s:input path="priceStep" type="number" class="form-control" required="required"/>
 						                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
-                                        
                                     </div>
                                 </div>
                                  <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                          
                        					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-                        				<s:input path="startDate"  name="filter-date"  id="filter-date" />
+                        				<s:input path="startDate"  name="filter-date"  id="filter-date" required="required" />
                
                                     </div>
                                       <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="filter-date">End Date <span  class="required-f">*</span></label>
-                        				<s:input path="endDate"  name="filter-date"  id="filter-date"/>
+                        				<s:input path="endDate"  name="filter-date"  id="filter-date" required="required"/>
                                     </div>
                                 </div>
                                
@@ -201,22 +199,22 @@
                                 <div class="row">
                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
                                         <label  for="input-company">Description <span class="required-f">*</span></label>
-                                        <s:textarea path="description" class="form-control resize-both" rows="5"/>
+                                        <s:textarea path="description" class="form-control resize-both" rows="5" required="required"/>
                                     </div>
                                 </div>
                                 
                             </fieldset>
                               <fieldset>
                                 <div class="row">
-                                    <div class="form-group form-check col-md-12 col-lg-12 col-xl-12">
+                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
                                         <label class="form-check-label padding-15px-left">
-                                            <input type="checkbox" class="form-check-input" value=""/><strong>I have read and agreed the regulations </strong>
+                                            <input type="checkbox" class="form-check-input" value="" required="required"/>&ensp;  &emsp;<strong>I have read and agreed the regulations </strong>
                                         </label>
-                                    </div>
+                                  </div>
                                 </div>
                                  <div class="row">
                                 	 <div class="order-button-payment">
-                                	<button class="btn" value="Place order" type="submit">Submit</button>
+                                	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
                             		</div>
                             	 </div>
                             </fieldset>

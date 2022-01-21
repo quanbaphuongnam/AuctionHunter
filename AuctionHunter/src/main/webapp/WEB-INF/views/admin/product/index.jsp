@@ -1097,41 +1097,36 @@
                                     <th>Created</th>
                                     <th>Setting</th>
                                 </tr>
-                               <c:forEach var="allproductAdmins" items="${ListProduct.content }" >
+                               <c:forEach var="allproductAdmins"
+									items="${ListProduct.content }">
                                 <tr>
                                      <td>${allproductAdmins.id }</td>
                                      
-                                      <c:forEach
-										var="productPhoto" items="${allproductAdmins.productPhotos }" end="0">
-                                   <td><img
-									alt="image" src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
+                                      <c:forEach var="productPhoto"
+											items="${allproductAdmins.productPhotos }" end="0">
+                                   <td><img alt="image"
+												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
 									</c:forEach>
 									
                                     <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when test="${allproductAdmins.status==1 }">
+                                    <td><c:choose> <c:when
+													test="${allproductAdmins.status==1 }">
                                     <button class="pd-setting">Active</button>
                                     </c:when>
-                                    <c:when test="${allproductAdmins.status==0 }">
+                                    <c:when
+													test="${allproductAdmins.status==0 }">
                                     <button class="ps-setting">Paused</button>
                                     </c:when>
-                                    <c:when test="${allproductAdmins.status==2 }">
+                                    <c:when
+													test="${allproductAdmins.status==2 }">
                                     <button class="pd-setting">Disable</button>
                                     </c:when>
                                     </c:choose>
                                     </td>
                                     <td>${allproductAdmins.priceStart }</td>
-                                    <td> <fmt:formatDate var="day"
-								     value="${allproductAdmins.startDate }"
-								     pattern="dd/MM/yyyy"/>
-				                       ${day }</td>
-                                    <td> <fmt:formatDate var="day1"
-								     value="${allproductAdmins.startDate }"
-								     pattern="dd/MM/yyyy"/>
-				                       ${day1 }</td>
-				                        <td> <fmt:formatDate var="day2"
-								     value="${allproductAdmins.created }"
-								     pattern="dd/MM/yyyy"/>
-				                       ${day2 }</td>
+                                    <td> <fmt:formatDate var="day" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day }</td>
+                                    <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
+				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
                                     <td>
                                         <button data-toggle="tooltip"
 												title="Edit" class="pd-setting-ed">
@@ -1148,10 +1143,31 @@
                             </table>
                             <div class="custom-pagination">
 								<ul class="pagination">
-								    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/productadmin?p=0">First</a></li>
-									<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}">Next</a></li>
-									<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}">Last</a></li>
+								    <li class="page-item"><a class="page-link"
+										href="${pageContext.request.contextPath }/productadmin?p=0">First</a></li>
+								    <c:choose>
+								        <c:when test="${ListProduct.number == 0}">
+									
+								        </c:when>
+								            <c:otherwise>
+									           <li class="page-item"><a class="page-link"
+												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}">Previous</a></li>
+								            </c:otherwise>
+							        </c:choose>
+							        <c:choose>
+								         <c:when
+											test="${ListProduct.number == (ListProduct.totalPages -1) }">
+									
+								        </c:when>
+							              	<c:otherwise>
+									           <li class="page-item"><a class="page-link"
+												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}">Next</a></li>
+								            </c:otherwise>
+						        	</c:choose>
+									
+									
+									<li class="page-item"><a class="page-link"
+										href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}">Last</a></li>
 								</ul>
                             </div>
                         </div>

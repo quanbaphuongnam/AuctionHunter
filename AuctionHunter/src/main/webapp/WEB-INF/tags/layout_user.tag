@@ -197,8 +197,7 @@
 					</div>
 					<div class="col-4 col-sm-3 col-md-3 col-lg-2">
 						<div class="site-cart">
-							<a href="#;" class="site-header__cart" title="Cart"> <i
-								class="icon anm anm-bag-l"></i> <span id="CartCount"
+							<a href="#;" class="site-header__cart" title="Cart"> <i class="icon fa fa-bell-o"></i> <span id="CartCount"
 								class="site-header__cart-count" data-cart-render="item_count">2</span>
 							</a>
 							<!--Minicart Popup-->

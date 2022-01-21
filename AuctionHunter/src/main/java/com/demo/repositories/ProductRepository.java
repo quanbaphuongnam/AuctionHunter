@@ -3,6 +3,8 @@ import com.demo.models.ProductInfo;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -38,6 +40,9 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 
 	@Query("from Product where account_id = :account_id  order by id desc")
 	public List<Product> findAllByIdAcc(@Param("account_id")int account_id);
+	
+	@Query("select e from Product e")
+	Page<Product> findpage(Pageable pageable);
 
 	
 }

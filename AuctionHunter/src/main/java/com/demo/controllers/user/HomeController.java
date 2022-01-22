@@ -1,5 +1,7 @@
 package com.demo.controllers.user;
 
+import java.util.Date;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
@@ -39,15 +41,15 @@ public class HomeController implements ServletContextAware{
 				return "redirect:/admin/index";
 			}else {
 				 
-				modelMap.put("listProducts", productService.findAllProHappenning());
-				modelMap.put("listProductHSs", productService.findAllProHasnotStarted());
+				modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
+				modelMap.put("listProductHSs", productService.findAllProHasnotStarted(new Date()));
 				modelMap.put("categorys", categoryService.findAll());
 				modelMap.put("brands", brandService.findAll());
 				return "user/home/index";
 			}
 		}
-		modelMap.put("listProducts", productService.findAllProHappenning());
-		modelMap.put("listProductHSs", productService.findAllProHasnotStarted());
+		modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
+		modelMap.put("listProductHSs", productService.findAllProHasnotStarted(new Date()));
 		modelMap.put("categorys", categoryService.findAll());
 		modelMap.put("brands", brandService.findAll());
 		return "user/home/index";
@@ -55,7 +57,7 @@ public class HomeController implements ServletContextAware{
 	@RequestMapping(value = {"search"}, method = RequestMethod.GET)
 	public String search(@RequestParam("keyword")String keyword,ModelMap modelMap) {
 		if(keyword == null) {
-			modelMap.put("listProducts", productService.findAllProHappenning());
+			modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
 			return "redirect:/home/index";
 		}else {
 			modelMap.put("searchProducts", productService.searchByKeyword(keyword));

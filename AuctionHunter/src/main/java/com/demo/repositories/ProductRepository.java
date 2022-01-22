@@ -1,6 +1,7 @@
 package com.demo.repositories;
 import com.demo.models.ProductInfo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -23,11 +24,11 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 //	public List<String> searchByTerm(@Param("term")String term);
 	
 
-	@Query("from Product where is_delete = 1 and status = 1")
-	public List<Product> findAllProHappenning();
+	@Query("from Product where is_delete = 1 and status = 1 and start_date <= :dateNow and end_date >= :dateNow")
+	public List<Product> findAllProHappenning(@Param("dateNow") Date dateNow);
 	
-	@Query("from Product where is_delete = 1 and status = 1")
-	public List<Product> findAllProHasnotStarted();
+	@Query("from Product where is_delete = 1 and status = 1 and start_date > :dateNow")
+	public List<Product> findAllProHasnotStarted(@Param("dateNow") Date dateNow);
 	
 	
 	@Query("from Product where name  like %:keyword%")

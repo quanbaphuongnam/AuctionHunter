@@ -1,5 +1,6 @@
 package com.demo.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +51,14 @@ public  class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> findAllProHappenning() {
+	public List<Product> findAllProHappenning(Date dateNow) {
 		
-		return productRepository.findAllProHappenning();
+		return productRepository.findAllProHappenning(dateNow);
 	}
 	@Override
-	public List<Product> findAllProHasnotStarted() {
+	public List<Product> findAllProHasnotStarted(Date dateNow) {
 		
-		return productRepository.findAllProHasnotStarted();
+		return productRepository.findAllProHasnotStarted(dateNow);
 	}
 	@Override
 	public Iterable<Product> findAll() {

@@ -357,44 +357,32 @@
                                                 
                                             </div> 
                                             <c:choose>
-											<c:when
+												<c:when
 												test="${pageContext.request.userPrincipal.name != null}">
 												
-                                            <c:choose>
-		                                            <c:when test="${pageContext.request.userPrincipal.name == product.account.username}">
-															  <div
-													class="product-form__item--submit">
-								
-	                                               
-	                                            </div>
-		                                                
+                                            		<c:choose>
+		                                            	<c:when test="${pageContext.request.userPrincipal.name == product.account.username}">
+															  <div class="product-form__item--submit"></div>       
+														</c:when>
+														<c:otherwise>
+														 		<div class="product-form__item--submit">
+			                                                		<button style="margin-top: 2px" type="button" name="add"
+																		class="btn product-form__cart-submit" id="buttonBid">Place Bid</button>
+			                                            		</div> 
+														</c:otherwise>
+                                            		</c:choose>  
 												</c:when>
 												<c:otherwise>
-													 <div
-													class="product-form__item--submit">
-									
-		                                                <button
-														style="margin-top: 2px" type="button" name="add"
-														class="btn product-form__cart-submit" id="buttonBid">
-		                                                    Place Bid
-		                                                </button>
-		                                            </div>
+											 		<a href="${pageContext.request.contextPath }/account/login">
+											 		<div class="product-form__item--submit">
+                                                		<button style="margin-top: 2px" type="button" name="add"
+															class="btn product-form__cart-submit" >
+                                                   		<span>You must be logged in</span>
+                                                		</button>
+                                            		</div>
+                                            		</a>
 												</c:otherwise>
-                                            </c:choose>  
-											</c:when>
-											<c:otherwise>
-											 <a href="${pageContext.request.contextPath }/account/login">
-											 <div
-											class="product-form__item--submit">
-                                                <button
-												style="margin-top: 2px" type="button" name="add"
-												class="btn product-form__cart-submit" >
-                                                   <span>You must be logged in</span>
-                                                </button>
-                                            </div>
-                                            </a>
-											</c:otherwise>
-										</c:choose>                               
+											</c:choose>                               
                                            <input style="color:red;
                                              border-color: red;" type="text" id="alertInfo"disabled="disabled" hidden="true"></input>
                                              

@@ -1031,10 +1031,10 @@
 	  33. Infinite Scroll js
 	  -------------------------------------*/
 	function load_more(){
-        $(".product-load-more .item").slice(0, 16).show();
+        $(".product-load-more .item").slice(0, 17).show();
         $(".loadMore").on('click', function (e) {
             e.preventDefault();
-            $(".product-load-more .item:hidden").slice(0, 4).slideDown();
+            $(".product-load-more .item:hidden").slice(0, 5).slideDown();
             if ($(".product-load-more .item:hidden").length == 0) {
                 $(".infinitpagin").html('<div class="btn loadMore">no more products</div>');
             }

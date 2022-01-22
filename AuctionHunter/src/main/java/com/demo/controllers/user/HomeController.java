@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.ServletContextAware;
 
+import com.demo.services.BrandService;
+import com.demo.services.CategoryService;
 import com.demo.services.ProductService;
 
 @Controller
@@ -20,8 +22,15 @@ import com.demo.services.ProductService;
 public class HomeController implements ServletContextAware{
 	
 	private ServletContext servletContext;
+	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
+	private BrandService brandService;
 	
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index(Authentication authentication,ModelMap modelMap) {
@@ -32,10 +41,15 @@ public class HomeController implements ServletContextAware{
 				 
 				modelMap.put("listProducts", productService.findAllProHappenning());
 				modelMap.put("listProductHSs", productService.findAllProHasnotStarted());
+				modelMap.put("categorys", categoryService.findAll());
+				modelMap.put("brands", brandService.findAll());
 				return "user/home/index";
 			}
 		}
 		modelMap.put("listProducts", productService.findAllProHappenning());
+		modelMap.put("listProductHSs", productService.findAllProHasnotStarted());
+		modelMap.put("categorys", categoryService.findAll());
+		modelMap.put("brands", brandService.findAll());
 		return "user/home/index";
 	}
 	@RequestMapping(value = {"search"}, method = RequestMethod.GET)

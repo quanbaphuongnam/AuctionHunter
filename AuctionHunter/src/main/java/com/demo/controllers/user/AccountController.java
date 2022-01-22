@@ -101,9 +101,7 @@ public class AccountController implements ServletContextAware{
 						@RequestParam(value = "logout", required = false) String logout,
 						RedirectAttributes redirectAttributes,Authentication authentication) {
 		if(error != null) {
-			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");
-		
-			 
+			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");	 
 			return "redirect:/account/login";
 		}
 		if(logout != null) {
@@ -134,14 +132,12 @@ public class AccountController implements ServletContextAware{
 
 	//------------------register----------------------------------
 	@RequestMapping(value="register", method = RequestMethod.GET)
-	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail, HttpSession session) {
+	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail, HttpSession session, RedirectAttributes redirectAttributes) {
 		if(checkEmail != null) {
 			Account account1 = (Account) session.getAttribute("account");
-			System.out.println(account1.getUsername());
-			
-			//accountService.save(account);
-			
+			accountService.save(account1); 
 			session.removeAttribute("account");
+			redirectAttributes.addFlashAttribute("msg", "SignUpSuccess");
 			return "redirect:/account/login";
 		}
 		Account account = new Account();

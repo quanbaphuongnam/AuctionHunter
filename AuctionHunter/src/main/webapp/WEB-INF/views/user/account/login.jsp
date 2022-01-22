@@ -23,6 +23,14 @@
 					showConfirmButton : false,
 					timer : 2000
 				});
+			} else if (msg1 == 'SignUpSuccess') {
+				Swal.fire({
+					position : 'center',
+					icon : 'success',
+					title : 'Sign Up Success',
+					showConfirmButton : false,
+					timer : 2000
+				});
 			}
 		</script>
        <!--Page Title-->

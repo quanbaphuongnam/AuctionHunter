@@ -39,42 +39,10 @@
 							</div>
                             <div class="widget-content">
                                 <ul class="sidebar_categories">
-                                    <li class="level1 sub-level"><a
-										href="#;" class="site-nav">Clothing</a>
-                                    	<ul class="sublinks">
-                                        	<li class="level2"><a
-												href="#;" class="site-nav">Men</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Women</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Child</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">View All Clothing</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="level1 sub-level"><a
-										href="#;" class="site-nav">Jewellery</a>
-                                    	<ul class="sublinks">
-                                        	<li class="level2"><a
-												href="#;" class="site-nav">Ring</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Neckalses</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">Eaarings</a></li>
-                                            <li class="level2"><a
-												href="#;" class="site-nav">View All Jewellery</a></li>
-                                        </ul>
-                                    </li>
+                                <c:forEach var="category" items="${categorys }">
                                     <li class="lvl-1"><a href="#;"
-										class="site-nav">Shoes</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Accessories</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Collections</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Sale</a></li>
-                                    <li class="lvl-1"><a href="#;"
-										class="site-nav">Page</a></li>
+										class="site-nav">${category.name }</a></li>
+								</c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -113,29 +81,6 @@
                             </form>
                         </div>
                         <!--End Price Filter-->
-                        <!--Size Swatches-->
-                        <div
-							class="sidebar_widget filterBox filter-widget size-swacthes">
-                            <div class="widget-title">
-								<h2>Size</h2>
-							</div>
-                            <div class="filter-color swacth-list">
-                            	<ul>
-                                    <li><span
-										class="swacth-btn checked">X</span></li>
-                                    <li><span class="swacth-btn">XL</span></li>
-                                    <li><span class="swacth-btn">XLL</span></li>
-                                    <li><span class="swacth-btn">M</span></li>
-                                    <li><span class="swacth-btn">L</span></li>
-                                    <li><span class="swacth-btn">S</span></li>
-                                    <li><span class="swacth-btn">XXXL</span></li>
-                                    <li><span class="swacth-btn">XXL</span></li>
-                                    <li><span class="swacth-btn">XS</span></span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--End Size Swatches-->
-                        
                         <!--Brand-->
                         <div
 							class="sidebar_widget filterBox filter-widget">
@@ -143,31 +88,10 @@
 								<h2>Brands</h2>
 							</div>
                             <ul>
-                                <li>
-                                  <input type="checkbox"
-									value="allen-vela" id="check1">
-                                  <label for="check1"><span><span></span></span>Allen Vela</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="oxymat"
-									id="check3">
-                                  <label for="check3"><span><span></span></span>Oxymat</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="vanelas"
-									id="check4">
-                                  <label for="check4"><span><span></span></span>Vanelas</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="pagini"
-									id="check5">
-                                  <label for="check5"><span><span></span></span>Pagini</label>
-                                </li>
-                                <li>
-                                  <input type="checkbox" value="monark"
-									id="check6">
-                                  <label for="check6"><span><span></span></span>Monark</label>
-                                </li>
+                                <c:forEach var="brand" items="${brands }">
+                                    <li class="lvl-1"><a href="#;"
+										class="site-nav">${brand.name }</a></li>
+								</c:forEach>
                             </ul>
                         </div>
                         <!--End Brand-->
@@ -533,17 +457,17 @@
 								                                        <div style="height: 85px"
 																					class="product-name">
 								                                            <a
-																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.name }</a>
+																						href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">${listProduct.name }</a>
 																				
 								                                        </div>
 								                                       <br> 	
 								                                           <ul class="product-tags">
 								                              <li><a
-																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
-								                              <c:forEach var="categoryProduct"
-																						items="${listProduct.categoryProducts }">
+																						href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">${listProduct.account.username }</a></li>
+								                              <c:forEach var="brandProduct"
+																						items="${listProduct.brandProducts }">
 								                              <li><a
-																							href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
+																							href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">${brandProduct.brand.name }</a></li>
 															  </c:forEach>		
 								                            
 								                            </ul>

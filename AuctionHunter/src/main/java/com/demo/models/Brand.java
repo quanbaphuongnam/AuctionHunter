@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,19 +22,19 @@ import javax.persistence.Table;
 public class Brand implements java.io.Serializable {
 
 	private Integer id;
-	private int name;
+	private String name;
 	private int isDelete;
 	private Set<BrandProduct> brandProducts = new HashSet<BrandProduct>(0);
 
 	public Brand() {
 	}
 
-	public Brand(int name, int isDelete) {
+	public Brand(String name, int isDelete) {
 		this.name = name;
 		this.isDelete = isDelete;
 	}
 
-	public Brand(int name, int isDelete, Set<BrandProduct> brandProducts) {
+	public Brand(String name, int isDelete, Set<BrandProduct> brandProducts) {
 		this.name = name;
 		this.isDelete = isDelete;
 		this.brandProducts = brandProducts;
@@ -50,12 +52,13 @@ public class Brand implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "name", nullable = false)
-	public int getName() {
+
+	@Column(name = "name", nullable = false, length = 50)
+	public String getName() {
 		return this.name;
 	}
 
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 

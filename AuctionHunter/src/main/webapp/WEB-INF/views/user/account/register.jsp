@@ -17,15 +17,17 @@
 					  showCancelButton: false,
 					  confirmButtonText: 'Check',
 					  showLoaderOnConfirm: true,
-					  preConfirm: (check) => {
+					  inputValidator: (value) => {
 						  var code = '${code}';
-						  if (check != code) {
-							  Swal.showValidationMessage('aa')
-						    }else {
-						    	window.location = '${pageContext.request.contextPath }/account/register?checkEmail'
-						    }
-						  },
-					})
+						    if (!value) {
+						      return 'Please enter the confirmation code!'
+						    }else if (value != code) {
+						    	return 'Verification code is wrong, please re-enter!'
+							}else {
+							    window.location = '${pageContext.request.contextPath }/account/register?checkEmail'
+							}
+					  },
+				})
 			}
 	</script>
 		<!--Page Title-->

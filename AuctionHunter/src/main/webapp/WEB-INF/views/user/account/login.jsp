@@ -26,7 +26,7 @@
 			} else if (msg1 == 'SignUpSuccess') {
 				Swal.fire({
 					position : 'center',
-					icon : 'success',
+					icon : 'error',
 					title : 'Sign Up Success',
 					showConfirmButton : false,
 					timer : 2000

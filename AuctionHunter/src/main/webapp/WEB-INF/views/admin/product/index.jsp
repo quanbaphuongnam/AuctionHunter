@@ -261,9 +261,13 @@
 															href="#"><span
 																class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
+<<<<<<< HEAD
+                                                        <li><a href="${pageContext.request.contextPath }/account/logout"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+=======
                                                         <li><a
 															href="login.html"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+>>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
                                                         </li>
                                                     </ul>
                                                 </li>

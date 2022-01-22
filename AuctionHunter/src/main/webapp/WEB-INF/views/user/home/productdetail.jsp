@@ -10,6 +10,7 @@
 	var refreshIntervalId = setInterval(function(){
 		var value = $('#proid').val();
 		var idAcc2 = ${idAcc};
+		
 		$.ajax({
 			type: 'GET',
 			url: '${pageContext.request.contextPath }/ajax/findWinnerAjax',
@@ -38,8 +39,13 @@
 						document.getElementById("buttonBid").disabled = true;
 					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 != idAcc2){
 						document.getElementById("buttonBid").disabled = false;
+						document.getElementById("alertInfo").hidden = true;
 					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 == idAcc2){
+						
 						document.getElementById("buttonBid").disabled = true;
+						document.getElementById("alertInfo").value = "You have to wait for another person to pay a higher price to continue";
+						document.getElementById("alertInfo").hidden = false;
+					
 					}
 					
 				
@@ -86,22 +92,28 @@
 						if(result == "invalid")
 						{
 							
+							
 							document.getElementById("buttonBid").hidden = true;
 							document.getElementById("alertInfo").value = "Has over the auction time !";
 							document.getElementById("alertInfo").hidden = false;
+							Swal.fire({
+								  
+								  title: 'Auction has ended !',
+								  imageUrl: '${pageContext.request.contextPath }/resources/user/assets/images/iconendauction.jpg',
+								  imageWidth: 400,
+								  imageHeight: 200,
+								  footer: '<a href="${pageContext.request.contextPath }/home/index">Go to another auction</a>'
+								})
 							clearInterval(refreshIntervalId);
 						}else if(result != null){
 							$('[data-countdown]').each(function () {
 								var $this = $(this),
 									finalDate = result;
-									
 								$this.countdown(finalDate, function (event) {
 									$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
 								});
 							});
-						
 						}
-						
 					}
 				});
 	}, 1000)
@@ -121,14 +133,14 @@
 				},
 				success: function(data){
 					//$('#resultpriceBid').html(data);
-					Swal.fire({
+					 Swal.fire({
 					  position: 'top',
 					  icon: 'success',
 					  title: 'You have just stained the price',
 					  showConfirmButton: false,
 					  timer: 1000
-					})
-				}
+					}) 
+					
 			});
 		});
 		
@@ -139,6 +151,7 @@
 	
 	<button id="proid" value="${idPro}" >${idPro}</button>
 	<button id="accid" value="${idAcc}" >${idAcc}</button>
+		<button id="accid" value="${idAcc}" >${idAcc}</button>
 	<button id="resultpriceBid"  ></button>
 		<!--Collection Banner-->
     	<div class="collection-header">
@@ -259,17 +272,12 @@
 												aria-hidden="true"></i></a>
                                         </div>
                                         <div class="prInfoRow">
-
-												
 												 <div class="product-stock"> by <span class="instock ">${product.account.username }</span> <span class="outstock hide">Unavailable</span> </div>
-												
 												</div>
 												    <div class="product-info">
-                                      					<p class="product-type"> <a href="http://annimexweb.com/collections/types?q=Women%27s" title="Women's">Trademark</a><span class="lbl"> NIKE</span> &emsp; | &emsp;
-                                      					<a href="http://annimexweb.com/collections/notifications" title="">Category</a>   <c:forEach var="categoryProduct" items="${product.categoryProducts }"><span class="lbl"> ${categoryProduct.category.name }</span> </c:forEach></p>
-                                      					
+                                      					<p class="product-type"> <a  title="Women's">Trademark</a><span class="lbl"> NIKE</span> &emsp; | &emsp;
+                                      					<a  title="">Category</a>   <c:forEach var="categoryProduct" items="${product.categoryProducts }"><span class="lbl"> ${categoryProduct.category.name }</span> </c:forEach></p>
                                     				</div>                                      	
-												
 												<br>
 												<div class="product-single__description rte">
 												    <ul>
@@ -374,7 +382,7 @@
 													class="product-form__item--submit">
 									
 		                                                <button
-														style="margin-top: 2px" type="button" name="add"
+														style="margin-top: 2px"  data-swal-toast-template='#my-template' type="button" name="add"
 														class="btn product-form__cart-submit" id="buttonBid">
 		                                                    Place Bid
 		                                                </button>

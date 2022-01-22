@@ -217,9 +217,7 @@
                                 	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
                             		</div>
                             	 </div>
-                            </fieldset>
-                           
-
+                            </fieldset>                           
                         </s:form>
                     </div>
                 </div>

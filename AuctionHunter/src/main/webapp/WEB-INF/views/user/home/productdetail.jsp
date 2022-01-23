@@ -33,16 +33,21 @@
 				$('#winnerAuctions').html(result);
 				$('#winnerAuctions2').html(result2);
 
-					if(parseInt(result3) >= document.getElementById("priceBid").value){
-						document.getElementById("priceBid").value = parseInt(result3) + priceStep;
-						document.getElementById("buttonBid").disabled = true;
-					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 != idAcc2){
-						document.getElementById("buttonBid").disabled = false;
-					}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 == idAcc2){
-						document.getElementById("buttonBid").disabled = true;
-					}
+
+				if(parseInt(result3) >= document.getElementById("priceBid").value){
+					document.getElementById("priceBid").value = parseInt(result3) + priceStep;
+					document.getElementById("buttonBid").disabled = true;
+				}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 != idAcc2){
+					document.getElementById("buttonBid").disabled = false;
+					document.getElementById("alertInfo").hidden = true;
+				}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 == idAcc2){
 					
+					document.getElementById("buttonBid").disabled = true;
+					document.getElementById("alertInfo").value = "You have to wait for another person to pay a higher price to continue";
+					document.getElementById("alertInfo").hidden = false;
 				
+				}
+
 			}
 		});
 				$.ajax({
@@ -83,6 +88,7 @@
 						product_id: value
 					},
 					success: function(result){
+						
 						if(result == "invalid")
 						{
 							
@@ -369,17 +375,6 @@
                                             		</c:choose>  
 												</c:when>
 												<c:otherwise>
-
-													 <div
-													class="product-form__item--submit">
-									
-		                                                <button
-														style="margin-top: 2px"  data-swal-toast-template='#my-template' type="button" name="add"
-														class="btn product-form__cart-submit" id="buttonBid">
-		                                                    Place Bid
-		                                                </button>
-		                                            </div>
-
 											 		<a href="${pageContext.request.contextPath }/account/login">
 											 		<div class="product-form__item--submit">
                                                 		<button style="margin-top: 2px" type="button" name="add"

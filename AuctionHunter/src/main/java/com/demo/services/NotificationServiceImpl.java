@@ -18,6 +18,7 @@ public class NotificationServiceImpl implements NotificationService{
 	public List<Notification> findAllByIdAcc(int account_id) {
 		
 		return notificationRepository.findAllByIdAcc(account_id);
+		
 	}
 
 }

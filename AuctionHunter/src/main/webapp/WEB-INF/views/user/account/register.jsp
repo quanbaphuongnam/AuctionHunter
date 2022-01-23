@@ -9,14 +9,17 @@
 			if (msg1 == 'Check email') {
 				Swal.fire({
 					  title: 'Email confirmation code: ',
-					  input: 'text',
+					  input: 'number',
 					  inputAttributes: {
-					    autocapitalize: 'off'
+					    autocapitalize: 'off',
+					    min: 100000,
+					    max: 999999
 					  },
 					  allowOutsideClick: false,
 					  showCancelButton: false,
 					  confirmButtonText: 'Check',
 					  showLoaderOnConfirm: true,
+					  inputPlaceholder: 'Enter the 6-digit verification code...', 
 					  inputValidator: (value) => {
 						  var code = '${code}';
 						    if (!value) {

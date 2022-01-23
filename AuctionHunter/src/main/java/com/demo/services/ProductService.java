@@ -1,5 +1,6 @@
 package com.demo.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -14,9 +15,9 @@ public interface ProductService {
 	
 	
 	
-	public List<Product> findAllProHappenning();
+	public List<Product> findAllProHappenning(Date dateNow);
 	
-	public List<Product> findAllProHasnotStarted();
+	public List<Product> findAllProHasnotStarted(Date dateNow);
 //	public List<ProductInfo> listProductInfo();
 //	public List<String> searchByTerm(String term);
 

@@ -164,22 +164,21 @@
                                     
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-country">Category  <span class="required-f">*</span></label>
+                                        
                                         <select name="country_id">
-                                            <option value=""> --- Please Select --- </option>
-                                            <option value="244">Giay </option>
-                                            <option value="1">Dep </option>
-                                            <option value="2">...</option>
-                                          
+                                         <option> --- select --</option>
+                                        	<c:forEach var="category" items="${categorys}">
+                                            <option value="${category.id }" name="category"> ${category.name}</option>
+                                          	</c:forEach>
                                         </select>
                                     </div>
-                               
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
-                                        <select name="zone_id" >
-                                            <option value=""> --- Please Select --- </option>
-                                            <option value="3513">Luon vui tuoi</option>
-                                            <option value="3514">Cha neo</option>
-                                       
+                                        <select name="zone_id" 
+                                             <option> --- select -- </option>>
+                                           	<c:forEach var="brand" items="${brands}">
+                                            	<option value="${brand.id }" name="brand"> ${brand.name}</option>
+                                          	</c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -189,7 +188,7 @@
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
                                         
-                                       <%--  <s:input path="email" name="firstname" value=""  type="file"  accept="image/*" multiple/> --%>
+                                        <input  name="files"   type="file"  accept="image/*" multiple="multiple"/> 
                                     </div>
                                      
                                 </div>

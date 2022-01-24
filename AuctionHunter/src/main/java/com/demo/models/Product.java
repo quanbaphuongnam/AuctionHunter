@@ -41,7 +41,7 @@ public class Product implements java.io.Serializable {
 	private Set<HistoryAuction> historyAuctions = new HashSet<HistoryAuction>(0);
 	private Set<BrandProduct> brandProducts = new HashSet<BrandProduct>(0);
 	private Set<ProductPhoto> productPhotos = new HashSet<ProductPhoto>(0);
-	private Set<Notification> notifications = new HashSet<Notification>(0);
+	
 	private Set<Cart> carts = new HashSet<Cart>(0);
 	private Set<Invoice> invoices = new HashSet<Invoice>(0);
 
@@ -65,7 +65,7 @@ public class Product implements java.io.Serializable {
 	public Product(Account account, String name, String description, double priceStart, Date startDate, Date endDate,
 			double priceStep, Date created, int status, boolean isDelete, Set<CategoryProduct> categoryProducts,
 			Set<HistoryAuction> historyAuctions, Set<BrandProduct> brandProducts, Set<ProductPhoto> productPhotos,
-			Set<Notification> notifications, Set<Cart> carts, Set<Invoice> invoices) {
+			 Set<Cart> carts, Set<Invoice> invoices) {
 		this.account = account;
 		this.name = name;
 		this.description = description;
@@ -80,7 +80,7 @@ public class Product implements java.io.Serializable {
 		this.historyAuctions = historyAuctions;
 		this.brandProducts = brandProducts;
 		this.productPhotos = productPhotos;
-		this.notifications = notifications;
+		
 		this.carts = carts;
 		this.invoices = invoices;
 	}
@@ -227,14 +227,7 @@ public class Product implements java.io.Serializable {
 		this.productPhotos = productPhotos;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-	public Set<Notification> getNotifications() {
-		return this.notifications;
-	}
 
-	public void setNotifications(Set<Notification> notifications) {
-		this.notifications = notifications;
-	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	public Set<Cart> getCarts() {

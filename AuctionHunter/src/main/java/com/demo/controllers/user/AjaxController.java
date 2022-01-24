@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.models.Account;
 import com.demo.models.HistoryAuction;
 import com.demo.models.HistoryAuctionAjax;
-import com.demo.models.Notification;
+
 import com.demo.models.Product;
 import com.demo.services.AccountService;
 import com.demo.services.HistoryAuctionService;
-import com.demo.services.NotificationService;
+
 import com.demo.services.ProductService;
 
 @RestController
@@ -41,8 +41,7 @@ public class AjaxController {
 
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
-	@Autowired
-	private NotificationService notificationService;
+
 	
 	@RequestMapping(value="findWinnerAjax", method = RequestMethod.GET,produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 	public List<HistoryAuctionAjax> findWinnerAjax(@RequestParam("product_id")int product_id,ModelMap modelMap,Product product) {
@@ -105,29 +104,27 @@ public class AjaxController {
 		Product product = productService.find(product_id);
 		
 		Date dateEnd = product.getEndDate();
+		Date dateStart = product.getStartDate();
 		Date dateNow =  new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String dateNew = format.format(dateEnd);
-		if(dateNow.compareTo(dateEnd) >= 0) {
-			product.setStatus(2);
-			productService.save(product);
-			return "invalid";
+		if(dateNow.compareTo(dateStart) >= 0) {
+		
+			if(dateNow.compareTo(dateEnd) >= 0) {
+				product.setStatus(2);
+				productService.save(product);
+				return "invalid";
+				
+			}else {
+	 			return dateNew;
+			}
 			
-		}else {
- 			return dateNew;
+		} else {
+			return "invalidStart";
 		}
 		
 	}
-	/*
-	 * @RequestMapping(value="findAllNotiByIdAcc", method =
-	 * RequestMethod.GET,produces = MimeTypeUtils.APPLICATION_JSON_VALUE) public
-	 * List<Notification> findAllNotiByIdAcc(@RequestParam("account_id")int
-	 * account_id) {
-	 * 
-	 * return notificationService.findAllByIdAcc(account_id); }
-	 */
-	
-	
+
 //	@RequestMapping(value = { "", "search" }, method = RequestMethod.GET,
 //	produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 //	public List<String> search(@RequestParam("term")String term) {

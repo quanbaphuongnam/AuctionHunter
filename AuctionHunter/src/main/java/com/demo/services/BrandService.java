@@ -5,5 +5,5 @@ import com.demo.models.Brand;
 public interface BrandService {
 	
 	public Iterable<Brand> findAll();	
-
+	public Brand find(int id);
 }

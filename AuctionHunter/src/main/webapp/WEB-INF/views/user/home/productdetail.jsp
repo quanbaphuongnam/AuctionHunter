@@ -88,26 +88,35 @@
 						product_id: value
 					},
 					success: function(result){
-						
-						if(result == "invalid")
+						if(result != "invalidStart")
 						{
 							
-							document.getElementById("buttonBid").hidden = true;
-							document.getElementById("alertInfo").value = "Has over the auction time !";
+							if(result == "invalid")
+							{
+								
+								document.getElementById("buttonBid").hidden = true;
+								document.getElementById("alertInfo").value = "Has over the auction time !";
+								document.getElementById("alertInfo").hidden = false;
+								clearInterval(refreshIntervalId);
+							}else if(result != null){
+								$('[data-countdown]').each(function () {
+									var $this = $(this),
+										finalDate = result;
+										
+									$this.countdown(finalDate, function (event) {
+										$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
+									});
+								});
+							
+							}
+							
+						}else {
+								document.getElementById("buttonBid").hidden = true;
+							document.getElementById("alertInfo").value = "Auction hasn't started!";
 							document.getElementById("alertInfo").hidden = false;
 							clearInterval(refreshIntervalId);
-						}else if(result != null){
-							$('[data-countdown]').each(function () {
-								var $this = $(this),
-									finalDate = result;
-									
-								$this.countdown(finalDate, function (event) {
-									$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
-								});
-							});
-						
 						}
-						
+					
 					}
 				});
 	}, 1000)
@@ -145,7 +154,7 @@
 	
 	<button id="proid" value="${idPro}" >${idPro}</button>
 	<button id="accid" value="${idAcc}" >${idAcc}</button>
-		<button id="accid" value="${idAcc}" >${idAcc}</button>
+	
 	<button id="resultpriceBid"  ></button>
 		<!--Collection Banner-->
     	<div class="collection-header">

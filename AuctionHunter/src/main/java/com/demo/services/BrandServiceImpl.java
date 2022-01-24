@@ -18,4 +18,10 @@ public  class BrandServiceImpl implements BrandService{
 		return brandRepository.findAll();
 	}
 
+	@Override
+	public Brand find(int id) {
+		
+		return brandRepository.findById(id).get();
+	}
+
 }

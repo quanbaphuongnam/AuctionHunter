@@ -15,23 +15,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
 import com.demo.models.Product;
 import com.demo.services.AccountService;
+import com.demo.services.BrandService;
+import com.demo.services.CategoryService;
 import com.demo.services.HistoryAuctionService;
 import com.demo.services.ProductService;
 
 @Controller
 @RequestMapping(value="product")
 public class ProductController {
-
+	private ServletContext servletContext;
+	
 	private int id;
 	@Autowired
 	private AccountService accountService;
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
+	private BrandService brandService;
 	
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
@@ -41,14 +52,20 @@ public class ProductController {
 		if(authentication != null) {
 		HttpSession session = request.getSession();
 		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-		 id = (int) session.getAttribute("idAcc");
+		
+		 modelMap.put("product", product);
+		 modelMap.put("categorys", categoryService.findAll());
+		 modelMap.put("brands", brandService.findAll());
+		 
+		}else {
+			return "user/account/login";
 		}
 		 
 	
 		return "user/home/productpost";
 	}
 	@RequestMapping(value="productpost", method = RequestMethod.POST)
-	public String productpost(@ModelAttribute("product") Product product,ModelMap modelMap,Authentication authentication,HttpServletRequest request) {	
+	public String productpost(@ModelAttribute("product") Product product,@RequestParam(value = "files") MultipartFile[] files,ModelMap modelMap,@RequestParam("category") int[] categorys,@RequestParam("brand") int[] brands,Authentication authentication,HttpServletRequest request) {	
 		if(authentication != null) {
 		HttpSession session = request.getSession();
 		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
@@ -57,20 +74,24 @@ public class ProductController {
 		product.setCreated(new Date());
 		product.setStatus(0);
 		product.setIsDelete(false);
-		
-		System.out.println(id);
-		 productService.save(product);
+		/*
+		 * if(files != null && files.length > 0) { for(MultipartFile file : files) {
+		 * String fileNameUpload = UploadHelper.upload(servletContext, file);
+		 * product.setProductPhotos(fileNameUpload); } }
+		 */
+		/*
+		 * if(categorys != null && categorys.length > 0) { for(int category : categorys)
+		 * { product.getCategoryProducts().add(categoryService.find(category)); } }
+		 */
+			productService.save(product);
 		}
-		 
-	
+
 		return "redirect:/home/index";
 	}
 	
 	@RequestMapping(value="productdetail/{id}", method = RequestMethod.GET)
 	public String productdetail(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request,Product product) {	
 
-		
-		
 		modelMap.put("product", productService.find(id));
 		modelMap.put("namePhoto", productService.namePhoto(id));
 		if(authentication != null) {

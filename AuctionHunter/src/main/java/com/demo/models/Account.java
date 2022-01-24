@@ -39,7 +39,7 @@ public class Account implements java.io.Serializable {
 	private String role;
 	private int report;
 	private boolean isDelete;
-	private Set<Notification> notifications = new HashSet<Notification>(0);
+	
 	private Set<Cart> carts = new HashSet<Cart>(0);
 	private Set<HistoryAuction> historyAuctions = new HashSet<HistoryAuction>(0);
 	private Set<Invoice> invoices = new HashSet<Invoice>(0);
@@ -66,7 +66,7 @@ public class Account implements java.io.Serializable {
 
 	public Account(String username, String password, String fullName, String sex, String avatar, String email,
 			String phone, String address, Date dob, String role, int report, boolean isDelete,
-			Set<Notification> notifications, Set<Cart> carts, Set<HistoryAuction> historyAuctions,
+			 Set<Cart> carts, Set<HistoryAuction> historyAuctions,
 			Set<Invoice> invoices, Set<Product> products) {
 		this.username = username;
 		this.password = password;
@@ -80,7 +80,7 @@ public class Account implements java.io.Serializable {
 		this.role = role;
 		this.report = report;
 		this.isDelete = isDelete;
-		this.notifications = notifications;
+		
 		this.carts = carts;
 		this.historyAuctions = historyAuctions;
 		this.invoices = invoices;
@@ -208,14 +208,7 @@ public class Account implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
-	public Set<Notification> getNotifications() {
-		return this.notifications;
-	}
 
-	public void setNotifications(Set<Notification> notifications) {
-		this.notifications = notifications;
-	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
 	public Set<Cart> getCarts() {

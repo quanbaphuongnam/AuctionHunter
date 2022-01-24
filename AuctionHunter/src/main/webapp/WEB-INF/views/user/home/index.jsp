@@ -40,7 +40,7 @@
                             <div class="widget-content">
                                 <ul class="sidebar_categories">
                                 <c:forEach var="category" items="${categorys }">
-                                    <li class="lvl-1"><a href="#;"
+                                    <li class="lvl-1"><a href="${pageContext.request.contextPath }/home/category/${category.id }"
 										class="site-nav">${category.name }</a></li>
 								</c:forEach>
                                 </ul>
@@ -89,7 +89,7 @@
 							</div>
                             <ul>
                                 <c:forEach var="brand" items="${brands }">
-                                    <li class="lvl-1"><a href="#;"
+                                    <li class="lvl-1"><a href="${pageContext.request.contextPath }/home/brand/${brand.id }"
 										class="site-nav">${brand.name }</a></li>
 								</c:forEach>
                             </ul>
@@ -467,7 +467,7 @@
 								                              <c:forEach var="brandProduct"
 																						items="${listProduct.brandProducts }">
 								                              <li><a
-																							href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">${brandProduct.brand.name }</a></li>
+																							href="${pageContext.request.contextPath }/home/brand/${brandProduct.brand.id }">${brandProduct.brand.name }</a></li>
 															  </c:forEach>		
 								                            
 								                            </ul>
@@ -669,12 +669,12 @@
 								                                       <br> 	
 								                                           <ul class="product-tags">
 								                              <li><a
-																						href="${pageContext.request.contextPath }/product/productdetail">${listProduct.account.username }</a></li>
-								                              <c:forEach var="categoryProduct"
-																						items="${listProduct.categoryProducts }">
+																						href="${pageContext.request.contextPath }/product/productdetail${listProduct.id }">${listProduct.account.username }</a></li>
+								                              <c:forEach var="brandProduct"
+																						items="${listProduct.brandProducts }">
 								                              <li><a
-																							href="${pageContext.request.contextPath }/product/productdetail">${categoryProduct.category.name }</a></li>
-															  </c:forEach>		
+																							href="${pageContext.request.contextPath }/home/brand/${brandProduct.brand.id }">${brandProduct.brand.name }</a></li>
+															  </c:forEach>
 								                            
 								                            </ul>
 								                                        

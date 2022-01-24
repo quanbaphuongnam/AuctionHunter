@@ -135,8 +135,7 @@ public class AccountController implements ServletContextAware{
 	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail, HttpSession session, RedirectAttributes redirectAttributes) {
 		if(checkEmail != null) {
 			Account account1 = (Account) session.getAttribute("account");
-			//accountService.save(account1); 
-			System.out.println("account1: " + account1.getFullName()); 
+			accountService.save(account1); 
 			session.removeAttribute("account");
 			redirectAttributes.addFlashAttribute("msg", "SignUpSuccess");
 			return "redirect:/account/login";

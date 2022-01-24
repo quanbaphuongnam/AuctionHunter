@@ -17,4 +17,6 @@ public interface HistoryAuctionService {
 	public HistoryAuction save(HistoryAuction historyAuction);
 	
 	public List<HistoryAuction> findAllByIdAcc(int account_id);
+	
+	public Double priceBidMax(int product_id);
 }

@@ -21,4 +21,7 @@ public interface HistoryAuctionRepository extends CrudRepository<HistoryAuction,
 	@Query("from HistoryAuction where account_id = :account_id  order by id desc")
 	public List<HistoryAuction> findAllByIdAcc(@Param("account_id") int account_id);
 	
+	@Query("SELECT MAX(priceBid) from HistoryAuction where product_id = :product_id")
+	public Double priceBidMax(@Param("product_id") int product_id);
+	
 }

@@ -22,9 +22,12 @@ import org.springframework.web.context.ServletContextAware;
 
 import com.demo.models.BrandProduct;
 import com.demo.models.CategoryProduct;
+import com.demo.models.HistoryAuction;
+import com.demo.models.HistoryAuctionAjax;
 import com.demo.models.Product;
 import com.demo.services.BrandService;
 import com.demo.services.CategoryService;
+import com.demo.services.HistoryAuctionService;
 import com.demo.services.ProductService;
 
 @Controller
@@ -46,9 +49,27 @@ public class HomeController implements ServletContextAware{
 	@Autowired
 	private BrandService brandService;
 	
+	@Autowired
+	private HistoryAuctionService historyAuctionService;
+	
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index(Authentication authentication,ModelMap modelMap) {
 		listProducts = productService.findAllProHappenning(new Date());
+		for (Product product : listProducts) {
+			List<HistoryAuctionAjax> historyAuctions = new ArrayList<HistoryAuctionAjax>();
+			historyAuctions = historyAuctionService.findWinnerAjax(product.getId());
+			if(historyAuctions.isEmpty()) {
+				
+			}else {
+				Double priceBid = (double) 0;
+				for (HistoryAuctionAjax historyAuctionAjax : historyAuctions) {
+					if(historyAuctionAjax.getPriceBid() > priceBid) {
+						priceBid = historyAuctionAjax.getPriceBid();
+					}
+				}
+				product.setPriceStart(priceBid);
+			}
+		}
 		listProductHSs = productService.findAllProHasnotStarted(new Date());
 		if(authentication != null) {
 			if(authentication.getName().equalsIgnoreCase("admin")) {
@@ -135,14 +156,22 @@ public class HomeController implements ServletContextAware{
 		List<Product> listProductAmounts = new ArrayList<Product>();
 		List<Product> listProductAmountHSs = new ArrayList<Product>();
 		for (Product product : listProducts) {
-			if(product.getHistoryAuctions() == null) {
+			List<HistoryAuctionAjax> historyAuctions = new ArrayList<HistoryAuctionAjax>();
+			historyAuctions = historyAuctionService.findWinnerAjax(product.getId());
+			if(historyAuctions.isEmpty()) {
 				if(product.getPriceStart() >= min && product.getPriceStart() <= max) {
 					listProductAmounts.add(product);
 				}
 			}else {
-//				if(product.getHistoryAuctions() >= min && product.getPriceStart() <= max) {
-//					listProductAmounts.add(product);
-//				}
+				Double priceBid = (double) 0;
+				for (HistoryAuctionAjax historyAuctionAjax : historyAuctions) {
+					if(historyAuctionAjax.getPriceBid() > priceBid) {
+						priceBid = historyAuctionAjax.getPriceBid();
+					}
+				}
+				if(priceBid >= min && priceBid <= max) {
+					listProductAmounts.add(product);
+				}
 			}
 		}
 		for (Product product : listProductHSs) {

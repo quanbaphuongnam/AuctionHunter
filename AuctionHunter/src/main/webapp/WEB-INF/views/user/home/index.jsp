@@ -53,7 +53,7 @@
                             <div class="widget-title">
                             	<h2>Price</h2>
                             </div>
-                            <form action="#" method="post"
+                            <form action="" method="get" id="formAmount"
 								class="price-filter">
                                 <div id="slider-range"
 									class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">

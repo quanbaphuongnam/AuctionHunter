@@ -130,6 +130,33 @@ public class HomeController implements ServletContextAware{
 		return "user/home/index";
 	}
 	
+	@RequestMapping(value="amount/{min}/{max}", method = RequestMethod.GET)
+	public String amount(@PathVariable("min")int min, @PathVariable("max")int max, ModelMap modelMap) {	
+		List<Product> listProductAmounts = new ArrayList<Product>();
+		List<Product> listProductAmountHSs = new ArrayList<Product>();
+		for (Product product : listProducts) {
+			if(product.getHistoryAuctions() == null) {
+				if(product.getPriceStart() >= min && product.getPriceStart() <= max) {
+					listProductAmounts.add(product);
+				}
+			}else {
+//				if(product.getHistoryAuctions() >= min && product.getPriceStart() <= max) {
+//					listProductAmounts.add(product);
+//				}
+			}
+		}
+		for (Product product : listProductHSs) {
+			if(product.getPriceStart() >= min && product.getPriceStart() <= max) {
+				listProductAmountHSs.add(product);
+			}
+		}
+		modelMap.put("listProducts", listProductAmounts);
+		modelMap.put("listProductHSs", listProductAmountHSs);
+		modelMap.put("categorys", categoryService.findAll());
+		modelMap.put("brands", brandService.findAll());
+		return "user/home/index";
+	}
+	
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;

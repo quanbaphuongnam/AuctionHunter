@@ -1042,6 +1042,18 @@
     }
 	load_more();
 	
+	function load_more1(){
+        $(".product-load-more1 .item").slice(0, 16).show();
+        $(".loadMore1").on('click', function (e) {
+            e.preventDefault();
+            $(".product-load-more1 .item:hidden").slice(0, 4).slideDown();
+            if ($(".product-load-more1 .item:hidden").length == 0) {
+                $(".infinitpagin").html('<div class="btn loadMore1">no more products</div>');
+            }
+        });
+    }
+	load_more1();
+	
 	function load_more_post(){
         $(".blog--grid-load-more .article").slice(0, 3).show();
         $(".loadMorepost").on('click', function (e) {

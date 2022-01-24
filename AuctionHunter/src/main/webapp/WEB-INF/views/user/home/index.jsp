@@ -533,7 +533,7 @@
                                             	<div class="category-description">
 								                         </div>
 								                   
-								                	<div class="productList product-load-more">
+								                	<div class="productList product-load-more1">
 								                    	<!--Toolbar-->
 								                        <button type="button"
 															class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
@@ -729,7 +729,7 @@
 								                        <div class="infinitpagin">	
 								                            <a
 																href="${pageContext.request.contextPath }/product/productdetail"
-																class="btn loadMore">Load More</a>
+																class="btn loadMore1">Load More</a>
 								                        </div>
 								                    </div>
                                         </div>

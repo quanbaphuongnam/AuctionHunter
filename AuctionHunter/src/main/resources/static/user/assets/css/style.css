@@ -729,6 +729,7 @@ a.quick-view { margin-bottom:5px !important; }
 .product-list .countdown-deals .cdown { font-size:14px; height:59px; width:65px; text-align:center; color:#fff; background-color:#000; }
 
 .product-load-more .item { display:none; }
+.product-load-more1 .item { display:none; }
 
 /*======================================================================
   19. Product Listview

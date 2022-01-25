@@ -108,14 +108,14 @@
                         <li>
                             <a class="has-arrow" href="${pageContext.request.contextPath }/accountadmin" aria-expanded="false"><i class="icon nalika-user icon-wrap"></i> <span class="mini-click-non">Account manager</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="${pageContext.request.contextPath }/accountadmin"><span class="mini-sub-pro">Account</span></a></li>
-                                <li><a title="View Mail" href="mailbox-view.html"><span class="mini-sub-pro">Add account</span></a></li>
+                                <li><a title="Inbox" href="${pageContext.request.contextPath }/accountadmin/index"><span class="mini-sub-pro">Account</span></a></li>
+                                
                             </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="${pageContext.request.contextPath }/productadmin" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Product manager</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="${pageContext.request.contextPath }/productadmin"><span class="mini-sub-pro">Product</span></a></li>
+                                <li><a title="Inbox" href="${pageContext.request.contextPath }/productadmin?status=1"><span class="mini-sub-pro">Product</span></a></li>
                                 <li><a title="View Mail" href="mailbox-view.html"><span class="mini-sub-pro">View Mail</span></a></li>
                             </ul>
                         </li>

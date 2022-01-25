@@ -67,9 +67,19 @@ public  class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
-	public Page<Product> findpage(Pageable pageable) {
+	public Page<Product> findpage(Pageable pageable,int status) {
 		// TODO Auto-generated method stub
-		return productRepository.findpage(pageable);
+		return productRepository.findpage(pageable,status);
+	}
+	@Override
+	public List<Product> findAccept( int status) {
+		// TODO Auto-generated method stub
+		return productRepository.findAccept( status);
+	}
+	@Override
+	public long count2(int status) {
+		// TODO Auto-generated method stub
+		return productRepository.count2(status);
 	}
 
 

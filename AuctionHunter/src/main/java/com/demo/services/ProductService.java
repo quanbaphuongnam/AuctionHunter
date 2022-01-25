@@ -34,6 +34,10 @@ public interface ProductService {
 	
 	public Iterable<Product> findAll();
 	 
-	public Page<Product> findpage(Pageable pageable);
+	public Page<Product> findpage(Pageable pageable,int status);
+	
+	 public List<Product> findAccept(int status);
+	
+	public long count2(@Param("status") int status);
 
 }

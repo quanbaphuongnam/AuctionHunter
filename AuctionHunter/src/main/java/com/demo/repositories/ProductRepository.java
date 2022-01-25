@@ -42,8 +42,12 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	@Query("from Product where account_id = :account_id  order by id desc")
 	public List<Product> findAllByIdAcc(@Param("account_id")int account_id);
 	
-	@Query("select e from Product e")
-	Page<Product> findpage(Pageable pageable);
+	@Query("select e from Product e where status = :status")
+	Page<Product> findpage(Pageable pageable,@Param("status") int status);
 
+	@Query("select count(id) from Product where status = :status")
+	public long count2(@Param("status") int status);
 	
+	@Query(" from Product where status = :status")
+	public List<Product> findAccept(@Param("status") int status);
 }

@@ -47,4 +47,10 @@ public class AccountServiceImpl implements AccountService {
 		
 		return accountRepository.findById(id).get();
 	}
+
+	@Override
+	public List<Account> findAll() {
+		// TODO Auto-generated method stub
+		return accountRepository.findAll();
+	}
 }

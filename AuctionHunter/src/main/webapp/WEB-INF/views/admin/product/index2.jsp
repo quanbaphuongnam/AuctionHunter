@@ -1058,7 +1058,7 @@
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Product List</h2>
+												<h2>Product List Watting Approve</h2>
 												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span>
 												</p>
 											</div>
@@ -1086,11 +1086,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
                             <h4>Products List</h4>
-                            <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
-                            <div  class="add-product">
-                                <button  class="btn btn-warning" value="0" name="status"  >Product Wattig Approve: ${count }</button>
-                            </div>
-                            </form>
+                           
                             <table>
                                 <tr>
                                     <th>ID</th>
@@ -1104,7 +1100,7 @@
                                     <th>Setting</th>
                                 </tr>
                                <c:forEach var="allproductAdmins"
-									items="${ListProduct.content }">
+									items="${ListProduct2 }">
                                 <tr>
                                      <td>${allproductAdmins.id }</td>
                                      
@@ -1147,17 +1143,17 @@
                                </c:forEach>
                                
                             </table>
-                            <div class="custom-pagination">
+                           <!--   <div class="custom-pagination">
 								<ul class="pagination">
 								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=0&status=1">First</a></li>
+										href="${pageContext.request.contextPath }/productadmin/accept?p=0&status=1">First</a></li>
 								    <c:choose>
 								        <c:when test="${ListProduct.number == 0}">
 									
 								        </c:when>
 								            <c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}&status=1">Previous</a></li>
+												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number - 1}&status=1">Previous</a></li>
 								            </c:otherwise>
 							        </c:choose>
 							        <c:choose>
@@ -1167,15 +1163,15 @@
 								        </c:when>
 							              	<c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}&status=1">Next</a></li>
+												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number + 1}&status=1">Next</a></li>
 								            </c:otherwise>
 						        	</c:choose>
 									
 									
 									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
+										href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
 								</ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

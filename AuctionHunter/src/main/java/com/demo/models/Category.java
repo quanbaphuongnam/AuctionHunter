@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Jan 18, 2022, 8:06:39 AM by Hibernate Tools 5.1.10.Final
+// Generated Jan 26, 2022, 7:22:43 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +22,7 @@ public class Category implements java.io.Serializable {
 	private Integer id;
 	private String name;
 	private boolean isDelete;
-	private Set<CategoryProduct> categoryProducts = new HashSet<CategoryProduct>(0);
+	private Set<Product> products = new HashSet<Product>(0);
 
 	public Category() {
 	}
@@ -32,10 +32,10 @@ public class Category implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
-	public Category(String name, boolean isDelete, Set<CategoryProduct> categoryProducts) {
+	public Category(String name, boolean isDelete, Set<Product> products) {
 		this.name = name;
 		this.isDelete = isDelete;
-		this.categoryProducts = categoryProducts;
+		this.products = products;
 	}
 
 	@Id
@@ -69,12 +69,12 @@ public class Category implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	public Set<CategoryProduct> getCategoryProducts() {
-		return this.categoryProducts;
+	public Set<Product> getProducts() {
+		return this.products;
 	}
 
-	public void setCategoryProducts(Set<CategoryProduct> categoryProducts) {
-		this.categoryProducts = categoryProducts;
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 
 }

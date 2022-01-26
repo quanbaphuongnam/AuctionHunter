@@ -21,25 +21,41 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                    	<th class="product-name text-center alt-font">ID</th>
-                                        <th class="product-price text-center alt-font">Name</th>
-                                        <th class="product-name alt-font">Product</th>                                    
+                                    	<th class="product-name text-center alt-font">IMG</th>
+                                        <th class="product-name alt-font">Name pro</th>  
+                                         <th class="product-price text-center alt-font">End day</th>
+                                         <th class="product-price text-center alt-font"> Price cao nhát</th>
                                         <th class="stock-status text-center alt-font">Status</th>
-                                           <th class="product-price text-center alt-font"> Price</th>
+                                           
                                         <th class="product-subtotal text-center alt-font">Add to Cart</th>
+                                         <th class="action">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="historyAuction" items="${historyAuctions }">
                                     <tr>
-                                    	<td class="product-remove text-center" valign="middle">${historyAuction.id } </td>
-                                        <td class="product-thumbnail text-center">${historyAuction.account.fullName }</td>
-                                        <td class="product-name">${historyAuction.product.name }</td>
-                                        <td class="product-price text-center">${historyAuction.status }</td>
-                                        <td class="stock text-center">
-                                            ${historyAuction.priceBid }
-                                        </td>
-                                        <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Button ???</button></td>
+	                                    <td class="cart__image-wrapper cart-flex-item">
+	                                 		<c:forEach var="productPhoto" items="${historyAuction.product.productPhotos }" end="0">
+	                                        <img class="cart__image" src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" alt="">
+	                                    </c:forEach>
+	                                    </td>
+                                    	<td class="product-name">${historyAuction.product.name }</td>
+                                    	<td class="product-name"><fmt:formatDate var="day" value="${historyAuction.product.endDate }" pattern="dd/MM/yyyy"/>${day }</td>
+                                    	<td class="product-price text-center" valign="middle">${historyAuction.priceBid } </td>
+                                        <td class="ext-center">&nbsp;
+                                       		<%-- <c:choose>
+												<c:when test="${historyAuction.product.startDate  > dateNow >  historyAuction.product.endDate}">
+												  <span class="badge badge-secondary">happening</span>
+												</c:when>
+												<c:otherwise>
+											 	
+												       <span class="badge badge-danger">finished </span> 
+												     
+												</c:otherwise>
+											</c:choose>  --%>
+										</td>
+                                       <!--  <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Button ???</button></td> -->
+                                        <td class="text-center small--hide"><a href="${pageContext.request.contextPath }/product/productdetail/${historyAuction.product.id }" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon fa fa-eye"></i></a></td>
                                     </tr>
                                   </c:forEach>
                                 </tbody>
@@ -50,79 +66,12 @@
             </div>
         </div>
         
-    </div>
+   
     <!--End Body Content-->
     
     <!--Footer-->
    
         
-        	<div class="container">
-     			<!--Footer Links-->
-            	<div class="footer-top">
-                	<div class="row">
-                    	<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-                        	<h4 class="h4">Quick Shop</h4>
-                            <ul>
-                            	<li><a href="#">Women</a></li>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Sportswear</a></li>
-                                <li><a href="#">Sale</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-                        	<h4 class="h4">Informations</h4>
-                            <ul>
-                            	<li><a href="#">About us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Privacy policy</a></li>
-                                <li><a href="#">Terms &amp; condition</a></li>
-                                <li><a href="#">My Account</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-                        	<h4 class="h4">Customer Services</h4>
-                            <ul>
-                            	<li><a href="#">Request Personal Data</a></li>
-                                <li><a href="#">FAQ's</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Orders and Returns</a></li>
-                                <li><a href="#">Support Center</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
-                        	<h4 class="h4">Contact Us</h4>
-                            <ul class="addressFooter">
-                            	<li><i class="icon anm anm-map-marker-al"></i><p>55 Gallaxy Enque,<br>2568 steet, 23568 NY</p></li>
-                                <li class="phone"><i class="icon anm anm-phone-s"></i><p>(440) 000 000 0000</p></li>
-                                <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@yousite.com</p></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--End Footer Links-->
-                <hr>
-                <div class="footer-bottom">
-                	<div class="row">
-                    	<!--Footer Copyright-->
-	                	<div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left"><span></span> <a href="templateshub.net">Templates Hub</a></div>
-                        <!--End Footer Copyright-->
-                        <!--Footer Payment Icon-->
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-0 order-md-1 order-lg-1 order-sm-0 payment-icons text-right text-md-center">
-                        	<ul class="payment-icons list--inline">
-                        		<li><i class="icon fa fa-cc-visa" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-mastercard" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-discover" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-paypal" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-cc-amex" aria-hidden="true"></i></li>
-                                <li><i class="icon fa fa-credit-card" aria-hidden="true"></i></li>
-                            </ul>
-                        </div>
-                        <!--End Footer Payment Icon-->
-                    </div>
-                </div>
-            </div>
-		
        
 		
        

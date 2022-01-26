@@ -78,7 +78,7 @@ public class ProductController {
 		 * if(files != null && files.length > 0) { for(MultipartFile file : files) {
 		 * String fileNameUpload = UploadHelper.upload(servletContext, file);
 		 * product.setProductPhotos(fileNameUpload); } }
-		 */
+		 *
 		/*
 		 * if(categorys != null && categorys.length > 0) { for(int category : categorys)
 		 * { product.getCategoryProducts().add(categoryService.find(category)); } }

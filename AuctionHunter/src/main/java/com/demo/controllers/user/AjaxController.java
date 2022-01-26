@@ -116,7 +116,7 @@ public class AjaxController {
 				return "invalid";
 				
 			}else {
-	 			return dateNew;
+	 			return dateNew.toString();
 			}
 			
 		} else {

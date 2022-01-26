@@ -1,5 +1,5 @@
 package com.demo.models;
-// Generated Jan 18, 2022, 8:06:39 AM by Hibernate Tools 5.1.10.Final
+// Generated Jan 26, 2022, 7:22:43 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,8 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,7 +22,7 @@ public class Brand implements java.io.Serializable {
 	private Integer id;
 	private String name;
 	private int isDelete;
-	private Set<BrandProduct> brandProducts = new HashSet<BrandProduct>(0);
+	private Set<Product> products = new HashSet<Product>(0);
 
 	public Brand() {
 	}
@@ -34,10 +32,10 @@ public class Brand implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
-	public Brand(String name, int isDelete, Set<BrandProduct> brandProducts) {
+	public Brand(String name, int isDelete, Set<Product> products) {
 		this.name = name;
 		this.isDelete = isDelete;
-		this.brandProducts = brandProducts;
+		this.products = products;
 	}
 
 	@Id
@@ -51,7 +49,6 @@ public class Brand implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	@Column(name = "name", nullable = false, length = 50)
 	public String getName() {
@@ -72,12 +69,12 @@ public class Brand implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
-	public Set<BrandProduct> getBrandProducts() {
-		return this.brandProducts;
+	public Set<Product> getProducts() {
+		return this.products;
 	}
 
-	public void setBrandProducts(Set<BrandProduct> brandProducts) {
-		this.brandProducts = brandProducts;
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 
 }

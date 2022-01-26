@@ -171,15 +171,15 @@ public class AccountController implements ServletContextAware{
 	}
 	
 	@RequestMapping(value="myproduct", method = RequestMethod.GET)
-	public String myproduct(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
+	public String myproduct(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes,Model model) {	
 if(authentication != null) {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			 id = (int) session.getAttribute("idAcc");
 			 modelMap.put("AllProducts", productService.findAllByIdAcc(id));
-			 //model.addAttribute("id", session.getAttribute("id"));
-			 //session.removeAttribute("msg");
+			 model.addAttribute("dateNow", new Date());
+			
 	
 			 return "user/account/myproduct";
 		}else {

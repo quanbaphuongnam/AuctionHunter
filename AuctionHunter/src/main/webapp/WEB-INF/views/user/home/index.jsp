@@ -464,11 +464,7 @@
 								                                           <ul class="product-tags">
 								                              <li><a
 																						href="${pageContext.request.contextPath }/product/productdetail/${listProduct.id }">${listProduct.account.username }</a></li>
-								                              <c:forEach var="brandProduct"
-																						items="${listProduct.brandProducts }">
-								                              <li><a
-																							href="${pageContext.request.contextPath }/home/brand/${brandProduct.brand.id }">${brandProduct.brand.name }</a></li>
-															  </c:forEach>		
+								                              <li><a href="${pageContext.request.contextPath }/home/brand/${listProduct.brand.id }">${listProduct.brand.name }</a></li>		
 								                            
 								                            </ul>
 								                                        
@@ -670,11 +666,7 @@
 								                                           <ul class="product-tags">
 								                              <li><a
 																						href="${pageContext.request.contextPath }/product/productdetail${listProduct.id }">${listProduct.account.username }</a></li>
-								                              <c:forEach var="brandProduct"
-																						items="${listProduct.brandProducts }">
-								                              <li><a
-																							href="${pageContext.request.contextPath }/home/brand/${brandProduct.brand.id }">${brandProduct.brand.name }</a></li>
-															  </c:forEach>
+								                              <li><a href="${pageContext.request.contextPath }/home/brand/${listProduct.brand.id }">${listProduct.brand.name }</a></li>	
 								                            
 								                            </ul>
 								                                        

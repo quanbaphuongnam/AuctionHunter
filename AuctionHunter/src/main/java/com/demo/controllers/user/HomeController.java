@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.ServletContextAware;
 
-import com.demo.models.BrandProduct;
-import com.demo.models.CategoryProduct;
 import com.demo.models.HistoryAuction;
 import com.demo.models.HistoryAuctionAjax;
 import com.demo.models.Product;
@@ -75,7 +73,6 @@ public class HomeController implements ServletContextAware{
 			if(authentication.getName().equalsIgnoreCase("admin")) {
 				return "redirect:/admin/index";
 			}else {
-				 
 				modelMap.put("listProducts", listProducts);
 				modelMap.put("listProductHSs", listProductHSs);
 				modelMap.put("categorys", categoryService.findAll());
@@ -100,56 +97,40 @@ public class HomeController implements ServletContextAware{
 			return "user/home/search";
 		}
 	}
-	
-	@RequestMapping(value="category/{id}", method = RequestMethod.GET)
-	public String category(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request) {	
-		List<Product> listProductCategorys = new ArrayList<Product>();
-		List<Product> listProductCategoryHSs = new ArrayList<Product>();
-		for (Product product : listProducts) {
-			for(CategoryProduct categoryProduct : product.getCategoryProducts()) {
-				if (categoryProduct.getCategory().getId().equals(id)) {
-					listProductCategorys.add(product);
-				}
-			}
-		}
-		for (Product product : listProductHSs) {
-			for(CategoryProduct categoryProduct : product.getCategoryProducts()) {
-				if (categoryProduct.getCategory().getId().equals(id)) {
-					listProductCategoryHSs.add(product);
-				}
-			}
-		}
-		modelMap.put("listProducts", listProductCategorys);
-		modelMap.put("listProductHSs", listProductCategoryHSs);
-		modelMap.put("categorys", categoryService.findAll());
-		modelMap.put("brands", brandService.findAll());
-		return "user/home/index";
-	}
-	
-	@RequestMapping(value="brand/{id}", method = RequestMethod.GET)
-	public String brand(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request) {	
-		List<Product> listProductBrands = new ArrayList<Product>();
-		List<Product> listProductBrandHSs = new ArrayList<Product>();
-		for (Product product : listProducts) {
-			for(BrandProduct brandProduct : product.getBrandProducts()) {
-				if (brandProduct.getBrand().getId().equals(id)) {
-					listProductBrands.add(product);
-				}
-			}
-		}
-		for (Product product : listProductHSs) {
-			for(BrandProduct brandProduct : product.getBrandProducts()) {
-				if (brandProduct.getBrand().getId().equals(id)) {
-					listProductBrandHSs.add(product);
-				}
-			}
-		}
-		modelMap.put("listProducts", listProductBrands);
-		modelMap.put("listProductHSs", listProductBrandHSs);
-		modelMap.put("categorys", categoryService.findAll());
-		modelMap.put("brands", brandService.findAll());
-		return "user/home/index";
-	}
+	/*
+	 * @RequestMapping(value="category/{id}", method = RequestMethod.GET) public
+	 * String category(@PathVariable("id")int id,ModelMap modelMap,Authentication
+	 * authentication,HttpServletRequest request) { List<Product>
+	 * listProductCategorys = new ArrayList<Product>(); List<Product>
+	 * listProductCategoryHSs = new ArrayList<Product>(); for (Product product :
+	 * listProducts) { for(CategoryProduct categoryProduct :
+	 * product.getCategoryProducts()) { if
+	 * (categoryProduct.getCategory().getId().equals(id)) {
+	 * listProductCategorys.add(product); } } } for (Product product :
+	 * listProductHSs) { for(CategoryProduct categoryProduct :
+	 * product.getCategoryProducts()) { if
+	 * (categoryProduct.getCategory().getId().equals(id)) {
+	 * listProductCategoryHSs.add(product); } } } modelMap.put("listProducts",
+	 * listProductCategorys); modelMap.put("listProductHSs",
+	 * listProductCategoryHSs); modelMap.put("categorys",
+	 * categoryService.findAll()); modelMap.put("brands", brandService.findAll());
+	 * return "user/home/index"; }
+	 * 
+	 * @RequestMapping(value="brand/{id}", method = RequestMethod.GET) public String
+	 * brand(@PathVariable("id")int id,ModelMap modelMap,Authentication
+	 * authentication,HttpServletRequest request) { List<Product> listProductBrands
+	 * = new ArrayList<Product>(); List<Product> listProductBrandHSs = new
+	 * ArrayList<Product>(); for (Product product : listProducts) { for(BrandProduct
+	 * brandProduct : product.getBrandProducts()) { if
+	 * (brandProduct.getBrand().getId().equals(id)) {
+	 * listProductBrands.add(product); } } } for (Product product : listProductHSs)
+	 * { for(BrandProduct brandProduct : product.getBrandProducts()) { if
+	 * (brandProduct.getBrand().getId().equals(id)) {
+	 * listProductBrandHSs.add(product); } } } modelMap.put("listProducts",
+	 * listProductBrands); modelMap.put("listProductHSs", listProductBrandHSs);
+	 * modelMap.put("categorys", categoryService.findAll()); modelMap.put("brands",
+	 * brandService.findAll()); return "user/home/index"; }
+	 */
 	
 	@RequestMapping(value="amount/{min}/{max}", method = RequestMethod.GET)
 	public String amount(@PathVariable("min")int min, @PathVariable("max")int max, ModelMap modelMap) {	

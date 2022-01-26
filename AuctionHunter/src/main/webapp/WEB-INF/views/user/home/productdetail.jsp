@@ -287,8 +287,8 @@
 												 <div class="product-stock"> by <span class="instock ">${product.account.username }</span> <span class="outstock hide">Unavailable</span> </div>
 												</div>
 												    <div class="product-info">
-                                      					<p class="product-type"> <a  title="Women's">Trademark</a><span class="lbl"> NIKE</span> &emsp; | &emsp;
-                                      					<a  title="">Category</a>   <c:forEach var="categoryProduct" items="${product.categoryProducts }"><span class="lbl"> ${categoryProduct.category.name }</span> </c:forEach></p>
+                                      					<p class="product-type"> <a  title="Women's">Trademark</a>   <span class="lbl"> ${product.brand.name }</span> &emsp; | &emsp;
+                                      					<a  title="">Category</a>   <span class="lbl"> ${product.category.name }</span> </p>
                                     				</div>                                      	
 												<br>
 												<div class="product-single__description rte">

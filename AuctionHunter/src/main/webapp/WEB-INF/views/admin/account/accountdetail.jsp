@@ -957,20 +957,21 @@
 											</a>
                                     </td>
                                 </tr>
+                              
                                </c:forEach>
-                               
                             </table>
+                           
                             <div class="custom-pagination">
 								<ul class="pagination">
 								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=0&status=1">First</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=0">First</a></li>
 								    <c:choose>
 								        <c:when test="${ListProduct.number == 0}">
 									
 								        </c:when>
 								            <c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}&status=1">Previous</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.number - 1}">Previous</a></li>
 								            </c:otherwise>
 							        </c:choose>
 							        <c:choose>
@@ -980,15 +981,17 @@
 								        </c:when>
 							              	<c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}&status=1">Next</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.number + 1}">Next</a></li>
 								            </c:otherwise>
 						        	</c:choose>
 									
 									
 									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.totalPages - 1}">Last</a></li>
 								</ul>
+								
                             </div>
+                           
                         </div>
                     
                     </div>
@@ -1009,54 +1012,42 @@
                             <table>
                                 <tr>
                                     <th>ID</th>
-                                    <th>ProductImage</th>
-                                    <th>NameProduct</th>
-                                    <th>Status</th>
-                                    <th>PriceStart</th>
-                                    <th>StartDate</th>
-                                    <th>EndDate</th>
-                                    <th>Created</th>
+                                    <th>Username</th>
+                                    <th>Product</th>
+                                    <th>FullName</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Payment</th>
+                                    <th>Total</th>
                                     <th>Setting</th>
                                 </tr>
-                               <c:forEach var="allproductAdmins"
-									items="${ListProduct.content }">
+                               <c:forEach var="Invoice"
+									items="${ListInvoice.content }">
                                 <tr>
-                                     <td>${allproductAdmins.id }</td>
+                                     <td>${Invoice.id }</td>
                                      
-                                      <c:forEach var="productPhoto"
-											items="${allproductAdmins.productPhotos }" end="0">
-                                   <td><img alt="image"
-												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
-									</c:forEach>
-									
-                                    <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when
-													test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
-                                    </c:when>
-                                    </c:choose>
-                                    </td>
-                                    <td>${allproductAdmins.priceStart }</td>
-                                    <td> <fmt:formatDate var="day" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day }</td>
-                                    <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
-				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
+                                      
+									 <td>${Invoice.account.username }</td>
+                                    <td>${Invoice.product.name }</td>
+                                    <td>${Invoice.fullName }</td>
+                                    <td>${Invoice.email }</td>
+                                    <td>${Invoice.phone }</td>
+                                    <td>${Invoice.address }</td>
+                                    <td>${Invoice.payment }</td>
+                                    <td>${Invoice.total }</td>
+                                    
+                                    
+                                  
                                     <td>
-                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
+                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${Invoice.product.id }">
                                         <button data-toggle="tooltip"
 												title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
 											
-										<a href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
+										<a href="${pageContext.request.contextPath }/product/productdetail/${Invoice.product.id }">	
                                         <button data-toggle="tooltip"
 												title="Trash" class="pd-setting-ed">
 												<i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -1067,17 +1058,17 @@
                                </c:forEach>
                                
                             </table>
-                            <div class="custom-pagination">
+                             <div class="custom-pagination">
 								<ul class="pagination">
 								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=0&status=1">First</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=0">First</a></li>
 								    <c:choose>
 								        <c:when test="${ListProduct.number == 0}">
 									
 								        </c:when>
 								            <c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}&status=1">Previous</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.number - 1}">Previous</a></li>
 								            </c:otherwise>
 							        </c:choose>
 							        <c:choose>
@@ -1087,14 +1078,15 @@
 								        </c:when>
 							              	<c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}&status=1">Next</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.number + 1}">Next</a></li>
 								            </c:otherwise>
 						        	</c:choose>
 									
 									
 									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.totalPages - 1}">Last</a></li>
 								</ul>
+								
                             </div>
                         </div>
                     
@@ -1115,54 +1107,50 @@
                             <table>
                                 <tr>
                                     <th>ID</th>
-                                    <th>ProductImage</th>
+                                    <th>Image</th>
                                     <th>NameProduct</th>
-                                    <th>Status</th>
-                                    <th>PriceStart</th>
-                                    <th>StartDate</th>
-                                    <th>EndDate</th>
-                                    <th>Created</th>
+                                    <th>EndDay</th>
+                                    <th>Highest Price</th>
+                                    <th>Status</th>                                  
                                     <th>Setting</th>
                                 </tr>
-                               <c:forEach var="allproductAdmins"
-									items="${ListProduct.content }">
+                               <c:forEach var="HistoryAuction"
+									items="${ListHistoryAuction.content }">
                                 <tr>
-                                     <td>${allproductAdmins.id }</td>
+                                     <td>${HistoryAuction.id }</td>
                                      
                                       <c:forEach var="productPhoto"
-											items="${allproductAdmins.productPhotos }" end="0">
+											items="${HistoryAuction.product.productPhotos }" end="0">
                                    <td><img alt="image"
 												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
 									</c:forEach>
 									
-                                    <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when
-													test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
-                                    </c:when>
-                                    </c:choose>
-                                    </td>
-                                    <td>${allproductAdmins.priceStart }</td>
-                                    <td> <fmt:formatDate var="day" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day }</td>
-                                    <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
-				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
+                                    <td>${HistoryAuction.product.name }</td>
+                                    <td class="product-name"><fmt:formatDate var="day" value="${HistoryAuction.product.endDate }" pattern="dd/MM/yyyy"/>${day }</td>
+                                    <td class="product-price text-center" valign="middle">${HistoryAuction.priceBid } </td>
+                                    <td class="text-center">
+                                        
+                                       		  <c:choose>
+												<c:when test="${HistoryAuction.product.startDate  <= dateNow && dateNow <=  HistoryAuction.product.endDate}">
+												  <span class="badge badge-secondary">happening</span>
+												</c:when>
+												<c:otherwise>
+											 	
+												       <span class="badge badge-danger">finished </span> 
+												     
+												</c:otherwise>
+											</c:choose>  
+										</td>
+                                    
                                     <td>
-                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
+                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${HistoryAuction.product.id }">
                                         <button data-toggle="tooltip"
 												title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
 											
-										<a href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
+										<a href="${pageContext.request.contextPath }/product/productdetail/${HistoryAuction.product.id }">	
                                         <button data-toggle="tooltip"
 												title="Trash" class="pd-setting-ed">
 												<i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -1173,17 +1161,17 @@
                                </c:forEach>
                                
                             </table>
-                            <div class="custom-pagination">
+                           <div class="custom-pagination">
 								<ul class="pagination">
 								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=0&status=1">First</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=0">First</a></li>
 								    <c:choose>
 								        <c:when test="${ListProduct.number == 0}">
 									
 								        </c:when>
 								            <c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}&status=1">Previous</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.number - 1}">Previous</a></li>
 								            </c:otherwise>
 							        </c:choose>
 							        <c:choose>
@@ -1193,14 +1181,15 @@
 								        </c:when>
 							              	<c:otherwise>
 									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}&status=1">Next</a></li>
+												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.number + 1}">Next</a></li>
 								            </c:otherwise>
 						        	</c:choose>
 									
 									
 									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
+										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.totalPages - 1}">Last</a></li>
 								</ul>
+								
                             </div>
                         </div>
                     

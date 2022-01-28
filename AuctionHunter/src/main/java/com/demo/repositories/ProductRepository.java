@@ -50,4 +50,8 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	
 	@Query(" from Product where status = :status")
 	public List<Product> findAccept(@Param("status") int status);
+	
+
+	@Query("select e from Product e where account_id = :account_id  order by id desc")
+	public Page<Product> findAllByIdAccPage(@Param("account_id")int account_id,Pageable pageable);
 }

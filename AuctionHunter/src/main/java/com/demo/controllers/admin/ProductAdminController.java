@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.models.Product;
 import com.demo.services.HistoryAuctionService;
+import com.demo.services.InvoiceService;
+import com.demo.services.MailSenderService;
 import com.demo.services.ProductService;
 
 @Controller
@@ -26,6 +28,9 @@ import com.demo.services.ProductService;
 public class ProductAdminController {
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	private InvoiceService invoiceService;
 
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
@@ -47,7 +52,7 @@ public class ProductAdminController {
 	}
 	@RequestMapping(value = "productdetail/{id}", method = RequestMethod.GET)
 	public String productDetail(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request,Product product) {
-	
+		modelMap.put("AllProducts", productService.findAllByIdAcc(id));
 			modelMap.put("product", productService.find(id));
 			modelMap.put("namePhoto", productService.namePhoto(id));
 			modelMap.put("historyAuctions", historyAuctionService.findAllById(id));
@@ -62,4 +67,5 @@ public class ProductAdminController {
 //        map.addAttribute("ListProduct",page);
 //		return "admin/product/index";
 //	}
+
 }

@@ -81,6 +81,11 @@ public  class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productRepository.count2(status);
 	}
+	@Override
+	public Page<Product> findAllByIdAccPage(int account_id, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return productRepository.findAllByIdAccPage(account_id, pageable);
+	}
 
 
 

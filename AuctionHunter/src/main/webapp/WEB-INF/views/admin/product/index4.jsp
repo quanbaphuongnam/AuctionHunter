@@ -262,10 +262,13 @@
 																class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
 
-                                                        <li><a href="${pageContext.request.contextPath }/account/logout"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-
                                                         <li><a
-															href="login.html"><span
+															href="${pageContext.request.contextPath }/account/logout"><span
+																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+
+                                                        
+														
+														<li><a href="login.html"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
 
                                                         </li>
@@ -1058,7 +1061,7 @@
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Product List Watting Approve</h2>
+												<h2>Product List</h2>
 												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span>
 												</p>
 											</div>
@@ -1085,6 +1088,146 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="custom-tab">
+									
+                                    <nav>
+                                        <div class="nav nav-tabs"
+												id="nav-tab" role="tablist">
+                                            <a
+													class="nav-item nav-link active" id="custom-nav-home-tab"
+													data-toggle="tab" href="#custom-nav-home" role="tab"
+													aria-controls="custom-nav-home" aria-selected="true">ProductList</a>
+											 <form method="get"
+													action="${pageContext.request.contextPath }/productadmin/accept">		
+                                            <a value="0" name="status" class="nav-item nav-link"
+														id="custom-nav-profile-tab" data-toggle="tab"
+														href="#custom-nav-profile" role="tab"
+														aria-controls="custom-nav-profile" aria-selected="false">Product Wattig Approve: ${count }</a>
+													</form>
+
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content pl-3 pt-2"
+											id="nav-tabContent">
+                                        <div
+												class="tab-pane fade show active" id="custom-nav-home"
+												role="tabpanel" aria-labelledby="custom-nav-home-tab">
+                                            
+                            <form method="get"
+													action="${pageContext.request.contextPath }/productadmin/accept">
+                            <div class="add-product">
+                                <button class="btn btn-warning"
+															value="0" name="status">Product Wattig Approve: ${count }</button>
+                            </div>
+                            </form>
+                            <table>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>ProductImage</th>
+                                    <th>NameProduct</th>
+                                    <th>Status</th>
+                                    <th>PriceStart</th>
+                                    <th>StartDate</th>
+                                    <th>EndDate</th>
+                                    <th>Created</th>
+                                    <th>Setting</th>
+                                </tr>
+                               <c:forEach var="allproductAdmins"
+														items="${ListProduct.content }">
+                                <tr>
+                                     <td>${allproductAdmins.id }</td>
+                                     
+                                      <c:forEach var="productPhoto"
+																items="${allproductAdmins.productPhotos }" end="0">
+                                   <td><img alt="image"
+																	src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
+									</c:forEach>
+									
+                                    <td>${allproductAdmins.name }</td>
+                                    <td><c:choose> <c:when
+																		test="${allproductAdmins.status==1 }">
+                                    <button class="pd-setting">Active</button>
+                                    </c:when>
+                                    <c:when
+																		test="${allproductAdmins.status==0 }">
+                                    <button class="ps-setting">Watting Accept</button>
+                                    </c:when>
+                                    <c:when
+																		test="${allproductAdmins.status==2 }">
+                                    <button class="pd-setting">Disable</button>
+                                    </c:when>
+                                    </c:choose>
+                                    </td>
+                                    <td>${allproductAdmins.priceStart }</td>
+                                    <td> <fmt:formatDate var="day"
+																	value="${allproductAdmins.startDate }"
+																	pattern="dd/MM/yyyy" />${day }</td>
+                                    <td> <fmt:formatDate var="day1"
+																	value="${allproductAdmins.startDate }"
+																	pattern="dd/MM/yyyy" />${day1 }</td>
+				                    <td> <fmt:formatDate var="day2"
+																	value="${allproductAdmins.created }"
+																	pattern="dd/MM/yyyy" />${day2 }</td>
+                                    <td>
+                                    <a
+																href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
+                                        <button data-toggle="tooltip"
+																		title="Edit" class="pd-setting-ed">
+												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+											</button>
+											</a>
+											
+										<a
+																href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
+                                        <button data-toggle="tooltip"
+																		title="Trash" class="pd-setting-ed">
+												<i class="fa fa-trash-o" aria-hidden="true"></i>
+											</button>
+											</a>
+                                    </td>
+                                </tr>
+                               </c:forEach>
+                               
+                            </table>
+                            <div class="custom-pagination">
+								<ul class="pagination">
+								    <li class="page-item"><a class="page-link"
+															href="${pageContext.request.contextPath }/productadmin?p=0&status=1">First</a></li>
+								    <c:choose>
+								        <c:when test="${ListProduct.number == 0}">
+									
+								        </c:when>
+								            <c:otherwise>
+									           <li class="page-item"><a class="page-link"
+																	href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number - 1}&status=1">Previous</a></li>
+								            </c:otherwise>
+							        </c:choose>
+							        <c:choose>
+								         <c:when
+																test="${ListProduct.number == (ListProduct.totalPages -1) }">
+									
+								        </c:when>
+							              	<c:otherwise>
+									           <li class="page-item"><a class="page-link"
+																	href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.number + 1}&status=1">Next</a></li>
+								            </c:otherwise>
+						        	</c:choose>
+									
+									
+									<li class="page-item"><a class="page-link"
+															href="${pageContext.request.contextPath }/productadmin?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
+								</ul>
+                            </div>
+                                            	
+								          
+                                        </div>
+                                        <div class="tab-pane fade"
+												id="custom-nav-profile" role="tabpanel"
+												aria-labelledby="custom-nav-profile-tab">
+                                            
+                                            	 
                             <h4>Products List</h4>
                            
                             <table>
@@ -1100,42 +1243,48 @@
                                     <th>Setting</th>
                                 </tr>
                                <c:forEach var="allproductAdmins"
-									items="${ListProduct2 }">
+															items="${ListProduct2 }">
                                 <tr>
                                      <td>${allproductAdmins.id }</td>
                                      
                                       <c:forEach var="productPhoto"
-											items="${allproductAdmins.productPhotos }" end="0">
+																	items="${allproductAdmins.productPhotos }" end="0">
                                    <td><img alt="image"
-												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
+																		src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
 									</c:forEach>
 									
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
-													test="${allproductAdmins.status==1 }">
+																			test="${allproductAdmins.status==1 }">
                                     <button class="pd-setting">Active</button>
                                     </c:when>
                                     <c:when
-													test="${allproductAdmins.status==0 }">
+																			test="${allproductAdmins.status==0 }">
                                     <button class="ps-setting">Watting Accept</button>
                                     </c:when>
                                     <c:when
-													test="${allproductAdmins.status==2 }">
+																			test="${allproductAdmins.status==2 }">
                                     <button class="pd-setting">Disable</button>
                                     </c:when>
                                     </c:choose>
                                     </td>
                                     <td>${allproductAdmins.priceStart }</td>
-                                    <td> <fmt:formatDate var="day" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day }</td>
-                                    <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
-				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
+                                    <td> <fmt:formatDate var="day"
+																		value="${allproductAdmins.startDate }"
+																		pattern="dd/MM/yyyy" />${day }</td>
+                                    <td> <fmt:formatDate var="day1"
+																		value="${allproductAdmins.startDate }"
+																		pattern="dd/MM/yyyy" />${day1 }</td>
+				                    <td> <fmt:formatDate var="day2"
+																		value="${allproductAdmins.created }"
+																		pattern="dd/MM/yyyy" />${day2 }</td>
                                     <td>
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+																		title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
                                         <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
+																		title="Trash" class="pd-setting-ed">
 												<i class="fa fa-trash-o" aria-hidden="true"></i>
 											</button>
                                     </td>
@@ -1172,6 +1321,16 @@
 										href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
 								</ul>
                             </div> -->
+								                   
+								                	
+								                   
+                                        </div>
+                                   </div>
+
+                                </div>
+                            </div>
+                        </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -1183,7 +1342,7 @@
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
                             <p>Copyright © 2018 <a
-									href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+										href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -1191,5 +1350,7 @@
         </div>
     
        
+	
+	
 	</jsp:attribute>
 </mt:layout_admin>

@@ -33,7 +33,7 @@
                                     	<th class="product-name text-center alt-font">IMG</th>
                                         <th class="product-name alt-font">Name pro</th>  
                                          <th class="product-price text-center alt-font">End day</th>
-                                         <th class="product-price text-center alt-font"> Price cao nhát</th>
+                                         <th class="product-price text-center alt-font"> Highest price</th>
                                         <th class="stock-status text-center alt-font">Status</th>
                                            
                                         <th class="product-subtotal text-center alt-font">Add to Cart</th>

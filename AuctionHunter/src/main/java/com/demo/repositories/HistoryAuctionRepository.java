@@ -2,6 +2,8 @@ package com.demo.repositories;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -24,4 +26,6 @@ public interface HistoryAuctionRepository extends CrudRepository<HistoryAuction,
 	@Query("SELECT MAX(priceBid) from HistoryAuction where product_id = :product_id")
 	public Double priceBidMax(@Param("product_id") int product_id);
 	
+	@Query("select e from HistoryAuction e where account_id = :account_id  order by id desc")
+	public Page<HistoryAuction> findAllHistoryAuctionByIdAcc(@Param("account_id") int account_id,Pageable pageable);
 }

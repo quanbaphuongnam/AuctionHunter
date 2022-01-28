@@ -1134,14 +1134,19 @@
                                     <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
 				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
                                     <td>
+                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
 												title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
+											</a>
+											
+										<a href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
                                         <button data-toggle="tooltip"
 												title="Trash" class="pd-setting-ed">
 												<i class="fa fa-trash-o" aria-hidden="true"></i>
 											</button>
+											</a>
                                     </td>
                                 </tr>
                                </c:forEach>

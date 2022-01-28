@@ -108,20 +108,20 @@ public class AjaxController {
 		Date dateNow =  new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String dateNew = format.format(dateEnd);
-		if(dateNow.compareTo(dateStart) >= 0) {
-		
+		//if(dateNow.compareTo(dateStart) >= 0) {
 			if(dateNow.compareTo(dateEnd) >= 0) {
 				product.setStatus(2);
 				productService.save(product);
 				return "invalid";
-				
 			}else {
-	 			return dateNew.toString();
+					System.err.println(dateNew);
+	 			return dateNew;
+	 			
 			}
 			
-		} else {
-			return "invalidStart";
-		}
+		//} else {
+			//return "invalidStart";
+		//}
 		
 	}
 

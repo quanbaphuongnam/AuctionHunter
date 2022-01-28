@@ -131,7 +131,9 @@
     </div>
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
+    
         <jsp:invoke fragment="content_admin"></jsp:invoke>
+        
     </div>
 
     <!-- jquery

@@ -88,6 +88,27 @@
 						product_id: value
 					},
 					success: function(result){
+						if(result == "invalid")
+						{
+							document.getElementById("buttonBid").hidden = true;
+							document.getElementById("alertInfo").value = "Has over the auction time !";
+							document.getElementById("alertInfo").hidden = false;
+							
+						}else {
+
+								$('[data-countdown]').each(function () {
+									var $this = $(this),
+										finalDate = $(this).data('countdown');
+									finalDate = '2022/01/27 23:34:37';
+									console.log('finalDate'+finalDate);
+									$this.countdown(finalDate, function (event) {
+										$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
+									});
+								}); 
+							
+							document.getElementsByTagName("div")[1].setAttribute("data-countdown", "2022/01/27 23:34:37");
+						}
+/* 
 						if(result != "invalidStart")
 						{
 							
@@ -106,7 +127,7 @@
 									  footer: '<a href="${pageContext.request.contextPath }/home/index">Go to another auction</a>'
 									})
 
-								/* clearInterval(refreshIntervalId); */
+								 clearInterval(refreshIntervalId); 
 							}else if(result != null){
 								$('[data-countdown]').each(function () {
 									var $this = $(this),
@@ -123,8 +144,8 @@
 								document.getElementById("buttonBid").hidden = true;
 							document.getElementById("alertInfo").value = "Auction hasn't started!";
 							document.getElementById("alertInfo").hidden = false;
-							/* clearInterval(refreshIntervalId); */
-						}
+							 clearInterval(refreshIntervalId); 
+						} */
 					
 					}
 				});
@@ -407,9 +428,9 @@
                                            <input style="color:red;
                                              border-color: red;" type="text" id="alertInfo"disabled="disabled" hidden="true"></input>
                                              
-                                       <div id="timeEnd"><div
+                                       <div
 											class="saleTime product-countdown"
-											data-countdown="${product.endDate}" id="timeNew"></div></div>        <!-- countdown start -->
+											data-countdown="${product.endDate}" ></div>       <!-- countdown start -->
                                     
                                     <!-- countdown end -->
                                            
@@ -449,7 +470,7 @@
                                  <%--   </c:forEach> --%>
                                   </tbody>
                                 </table>
-                          </div>                  
+                          			</div>                  
                                         </div>
                                   
                                 </div>

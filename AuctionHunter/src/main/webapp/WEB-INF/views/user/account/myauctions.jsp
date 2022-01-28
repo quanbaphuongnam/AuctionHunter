@@ -6,14 +6,23 @@
 <mt:layout_user title="myauctions">
 	<jsp:attribute name="content">
 		<!--Page Title-->
-    <div class="page section-header text-center">
-			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">My Auction (Danh sach dang dau gia)</h1></div>
+   
+		<div class="collection-header">
+			<div class="collection-hero">
+        		<div class="collection-hero__image">
+					<img class="blur-up lazyload"
+						data-src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
+						src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
+						alt="Women" title="Women" />
+				</div>
+        		<div class="collection-hero__title-wrapper">
+					<h1 class="collection-hero__title page-width">My Auction</h1>
+				</div>
       		</div>
 		</div>
         <!--End Page Title-->
         
-        <div class="container">
+        <div class="container" >
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                 	<form action="#">
@@ -42,9 +51,10 @@
                                     	<td class="product-name">${historyAuction.product.name }</td>
                                     	<td class="product-name"><fmt:formatDate var="day" value="${historyAuction.product.endDate }" pattern="dd/MM/yyyy"/>${day }</td>
                                     	<td class="product-price text-center" valign="middle">${historyAuction.priceBid } </td>
-                                        <td class="ext-center">&nbsp;
-                                       		<%-- <c:choose>
-												<c:when test="${historyAuction.product.startDate  > dateNow >  historyAuction.product.endDate}">
+                                        <td class="text-center">
+                                        
+                                       		  <c:choose>
+												<c:when test="${historyAuction.product.startDate  <= dateNow && dateNow <=  historyAuction.product.endDate}">
 												  <span class="badge badge-secondary">happening</span>
 												</c:when>
 												<c:otherwise>
@@ -52,7 +62,7 @@
 												       <span class="badge badge-danger">finished </span> 
 												     
 												</c:otherwise>
-											</c:choose>  --%>
+											</c:choose>  
 										</td>
                                        <!--  <td class="product-subtotal text-center"><button type="button" class="btn btn-small">Button ???</button></td> -->
                                         <td class="text-center small--hide"><a href="${pageContext.request.contextPath }/product/productdetail/${historyAuction.product.id }" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon fa fa-eye"></i></a></td>

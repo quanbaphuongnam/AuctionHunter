@@ -74,11 +74,12 @@ public class ProductController {
 		product.setCreated(new Date());
 		product.setStatus(0);
 		product.setIsDelete(false);
+		
 		/*
 		 * if(files != null && files.length > 0) { for(MultipartFile file : files) {
 		 * String fileNameUpload = UploadHelper.upload(servletContext, file);
-		 * product.setProductPhotos(fileNameUpload); } }
-		 *
+		 * product.getProductPhotos().add(fileNameUpload); } }
+		 */
 		/*
 		 * if(categorys != null && categorys.length > 0) { for(int category : categorys)
 		 * { product.getCategoryProducts().add(categoryService.find(category)); } }
@@ -97,9 +98,7 @@ public class ProductController {
 		if(authentication != null) {
 		HttpSession session = request.getSession();
 		session.setAttribute("idPro",product.getId());
-		
 		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-		
 		 id = (int) session.getAttribute("idAcc");
 		}
 		 

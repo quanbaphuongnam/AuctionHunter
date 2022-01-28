@@ -122,7 +122,7 @@ public class AccountController implements ServletContextAware{
 			 modelMap.put("historyAuctions", historyAuctionService.findAllByIdAcc(id));
 			 //model.addAttribute("id", session.getAttribute("id"));
 			 //session.removeAttribute("msg");
-	
+			 modelMap.addAttribute("dateNow", new Date());
 			 return "user/account/myauctions";
 		}else {
 			return "user/account/login";
@@ -178,7 +178,7 @@ if(authentication != null) {
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			 id = (int) session.getAttribute("idAcc");
 			 modelMap.put("AllProducts", productService.findAllByIdAcc(id));
-			 model.addAttribute("dateNow", new Date());
+			 
 			
 	
 			 return "user/account/myproduct";

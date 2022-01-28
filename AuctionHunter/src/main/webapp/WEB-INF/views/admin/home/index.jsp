@@ -811,7 +811,7 @@
                                 <p>To all the athaists attacking me right now, I can't make you believe in God, you have to have faith.</p>
                                 <div class="text-right like-love-list">
                                     <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                                    <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                                    <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love </a>
                                 </div>
                             </div>
                         </div>

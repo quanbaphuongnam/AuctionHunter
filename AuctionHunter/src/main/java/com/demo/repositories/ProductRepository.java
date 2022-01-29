@@ -48,10 +48,16 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	@Query("select count(id) from Product where status = :status")
 	public long count2(@Param("status") int status);
 	
-	@Query(" from Product where status = :status")
-	public List<Product> findAccept(@Param("status") int status);
+	@Query(" from Product where is_delete = 1 and status = 0")
+	public List<Product> findAccept();
 	
 
 	@Query("select e from Product e where account_id = :account_id  order by id desc")
 	public Page<Product> findAllByIdAccPage(@Param("account_id")int account_id,Pageable pageable);
+	
+	@Query(" from Product where status = 3")
+	public List<Product> findDeleted();
+	
+	@Query("select count(id) from Product where status = 3")
+	public long countdelete();
 }

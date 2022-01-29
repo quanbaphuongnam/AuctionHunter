@@ -43,13 +43,16 @@ public class ProductAdminController {
         int status2 = 0;
         long count2 = productService.count2(status2);
         map.addAttribute("count",count2);
+        map.addAttribute("countDelete",productService.countdelete());
+        map.put("ListAccept", productService.findAccept());
+        map.put("ListDelete", productService.findDeleted());
 		return "admin/product/index";
 	}
-	@RequestMapping(value = {"accept" }, method = RequestMethod.GET)
-	public String accept(ModelMap map,@RequestParam("status") int status) {
-		   map.put("ListProduct2", productService.findAccept(status));
-		return "admin/product/index2";
-	}
+//	@RequestMapping(value = {"accept" }, method = RequestMethod.GET)
+//	public String accept(ModelMap map,@RequestParam("status") int status) {
+//		   map.put("ListProduct2", productService.findAccept(status));
+//		return "admin/product/index2";
+//	}
 	@RequestMapping(value = "productdetail/{id}", method = RequestMethod.GET)
 	public String productDetail(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request,Product product) {
 		modelMap.put("AllProducts", productService.findAllByIdAcc(id));

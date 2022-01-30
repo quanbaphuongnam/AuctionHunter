@@ -72,14 +72,29 @@ public  class ProductServiceImpl implements ProductService{
 		return productRepository.findpage(pageable,status);
 	}
 	@Override
-	public List<Product> findAccept( int status) {
+	public List<Product> findAccept( ) {
 		// TODO Auto-generated method stub
-		return productRepository.findAccept( status);
+		return productRepository.findAccept();
 	}
 	@Override
 	public long count2(int status) {
 		// TODO Auto-generated method stub
 		return productRepository.count2(status);
+	}
+	@Override
+	public Page<Product> findAllByIdAccPage(int account_id, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return productRepository.findAllByIdAccPage(account_id, pageable);
+	}
+	@Override
+	public List<Product> findDeleted() {
+		// TODO Auto-generated method stub
+		return productRepository.findDeleted();
+	}
+	@Override
+	public long countdelete() {
+		// TODO Auto-generated method stub
+		return productRepository.countdelete();
 	}
 
 

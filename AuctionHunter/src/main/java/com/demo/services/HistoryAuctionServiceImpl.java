@@ -3,6 +3,8 @@ package com.demo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.demo.models.HistoryAuction;
@@ -41,6 +43,11 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 	@Override
 	public Double priceBidMax(int product_id) {
 		return historyAuctionRepository.priceBidMax(product_id);
+	}
+	@Override
+	public Page<HistoryAuction> findAllHistoryAuctionByIdAcc(int account_id, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return historyAuctionRepository.findAllHistoryAuctionByIdAcc(account_id, pageable);
 	}
 
 }

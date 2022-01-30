@@ -91,7 +91,57 @@
 .icon-addon .form-control:focus + .fa,
 .icon-addon:hover .fa {
     color: #2580db;
-}</style>
+}
+
+.drop-zone {
+	max-width: 100%;
+	height: 140px;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+	color: #cccccc;
+	border: 2px dashed #d7d7d7;
+	border-radius: 10px;
+}
+.drop-zone--over {
+	border-style: solid;
+}
+.drop-zone__input {
+	display: none;
+}
+.drop--zone__thumb {
+/* 	width: 76px; */
+	height: 114px;
+	margin-right: 30px;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #cccccc;
+	background-size: cover;
+	position: relative;
+	
+}
+.preview-img {
+  max-width: 150px;margin: 0 1em 1em 0;padding: 0.5em;border: 1px solid #ccc; border-radius: 3px;display: inline-block;
+}
+/* .drop--zone__thumb::after {
+	content: attr(data-label);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 2px 0;
+	color: #ffffff;
+	background: rgba(0, 0, 0, 0.75);
+	font-size: 10px;
+	text-align: center;
+} */
+</style>
 
 	<div class="page section-header text-center">
 			<div class="page-title">
@@ -165,19 +215,19 @@
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-country">Category  <span class="required-f">*</span></label>
                                         
-                                        <select name="country_id">
+                                        <select name="category">
                                          <option> --- select --</option>
                                         	<c:forEach var="category" items="${categorys}">
-                                            <option value="${category.id }" name="category"> ${category.name}</option>
+                                            <option value="${category.id }"> ${category.name}</option>
                                           	</c:forEach>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
-                                        <select name="zone_id" 
+                                        <select name="brand" 
                                              <option> --- select -- </option>>
                                            	<c:forEach var="brand" items="${brands}">
-                                            	<option value="${brand.id }" name="brand"> ${brand.name}</option>
+                                            	<option value="${brand.id }"> ${brand.name}</option>
                                           	</c:forEach>
                                         </select>
                                     </div>
@@ -185,14 +235,16 @@
                             </fieldset>
                             <fieldset>
                                 <div class="row">
-                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                        <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
-                                        
-                                        <input  name="files"   type="file"  accept="image/*" multiple="multiple"/> 
-                                    </div>
-                                     
+	                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
+	                                <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
+	                                    <div class="drop-zone">
+	                                    	<h3 class="drop-zone__prompt" style="margin-top: 0;">Drop files here or click to upload.</h3>
+	                                    	<!-- <div class="drop--zone__thumb" data-label="myfile.txt"></div> -->
+	                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple"/> 
+	                                    	<div class="preview"></div>
+	                                    </div> 
+	                                </div>
                                 </div>
-                                
                             </fieldset>
                              <fieldset>
                                 <div class="row">
@@ -235,7 +287,8 @@
                 jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
             });
         </script>
-	
+	<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
         
 	</jsp:attribute>
 </mt:layout_user>

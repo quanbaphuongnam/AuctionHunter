@@ -44,5 +44,7 @@ public interface ProductService {
 	
 	public List<Product> findDeleted();
 	public long countdelete();
+	
+	public Product findProduct(int account_id, String name, Date created);
 
 }

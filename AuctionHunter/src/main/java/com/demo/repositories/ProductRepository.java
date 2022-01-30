@@ -60,4 +60,7 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	
 	@Query("select count(id) from Product where status = 3")
 	public long countdelete();
+	
+	@Query("from Product where account_id = :account_id  and name = :name and created = :created")
+	public Product findProduct(@Param("account_id")int account_id, @Param("name")String name, @Param("created")Date created);
 }

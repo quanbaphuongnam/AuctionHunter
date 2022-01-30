@@ -1,4 +1,4 @@
- 
+
 package com.demo.controllers.user;
 
 import java.util.ArrayList;
@@ -28,100 +28,112 @@ import com.demo.services.AccountService;
 import com.demo.services.BrandService;
 import com.demo.services.CategoryService;
 import com.demo.services.HistoryAuctionService;
+import com.demo.services.ProductPhotoService;
 import com.demo.services.ProductService;
 
 @Controller
-@RequestMapping(value="product")
+@RequestMapping(value = "product")
 public class ProductController {
 	private ServletContext servletContext;
-	
+
 	private int id;
 	@Autowired
 	private AccountService accountService;
 
 	@Autowired
 	private ProductService productService;
-	
+
+	@Autowired
+	private ProductPhotoService productPhotoService;
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@Autowired
 	private BrandService brandService;
-	
+
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
-	
-	@RequestMapping(value="productpost", method = RequestMethod.GET)
-	public String productpost(ModelMap modelMap,Authentication authentication,HttpServletRequest request,Product product) {	
-		if(authentication != null) {
-		HttpSession session = request.getSession();
-		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-		
-		 modelMap.put("product", product);
-		 modelMap.put("categorys", categoryService.findAll());
-		 modelMap.put("brands", brandService.findAll());
-		 
-		}else {
+
+	@RequestMapping(value = "productpost", method = RequestMethod.GET)
+	public String productpost(ModelMap modelMap, Authentication authentication, HttpServletRequest request,
+			Product product) {
+		if (authentication != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+
+			modelMap.put("product", product);
+			modelMap.put("categorys", categoryService.findAll());
+			modelMap.put("brands", brandService.findAll());
+
+		} else {
 			return "user/account/login";
 		}
-		 
-	
+
 		return "user/home/productpost";
 	}
-	@RequestMapping(value="productpost", method = RequestMethod.POST)
-	public String productpost(@ModelAttribute("product") Product product,@RequestParam(value = "files") MultipartFile[] files,ModelMap modelMap,@RequestParam("category") int category ,@RequestParam("brand") int brand,Authentication authentication,HttpServletRequest request) {	
-		if(authentication != null) {
-		HttpSession session = request.getSession();
-		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-		 id = (int) session.getAttribute("idAcc");
-		product.setAccount(accountService.find(id));
-		product.setCreated(new Date());
-		product.setStatus(0);
-		product.setIsDelete(false);
-		product.setCategory(categoryService.find(category));
-		product.setBrand(brandService.find(brand));
-		
-		if(files != null && files.length > 0) { 
-			for(MultipartFile file : files) {
-				String fileNameUpload = UploadHelper.upload(servletContext, file);
-				ProductPhoto productPhoto = new ProductPhoto();
-				productPhoto.setName(fileNameUpload);
-				productPhoto.setProduct(product);
-				product.getProductPhotos().add(productPhoto); 
-			} 
+
+	@RequestMapping(value = "productpost", method = RequestMethod.POST)
+	public String productpost(@ModelAttribute("product") Product product,
+			@RequestParam(value = "files") MultipartFile[] files, ModelMap modelMap,
+			@RequestParam("category") int category, @RequestParam("brand") int brand, Authentication authentication,
+			HttpServletRequest request) {
+		if (authentication != null) {
+			Date created = new Date();
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			id = (int) session.getAttribute("idAcc");
+			product.setAccount(accountService.find(id));
+			product.setCreated(created);
+			product.setStatus(1);
+			product.setIsDelete(true);
+			product.setCategory(categoryService.find(category));
+			product.setBrand(brandService.find(brand));
+			productService.save(product);
+			
+			Product product2 = productService.findProduct(id, product.getName(), created);
+			if (files != null && files.length > 0) {
+				for (MultipartFile file : files) {
+					String fileNameUpload = UploadHelper.upload(servletContext, file);
+					ProductPhoto productPhoto = new ProductPhoto();
+					System.out.println("name: " + file);
+					System.out.println("fileNameUpload: " + fileNameUpload);
+					productPhoto.setName((fileNameUpload != null)? fileNameUpload:"");
+					productPhoto.setProduct(product2);
+					productPhotoService.save(productPhoto);
+				}
+			}
 		}
-		productService.save(product);
-		}
-		return "redirect:/account/index";
+		return "redirect:/home/index";
 	}
-	
-	@RequestMapping(value="productdetail/{id}", method = RequestMethod.GET)
-	public String productdetail(@PathVariable("id")int id,ModelMap modelMap,Authentication authentication,HttpServletRequest request,Product product) {	
+
+	@RequestMapping(value = "productdetail/{id}", method = RequestMethod.GET)
+	public String productdetail(@PathVariable("id") int id, ModelMap modelMap, Authentication authentication,
+			HttpServletRequest request, Product product) {
 
 		modelMap.put("product", productService.find(id));
 		modelMap.put("namePhoto", productService.namePhoto(id));
-		if(authentication != null) {
-		HttpSession session = request.getSession();
-		session.setAttribute("idPro",product.getId());
-		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-		 id = (int) session.getAttribute("idAcc");
+		if (authentication != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("idPro", product.getId());
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			id = (int) session.getAttribute("idAcc");
 		}
-		 
+
 		modelMap.put("historyAuctions", historyAuctionService.findAllById(id));
 		return "user/home/productdetail";
 	}
-	
-	@RequestMapping(value="productdetail", method = RequestMethod.POST)
-	public String productdetail(ModelMap modelMap) {	
-		//modelMap.put("product", productService.find(id));
+
+	@RequestMapping(value = "productdetail", method = RequestMethod.POST)
+	public String productdetail(ModelMap modelMap) {
+		// modelMap.put("product", productService.find(id));
 		return "user/home/productdetail";
 	}
-	
+
 	@Autowired
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
-		
-	}
-	
-}
 
+	}
+
+}

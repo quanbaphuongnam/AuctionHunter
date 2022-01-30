@@ -96,6 +96,10 @@ public  class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productRepository.countdelete();
 	}
+	@Override
+	public Product findProduct(int account_id, String name, Date created) {
+		return productRepository.findProduct(account_id, name, created);
+	}
 
 
 

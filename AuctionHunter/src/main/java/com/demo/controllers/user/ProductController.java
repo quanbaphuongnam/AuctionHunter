@@ -1,8 +1,6 @@
 package com.demo.controllers.user;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
 import com.demo.models.Product;
-import com.demo.models.ProductPhoto;
 import com.demo.services.AccountService;
 import com.demo.services.BrandService;
 import com.demo.services.CategoryService;
@@ -68,30 +65,29 @@ public class ProductController {
 		return "user/home/productpost";
 	}
 	@RequestMapping(value="productpost", method = RequestMethod.POST)
-	public String productpost(@ModelAttribute("product") Product product,@RequestParam(value = "files") MultipartFile[] files,ModelMap modelMap,@RequestParam("category") int category ,@RequestParam("brand") int brand,Authentication authentication,HttpServletRequest request) {	
+	public String productpost(@ModelAttribute("product") Product product,@RequestParam(value = "files") MultipartFile[] files,ModelMap modelMap,@RequestParam("category") int[] categorys,@RequestParam("brand") int[] brands,Authentication authentication,HttpServletRequest request) {	
 		if(authentication != null) {
 		HttpSession session = request.getSession();
 		session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 		 id = (int) session.getAttribute("idAcc");
-		product.setAccount(accountService.find(id));
+		 product.setAccount(accountService.find(id));
 		product.setCreated(new Date());
 		product.setStatus(0);
 		product.setIsDelete(false);
-		product.setCategory(categoryService.find(category));
-		product.setBrand(brandService.find(brand));
 		
-		if(files != null && files.length > 0) { 
-			for(MultipartFile file : files) {
-				String fileNameUpload = UploadHelper.upload(servletContext, file);
-				ProductPhoto productPhoto = new ProductPhoto();
-				productPhoto.setName(fileNameUpload);
-				productPhoto.setProduct(product);
-				product.getProductPhotos().add(productPhoto); 
-			} 
+		/*
+		 * if(files != null && files.length > 0) { for(MultipartFile file : files) {
+		 * String fileNameUpload = UploadHelper.upload(servletContext, file);
+		 * product.getProductPhotos().add(fileNameUpload); } }
+		 */
+		/*
+		 * if(categorys != null && categorys.length > 0) { for(int category : categorys)
+		 * { product.getCategoryProducts().add(categoryService.find(category)); } }
+		 */
+			productService.save(product);
 		}
-		productService.save(product);
-		}
-		return "redirect:/account/index";
+
+		return "redirect:/home/index";
 	}
 	
 	@RequestMapping(value="productdetail/{id}", method = RequestMethod.GET)
@@ -116,10 +112,6 @@ public class ProductController {
 		return "user/home/productdetail";
 	}
 	
-	@Autowired
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
-		
-	}
+	
 	
 }

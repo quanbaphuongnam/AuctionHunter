@@ -13,23 +13,23 @@ public class UploadHelper {
 
 	public static String upload(ServletContext servletContext, MultipartFile file) {
 		try {
-			String fileName = generateFileName(file.getOriginalFilename());
+			String name = UUID.randomUUID().toString().replace("-", "");
+			int lastIndex = file.getOriginalFilename().lastIndexOf(".");
+			String fileName = name + file.getOriginalFilename().substring(lastIndex);
 			byte[] bytes = file.getBytes();
-			Path path = Paths.get(servletContext.getRealPath("/assets/uploads/" + fileName));
-			Files.write(path, bytes);
+			Path path = Paths.get(servletContext.getRealPath("assets/uploads/" + fileName));
+			Files.write(path,bytes);
 			return fileName;
 		} catch (Exception e) {
 			return null;
 		}
 	}
-
+	
 	public static String generateFileName(String fileName) {
-		
-			String uuid = UUID.randomUUID().toString().replace("-","");
-			int index = fileName.lastIndexOf(".");
-			String ext = fileName.substring(index);
-			return uuid + ext;
-		
+		String uuid = UUID.randomUUID().toString().replace("-", "");
+		int index = fileName.lastIndexOf(".");
+		String ext = fileName.substring(index);
+		return uuid + ext;	
 	}
 
 }

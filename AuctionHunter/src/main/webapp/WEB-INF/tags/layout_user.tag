@@ -15,59 +15,6 @@
 <meta name="description" content="description">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/font-awesome.min.css">
-	<!-- nalika Icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/nalika-icon.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/owl.carousel.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/owl.theme.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/normalize.css">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/meanmenu.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/main.css">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/morrisjs/morris.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/calendar/fullcalendar.print.min.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="${pageContext.request.contextPath }/resources/admin/js/vendor/modernizr-2.8.3.min.js"></script>
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/user/assets/images/logo_icon.png" />
 <!-- Plugins CSS -->
@@ -94,48 +41,9 @@
 	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.datetimepicker.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
-</head>
-<!-- <script>
-	setInterval(function(){
-	
-		var idAcc3 = ${idAcc};		
-				$.ajax({
-					
-					type: 'GET',
-					url: '${pageContext.request.contextPath }/ajax/findAllNotiByIdAcc',
-					data: {
-						account_id: idAcc3
-					},
-					success: function(result){
-						alert('abc :'+result);
-						 var result = '';
-						
-						for(var i = 0;i < notification.length; i++)
-							{
-							 var dt = new Date(notification[i].created); 
-							 
-							
-								result +=  '<li  class="item">';
-								result += '<div class="product-details">';
-								result += '<a id="title" class="pName" href="cart.html">'+ notification[i].title   + '</a>';
-								result += '	<div id="description" class="variant-cart">' + notification[i].description  +'</div>';
-								result += '<span id="created" style="margin-left:100px; font-size: 12px">'+
-										    (dt.getMonth()+1).toString().padStart(2, '0')+'/'+
-										    dt.getDate().toString().padStart(2, '0')+'/'+
-										    dt.getFullYear().toString().padStart(4, '0') + ' '+
-										    dt.getHours().toString().padStart(2, '0')+':'+
-										    dt.getMinutes().toString().padStart(2, '0')+':'+
-										    dt.getSeconds().toString().padStart(2, '0') +  '</span>';
-								result += '</div>';
-								result += '</li>';	  
-							}
-						$('#ListNoti ul').html(result); 
-						 
-					}
-				});			
-	}, 1000)
 
-	</script> -->
+</head>
+
 <body class="template-collection belle">
 
 	<div class="pageWrapper">
@@ -453,33 +361,17 @@
 		})();
 		</script>
 <!--End of Tawk.to Script-->
-		<!-- Including Jquery -->
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.3.1.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery.cookie.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/wow.min.js"></script>
-		<!-- Including Javascript -->
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/bootstrap.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/plugins.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/popper.min.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
-		<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.js"></script>
-        <script src="${pageContext.request.contextPath }/resources/user/assets/datetime/build/jquery.datetimepicker.full.js"></script>
-
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.3.1.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery.cookie.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/popper.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/wow.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/datetime/build/jquery.datetimepicker.full.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/plugins.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
 	</div>
 </body>
 

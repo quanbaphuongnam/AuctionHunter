@@ -7,149 +7,97 @@
 	<jsp:attribute name="content">
 
 	<script>
-	var refreshIntervalId = setInterval(function(){
-		var value = $('#proid').val();
-		var idAcc2 = ${idAcc};
-		$.ajax({
-			type: 'GET',
-			url: '${pageContext.request.contextPath }/ajax/findWinnerAjax',
-			data: {
-				product_id: value
+		window.Auctions = {
+			url 		: '${pageContext.request.contextPath}/ajax/findWinnerAjax?product_id=',
+			priceStep 	: ${product.priceStep},
+			priceStart 	: ${product.priceStart},
+			idAcc2 		: ${idAcc},
+			intervalLoop : null,
+			init : function(){
+				Auctions.intervalLoop = setInterval(Auctions.run, 1000);
 			},
-			success: function(winnerAuctions){
-				var priceStep = parseInt(${product.priceStep});
-				var priceStart =  parseInt(${product.priceStart});
-				var result = '';
-				var result2 = '';
-				var result3 = '';
-				var result4 = '';
-				for(var i = 0;i < 1; i++)
-					{
-					result += '<span>' + winnerAuctions[i].priceBid + '</span>';
-					result4 +=   winnerAuctions[i].accid ;
-					result2 += '<span>' + winnerAuctions[i].accUsername  + '</span>';
-					result3 +=   winnerAuctions[i].priceBid ;
+			run : function(){
+				var value  	   = $('#proid').val().trim();
+				var urlRequest = Auctions.url + value;
+				$.get(urlRequest).then(function(result){
+					if(typeof result[0] == "object"){
+						Auctions.printWinner(result[0]);
 					}
-				$('#winnerAuctions').html(result);
-				$('#winnerAuctions2').html(result2);
+					if(result == "invalid") {
+						Auctions.endAuction();
+					}
+					Auctions.printHistoryBid(result);
+				});
+			},
+			printWinner : function(winner){
+				var priceBid 		= parseInt(winner.priceBid);
+				var priceBidLocal 	= parseInt($("#priceBid").val().trim());
+				var winnerSameId	= winner.accid == Auctions.idAcc2;
 
+				$("#winnerAuctions").text(priceBid);
+				$('#winnerAuctions2').text(winner.accUsername);
 
-				if(parseInt(result3) >= document.getElementById("priceBid").value){
-					document.getElementById("priceBid").value = parseInt(result3) + priceStep;
-					document.getElementById("buttonBid").disabled = true;
-				}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 != idAcc2){
-					document.getElementById("buttonBid").disabled = false;
-					document.getElementById("alertInfo").hidden = true;
-				}else if(parseInt(result3) < document.getElementById("priceBid").value && result4 == idAcc2){
-					
-					document.getElementById("buttonBid").disabled = true;
-					document.getElementById("alertInfo").value = "You have to wait for another person to pay a higher price to continue";
-					document.getElementById("alertInfo").hidden = false;
+				if(priceBid >= priceBidLocal){
+					let priceMin = priceBid + Auctions.priceStep;
+					$("#priceBid").val(priceMin);
+					$("#priceBid").attr("data-price-min", priceMin);
+					$(".qtyBtn.minus").addClass("disabled");
+					return;
+				}
 				
+				if(winnerSameId){
+					$("#alertInfo").val("You have to wait for another person to pay a higher price to continue");
 				}
 
+				$("#alertInfo").prop("hidden", !winnerSameId);
+			},
+			printHistoryBid : function(historyAuctions){
+				var $bodyTable = $("#tableHistoryAuctionBody");
+				$bodyTable.empty();
+				historyAuctions.map(function(history){
+					let $tr 		= $("<tr />");
+					let $tdUser 	= $("<td />").text(history.accUsername);
+					let $tdPrice 	= $("<td />").text(history.priceBid);
+					let $tdTimeBid	= $("<td />");
+					let timeBid 	= Auctions.getDate(history.dateBid);
+					
+					timeBid = [timeBid.day, timeBid.month, timeBid.year].join("/") + " " + [timeBid.hour, timeBid.minute, timeBid.second].join(":");
+					$tdTimeBid.text(timeBid);
+					
+					$tr.append($tdUser, $tdPrice, $tdTimeBid);
+					$bodyTable.append($tr);
+				});
+			},
+			getDate : function(date = null){
+				date = date == null ? new Date : new Date(date);
+				return {
+					year : date.getFullYear(),
+					month : date.getMonth() + 1,
+					day : date.getDate(),
+					hour : date.getHours(),
+					minute : date.getMinutes(),
+					second : date.getSeconds()
+				}
+			},
+			endAuction : function(){
+				$("#alertInfo").prop("hidden", false).text("auctions");
+				$("#buttonBid").prop("hidden", true);
+				Swal.fire({
+					title		: 'Auction has ended !',
+					imageUrl	: '${pageContext.request.contextPath }/resources/user/assets/images/iconendauction.jpg',
+					imageWidth	: 400,
+					imageHeight	: 200,
+					footer		: '<a href="${pageContext.request.contextPath }/home/index">Go to another auction</a>'
+				});
+				clearInterval(Auctions.intervalLoop); 
+			},
+			setCountDown : function(timeCountdown) {
+				$(".product-countdown").countdown("setFinalDate", timeCountdown);
 			}
-		});
-				$.ajax({
-					
-					type: 'GET',
-					url: '${pageContext.request.contextPath }/ajax/findWinnerAjax',
-					data: {
-						product_id: value
-					},
-					success: function(historyAuctions){
-						var result = '';
-						for(var i = 0;i < historyAuctions.length; i++)
-							{
-							 var dt = new Date(historyAuctions[i].dateBid); 
-							
-							
-							result += '<tr>';
-							result += '<td>' + historyAuctions[i].accUsername  + '</td>';
-							result += '<td>' + historyAuctions[i].priceBid + '</td>';
-							result += '<td>' +  
-							    (dt.getMonth()+1).toString().padStart(2, '0')+'/'+
-						    dt.getDate().toString().padStart(2, '0')+'/'+
-						    dt.getFullYear().toString().padStart(4, '0') + ' '+
-						    dt.getHours().toString().padStart(2, '0')+':'+
-						    dt.getMinutes().toString().padStart(2, '0')+':'+
-						    dt.getSeconds().toString().padStart(2, '0')  + '</td>';
-							result += '</tr>';
-							}
-						$('#tableHistoryAuction tbody').html(result);
-					}
-				});
-				
-				$.ajax({
-					
-					type: 'GET',
-					url: '${pageContext.request.contextPath }/ajax/findProductAjax',
-					data: {
-						product_id: value
-					},
-					success: function(result){
-						if(result == "invalid")
-						{
-							document.getElementById("buttonBid").hidden = true;
-							document.getElementById("alertInfo").value = "Has over the auction time !";
-							document.getElementById("alertInfo").hidden = false;
-							
-						}else {
-
-								$('[data-countdown]').each(function () {
-									var $this = $(this),
-										finalDate = $(this).data('countdown');
-									finalDate = '2022/01/27 23:34:37';
-									console.log('finalDate'+finalDate);
-									$this.countdown(finalDate, function (event) {
-										$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
-									});
-								}); 
-							
-							document.getElementsByTagName("div")[1].setAttribute("data-countdown", "2022/01/27 23:34:37");
-						}
-/* 
-						if(result != "invalidStart")
-						{
-							
-							if(result == "invalid")
-							{
-								
-								document.getElementById("buttonBid").hidden = true;
-								document.getElementById("alertInfo").value = "Has over the auction time !";
-								document.getElementById("alertInfo").hidden = false;
-								Swal.fire({
-									  
-									  title: 'Auction has ended !',
-									  imageUrl: '${pageContext.request.contextPath }/resources/user/assets/images/iconendauction.jpg',
-									  imageWidth: 400,
-									  imageHeight: 200,
-									  footer: '<a href="${pageContext.request.contextPath }/home/index">Go to another auction</a>'
-									})
-
-								 clearInterval(refreshIntervalId); 
-							}else if(result != null){
-								$('[data-countdown]').each(function () {
-									var $this = $(this),
-										finalDate = result;
-										console.log('finalDate'+finalDate)
-									$this.countdown(finalDate, function (event) {
-										$this.html(event.strftime('<span class="ht-count days"><span class="count-inner"><span class="time-count">%-D</span> <span>Days</span></span></span> <span class="ht-count hour"><span class="count-inner"><span class="time-count">%-H</span> <span>HR</span></span></span> <span class="ht-count minutes"><span class="count-inner"><span class="time-count">%M</span> <span>Min</span></span></span> <span class="ht-count second"><span class="count-inner"><span class="time-count">%S</span> <span>Sc</span></span></span>'));
-									});
-								});
-							
-							}
-							
-						}else {
-								document.getElementById("buttonBid").hidden = true;
-							document.getElementById("alertInfo").value = "Auction hasn't started!";
-							document.getElementById("alertInfo").hidden = false;
-							 clearInterval(refreshIntervalId); 
-						} */
-					
-					}
-				});
-	}, 1000)
+		}
+		$(document).ready(Auctions.init);
+	</script>
+	<script>
 	$(document).ready(function(){
 		$('#buttonBid').click(function(){
 			var priceBid = document.getElementById("priceBid").value;
@@ -165,6 +113,7 @@
 					idPro: idPro
 				},
 				success: function(data){
+					Auctions.setCountDown(data)
 					//$('#resultpriceBid').html(data);
 					Swal.fire({
 					  position: 'top',
@@ -181,6 +130,19 @@
 	});
 	
 	</script>
+	
+	<style>
+		#priceBid::-webkit-inner-spin-button,
+		#priceBid::-webkit-outer-spin-button{
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		.qtyBtn.minus.disabled{
+			cursor: not-allowed;
+		    opacity: 0.3;
+		    background: #686870;
+		}
+	</style>
 	
 	<button id="proid" value="${idPro}" >${idPro}</button>
 	<button id="accid" value="${idAcc}" >${idAcc}</button>
@@ -384,7 +346,7 @@
 														class="fa anm anm-minus-r" aria-hidden="true" ></i></a>
 														
                                                         <input
-														style="width: 80px;" type="number" step="${product.priceStep}" 
+														style="width: 80px;" type="number" readonly step="${product.priceStep}" 
 														 id="priceBid" value="${product.priceStart}"
 														class="product-form__input qty items"  >
 															<input name="quantity" value="${product.priceStep}"
@@ -427,12 +389,10 @@
 											</c:choose>                               
                                            <input style="color:red;
                                              border-color: red;" type="text" id="alertInfo"disabled="disabled" hidden="true"></input>
-                                             
-                                       <div
-											class="saleTime product-countdown"
-											data-countdown="${product.endDate}" ></div>       <!-- countdown start -->
-                                    
-                                    <!-- countdown end -->
+                        
+                        				<!-- countdown start -->                     
+                                       <div class="saleTime product-countdown" data-countdown="${product.endDate}"></div>
+                                    	<!-- countdown end -->
                                            
                                         </div>
                                         <!-- End Product Action -->
@@ -458,16 +418,7 @@
                                       <th>Time</th>
                                     </tr>
 									</thead>
-                                  <tbody>
-                                     
-                                    <%-- <c:forEach var="historyAuction"
-															items="${historyAuctions }"> --%>
-                                   <tr>
-                                      <td></td>
-                                      <td></td> 
-                                      <td></td>
-                                    </tr>
-                                 <%--   </c:forEach> --%>
+                                  <tbody id="tableHistoryAuctionBody">
                                   </tbody>
                                 </table>
                           			</div>                  

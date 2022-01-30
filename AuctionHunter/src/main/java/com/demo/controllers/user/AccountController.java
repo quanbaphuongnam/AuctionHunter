@@ -178,7 +178,7 @@ if(authentication != null) {
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			 id = (int) session.getAttribute("idAcc");
 			 modelMap.put("AllProducts", productService.findAllByIdAcc(id));
-			 
+			 modelMap.addAttribute("dateNow", new Date());
 			
 	
 			 return "user/account/myproduct";

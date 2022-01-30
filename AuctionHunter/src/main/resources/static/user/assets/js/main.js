@@ -875,22 +875,33 @@
 	  26. Quantity Plus Minus
 	------------------------------------*/
 	
-	function qnt_incre(){
+	(function(){
 		$(".qtyBtn").on("click", function() {
-		  var qtyField = $(this).parent(".qtyField"),
-			 oldValue = $(qtyField).find(".qty").val(),
-			  oldValue2 = $(qtyField).find(".qty2").val(),
-			  newVal = 1;
+			if($(this).hasClass("disabled")){
+				return false;
+			}
 			
-		  if ($(this).is(".plus")) {
-			newVal = parseInt(oldValue) + parseInt(oldValue2);
-		  } else if (oldValue > 1) {
-			newVal = parseInt(oldValue) - parseInt(oldValue2);
-		  }
-		  $(qtyField).find(".qty").val(newVal);
+		  	var qtyField 	= $(this).parent(".qtyField");
+			var oldValue 	= $(qtyField).find(".qty").val();
+			var oldValue2	= $(qtyField).find(".qty2").val();
+			var newVal 		= 1;
+			var minPrice	= $(qtyField).find(".qty").attr("data-price-min") || "0";
+			
+			oldValue = parseInt(oldValue);
+			oldValue2 = parseInt(oldValue2);
+			
+		  	if ($(this).is(".plus")) {
+				newVal = oldValue + oldValue2;
+		  	} else if (oldValue > oldValue2) {
+				newVal = oldValue - oldValue2;
+		  	}else{
+				return;
+			}
+
+			$(".qtyBtn.minus")[newVal <= minPrice ? "addClass" : "removeClass"]("disabled");
+		  	$(qtyField).find(".qty").val(newVal);
 		});
-	}
-	qnt_incre();
+	})();
 	/*----------------------------------
 	  27. Visitor Fake Message
 	------------------------------------*/

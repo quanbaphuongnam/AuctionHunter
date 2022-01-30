@@ -71,20 +71,20 @@
 												  <span class="badge badge-secondary">unapproved</span>
 											</c:when>
 											<c:when test="${AllProduct.status  == 1}">
-											<span class="badge badge-success">happening</span>
-												 <%-- <c:choose>
-													<c:when test="${AllProduct.startDate  >  dateNow}">
+											
+												  <c:choose>
+													<c:when test="${AllProduct.startDate  >= dateNow }">
 														<span class="badge badge-secondary">not yet begun</span>
 													</c:when>
-													<c:when test="${AllProduct.startDate  > dateNow > AllProduct.endDate}">
+													<c:when test="${AllProduct.startDate  <= dateNow && dateNow <= AllProduct.endDate}">
 														<span class="badge badge-success">happening</span>
 													</c:when>
-													<c:when test="${AllProduct.endDate < dateNow}">
+													<c:when test="${AllProduct.endDate <= dateNow }">
 														<span class="badge badge-dark">finished</span>
 													</c:when>
 													<c:otherwise>
 													</c:otherwise>
-												</c:choose>     --%>
+												</c:choose>     
 													  	
 											</c:when>
 											

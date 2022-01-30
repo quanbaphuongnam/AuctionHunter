@@ -367,6 +367,7 @@ $(function() {
 	  instances.push(this);
 	  // Save the reference
 	  this.$el.data('countdown-instance', this.instanceNumber);
+	  this.$el.attr('data-countdown-instance', this.instanceNumber);
 	  // Handle options or callback
 	  if (options) {
 		// Register the callbacks when supplied

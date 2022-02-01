@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.demo.models.HistoryAuction;
 import com.demo.models.HistoryAuctionAjax;
+import com.demo.models.Product;
 
 public interface HistoryAuctionService {
 	public List<HistoryAuction> findAllById( int product_id);
@@ -23,4 +24,6 @@ public interface HistoryAuctionService {
 	public Double priceBidMax(int product_id);
 	
 	public Page<HistoryAuction> findAllHistoryAuctionByIdAcc( int account_id,Pageable pageable);
+	
+	public List<String> findAllProductByIdAcc(int account_id);
 }

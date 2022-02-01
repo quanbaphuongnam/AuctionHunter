@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.demo.models.HistoryAuction;
 import com.demo.models.HistoryAuctionAjax;
+import com.demo.models.Product;
 
 @Repository
 public interface HistoryAuctionRepository extends CrudRepository<HistoryAuction, Integer>{
@@ -22,6 +23,9 @@ public interface HistoryAuctionRepository extends CrudRepository<HistoryAuction,
 	
 	@Query("from HistoryAuction where account_id = :account_id  order by id desc")
 	public List<HistoryAuction> findAllByIdAcc(@Param("account_id") int account_id);
+	
+	@Query("SELECT product.id from HistoryAuction where account_id = :account_id GROUP BY product.id order by id desc")
+	public List<String> findAllProductByIdAcc(@Param("account_id") int account_id);
 	
 	@Query("SELECT MAX(priceBid) from HistoryAuction where product_id = :product_id")
 	public Double priceBidMax(@Param("product_id") int product_id);

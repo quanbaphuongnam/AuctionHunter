@@ -1,6 +1,9 @@
 package com.demo.controllers.user;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -26,6 +29,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
+import com.demo.models.HistoryAuction;
+import com.demo.models.Product;
 import com.demo.services.AccountService;
 import com.demo.services.HistoryAuctionService;
 import com.demo.services.InvoiceService;
@@ -33,10 +38,9 @@ import com.demo.services.MailSenderService;
 import com.demo.services.ProductService;
 
 @Controller
-@RequestMapping(value="account")
-public class AccountController implements ServletContextAware{
-	
-	
+@RequestMapping(value = "account")
+public class AccountController implements ServletContextAware {
+
 	private int id;
 	@Autowired
 	private AccountService accountService;
@@ -44,98 +48,116 @@ public class AccountController implements ServletContextAware{
 	private ServletContext servletContext;
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
-	
+
 	@Autowired
 	private MailSenderService mailSenderService;
 	@Autowired
 	private ProductService productService;
 	@Autowired
 	private InvoiceService invoiceService;
-	
-	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
-	public String index(HttpServletRequest request,Authentication authentication,ModelMap modelMap, Model model, Account account,RedirectAttributes redirectAttributes) {	
-		if(authentication != null) {
-		
+
+	@RequestMapping(value = { "", "index" }, method = RequestMethod.GET)
+	public String index(HttpServletRequest request, Authentication authentication, ModelMap modelMap, Model model,
+			Account account, RedirectAttributes redirectAttributes) {
+		if (authentication != null) {
+
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("idAcc");
-			 modelMap.put("account", accountService.find(id));
-			 //model.addAttribute("id", session.getAttribute("id"));
-			 //session.removeAttribute("msg");
-	
+			id = (int) session.getAttribute("idAcc");
+			modelMap.put("account", accountService.find(id));
+			// model.addAttribute("id", session.getAttribute("id"));
+			// session.removeAttribute("msg");
+
 			return "user/account/index";
-		}else {
+		} else {
 			return "user/account/login";
 		}
-		
+
 	}
-	@RequestMapping(value="updateProfile", method = RequestMethod.POST)
-	public String updateProfile(@ModelAttribute("account") Account account,Authentication authentication,@RequestParam(value = "fileavatar") MultipartFile fileavatar,RedirectAttributes redirectAttributes) {
+
+	@RequestMapping(value = "updateProfile", method = RequestMethod.POST)
+	public String updateProfile(@ModelAttribute("account") Account account, Authentication authentication,
+			@RequestParam(value = "fileavatar") MultipartFile fileavatar, RedirectAttributes redirectAttributes) {
 		System.out.println("file name " + fileavatar.getOriginalFilename());
-		if(account.getPassword().isEmpty()){
+		if (account.getPassword().isEmpty()) {
 			account.setPassword(accountService.find(account.getId()).getPassword());
-		}else {
-			account.setPassword(BCrypt.hashpw(account.getPassword(),BCrypt.gensalt()));
+		} else {
+			account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
 		}
-		if(fileavatar.isEmpty()){
+		if (fileavatar.isEmpty()) {
 			account.setAvatar(accountService.find(account.getId()).getAvatar());
-		}else {
+		} else {
 			String fileNameUpload = UploadHelper.upload(servletContext, fileavatar);
 			System.out.println("file name up" + fileNameUpload);
 			account.setAvatar(fileNameUpload);
-		
+
 		}
-		
-		
+
 		accountService.save(account);
 		redirectAttributes.addFlashAttribute("UpdateSuccessful", "Update successful");
 		return "redirect:/account/index";
 	}
-	
-		 
-		
-	
-	
-	@RequestMapping(value="login", method = RequestMethod.GET)
-	public String login(HttpServletRequest request,@RequestParam(value = "error", required = false) String error, 
-						@RequestParam(value = "logout", required = false) String logout,
-						RedirectAttributes redirectAttributes,Authentication authentication) {
-		if(error != null) {
-			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");	 
+
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(HttpServletRequest request, @RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout, RedirectAttributes redirectAttributes,
+			Authentication authentication) {
+		if (error != null) {
+			redirectAttributes.addFlashAttribute("msg", "Login unsuccessful");
 			return "redirect:/account/login";
 		}
-		if(logout != null) {
+		if (logout != null) {
 			redirectAttributes.addFlashAttribute("msg", "Logout Successfully");
 			return "redirect:/account/login";
-			
+
 		}
 		return "user/account/login";
 	}
-	
-	@RequestMapping(value="myauctions", method = RequestMethod.GET)
-	public String myauctions(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
-		if(authentication != null) {
-			
+
+	@RequestMapping(value = "myauctions", method = RequestMethod.GET)
+	public String myauctions(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
+			Account account, RedirectAttributes redirectAttributes) {
+		if (authentication != null) {
+
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("idAcc");
-			 modelMap.put("historyAuctions", historyAuctionService.findAllByIdAcc(id));
-			 //model.addAttribute("id", session.getAttribute("id"));
-			 //session.removeAttribute("msg");
-			 modelMap.addAttribute("dateNow", new Date());
-			 return "user/account/myauctions";
-		}else {
+			id = (int) session.getAttribute("idAcc");
+			List<HistoryAuction> historyAuctions = new ArrayList<HistoryAuction>();
+			for (String productID : historyAuctionService.findAllProductByIdAcc(id)) {
+				double priceMax = 0;
+				for (HistoryAuction historyAuction : historyAuctionService.findAllByIdAcc(id)) {
+					if (productID.equalsIgnoreCase(historyAuction.getProduct().getId().toString())) {
+						if (historyAuction.getPriceBid() > priceMax) {
+							priceMax = historyAuction.getPriceBid();
+						}
+					}
+				}
+				for (HistoryAuction historyAuction : historyAuctionService.findAllByIdAcc(id)) {
+					if (productID.equalsIgnoreCase(historyAuction.getProduct().getId().toString())) {
+						if (historyAuction.getPriceBid() == priceMax) {
+							historyAuctions.add(historyAuction);
+						}
+					};
+				}
+			}
+			modelMap.put("historyAuctions", historyAuctions);
+			// model.addAttribute("id", session.getAttribute("id"));
+			// session.removeAttribute("msg");
+			modelMap.addAttribute("dateNow", new Date());
+			return "user/account/myauctions";
+		} else {
 			return "user/account/login";
 		}
-		
+
 	}
 
-	//------------------register----------------------------------
-	@RequestMapping(value="register", method = RequestMethod.GET)
-	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail, HttpSession session, RedirectAttributes redirectAttributes) {
-		if(checkEmail != null) {
+	// ------------------register----------------------------------
+	@RequestMapping(value = "register", method = RequestMethod.GET)
+	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail,
+			HttpSession session, RedirectAttributes redirectAttributes) {
+		if (checkEmail != null) {
 			Account account1 = (Account) session.getAttribute("account");
-			accountService.save(account1); 
+			accountService.save(account1);
 			session.removeAttribute("account");
 			redirectAttributes.addFlashAttribute("msg", "SignUpSuccess");
 			return "redirect:/account/login";
@@ -144,8 +166,10 @@ public class AccountController implements ServletContextAware{
 		modelMap.put("account", account);
 		return "user/account/register";
 	}
-	@RequestMapping(value="register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes, HttpSession session) {
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public String register(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes,
+			HttpSession session) {
 		account.setAddress("");
 		account.setAvatar("");
 		account.setPhone("");
@@ -156,58 +180,60 @@ public class AccountController implements ServletContextAware{
 		String hash = new BCryptPasswordEncoder().encode(account.getPassword());
 		account.setPassword(hash);
 		account.setRole("ROLE_USER");
-		
+
 		int code = (int) Math.floor(((Math.random() * 899999) + 100000));
-		System.out.println("Random Integer: " + code); 
-		if(mailSenderService.sendEmailConfirm(account.getEmail(), code)) {
+		System.out.println("Random Integer: " + code);
+		if (mailSenderService.sendEmailConfirm(account.getEmail(), code)) {
 			redirectAttributes.addFlashAttribute("msg", "Check email");
 			redirectAttributes.addFlashAttribute("code", code);
 			session.setAttribute("account", account);
 			return "redirect:/account/register";
-		}else {
+		} else {
 			return "redirect:/account/register";
 		}
-		//return "redirect:/account/login";
+		// return "redirect:/account/login";
 	}
-	
-	@RequestMapping(value="myproduct", method = RequestMethod.GET)
-	public String myproduct(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes,Model model) {	
-if(authentication != null) {
-			
+
+	@RequestMapping(value = "myproduct", method = RequestMethod.GET)
+	public String myproduct(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
+			Account account, RedirectAttributes redirectAttributes, Model model) {
+		if (authentication != null) {
+
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("idAcc");
-			 modelMap.put("AllProducts", productService.findAllByIdAcc(id));
-			 modelMap.addAttribute("dateNow", new Date());
-			
-	
-			 return "user/account/myproduct";
-		}else {
+			id = (int) session.getAttribute("idAcc");
+			modelMap.put("AllProducts", productService.findAllByIdAcc(id));
+			modelMap.addAttribute("dateNow", new Date());
+
+			return "user/account/myproduct";
+		} else {
 			return "user/account/login";
 		}
-		
+
 	}
-	
-	@RequestMapping(value="myinvoice", method = RequestMethod.GET)
-	public String myinvoice(Authentication authentication,HttpServletRequest request,ModelMap modelMap,Account account,RedirectAttributes redirectAttributes) {	
-if(authentication != null) {
-			
+
+	@RequestMapping(value = "myinvoice", method = RequestMethod.GET)
+	public String myinvoice(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
+			Account account, RedirectAttributes redirectAttributes) {
+		if (authentication != null) {
+
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-			 id = (int) session.getAttribute("idAcc");
-			 modelMap.put("Invoices", invoiceService.findAllByIdAcc(id));
-			 //model.addAttribute("id", session.getAttribute("id"));
-			 //session.removeAttribute("msg");
-	
-			 return "user/account/myinvoice";
-		}else {
+			id = (int) session.getAttribute("idAcc");
+			modelMap.put("Invoices", invoiceService.findAllByIdAcc(id));
+			// model.addAttribute("id", session.getAttribute("id"));
+			// session.removeAttribute("msg");
+
+			return "user/account/myinvoice";
+		} else {
 			return "user/account/login";
 		}
-		
+
 	}
+
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
-		
+
 	}
 }

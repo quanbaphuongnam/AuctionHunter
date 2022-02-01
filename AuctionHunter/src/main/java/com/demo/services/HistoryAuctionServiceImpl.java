@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.demo.models.HistoryAuction;
 import com.demo.models.HistoryAuctionAjax;
+import com.demo.models.Product;
 import com.demo.repositories.HistoryAuctionRepository;
 @Service
 public class HistoryAuctionServiceImpl implements HistoryAuctionService{
@@ -48,6 +49,11 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 	public Page<HistoryAuction> findAllHistoryAuctionByIdAcc(int account_id, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return historyAuctionRepository.findAllHistoryAuctionByIdAcc(account_id, pageable);
+	}
+	@Override
+	public List<String> findAllProductByIdAcc(int account_id) {
+		System.out.println("id :" + account_id);
+		return historyAuctionRepository.findAllProductByIdAcc(account_id);
 	}
 
 }

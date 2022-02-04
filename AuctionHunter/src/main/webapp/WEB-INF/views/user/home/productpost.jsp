@@ -240,7 +240,7 @@
 	                                    <div class="drop-zone">
 	                                    	<h3 class="drop-zone__prompt" style="margin-top: 0;">Drop files here or click to upload.</h3>
 	                                    	<!-- <div class="drop--zone__thumb" data-label="myfile.txt"></div> -->
-	                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple"/> 
+	                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple" /> 
 	                                    	<div class="preview"></div>
 	                                    </div> 
 	                                </div>

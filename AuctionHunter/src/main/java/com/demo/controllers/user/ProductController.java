@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.helpers.UploadHelper;
 import com.demo.models.Account;
@@ -77,7 +78,7 @@ public class ProductController {
 	public String productpost(@ModelAttribute("product") Product product,
 			@RequestParam(value = "files") MultipartFile[] files, ModelMap modelMap,
 			@RequestParam("category") int category, @RequestParam("brand") int brand, Authentication authentication,
-			HttpServletRequest request) {
+			HttpServletRequest request,RedirectAttributes redirectAttributes) {
 		if (authentication != null) {
 			Date created = new Date();
 			HttpSession session = request.getSession();
@@ -85,7 +86,7 @@ public class ProductController {
 			id = (int) session.getAttribute("idAcc");
 			product.setAccount(accountService.find(id));
 			product.setCreated(created);
-			product.setStatus(1);
+			product.setStatus(0);
 			product.setIsDelete(true);
 			product.setCategory(categoryService.find(category));
 			product.setBrand(brandService.find(brand));
@@ -98,12 +99,14 @@ public class ProductController {
 					ProductPhoto productPhoto = new ProductPhoto();
 					System.out.println("name: " + file);
 					System.out.println("fileNameUpload: " + fileNameUpload);
-					productPhoto.setName((fileNameUpload != null)? fileNameUpload:"");
+					productPhoto.setName((fileNameUpload != null)? fileNameUpload:"iconendauction.jpg");
 					productPhoto.setProduct(product2);
 					productPhotoService.save(productPhoto);
 				}
 			}
+			redirectAttributes.addFlashAttribute("msg", "Postsuccessful");
 		}
+		
 		return "redirect:/home/index";
 	}
 

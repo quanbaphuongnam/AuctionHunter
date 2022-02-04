@@ -3,7 +3,6 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 <mt:layout_user title="404">
 	<jsp:attribute name="content">
-		 <!-- Lookbook Start -->
         <div class="container">
         	<div class="row">
             	<div class="col-12 col-sm-12 col-md-12 col-lg-12">	
@@ -15,8 +14,5 @@
         		</div>
         	</div>
         </div>
-        <!-- Lookbook Start -->
-		
-       
 	</jsp:attribute>
 </mt:layout_user>

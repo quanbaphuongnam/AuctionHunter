@@ -44,12 +44,15 @@
 					$(".qtyBtn.minus").addClass("disabled");
 					return;
 				}
-				
 				if(winnerSameId){
 					$("#alertInfo").val("You have to wait for another person to pay a higher price to continue");
+					$("#alertInfo").prop("hidden", false);
+					$("#buttonBid").prop("hidden", true);
+				}else {
+					$("#alertInfo").prop("hidden", true);
+					$("#buttonBid").prop("hidden", false);
 				}
-
-				$("#alertInfo").prop("hidden", !winnerSameId);
+			
 			},
 			printHistoryBid : function(historyAuctions){
 				var $bodyTable = $("#tableHistoryAuctionBody");
@@ -82,6 +85,7 @@
 			endAuction : function(){
 				$("#alertInfo").prop("hidden", false).text("auctions");
 				$("#buttonBid").prop("hidden", true);
+				
 				Swal.fire({
 					title		: 'Auction has ended !',
 					imageUrl	: '${pageContext.request.contextPath }/resources/user/assets/images/iconendauction.jpg',
@@ -99,6 +103,7 @@
 	</script>
 	<script>
 	$(document).ready(function(){
+		
 		$('#buttonBid').click(function(){
 			var priceBid = document.getElementById("priceBid").value;
 			var idAcc = ${idAcc};
@@ -142,12 +147,13 @@
 		    opacity: 0.3;
 		    background: #686870;
 		}
+		
 	</style>
 	
-	<button id="proid" value="${idPro}" >${idPro}</button>
-	<button id="accid" value="${idAcc}" >${idAcc}</button>
+	<button id="proid" value="${idPro}" hidden="hidden"></button>
+	<button id="accid" value="${idAcc}"hidden="hidden" ></button>
 	
-	<button id="resultpriceBid"  ></button>
+	<button id="resultpriceBid" hidden="hidden" ></button>
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">
@@ -158,15 +164,9 @@
       		</div>
 		</div>
         <!--End Collection Banner-->
-        
         <div class="container">
         	<div class="row">
             	<!--Sidebar-->
-            	
-                <!--End Sidebar-->
-                <!--Main Content-->
-         
-                	
                           <!--MainContent-->
             <div id="MainContent" class="main-content" role="main">
                 <!--Breadcrumb-->
@@ -177,7 +177,6 @@
                      </div>
                 </div>
                 <!--End Breadcrumb-->
-                
                 <div id="ProductSection-product-template"
 						class="product-template__container prstyle1 container">
                     <!--product-single-->
@@ -298,29 +297,18 @@
 													id="ProductPrice-product-template" >$ <span
 														class="money" id="winnerAuctions" >${product.priceStart}</span>
 														</span>
-                                            </span>
+                                            	</span>
                                               </p>
                                               </div> 
-                                                <span>
-                                            
-                                            CURRENT WINNER:  </span>
+                                                	<span> CURRENT WINNER:  </span>
                                                 <div
 											id="quantity_message" >
 												<span class="items" id="winnerAuctions2"></span>
 											</div>
-                                                 
-                                      
-                                        
                                            <!--  end winner -->  
-                                    
                                         </div>
-                                   
-                                    
-                                 
-                                   
                                         <p class="infolinks"> <a
 											href="#productInquiry" class="emaillink btn">Price step: ${product.priceStep}</a>
-															
 										</p>
                                         <!-- Product Action -->
                                         <div
@@ -330,17 +318,6 @@
                                                 <div class="wrapQtyBtn">
                                                     <div
 													class="qtyField">
-													<%-- <c:choose>
-														<c:when
-															test="${pageContext.request.userPrincipal.name != null}">
-															<li><a
-																href="${pageContext.request.contextPath }/account/logout"
-																class="site-nav">Logout</a></li>
-														</c:when>
-														<c:otherwise>
-														
-														</c:otherwise>
-													</c:choose> --%>
                                                         <a
 														class="qtyBtn minus" href="javascript:void(0);"><i
 														class="fa anm anm-minus-r" aria-hidden="true" ></i></a>
@@ -357,12 +334,10 @@
 														class="fa anm anm-plus-r" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
-                                                
                                             </div> 
                                             <c:choose>
 												<c:when
 												test="${pageContext.request.userPrincipal.name != null}">
-												
                                             		<c:choose>
 		                                            	<c:when test="${pageContext.request.userPrincipal.name == product.account.username}">
 															  <div class="product-form__item--submit"></div>       
@@ -376,27 +351,23 @@
                                             		</c:choose>  
 												</c:when>
 												<c:otherwise>
-											 		<a href="${pageContext.request.contextPath }/account/login">
 											 		<div class="product-form__item--submit">
+											 			<a href="${pageContext.request.contextPath }/account/login">
                                                 		<button style="margin-top: 2px" type="button" name="add"
 															class="btn product-form__cart-submit" >
                                                    		<span>You must be logged in</span>
                                                 		</button>
+                                                		</a>
                                             		</div>
-                                            		</a>
-
 												</c:otherwise>
 											</c:choose>                               
                                            <input style="color:red;
                                              border-color: red;" type="text" id="alertInfo"disabled="disabled" hidden="true"></input>
-                        
                         				<!-- countdown start -->                     
                                        <div class="saleTime product-countdown" data-countdown="${product.endDate}"></div>
                                     	<!-- countdown end -->
-                                           
                                         </div>
                                         <!-- End Product Action -->
-                                   
                                      <div
 										class="product-single__description rte">
                                         <ul>
@@ -407,31 +378,25 @@
                                     <div class="display-table shareRow">
                                              <div class="tab-content">
                                 <h3>History Bid</h3>
-                             
-                                <div
-												style="overflow: auto; height: 100px;">
-                                <table id="tableHistoryAuction">
-                                	<thead>
-									 <tr>
-                                      <th>User</th>
-                                      <th>Amount</th>
-                                      <th>Time</th>
-                                    </tr>
-									</thead>
-                                  <tbody id="tableHistoryAuctionBody">
-                                  </tbody>
-                                </table>
+                                <div style="overflow: auto; height: 100px;">
+	                                <table id="tableHistoryAuction">
+	                                	<thead>
+											 <tr>
+		                                      <th>User</th>
+		                                      <th>Amount</th>
+		                                      <th>Time</th>
+		                                    </tr>
+										</thead>
+	                                  	<tbody id="tableHistoryAuctionBody">
+	                                  	</tbody>
+	                                </table>
                           			</div>                  
-                                        </div>
-                                  
                                 </div>
+                            </div>
                         </div>
                     </div>
                     <!--End-product-single-->
                  <hr>
-                    <!--Product Tabs-->
-                    
-                    <!--End Product Tabs-->
                     <!--Related Product Slider-->
                     <div class="related-product grid-products">
                         <header class="section-header">
@@ -451,13 +416,11 @@
   
                         <hr>
                         </div>
-                   
                     <!--End Recently Product Slider-->
                     </div>
                 <!--#ProductSection-product-template-->
             </div>
             <!--MainContent-->
-                         
                 </div>
                 <!--End Main Content-->
             </div>

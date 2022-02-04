@@ -6,60 +6,52 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-
-<!-- belle/shop-left-sidebar.html   11 Nov 2019 12:37:31 GMT -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Auction Hunter</title>
 <meta name="description" content="description">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Favicon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/user/assets/images/logo_icon.png" />
-<!-- Plugins CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/plugins.css">
-<!-- Bootstap CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/bootstrap.min.css">
-<!-- Main Style CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/responsive.css">
-
 <script
 	src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/user/assets/css/button.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-	<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.6.0.min.js"></script> 
-	<script src="http://code.jquery.com/ui/1.13.0/jquery-ui.js" ></script>
-	    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.datetimepicker.css"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script
+	src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath }/resources/user/assets/datetime/jquery.datetimepicker.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
 </head>
-
 <body class="template-collection belle">
-
 	<div class="pageWrapper">
-		<!--Search Form Drawer-->
 		<div class="search">
 			<div class="search__form">
-				<form class="search-bar__form" action="${pageContext.request.contextPath }/home/search" method="get">
-
+				<form class="search-bar__form"
+					action="${pageContext.request.contextPath }/home/search"
+					method="get">
 					<input class="search__input" type="text"
 						placeholder="Search entire store..." aria-label="Search"
 						id="keyword" name="keyword">
 				</form>
-
 			</div>
 		</div>
-		<!--End Search Form Drawer-->
 		<!--Top Header-->
 		<div class="top-header">
 			<div class="container-fluid">
@@ -80,7 +72,7 @@
 						<div class="language-dropdown">
 							<span class="language-dd">English</span>
 							<ul id="language">
-								<li class="">German</li>
+								<li class="">VietNamese</li>
 								<li class="">French</li>
 							</ul>
 						</div>
@@ -91,7 +83,8 @@
 					<div
 						class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
 						<div class="text-center">
-							<p class="top-header_middle-text">Auction products anywhere worldwide</p>
+							<p class="top-header_middle-text">Auction products anywhere
+								worldwide</p>
 						</div>
 					</div>
 					<div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
@@ -110,7 +103,7 @@
 										href="${pageContext.request.contextPath }/account/register">Register</a></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="${pageContext.request.contextPath }/admin">Admin 
+							<li><a href="${pageContext.request.contextPath }/admin">Admin
 							</a></li>
 						</ul>
 					</div>
@@ -178,43 +171,33 @@
 													class="site-nav">Logout</a></li>
 											</c:when>
 											<c:otherwise>
-
 											</c:otherwise>
 										</c:choose>
 									</ul></li>
-
 							</ul>
 						</nav>
 						<!--End Desktop Menu-->
 					</div>
-					<div
-						class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
-						<div class="logo">
-							<a href="index.html"> <img
-								src=""
-								alt="Belle Multipurpose Html Template"
-								title="Belle Multipurpose Html Template" />
-							</a>
-						</div>
-					</div>
+					
 					<div class="col-4 col-sm-3 col-md-3 col-lg-2">
 						<div class="site-cart">
-							<a href="#;" class="site-header__cart" title="Cart"> <i class="icon fa fa-bell-o"></i> <span id="CartCount"
-								class="site-header__cart-count" data-cart-render="item_count">2</span>
+							<a href="#;" class="site-header__cart" title="Cart"> <i
+								class="icon anm anm-bag-l"></i>
 							</a>
 							<!--Minicart Popup-->
 							<div id="header-cart" class="block block-cart">
-							 <div id="listNoti" style="overflow: auto;">
-								<ul  class="mini-products-list">
-									<li  class="item">
-										<div class="product-details">
-											 <a id="title" class="pName" href="cart.html"></a>
-											<div id="description" class="variant-cart"></div>
-												<span id="created" style="margin-left:100px; font-size: 12px"></span>
-										</div>
-									</li>
-									
-								</ul>
+								<div id="listNoti" style="overflow: auto;">
+									<ul class="mini-products-list">
+										<li class="item">
+											<div class="product-details">
+												<a id="title" class="pName" href="cart.html"></a>
+												<div id="description" class="variant-cart"></div>
+												<span id="created"
+													style="margin-left: 100px; font-size: 12px"></span>
+											</div>
+										</li>
+
+									</ul>
 								</div>
 							</div>
 							<!--End Minicart Popup-->
@@ -245,46 +228,50 @@
 					href="${pageContext.request.contextPath }/contactus">Contact Us
 						<i class="anm anm-plus-l"></i>
 				</a></li>
-				<li class="lvl1 parent megamenu"><a href="about-us.html">FAQs
+				<li class="lvl1 parent megamenu"><a href="${pageContext.request.contextPath }/faqs">FAQs
 						<i class="anm anm-plus-l"></i>
 				</a></li>
 				<li class="lvl1 parent megamenu"><a
-					href="blog-left-sidebar.html">Account <i class="anm anm-plus-l"></i></a>
+					href="${pageContext.request.contextPath }/account/index">Account <i class="anm anm-plus-l"></i></a>
 					<ul>
-						<li><a href="blog-left-sidebar.html" class="site-nav">Profile</a></li>
-						<li><a href="blog-right-sidebar.html" class="site-nav">My</a></li>
-						<li><a href="blog-fullwidth.html" class="site-nav">Fullwidth</a></li>
-						<li><a href="blog-grid-view.html" class="site-nav">Gridview</a></li>
-						<li><a href="blog-article.html" class="site-nav">Article</a></li>
+						<li><a href="${pageContext.request.contextPath }/account/index">Profile</a></li>
+						<li><a href="${pageContext.request.contextPath }/account/myauctions" class="site-nav">My
+								Auction</a></li>
+						<li><a href="${pageContext.request.contextPath }/account/myproduct" class="site-nav">My
+								Product</a></li>
 					</ul></li>
-				<li class="lvl1"><a href="#"><b>Buy Now!</b></a></li>
+				<c:choose>
+					<c:when test="${pageContext.request.userPrincipal.name != null}">
+						<li class="lvl1"><a
+							href="${pageContext.request.contextPath }/account/logout"><b>Logout</b></a></li>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 		<!--End Mobile Menu-->
-
 		<!--Body Content-->
 		<div id="page-content">
 			<jsp:invoke fragment="content"></jsp:invoke>
 		</div>
 		<!--End Body Content-->
-
 		<!--Footer-->
 		<footer id="footer">
-
 			<div class="site-footer">
 				<div class="container">
 					<!--Footer Links-->
 					<div class="footer-top">
 						<div class="row">
-							
+
 							<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
-								<h4 class="h4">Informations</h4>
+								<h4 class="h4">Menu</h4>
 								<ul>
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Privacy policy</a></li>
-									<li><a href="#">Terms &amp; condition</a></li>
-									<li><a href="#">My Account</a></li>
+									<li><a href="${pageContext.request.contextPath }/aboutus">About us</a></li>
+									<li><a href="${pageContext.request.contextPath }/contactus">Contact Us</a></li>
+									<li><a href="${pageContext.request.contextPath }/other/UserAgreement">User Agreement</a></li>
+									<li><a href="${pageContext.request.contextPath }/faqs">FAQs</a></li>
+									<li><a href="${pageContext.request.contextPath }/account/index">My Account</a></li>
 								</ul>
 							</div>
 							<div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
@@ -302,15 +289,17 @@
 								<ul class="addressFooter">
 									<li><i class="icon anm anm-map-marker-al"></i>
 										<p>
-											55 Gallaxy Enque,<br>2568 steet, 23568 NY
+											212-214 Nguyen Dinh Chieu, District 3 , HCMC
 										</p></li>
 									<li class="phone"><i class="icon anm anm-phone-s"></i>
 										<p>(440) 000 000 0000</p></li>
 									<li class="email"><i class="icon anm anm-envelope-l"></i>
-										<p>sales@yousite.com</p></li>
+										<p> Bao0924327813@gmail.com </p></li>
 								</ul>
 							</div>
-						</div>
+							
+						 
+						
 					</div>
 					<!--End Footer Links-->
 					<hr>
@@ -341,39 +330,45 @@
 			</div>
 		</footer>
 		<!--End Footer-->
-
 		<!--Scoll Top-->
 		<span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
 		<!--End Scoll Top-->
-
-		<!--Quick View popup-->
-		
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-		(function(){
-		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-		s1.async=true;
-		s1.src='https://embed.tawk.to/61e54edab84f7301d32b6807/1fpjro23f';
-		s1.charset='UTF-8';
-		s1.setAttribute('crossorigin','*');
-		s0.parentNode.insertBefore(s1,s0);
-		})();
+		<!--Start of Tawk.to Script-->
+		<script type="text/javascript">
+			var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+			(function() {
+				var s1 = document.createElement("script"), s0 = document
+						.getElementsByTagName("script")[0];
+				s1.async = true;
+				s1.src = 'https://embed.tawk.to/61e54edab84f7301d32b6807/1fpjro23f';
+				s1.charset = 'UTF-8';
+				s1.setAttribute('crossorigin', '*');
+				s0.parentNode.insertBefore(s1, s0);
+			})();
 		</script>
-<!--End of Tawk.to Script-->
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.3.1.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery.cookie.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/popper.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/wow.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/datetime/build/jquery.datetimepicker.full.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/plugins.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
+		<!--End of Tawk.to Script-->
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery-3.3.1.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/jquery.cookie.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/bootstrap.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/popper.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/vendor/wow.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/datetime/build/jquery.datetimepicker.full.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/plugins.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
 	</div>
 </body>
-
-<!-- belle/shop-left-sidebar.html   11 Nov 2019 12:38:58 GMT -->
 </html>

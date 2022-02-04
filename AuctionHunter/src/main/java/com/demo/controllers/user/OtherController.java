@@ -12,5 +12,9 @@ public class OtherController {
 	public String index() {	
 		return "user/other/404";
 	}
+	@RequestMapping(value="UserAgreement", method = RequestMethod.GET)
+	public String UserAgreement() {	
+		return "user/other/UserAgreement";
+	}
 	
 }

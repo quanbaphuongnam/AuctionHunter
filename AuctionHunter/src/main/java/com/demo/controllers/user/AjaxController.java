@@ -96,7 +96,23 @@ public class AjaxController {
 		
 		historyAuctionService.save(historyAuction);
 		
-		return "valid";
+		
+		// select new date
+		Date dateStart = product.getStartDate();
+		Date dateNow2 =  new Date();
+	
+		String dateNew = format.format(dateEnd);
+		//if(dateNow.compareTo(dateStart) >= 0) {
+//			if(dateNow2.compareTo(dateEnd) >= 0) {
+//				product.setStatus(2);
+//				productService.save(product);
+//				return "invalid";
+//			}else {
+					System.err.println(dateNew);
+	 			return dateNew;
+	 			
+			//}
+
 		
 	}
 	@RequestMapping(value="findProductAjax", method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
@@ -116,20 +132,11 @@ public class AjaxController {
 			}else {
 					System.err.println(dateNew);
 	 			return dateNew;
-	 			
 			}
 			
 		//} else {
 			//return "invalidStart";
 		//}
 		
-	}
-
-//	@RequestMapping(value = { "", "search" }, method = RequestMethod.GET,
-//	produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-//	public List<String> search(@RequestParam("term")String term) {
-//		return productService.searchByTerm(term);
-//	}
-	
+	}	
 }
-

@@ -6,6 +6,59 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <mt:layout_admin title="productadmin">
 	<jsp:attribute name="content_admin">
+	<script type="text/javascript">
+			var msg1 = '${msg}';
+			var msg2 = '${msg1}';
+			if (msg1 == 'Accept successful') {
+				Swal.fire({
+					position : 'center',
+					icon : 'success',
+					title : 'Accept successful',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} else if (msg2 == 'Cancel Successfully') {
+				Swal.fire({
+					position : 'center',
+					icon : 'success',
+					title : 'Cancel Successfully',
+					showConfirmButton : false,
+					timer : 2000
+				});
+				 document.getElementById('successAlert').addEventListener('click', function () {
+			            swalWithBootstrapButtons.fire({
+			                icon: 'success',
+			                title: 'Accept Success',
+			                text: 'Your work has been saved',
+			                showConfirmButton: true,
+			                timer: 1500
+			            })
+			        });
+				 document.getElementById('Deleted').addEventListener('click', function () {
+			            const notyf = new Notyf({
+			                position: {
+			                    x: 'right',
+			                    y: 'top',
+			                },
+			                types: [
+			                    {
+			                        type: 'error',
+			                        background: '#FA5252',
+			                        icon: {
+			                            className: 'fas fa-times',
+			                            tagName: 'span',
+			                            color: '#fff'
+			                        },
+			                        dismissible: false
+			                    }
+			                ]
+			            });
+			            notyf.open({
+			                type: 'error',
+			                message: 'Cancel Success'
+			            });
+			        });
+		</script>
 		
         <div class="container-fluid">
             <div class="row">
@@ -1094,8 +1147,7 @@
 										href="#description"><i class="icon nalika-edit"
 											aria-hidden="true"></i> Product List</a></li>
                                     
-                                    <li><a href="#reviews"><i
-											class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
+                                    <li><a href="#reviews"><i  class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
                                      <li><a href="#delete"><i
 											class="fa fa-trash" aria-hidden="true"></i> Product Deleted</a></li>
                                 </ul>
@@ -1227,6 +1279,7 @@
                                     <th>EndDate</th>
                                     <th>Created</th>
                                     <th>Setting</th>
+                                    <th></th>
                                 </tr>
                                  <tr>
 																<td colspan="9" align="center" style="color: red;"> Empty</td> </tr>
@@ -1243,7 +1296,9 @@
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Detail</th>
+                                    <th></th>
+                                    
                                 </tr>
                                <c:forEach var="allproductAdmins"
 																items="${ListAccept }">
@@ -1263,7 +1318,7 @@
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
+                                    <button class="mb-2 btn btn-sm btn-warning mr-1">Watting Accept</button>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==2 }">
@@ -1281,16 +1336,26 @@
 				                    <td> <fmt:formatDate var="day2"
 																			value="${allproductAdmins.created }"
 																			pattern="dd/MM/yyyy" />${day2 }</td>
-                                    <td>
+									<td>
+                                    <a
+															href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																			title="Edit" class="pd-setting-ed">
+																	title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
-                                        <button data-toggle="tooltip"
-																			title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
+											</a>
+											
+										
+                                    </td>										
+                                    <td>
+                                    <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
+                                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                              <button type="submit" class="mb-2 btn btn-sm btn-warning mr-1" id="successAlert" name="status" value="1">Accept</button>
+                              <button type="submit" class="mb-2 btn btn-sm btn-danger mr-1" id="Deleted" name="status" value="3">Cancel</button>
+                            </div>
+</form>
                                     </td>
+                                      
                                 </tr>
                                </c:forEach>
                                

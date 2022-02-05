@@ -216,7 +216,6 @@
                                         <label for="input-country">Category  <span class="required-f">*</span></label>
                                         
                                         <select name="category">
-                                         <option> --- select --</option>
                                         	<c:forEach var="category" items="${categorys}">
                                             <option value="${category.id }"> ${category.name}</option>
                                           	</c:forEach>
@@ -224,8 +223,7 @@
                                     </div>
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
-                                        <select name="brand" 
-                                             <option> --- select -- </option>>
+                                        <select name="brand">
                                            	<c:forEach var="brand" items="${brands}">
                                             	<option value="${brand.id }"> ${brand.name}</option>
                                           	</c:forEach>

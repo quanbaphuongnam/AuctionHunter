@@ -11,9 +11,9 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 	dropZoneElement.addEventListener("change", e => {
 		if (inputElement.files.length) {
 			const files = inputElement.files;
-			if (inputElement.files.length <= 5) {
+			if (files.length <= 5) {
 				if (x == 0) {
-					for (var i = 0; i < inputElement.files.length; i++) {
+					for (var i = 0; i < files.length; i++) {
 						const file = files[i]
 						renderPreviewImage(dropZoneElement, file);
 						x++
@@ -25,7 +25,7 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 						x--;
 					}
 					if (x == 0) {
-						for (var i = 0; i < inputElement.files.length; i++) {
+						for (var i = 0; i < files.length; i++) {
 							const file = files[i]
 							renderPreviewImage(dropZoneElement, file);
 							x++
@@ -46,6 +46,9 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 					x--;
 				}
 				let dropZonePrompt = dropZoneElement.querySelector(".drop-zone__prompt");
+				if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+					dropZoneElement.querySelector(".drop-zone__prompt").remove();
+				}
 				dropZonePrompt = document.createElement("h3");
 				dropZonePrompt.classList.add("drop-zone__prompt");
 				dropZonePrompt.innerHTML = "Drop files here or click to upload."
@@ -70,7 +73,6 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 		e.preventDefault()
 		inputElement.files = e.dataTransfer.files;
 		const files = e.dataTransfer.files;
-		console.log(files);
 		if (files.length <= 5) {
 			if (x == 0) {
 				for (var i = 0; i < inputElement.files.length; i++) {
@@ -106,10 +108,14 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 				x--;
 			}
 			let dropZonePrompt = dropZoneElement.querySelector(".drop-zone__prompt");
+			if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+				dropZoneElement.querySelector(".drop-zone__prompt").remove();
+			}
 			dropZonePrompt = document.createElement("h3");
 			dropZonePrompt.classList.add("drop-zone__prompt");
 			dropZonePrompt.innerHTML = "Drop files here or click to upload."
 			dropZoneElement.appendChild(dropZonePrompt);
+			e.dataTransfer.files = 0;
 			dropZoneElement.classList.remove("drop-zone--over");
 		}
 	})
@@ -126,13 +132,25 @@ function renderPreviewImage(dropZoneElement, file) {
 	const fileType = file['type']
 
 	if (!validImageTypes.includes(fileType)) {
+		let timerInterval
 		Swal.fire({
 			position: 'top-end',
-			icon: 'error',
 			title: 'Please select only product photos!',
-			showConfirmButton: false,
-			timer: 2000
-		});
+			icon: 'error',
+			timer: 2000,
+			showCancelButton: false,
+			showConfirmButton : false,
+			allowOutsideClick: false,
+			timerProgressBar: true,
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		}).then((result) => {
+			/* Read more about handling dismissals below */
+			if (result.dismiss === Swal.DismissReason.timer) {
+				location.reload();
+			}
+		})
 		return
 	}
 

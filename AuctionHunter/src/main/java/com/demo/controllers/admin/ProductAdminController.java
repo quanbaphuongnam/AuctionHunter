@@ -83,10 +83,14 @@ public String accept(@PathVariable("id")int id,@RequestParam("status") int statu
 		product.setStatus(1);
 		productService.save(product);
 		redirectAttributes.addFlashAttribute("msg", "Accept successful");
+		String Url = "http://localhost:9999/productadmin?status=1";
+		return "redirect:" + Url;
 	}else if(status == 3){
 		product.setStatus(3);
 		productService.save(product);
 		redirectAttributes.addFlashAttribute("msg1", "Cancel Successfully");
+		String Url = "http://localhost:9999/productadmin?status=1";
+		return "redirect:" + Url;
 		
 	}
 	String Url = "http://localhost:9999/productadmin?status=1";

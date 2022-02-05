@@ -1220,7 +1220,7 @@
 															href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
                                         <button data-toggle="tooltip"
 																	title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+												<i class="fa fa-bar-chart text-warning" aria-hidden="true"></i>
 											</button>
 											</a>
                                     </td>
@@ -1318,7 +1318,8 @@
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
-                                    <button class="mb-2 btn btn-sm btn-warning mr-1">Watting Accept</button>
+                                    <button class="btn btn-custon-rounded-two btn-warning">
+                                    <i class="fa fa-exclamation-triangle adminpro-warning-danger" aria-hidden="true"></i>Watting Accept</button>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==2 }">
@@ -1350,8 +1351,10 @@
                                     <td>
                                     <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
                                  <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                              <button type="submit" class="mb-2 btn btn-sm btn-warning mr-1" id="successAlert" name="status" value="1">Accept</button>
-                              <button type="submit" class="mb-2 btn btn-sm btn-danger mr-1" id="Deleted" name="status" value="3">Cancel</button>
+                              <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">
+                              <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Accept</button>
+                              <button type="submit" class="btn btn-custon-rounded-two btn-danger" id="Deleted" name="status" value="3">
+                              <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel</button>
                             </div>
 </form>
                                     </td>

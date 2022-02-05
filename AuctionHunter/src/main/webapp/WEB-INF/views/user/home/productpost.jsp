@@ -142,14 +142,12 @@
 	text-align: center;
 } */
 </style>
-
 	<div class="page section-header text-center">
 			<div class="page-title">
         		<div class="wrapper"><h1 class="page-width">Post Product</h1></div>
       		</div>
 		</div>
         <!--End Page Title-->
-        
         <div class="container">
         	<div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
@@ -165,122 +163,108 @@
             </div>
             <div class="row billing-fields">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 sm-margin-30px-bottom">
-                    <div class="create-ac-content bg-light-gray padding-20px-all">
-                      <h3 class="login-title mb-3">Please fill in the product information</h3>
-                      <s:form method="post" modelAttribute="product"
-			enctype="multipart/form-data"
-			action="${pageContext.request.contextPath }/product/productpost">
-                            <fieldset>
-                                <div class="row">
-                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                       <label for="input-firstname">Product Name <span  class="required-f">*</span></label>
-                                        <s:input path="name"  type="text" required="required" /> 
-                                        
-                                    </div>
-                                    <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
-                                        <label for="input-lastname">Price Start <span class="required-f">*</span></label>
-                                       
-                                         <div class="icon-addon addon-lg">
-						                    <s:input path="priceStart" type="number"  class="form-control" required="required"/>
-						                    <label  for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
-						                </div>
-                                    </div>
-                                       <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
-                                        <label for="input-lastname">Price Step <span class="required-f">*</span></label>
-                                        <div class="icon-addon addon-lg">
-						                    <s:input path="priceStep" type="number" class="form-control" required="required"/>
-						                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
-						                </div>
-                                    </div>
-                                </div>
-                                 <div class="row">
-                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                         
-                       					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-                        				<s:input path="startDate"  name="filter-date"  id="filter-date" required="required" />
-               
-                                    </div>
-                                      <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                        <label for="filter-date">End Date <span  class="required-f">*</span></label>
-                        				<s:input path="endDate"  name="filter-date"  id="filter-date" required="required"/>
-                                    </div>
-                                </div>
-                               
-                            </fieldset>
-
-                            <fieldset>
-                                
-                                <div class="row">
-                                    
-                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                        <label for="input-country">Category  <span class="required-f">*</span></label>
-                                        
-                                        <select name="category">
-                                         <option> --- select --</option>
-                                        	<c:forEach var="category" items="${categorys}">
-                                            <option value="${category.id }"> ${category.name}</option>
-                                          	</c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                        <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
-                                        <select name="brand" 
-                                             <option> --- select -- </option>>
-                                           	<c:forEach var="brand" items="${brands}">
-                                            	<option value="${brand.id }"> ${brand.name}</option>
-                                          	</c:forEach>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <div class="row">
-	                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
-	                                <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
-	                                    <div class="drop-zone">
-	                                    	<h3 class="drop-zone__prompt" style="margin-top: 0;">Drop files here or click to upload.</h3>
-	                                    	<!-- <div class="drop--zone__thumb" data-label="myfile.txt"></div> -->
-	                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple" /> 
-	                                    	<div class="preview"></div>
-	                                    </div> 
+	                    <div class="create-ac-content bg-light-gray padding-20px-all">
+	                      <h3 class="login-title mb-3">Please fill in the product information</h3>
+	                      <s:form method="post" modelAttribute="product"
+				enctype="multipart/form-data"
+				action="${pageContext.request.contextPath }/product/productpost">
+	                            <fieldset>
+	                                <div class="row">
+	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+	                                       <label for="input-firstname">Product Name <span  class="required-f">*</span></label>
+	                                        <s:input path="name"  type="text" required="required" /> 
+	                                    </div>
+	                                    <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
+	                                        <label for="input-lastname">Price Start <span class="required-f">*</span></label>
+	                                         <div class="icon-addon addon-lg">
+							                    <s:input path="priceStart" type="number"  class="form-control" required="required"/>
+							                    <label  for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
+							                </div>
+	                                    </div>
+	                                       <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
+	                                        <label for="input-lastname">Price Step <span class="required-f">*</span></label>
+	                                        <div class="icon-addon addon-lg">
+							                    <s:input path="priceStep" type="number" class="form-control" required="required"/>
+							                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
+							                </div>
+	                                    </div>
 	                                </div>
-                                </div>
-                            </fieldset>
-                             <fieldset>
-                                <div class="row">
-                                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
-                                        <label  for="input-company">Description <span class="required-f">*</span></label>
-                                        <s:textarea path="description" class="form-control resize-both" rows="5" required="required"/>
-                                    </div>
-                                </div>
-                                
-                            </fieldset>
-                              <fieldset>
-                                <div class="row">
-                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
-                                        <label class="form-check-label padding-15px-left">
-                                            <input type="checkbox" class="form-check-input" value="" required="required"/>&ensp;  &emsp;<strong>I have read and agreed the regulations </strong>
-                                        </label>
-                                  </div>
-                                </div>
-                                 <div class="row">
-                                	 <div class="order-button-payment">
-                                	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
-                            		</div>
-                            	 </div>
-                            </fieldset>                           
-                        </s:form>
+	                                 <div class="row">
+	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+	                       					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
+	                        				<s:input path="startDate"  name="filter-date"  id="filter-date" required="required" />
+	                                    </div>
+	                                      <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+	                                        <label for="filter-date">End Date <span  class="required-f">*</span></label>
+	                        				<s:input path="endDate"  name="filter-date"  id="filter-date" required="required"/>
+	                                    </div>
+	                                </div>
+	                            </fieldset>
+	                            <fieldset>
+	                                <div class="row">
+	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+	                                        <label for="input-country">Category  <span class="required-f">*</span></label>
+	                                        <select name="category">
+	                                         <option> --- select --</option>
+	                                        	<c:forEach var="category" items="${categorys}">
+	                                            <option value="${category.id }"> ${category.name}</option>
+	                                          	</c:forEach>
+	                                        </select>
+	                                    </div>
+	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+	                                        <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
+	                                        <select name="brand">
+	                                             <option> --- select -- </option>
+	                                           	<c:forEach var="brand" items="${brands}">
+	                                            	<option value="${brand.id }"> ${brand.name}</option>
+	                                          	</c:forEach>
+	                                        </select>
+	                                    </div>
+	                                </div>
+	                            </fieldset>
+	                            <fieldset>
+	                                <div class="row">
+		                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
+		                                <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
+		                                    <div class="drop-zone">
+		                                    	<h3 class="drop-zone__prompt" style="margin-top: 0;">Drop files here or click to upload.</h3>
+		                                    	<!-- <div class="drop--zone__thumb" data-label="myfile.txt"></div> -->
+		                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple" /> 
+		                                    	<div class="preview"></div>
+		                                    </div> 
+		                                </div>
+	                                </div>
+	                            </fieldset>
+	                             <fieldset>
+	                                <div class="row">
+	                                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
+	                                        <label  for="input-company">Description <span class="required-f">*</span></label>
+	                                        <s:textarea path="description" class="form-control resize-both" rows="5" required="required"/>
+	                                    </div>
+	                                </div>
+	                            </fieldset>
+	                              <fieldset>
+	                                <div class="row">
+	                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
+	                                        <label class="form-check-label padding-15px-left">
+	                                            <input type="checkbox" class="form-check-input" value="" required="required"/>&ensp;  &emsp;<strong>I have read and agreed the regulations </strong>
+	                                        </label>
+	                                  </div>
+	                                </div>
+	                                 <div class="row">
+	                                	 <div class="order-button-payment">
+	                                	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
+	                            		</div>
+	                            	 </div>
+	                            </fieldset>                           
+	                        </s:form>
+	                    </div>
+	                </div>
                     </div>
                 </div>
-
-                    </div>
-                </div>
-         
-        
-	 <script>
+		 <script>
             /*jslint browser:true*/
             /*global jQuery, document*/
-
             jQuery(document).ready(function () {
                 'use strict';
 

@@ -62,15 +62,12 @@ public class ProductController {
 		if (authentication != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
-
 			modelMap.put("product", product);
 			modelMap.put("categorys", categoryService.findAll());
 			modelMap.put("brands", brandService.findAll());
-
 		} else {
 			return "user/account/login";
 		}
-
 		return "user/home/productpost";
 	}
 
@@ -91,7 +88,6 @@ public class ProductController {
 			product.setCategory(categoryService.find(category));
 			product.setBrand(brandService.find(brand));
 			productService.save(product);
-			
 			Product product2 = productService.findProduct(id, product.getName(), created);
 			if (files != null && files.length > 0) {
 				for (MultipartFile file : files) {
@@ -106,7 +102,6 @@ public class ProductController {
 			}
 			redirectAttributes.addFlashAttribute("msg", "Postsuccessful");
 		}
-		
 		return "redirect:/home/index";
 	}
 
@@ -122,7 +117,6 @@ public class ProductController {
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");
 		}
-
 		modelMap.put("historyAuctions", historyAuctionService.findAllById(id));
 		return "user/home/productdetail";
 	}

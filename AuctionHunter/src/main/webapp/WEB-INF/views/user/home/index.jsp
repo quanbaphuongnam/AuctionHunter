@@ -17,7 +17,6 @@ if (msg == 'Postsuccessful') {
 	});
 } 
 </script>
-		
 		<!--Collection Banner-->
     	<div class="collection-header">
 			<div class="collection-hero">
@@ -122,7 +121,6 @@ if (msg == 'Postsuccessful') {
 							</div>
                         </div>
                         <!--end Information-->
-                     
                     </div>
                 </div>
                 <!--End Sidebar-->
@@ -229,7 +227,6 @@ if (msg == 'Postsuccessful') {
 								                            <div class="row">
 								  <!----------------------------------Product----------------------------------->
 								  					<c:forEach var="listProduct" items="${listProducts }">
-								  				
 								                                <div
 															class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
 																		<div id="tv">
@@ -304,7 +301,7 @@ if (msg == 'Postsuccessful') {
 																					<br>
 																				</button>
 																				  </a>
-								</div>
+																			</div>
 								                                    </div>
 								                                    <!-- End product details -->
 								                                    <!-- countdown start -->
@@ -376,7 +373,6 @@ if (msg == 'Postsuccessful') {
 																	class="filters-toolbar__input filters-toolbar__input--sort">
 								                                                <option
 																		value="title-ascending" selected="selected">Sort</option>
-								                                                <option>Best Selling</option>
 								                                                <option>Alphabetically, A-Z</option>
 								                                                <option>Alphabetically, Z-A</option>
 								                                                <option>Price, low to high</option>
@@ -399,7 +395,6 @@ if (msg == 'Postsuccessful') {
 								                            <div class="row">
 								  <!----------------------------------Product----------------------------------->
 								  					<c:forEach var="listProduct" items="${listProductHSs }">
-								  				
 								                                <div
 															class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
 																		<div id="tv">
@@ -476,17 +471,8 @@ if (msg == 'Postsuccessful') {
 																				  </a>
 								</div>
 								                                    </div>
-								                                    <!-- End product details -->
-								                                    <!-- countdown start -->
-								                                    <div class="timermobile">
-																		<div class="saleTime desktop"
-																		data-countdown="2022/09/20"></div>
-																	</div>
-								                                    <!-- countdown end -->
 								                                </div>
 								                                    <!-- End product details -->
-								                                    <!-- countdown start -->
-								                                    <!-- countdown end -->
 								                         </div>
 								                      </c:forEach>
 								                            <!-- End product  -->

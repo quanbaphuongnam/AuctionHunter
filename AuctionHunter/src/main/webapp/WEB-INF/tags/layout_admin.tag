@@ -90,6 +90,8 @@
 		============================================ -->
 <script
 	src="${pageContext.request.contextPath }/resources/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script
@@ -158,7 +160,7 @@
 								<span class="mini-click-non">Product manager</span></a>
 							<ul class="submenu-angle" aria-expanded="false">
 								<li><a title="Inbox"
-									href="${pageContext.request.contextPath }/productadmin?status=1"><span
+									href="${pageContext.request.contextPath }/productadmin"><span
 										class="mini-sub-pro">Product</span></a></li>
 								<li><a title="View Mail" href="mailbox-view.html"><span
 										class="mini-sub-pro">View Mail</span></a></li>
@@ -262,6 +264,8 @@
 		============================================ -->
 	<script
 		src="${pageContext.request.contextPath }/resources/admin/js/main.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/user/assets/js/sweetalert2.all.min.js"></script>
 
 </body>
 

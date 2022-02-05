@@ -39,10 +39,10 @@ public class ProductAdminController {
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
 	@RequestMapping(value = { "", "index" }, method = RequestMethod.GET)
-	public String index(ModelMap map,@RequestParam("p") Optional<Integer> p,@RequestParam("status") int status) {
+	public String index(ModelMap map,@RequestParam("p") Optional<Integer> p) {
 //        map.put("AllproductAdmins", productService.findAll());
         Pageable pageable = PageRequest.of(p.orElse(0),10);
-        Page<Product> page = productService.findpage(pageable,status);
+        Page<Product> page = productService.findpage(pageable,1);
         map.addAttribute("ListProduct",page);
         int status2 = 0;
         long count2 = productService.count2(status2);
@@ -80,20 +80,18 @@ public class ProductAdminController {
 public String accept(@PathVariable("id")int id,@RequestParam("status") int status,RedirectAttributes redirectAttributes) {
 	Product product = productService.find(id);
 	if(status == 1) {
-		product.setStatus(1);
+		product.setStatus(1);	
 		productService.save(product);
 		redirectAttributes.addFlashAttribute("msg", "Accept successful");
-		String Url = "http://localhost:9999/productadmin?status=1";
-		return "redirect:" + Url;
+		
 	}else if(status == 3){
 		product.setStatus(3);
 		productService.save(product);
-		redirectAttributes.addFlashAttribute("msg1", "Cancel Successfully");
-		String Url = "http://localhost:9999/productadmin?status=1";
-		return "redirect:" + Url;
+		redirectAttributes.addFlashAttribute("msg", "Cancel Successfully");
+		
 		
 	}
-	String Url = "http://localhost:9999/productadmin?status=1";
-	return "redirect:" + Url;
+	
+	return "redirect:/productadmin/index" ;
 }
 }

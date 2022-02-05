@@ -6,10 +6,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <mt:layout_admin title="productadmin">
 	<jsp:attribute name="content_admin">
-	<script type="text/javascript">
+<script type="text/javascript">
 			var msg1 = '${msg}';
-			var msg2 = '${msg1}';
-			if (msg1 == 'Accept successful') {
+			if (msg1 == 'Cancel Successfully') {
+				Swal.fire({
+					position : 'center',
+					icon : 'error',
+					title : 'Cancel Successfully',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} else if (msg1 == 'Accept successful') {
 				Swal.fire({
 					position : 'center',
 					icon : 'success',
@@ -17,49 +24,9 @@
 					showConfirmButton : false,
 					timer : 2000
 				});
-			} else if (msg2 == 'Cancel Successfully') {
-				Swal.fire({
-					position : 'center',
-					icon : 'success',
-					title : 'Cancel Successfully',
-					showConfirmButton : false,
-					timer : 2000
-				});
-				 document.getElementById('successAlert').addEventListener('click', function () {
-			            swalWithBootstrapButtons.fire({
-			                icon: 'success',
-			                title: 'Accept Success',
-			                text: 'Your work has been saved',
-			                showConfirmButton: true,
-			                timer: 1500
-			            })
-			        });
-				 document.getElementById('Deleted').addEventListener('click', function () {
-			            const notyf = new Notyf({
-			                position: {
-			                    x: 'right',
-			                    y: 'top',
-			                },
-			                types: [
-			                    {
-			                        type: 'error',
-			                        background: '#FA5252',
-			                        icon: {
-			                            className: 'fas fa-times',
-			                            tagName: 'span',
-			                            color: '#fff'
-			                        },
-			                        dismissible: false
-			                    }
-			                ]
-			            });
-			            notyf.open({
-			                type: 'error',
-			                message: 'Cancel Success'
-			            });
-			        });
-		</script>
-		
+			} 
+			
+		</script>		
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

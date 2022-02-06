@@ -105,7 +105,6 @@ public class AccountController implements ServletContextAware {
 		if (logout != null) {
 			redirectAttributes.addFlashAttribute("msg", "Logout Successfully");
 			return "redirect:/account/login";
-
 		}
 		return "user/account/login";
 	}

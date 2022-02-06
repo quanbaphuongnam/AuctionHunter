@@ -13,27 +13,22 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .input-group .icon-addon .form-control {
     border-radius: 0;
 }
-
 .icon-addon {
     position: relative;
     color: #555;
     display: block;
 }
-
 .icon-addon:after,
 .icon-addon:before {
     display: table;
     content: " ";
 }
-
 .icon-addon:after {
     clear: both;
 }
-
 .icon-addon.addon-md .glyphicon,
 .icon-addon .glyphicon, 
 .icon-addon.addon-md .fa,
@@ -48,21 +43,18 @@
     padding: 10px 0;
     top: 1px
 }
-
 .icon-addon.addon-lg .form-control {
     line-height: 1.33;
     height: 46px;
     font-size: 18px;
     padding: 10px 16px 10px 40px;
 }
-
 .icon-addon.addon-sm .form-control {
     height: 30px;
     padding: 5px 10px 5px 28px;
     font-size: 12px;
     line-height: 1.5;
 }
-
 .icon-addon.addon-lg .fa,
 .icon-addon.addon-lg .glyphicon {
     font-size: 18px;
@@ -70,14 +62,12 @@
     left: 11px;
     top: 4px;
 }
-
 .icon-addon.addon-md .form-control,
 .icon-addon .form-control {
     padding-left: 30px;
     float: left;
     font-weight: normal;
 }
-
 .icon-addon.addon-sm .fa,
 .icon-addon.addon-sm .glyphicon {
     margin-left: 0;
@@ -85,14 +75,12 @@
     left: 5px;
     top: -1px
 }
-
 .icon-addon .form-control:focus + .glyphicon,
 .icon-addon:hover .glyphicon,
 .icon-addon .form-control:focus + .fa,
 .icon-addon:hover .fa {
     color: #2580db;
 }
-
 .drop-zone {
 	max-width: 100%;
 	height: 140px;
@@ -129,25 +117,16 @@
 .preview-img {
   max-width: 150px;margin: 0 1em 1em 0;padding: 0.5em;border: 1px solid #ccc; border-radius: 3px;display: inline-block;
 }
-/* .drop--zone__thumb::after {
-	content: attr(data-label);
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 2px 0;
-	color: #ffffff;
-	background: rgba(0, 0, 0, 0.75);
-	font-size: 10px;
-	text-align: center;
-} */
+
 </style>
+
 	<div class="page section-header text-center">
 			<div class="page-title">
         		<div class="wrapper"><h1 class="page-width">Post Product</h1></div>
       		</div>
 		</div>
         <!--End Page Title-->
+        
         <div class="container">
         	<div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
@@ -203,7 +182,9 @@
                         				<s:input path="endDate"  name="filter-date"  id="filter-date" required="required"/>
                                     </div>
                                 </div>
+                               
                             </fieldset>
+
                             <fieldset>
                                 
                                 <div class="row">
@@ -238,86 +219,41 @@
 	                                    	<div class="preview"></div>
 	                                    </div> 
 	                                </div>
-	                                 <div class="row">
-	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-	                       					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-	                        				<s:input path="startDate"  name="filter-date"  id="filter-date" required="required" />
-	                                    </div>
-	                                      <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-	                                        <label for="filter-date">End Date <span  class="required-f">*</span></label>
-	                        				<s:input path="endDate"  name="filter-date"  id="filter-date" required="required"/>
-	                                    </div>
-	                                </div>
-	                                  </div>
-	                            </fieldset>
-	                            <fieldset>
-	                                <div class="row">
-	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-	                                        <label for="input-country">Category  <span class="required-f">*</span></label>
-	                                        <select name="category">
-	                                         <option> --- select --</option>
-	                                        	<c:forEach var="category" items="${categorys}">
-	                                            <option value="${category.id }"> ${category.name}</option>
-	                                          	</c:forEach>
-	                                        </select>
-	                                    </div>
-	                                    <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-	                                        <label for="input-zone">Brand / Trademark <span class="required-f">*</span></label>
-	                                        <select name="brand">
-	                                             <option> --- select -- </option>
-	                                           	<c:forEach var="brand" items="${brands}">
-	                                            	<option value="${brand.id }"> ${brand.name}</option>
-	                                          	</c:forEach>
-	                                        </select>
-	                                    </div>
-	                                </div>
-	                            </fieldset>
-	                            <fieldset>
-	                                <div class="row">
-		                                <div class="form-group col-md-12 col-lg-12 col-xl-12">
-		                                <label for="input-firstname">Choose images <span  class="required-f">*</span></label>
-		                                    <div class="drop-zone">
-		                                    	<h3 class="drop-zone__prompt" style="margin-top: 0;">Drop files here or click to upload.</h3>
-		                                    	<!-- <div class="drop--zone__thumb" data-label="myfile.txt"></div> -->
-		                                    	<input type="file"  name="files" class="drop-zone__input" style="display: none;" multiple="multiple" /> 
-		                                    	<div class="preview"></div>
-		                                    </div> 
-		                                </div>
-	                                </div>
-	                            </fieldset>
-	                             <fieldset>
-	                                <div class="row">
-	                                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
-	                                        <label  for="input-company">Description <span class="required-f">*</span></label>
-	                                        <s:textarea path="description" class="form-control resize-both" rows="5" required="required"/>
-	                                    </div>
-	                                </div>
-	                            </fieldset>
-	                              <fieldset>
-	                                <div class="row">
-	                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
-	                                        <label class="form-check-label padding-15px-left">
-	                                            <input type="checkbox" class="form-check-input" value="" required="required"/>&ensp;  &emsp;<strong>I have read and agreed the regulations </strong>
-	                                        </label>
-	                                  </div>
-	                                </div>
-	                                 <div class="row">
-	                                	 <div class="order-button-payment">
-	                                	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
-	                            		</div>
-	                            	 </div>
-	                            </fieldset>                           
-	                        </s:form>
-	                    </div>
-	                </div>
+                                </div>
+                            </fieldset>
+                             <fieldset>
+                                <div class="row">
+                                    <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                                        <label  for="input-company">Description <span class="required-f">*</span></label>
+                                        <s:textarea path="description" class="form-control resize-both" rows="5" required="required"/>
+                                    </div>
+                                </div>
+                                
+                            </fieldset>
+                              <fieldset>
+                                <div class="row">
+                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
+                                        <label class="form-check-label padding-15px-left">
+                                            <input type="checkbox" class="form-check-input" value="" required="required"/>&ensp;  &emsp;<strong>I have read and agreed the regulations </strong>
+                                        </label>
+                                  </div>
+                                </div>
+                                 <div class="row">
+                                	 <div class="order-button-payment">
+                                	 &emsp;<button class="btn" value="Place order" type="submit">Submit</button>
+                            		</div>
+                            	 </div>
+                            </fieldset>                           
+                        </s:form>
                     </div>
                 </div>
-		 <script>
+                    </div>
+                </div>
+	 <script>
             /*jslint browser:true*/
             /*global jQuery, document*/
             jQuery(document).ready(function () {
                 'use strict';
-
                 jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
             });
         </script>

@@ -89,16 +89,9 @@ public class AjaxController {
 		Date dateStart = product.getStartDate();
 		Date dateNow2 =  new Date();
 		String dateNew = format.format(dateEnd);
-		//if(dateNow.compareTo(dateStart) >= 0) {
-//			if(dateNow2.compareTo(dateEnd) >= 0) {
-//				product.setStatus(2);
-//				productService.save(product);
-//				return "invalid";
-//			}else {
-					System.err.println(dateNew);
-	 			return dateNew;
-			//}
+		System.err.println(dateNew);
 		
+	 	return dateNew;
 	}
 	@RequestMapping(value="findProductAjax", method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
 	public String findProductAjax(@RequestParam("product_id")int product_id,ModelMap modelMap) {
@@ -109,17 +102,17 @@ public class AjaxController {
 		Date dateNow =  new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String dateNew = format.format(dateEnd);
-		//if(dateNow.compareTo(dateStart) >= 0) {
+		if(dateNow.after(dateStart)) {
 			if(dateNow.compareTo(dateEnd) >= 0) {
 				product.setStatus(2);
 				productService.save(product);
 				return "invalid";
 			}else {
-					System.err.println(dateNew);
+				System.err.println(dateNew);
 	 			return dateNew;
 			}
-		//} else {
-			//return "invalidStart";
-		//}
+		} else {
+			return "invalidStart";
+		}
 	}	
 }

@@ -1440,16 +1440,17 @@
 				                    <td> <fmt:formatDate var="day2"
 																			value="${allproductAdmins.created }"
 																			pattern="dd/MM/yyyy" />${day2 }</td>
-                                    <td>
+                                   <td>
+                                    <a
+															href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																			title="Edit" class="pd-setting-ed">
+																	title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
-                                        <button data-toggle="tooltip"
-																			title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
-                                    </td>
+											</a>
+											
+										
+                                    </td>		
                                 </tr>
                                </c:forEach>
                                

@@ -3,6 +3,19 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 <mt:layout_user title="contactus">
 	<jsp:attribute name="content">
+	<script type="text/javascript">
+			var msg1 = '${msg}';
+		    if (msg1 == 'Feedback successful') {
+				Swal.fire({
+					position : 'center',
+					icon : 'success',
+					title : 'Feedback successful',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} 
+			
+		</script>	
 	
 			<div class="page section-header text-center">
 			<div class="page-title">
@@ -63,13 +76,13 @@ Auction Hunter auctions mainly products about world fashion. Unique, unusual, ra
 									class="col-12 col-sm-12 col-md-6 col-lg-6">
                           	<div class="form-group">
                             <input type="tel" name="phone"
-											pattern="[0-9\-]*" placeholder="Phone Number">
+										required	pattern="[0-9\-]*" placeholder="Phone Number">
                             </div>
                           </div>
                           <div
 									class="col-12 col-sm-12 col-md-6 col-lg-6">
                           	<div class="form-group">
-                            <input type="text" name="subject"
+                            <input type="text" name="subject" required
 											placeholder="Subject">
                             </div>
                           </div>
@@ -78,7 +91,7 @@ Auction Hunter auctions mainly products about world fashion. Unique, unusual, ra
                         <div
 									class="col-12 col-sm-12 col-md-12 col-lg-12">
                         	<div class="form-group">
-                            <textarea rows="10" name="message"
+                            <textarea rows="10" name="message" required
 											placeholder="Your Name and Content comments"></textarea>
                             </div>
                         </div>  
@@ -87,7 +100,7 @@ Auction Hunter auctions mainly products about world fashion. Unique, unusual, ra
                         <div
 									class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <input type="submit" class="btn"
-										value="Send Message">
+									id="submit"	value="Send Message">
                         </div>
                      </div>
                      </form>

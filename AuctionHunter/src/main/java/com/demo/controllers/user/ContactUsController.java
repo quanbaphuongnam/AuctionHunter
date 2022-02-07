@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.services.MailSenderService;
 
@@ -26,7 +27,7 @@ public class ContactUsController {
 	}
 	@RequestMapping(value={"send"}, method = RequestMethod.POST)
 	public String send (@RequestParam("phone") int phone,
-			@RequestParam("subject") String subject,@RequestParam("message") String message) {
+			@RequestParam("subject") String subject,@RequestParam("message") String message,RedirectAttributes redirectAttributes) {
 		
 		String phone1 = String.valueOf(phone);
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -38,7 +39,7 @@ public class ContactUsController {
 		mailMessage.setSubject(phone1);
 		mailSender.send(mailMessage);
 //		mailSenderService.sendEmail(name,phone1, subject, message);
-		
+		redirectAttributes.addFlashAttribute("msg", "Feedback successful");
 		return "redirect:/contactus/index";
 	}
 }

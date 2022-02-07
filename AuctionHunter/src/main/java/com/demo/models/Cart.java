@@ -24,19 +24,16 @@ public class Cart implements java.io.Serializable {
 	private Integer id;
 	private Account account;
 	private Product product;
-	private Date startDate;
-	private Date limitedTime;
-	private byte status;
+
+	private int status;
 	private Date created;
 
 	public Cart() {
 	}
 
-	public Cart(Account account, Product product, Date startDate, Date limitedTime, byte status, Date created) {
+	public Cart(Account account, Product product, int status, Date created) {
 		this.account = account;
 		this.product = product;
-		this.startDate = startDate;
-		this.limitedTime = limitedTime;
 		this.status = status;
 		this.created = created;
 	}
@@ -73,32 +70,13 @@ public class Cart implements java.io.Serializable {
 		this.product = product;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "start_date", nullable = false, length = 19)
-	public Date getStartDate() {
-		return this.startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "limited_time", nullable = false, length = 19)
-	public Date getLimitedTime() {
-		return this.limitedTime;
-	}
-
-	public void setLimitedTime(Date limitedTime) {
-		this.limitedTime = limitedTime;
-	}
-
+	
 	@Column(name = "status", nullable = false)
-	public byte getStatus() {
+	public int getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(byte status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

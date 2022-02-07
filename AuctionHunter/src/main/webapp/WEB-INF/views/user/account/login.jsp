@@ -48,17 +48,6 @@
         		<div class="wrapper">
 					<h1 class="page-width">Login</h1>
 				</div>
-        		 <!-- <c:choose> 
-        		 	<c:when test="${msg == 'Login unsuccessful'}">
-					    <p style="color: red;">${msg}</p>
-					</c:when>
-					<c:when test="${msg == 'Logout Successfully'}">
-					    <p style="color: blue">${msg}</p>
-					</c:when>
-					<c:otherwise>
-						  
-					</c:otherwise>  
-				</c:choose> -->
       		</div>
 		</div>
         <!--End Page Title-->
@@ -110,7 +99,6 @@
                	</div>
             </div>
         </div>
-        
        
 	</jsp:attribute>
 </mt:layout_user>

@@ -328,6 +328,7 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		</footer>
 		<!--End Footer-->
 		<!--Scoll Top-->

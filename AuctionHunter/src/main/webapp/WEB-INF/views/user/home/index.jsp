@@ -17,22 +17,45 @@ if (msg == 'Postsuccessful') {
 	});
 } 
 </script>
-		
-		<!--Collection Banner-->
-    	<div class="collection-header">
-			<div class="collection-hero">
-        		<div class="collection-hero__image">
-					<img class="blur-up lazyload"
-						data-src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
-						src="${pageContext.request.contextPath }/resources/user/assets/images/color-gray-background.jpg"
-						alt="Women" title="Women" />
-				</div>
-        		<div class="collection-hero__title-wrapper">
-					<h1 class="collection-hero__title page-width">Welcome to Auction Hunter</h1>
-				</div>
-      		</div>
-		</div>
-        <!--End Collection Banner-->
+<!--Home slider-->
+    	<div class="slideshow slideshow-wrapper pb-section">
+        	<div class="home-slideshow">
+            	<div class="slide">
+                	<div class="blur-up lazyload">
+                        <img class="blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/home7-banner2.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/home7-banner2.jpg" alt="Wedding bands" title="Wedding bands" />
+                        <div class="slideshow__text-wrap slideshow__overlay classic middle">
+                            <div class="slideshow__text-content middle">
+                            	<div class="container">
+                                    <div class="wrap-caption right">
+                                        <h2 style="color:black" class="h1 mega-title slideshow__title">Welcome to Auction Hunter</h2>
+                                        <span style="color:black" class="mega-subtitle slideshow__subtitle">Wedding bands will be one of the most tangible elements of your wedding<br> day, and a lasting symbol of your love.</span>
+                                        <span  class="btn">Register now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                	<div class="blur-up lazyload">
+                        <img class="blur-up lazyload" data-src="${pageContext.request.contextPath }/resources/user/assets/images/home7-banner1.jpg" src="${pageContext.request.contextPath }/resources/user/assets/images/home7-banner1.jpg" alt="Shop New Collection" title="Shop New Collection" />
+                        <div class="slideshow__text-wrap slideshow__overlay classic middle">
+                            <div class="slideshow__text-content middle">
+                            	<div class="container">
+                                    <div  class="wrap-caption left">
+                                        <h2 style="color:black" class="h1 mega-title slideshow__title">Shop New Collection</h2>
+                                        <span style="color:black" class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you<br>covered</span>
+                                        <span  class="btn">Register now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Home slider-->
+	
         
         <div class="container">
         	<div class="row">
@@ -111,18 +134,15 @@ if (msg == 'Postsuccessful') {
                             </ul>
                         </div>
                         <!--End Brand-->
-                     
                         <!--Information-->
                         <div class="sidebar_widget">
                             <div class="widget-title">
 								<h2>Information</h2>
 							</div>
                             <div class="widget-content">
-								<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>
-							</div>
+								<p>At Auction Hunter, we offer a wide variety of items that we put up for auction starting at only 0, with no minimums. You decide what price your willing to pay by bidding against other users to find the best deal. Sometimes you will be outbid but, if you are persistent you will find great deals that you wont find anywhere else but Auction Hunter!							</div>
                         </div>
                         <!--end Information-->
-                     
                     </div>
                 </div>
                 <!--End Sidebar-->
@@ -229,7 +249,6 @@ if (msg == 'Postsuccessful') {
 								                            <div class="row">
 								  <!----------------------------------Product----------------------------------->
 								  					<c:forEach var="listProduct" items="${listProducts }">
-								  				
 								                                <div
 															class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
 																		<div id="tv">
@@ -304,7 +323,7 @@ if (msg == 'Postsuccessful') {
 																					<br>
 																				</button>
 																				  </a>
-								</div>
+																			</div>
 								                                    </div>
 								                                    <!-- End product details -->
 								                                    <!-- countdown start -->
@@ -376,7 +395,6 @@ if (msg == 'Postsuccessful') {
 																	class="filters-toolbar__input filters-toolbar__input--sort">
 								                                                <option
 																		value="title-ascending" selected="selected">Sort</option>
-								                                                <option>Best Selling</option>
 								                                                <option>Alphabetically, A-Z</option>
 								                                                <option>Alphabetically, Z-A</option>
 								                                                <option>Price, low to high</option>
@@ -399,7 +417,6 @@ if (msg == 'Postsuccessful') {
 								                            <div class="row">
 								  <!----------------------------------Product----------------------------------->
 								  					<c:forEach var="listProduct" items="${listProductHSs }">
-								  				
 								                                <div
 															class="col-6 col-sm-6 col-md-4 col-lg-3 item box-inner">
 																		<div id="tv">
@@ -476,17 +493,8 @@ if (msg == 'Postsuccessful') {
 																				  </a>
 								</div>
 								                                    </div>
-								                                    <!-- End product details -->
-								                                    <!-- countdown start -->
-								                                    <div class="timermobile">
-																		<div class="saleTime desktop"
-																		data-countdown="2022/09/20"></div>
-																	</div>
-								                                    <!-- countdown end -->
 								                                </div>
 								                                    <!-- End product details -->
-								                                    <!-- countdown start -->
-								                                    <!-- countdown end -->
 								                         </div>
 								                      </c:forEach>
 								                            <!-- End product  -->

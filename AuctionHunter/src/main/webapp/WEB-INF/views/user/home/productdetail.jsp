@@ -9,6 +9,7 @@
 	<script>
 		window.Auctions = {
 			url 		: '${pageContext.request.contextPath}/ajax/findWinnerAjax?product_id=',
+			urlPro 		: '${pageContext.request.contextPath}/ajax/findProductAjax?product_id=',
 			priceStep 	: ${product.priceStep},
 			priceStart 	: ${product.priceStart},
 			idAcc2 		: ${idAcc},
@@ -19,21 +20,32 @@
 			run : function(){
 				var value  	   = $('#proid').val().trim();
 				var urlRequest = Auctions.url + value;
+				var urlRequestPro = Auctions.urlPro + value;
 				$.get(urlRequest).then(function(result){
 					if(typeof result[0] == "object"){
 						Auctions.printWinner(result[0]);
 					}
-					if(result == "invalid") {
+					/* if(result == "invalid") {
+						Auctions.endAuction();
+					} */
+					Auctions.printHistoryBid(result);
+				});
+				$.get(urlRequestPro).then(function(result){
+					
+					if(result == "invalidStart") {
+						Auctions.notStartAuction();
+						
+					}else if(result == "invalid") {
 						Auctions.endAuction();
 					}
-					Auctions.printHistoryBid(result);
+					Auctions.setCountDown(result);
 				});
 			},
 			printWinner : function(winner){
 				var priceBid 		= parseInt(winner.priceBid);
 				var priceBidLocal 	= parseInt($("#priceBid").val().trim());
 				var winnerSameId	= winner.accid == Auctions.idAcc2;
-
+			
 				$("#winnerAuctions").text(priceBid);
 				$('#winnerAuctions2').text(winner.accUsername);
 
@@ -82,8 +94,23 @@
 					second : date.getSeconds()
 				}
 			},
+			notStartAuction : function(){
+				$("#alertInfo").prop("hidden", false).val("Auction hasn't started !");
+				$("#buttonBid").prop("hidden", true);
+				
+				Swal.fire({
+					  title: 'Auction hasn t started !',
+					  showClass: {
+					    popup: 'animate__animated animate__fadeInDown'
+					  },
+					  hideClass: {
+					    popup: 'animate__animated animate__fadeOutUp'
+					  }
+					})
+				clearInterval(Auctions.intervalLoop); 
+			},
 			endAuction : function(){
-				$("#alertInfo").prop("hidden", false).text("auctions");
+				$("#alertInfo").prop("hidden", false).val("Auction has ended !");
 				$("#buttonBid").prop("hidden", true);
 				
 				Swal.fire({
@@ -118,7 +145,7 @@
 					idPro: idPro
 				},
 				success: function(data){
-					Auctions.setCountDown(data)
+					
 					//$('#resultpriceBid').html(data);
 					Swal.fire({
 					  position: 'top',
@@ -266,7 +293,7 @@
 												aria-hidden="true"></i></a>
                                         </div>
                                         <div class="prInfoRow">
-												 <div class="product-stock"> by <span class="instock ">${product.account.username }</span> <span class="outstock hide">Unavailable</span> </div>
+												 <div class="product-stock"> by <span class="instock "> <a href="${pageContext.request.contextPath }/account/profileview/${product.account.id }">${product.account.username }</a> </span> <span class="outstock hide">Unavailable</span> </div>
 												</div>
 												    <div class="product-info">
                                       					<p class="product-type"> <a  title="Women's">Trademark</a>   <span class="lbl"> ${product.brand.name }</span> &emsp; | &emsp;

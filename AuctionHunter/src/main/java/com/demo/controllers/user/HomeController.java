@@ -90,11 +90,12 @@ public class HomeController implements ServletContextAware {
 	@RequestMapping(value = { "search" }, method = RequestMethod.GET)
 	public String search(@RequestParam("keyword") String keyword, ModelMap modelMap) {
 		if (keyword == null) {
-			modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
+			//modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
 			return "redirect:/home/index";
 		} else {
-			modelMap.put("searchProducts", productService.searchByKeyword(keyword));
-			return "user/home/search";
+			//modelMap.put("searchProducts", productService.searchByKeyword(keyword));
+			modelMap.put("listProducts", productService.searchByKeyword(keyword));
+			return "user/home/index";
 		}
 	}
 

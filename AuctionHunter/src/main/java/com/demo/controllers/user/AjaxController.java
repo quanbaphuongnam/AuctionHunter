@@ -42,6 +42,17 @@ public class AjaxController {
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
 	
+	@RequestMapping(value="checkusername", method = RequestMethod.POST,produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
+	public String checkusername(@RequestParam("username")String username,ModelMap modelMap) {
+		String response;
+		Account account =  accountService.findByUsername(username);
+		if(account != null){
+			return response = " <label >Not Available</label>";
+		}
+	
+		return response="";
+	}
+	
 	@RequestMapping(value="findWinnerAjax", method = RequestMethod.GET,produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 	public List<HistoryAuctionAjax> findWinnerAjax(@RequestParam("product_id")int product_id,ModelMap modelMap,Product product) {
 		return historyAuctionService.findWinnerAjax(product_id);

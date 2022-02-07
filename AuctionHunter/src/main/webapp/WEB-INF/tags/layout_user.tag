@@ -370,6 +370,7 @@
 			src="${pageContext.request.contextPath }/resources/user/assets/js/lazysizes.js"></script>
 		<script
 			src="${pageContext.request.contextPath }/resources/user/assets/js/main.js"></script>
+		
 	</div>
 </body>
 </html>

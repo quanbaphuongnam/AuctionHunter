@@ -293,7 +293,7 @@
 												aria-hidden="true"></i></a>
                                         </div>
                                         <div class="prInfoRow">
-												 <div class="product-stock"> by <span class="instock ">${product.account.username }</span> <span class="outstock hide">Unavailable</span> </div>
+												 <div class="product-stock"> by <span class="instock "> <a href="${pageContext.request.contextPath }/account/profileview/${product.account.id }">${product.account.username }</a> </span> <span class="outstock hide">Unavailable</span> </div>
 												</div>
 												    <div class="product-info">
                                       					<p class="product-type"> <a  title="Women's">Trademark</a>   <span class="lbl"> ${product.brand.name }</span> &emsp; | &emsp;

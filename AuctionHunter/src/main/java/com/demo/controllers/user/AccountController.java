@@ -70,6 +70,17 @@ public class AccountController implements ServletContextAware {
 		} else {
 			return "user/account/login";
 		}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+	}
+	@RequestMapping(value = "profileview/{id}", method = RequestMethod.GET)
+	public String index(@PathVariable("id") int id, Authentication authentication,  ModelMap modelMap, Model model,
+			Account account, RedirectAttributes redirectAttributes) {
+		if (authentication != null) {
+			modelMap.put("account", accountService.find(id));
+			return "user/account/profileview";
+		} else {
+			return "user/account/login";
+		}
 
 	}
 

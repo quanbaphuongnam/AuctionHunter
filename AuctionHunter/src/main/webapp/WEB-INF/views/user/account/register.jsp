@@ -4,6 +4,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <mt:layout_user title="register">
 	<jsp:attribute name="content">
+	 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 			var msg1 = '${msg}';
 			if (msg1 == 'Check email') {
@@ -32,7 +33,99 @@
 					  },
 				})
 			}
-	</script>
+</script>
+<script>
+	$(document).ready(function(){
+		$("#username").keyup(function(){
+			var username = $("#username").val().trim();
+			$.ajax({
+				type: 'POST',
+				url: '${pageContext.request.contextPath }/ajax/checkusername',
+				data:{
+					username: username
+				},
+				success: function(data){
+					Swal.fire({
+					  position: 'top',
+					  icon: 'success',
+					  title: 'You have just stained the price',
+					  showConfirmButton: false,
+					  timer: 1000
+					})
+				}
+			});
+		});
+	});
+</script>
+<script>
+$(document).ready(function($) {
+	$("#CustomerLoginForm").validate({
+	    rules: {
+	    	username: {
+		        required: true,
+		        minlength: 3
+		    },
+	        password: {
+	            required: true,
+	            minlength: 3
+	        },
+	        fullName: {
+	            required: true,
+	            minlength: 3
+	        },
+	        email: {
+	            required: true,
+	            minlength: 6
+	        },
+	        repassword: {
+				 equalTo: "#password"
+			}
+	      
+	    },
+	    messages: {
+	    	username: {
+		        required: "Please enter Username",  
+		        minlength: "Your Username must be at least 3 characters long"
+		    },
+	        password: {
+	            required: "Please enter a password",
+	            minlength: "Your password must be at least 3 characters long"
+	        },
+	        fullName: {
+	            required: "Please enter a Full Name",
+	            minlength: "Your fullName must be at least 3 characters long"
+	        },
+	        email: {
+	            required: "Please enter a Email",
+	            minlength: "Your Email must be at least 6 characters long"
+	        },
+	        repassword: {
+	        	equalTo: "Please enter a Email"
+	        }
+	   
+	    },
+	     errorPlacement: function(error, element) 
+		{
+	    	 if ( element.is(":radio") ) 
+	         {
+	             error.appendTo( element.parents('.form-group') );
+	         }
+	         else 
+	         { // This is the default behavior 
+	             error.insertAfter( element );
+	         }
+		},
+	    submitHandler: function(form) {
+	        form.submit();
+	    }
+	});
+});
+</script>
+<style>
+.error{
+  color:red;
+}
+</style>
 		<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
@@ -51,14 +144,15 @@
                        <s:form method="post" modelAttribute="account"
 							action="${pageContext.request.contextPath }/account/register"
 							id="CustomerLoginForm" accept-charset="UTF-8"
-							class="contact-form">	
+							class="contact-form" novalidate="novalidate">	
+							    <div id="form-content">
                           <div class="row">
 	                          <div
 									class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label for="Username">Username</label>
                                     <s:input path="username"
-											placeholder="" id="Username" autofocus="" />
+											placeholder="" id="username" name="username" autofocus="" />
                                 </div>
                                </div>
                                <div
@@ -66,15 +160,14 @@
                                 <div class="form-group">
                                     <label for="Full Name">Full Name</label>
                                     <s:input type="text" path="fullName"
-											placeholder="" id="LastName" />
+											placeholder="" id="fullName" />
                                 </div>
                                </div>
-                            <div
-									class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label for="CustomerEmail">Email</label>
                                     <s:input type="email" path="email"
-											placeholder="" id="CustomerEmail" class="" autocorrect="off"
+											placeholder="" id="email" class="" autocorrect="off"
 											autocapitalize="off" autofocus="" />
                                 </div>
                             </div>
@@ -83,7 +176,14 @@
                                 <div class="form-group">
                                     <label for="CustomerPassword">Password</label>
                                     <s:password value="" path="password"
-											placeholder="" id="CustomerPassword" class="" />                        	
+											placeholder="" id="password" class="" />                        	
+                                </div>
+                            </div>
+                             <div
+									class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="CustomerPassword"> Re-Password</label>
+                                    <input type="password"  id="repassword"  />                        	
                                 </div>
                             </div>
                           </div>
@@ -94,13 +194,12 @@
 										value="Create">
                             </div>
                          </div>
+                         </div>
                      </s:form>
                     </div>
                	</div>
             </div>
         </div>
         
-		
-       
 	</jsp:attribute>
 </mt:layout_user>

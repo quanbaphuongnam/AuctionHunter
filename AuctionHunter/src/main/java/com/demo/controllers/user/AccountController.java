@@ -192,10 +192,10 @@ public class AccountController implements ServletContextAware {
 			redirectAttributes.addFlashAttribute("msg", "Check email");
 			redirectAttributes.addFlashAttribute("code", code);
 			session.setAttribute("account", account);
-			return "redirect:/account/register";
-		} else {
-			return "redirect:/account/register";
+			
 		}
+		return "redirect:/account/register";
+		
 		// return "redirect:/account/login";
 	}
 

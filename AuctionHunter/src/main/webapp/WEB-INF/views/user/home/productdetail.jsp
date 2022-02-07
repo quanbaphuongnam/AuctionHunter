@@ -25,9 +25,7 @@
 					if(typeof result[0] == "object"){
 						Auctions.printWinner(result[0]);
 					}
-					/* if(result == "invalid") {
-						Auctions.endAuction();
-					} */
+					
 					Auctions.printHistoryBid(result);
 				});
 				$.get(urlRequestPro).then(function(result){

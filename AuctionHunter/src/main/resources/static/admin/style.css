@@ -76,6 +76,7 @@ body {}
 .mt-b-30{
 	margin-bottom:30px;
 }
+
 @font-face {
   font-family: 'nalika';
   src:
@@ -3667,3 +3668,4 @@ th.fc-day-header.fc-widget-header {
 	border-color: #D3D3D3;
 	color:black;
 }
+

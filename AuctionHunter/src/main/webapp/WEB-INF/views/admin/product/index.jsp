@@ -6,7 +6,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <mt:layout_admin title="productadmin">
 	<jsp:attribute name="content_admin">
-		
+<script type="text/javascript">
+			var msg1 = '${msg}';
+			if (msg1 == 'Cancel Successfully') {
+				Swal.fire({
+					position : 'center',
+					icon : 'error',
+					title : 'Cancel Successfully',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} else if (msg1 == 'Accept successful') {
+				Swal.fire({
+					position : 'center',
+					icon : 'success',
+					title : 'Accept successful',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} 
+			
+		</script>		
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1094,8 +1114,7 @@
 										href="#description"><i class="icon nalika-edit"
 											aria-hidden="true"></i> Product List</a></li>
                                     
-                                    <li><a href="#reviews"><i
-											class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
+                                    <li><a href="#reviews"><i  class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
                                      <li><a href="#delete"><i
 											class="fa fa-trash" aria-hidden="true"></i> Product Deleted</a></li>
                                 </ul>
@@ -1168,7 +1187,7 @@
 															href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
                                         <button data-toggle="tooltip"
 																	title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+												<i class="fa fa-bar-chart text-warning" aria-hidden="true"></i>
 											</button>
 											</a>
                                     </td>
@@ -1227,6 +1246,7 @@
                                     <th>EndDate</th>
                                     <th>Created</th>
                                     <th>Setting</th>
+                                    <th></th>
                                 </tr>
                                  <tr>
 																<td colspan="9" align="center" style="color: red;"> Empty</td> </tr>
@@ -1243,7 +1263,9 @@
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Detail</th>
+                                    <th></th>
+                                    
                                 </tr>
                                <c:forEach var="allproductAdmins"
 																items="${ListAccept }">
@@ -1263,7 +1285,8 @@
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
+                                    <button class="btn btn-custon-rounded-two btn-warning">
+                                    <i class="fa fa-exclamation-triangle adminpro-warning-danger" aria-hidden="true"></i>Watting Accept</button>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==2 }">
@@ -1281,16 +1304,28 @@
 				                    <td> <fmt:formatDate var="day2"
 																			value="${allproductAdmins.created }"
 																			pattern="dd/MM/yyyy" />${day2 }</td>
-                                    <td>
+									<td>
+                                    <a
+															href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																			title="Edit" class="pd-setting-ed">
+																	title="Edit" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
-                                        <button data-toggle="tooltip"
-																			title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
+											</a>
+											
+										
+                                    </td>										
+                                    <td>
+                                    <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
+                                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                              <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">
+                              <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Accept</button>
+                              <button type="submit" class="btn btn-custon-rounded-two btn-danger" id="Deleted" name="status" value="3">
+                              <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel</button>
+                            </div>
+</form>
                                     </td>
+                                      
                                 </tr>
                                </c:forEach>
                                

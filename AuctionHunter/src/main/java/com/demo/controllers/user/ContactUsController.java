@@ -34,9 +34,8 @@ public class ContactUsController {
 		// TODO Auto-generated method stub
 		mailMessage.setFrom("aution.hunter.123@gmail.com");
 		mailMessage.setTo("aution.hunter.123@gmail.com");
-		mailMessage.setText(message);
-		mailMessage.setSubject(subject);
-		mailMessage.setSubject(phone1);
+		mailMessage.setText(message + "\nPhone :" + phone);
+		mailMessage.setSubject(subject );
 		mailSender.send(mailMessage);
 //		mailSenderService.sendEmail(name,phone1, subject, message);
 		redirectAttributes.addFlashAttribute("msg", "Feedback successful");

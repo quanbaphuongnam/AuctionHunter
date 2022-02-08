@@ -32,8 +32,17 @@
 							}
 					  },
 				})
-			}
+			}else if (msg1 == 'CheckUsername') {
+				Swal.fire({
+					position : 'center',
+					icon : 'error',
+					title : 'Username existed',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			} 
 </script>
+
 <script>
 	$(document).ready(function(){
 		$("#username").keyup(function(){
@@ -76,10 +85,7 @@ $(document).ready(function($) {
 	        email: {
 	            required: true,
 	            minlength: 6
-	        },
-	        repassword: {
-				 equalTo: "#password"
-			}
+	        }
 	      
 	    },
 	    messages: {
@@ -98,9 +104,6 @@ $(document).ready(function($) {
 	        email: {
 	            required: "Please enter a Email",
 	            minlength: "Your Email must be at least 6 characters long"
-	        },
-	        repassword: {
-	        	equalTo: "Please enter a Email"
 	        }
 	   
 	    },

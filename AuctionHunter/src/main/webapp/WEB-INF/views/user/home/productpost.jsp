@@ -7,6 +7,18 @@
 <mt:layout_user title="productpost">
 	<jsp:attribute name="content">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript">
+			var msg1 = '${msg}';
+			if (msg1 == 'DateInvalid') {
+				Swal.fire({
+					position : 'center',
+					icon : 'error',
+					title : 'Start date or end date invalid',
+					showConfirmButton : false,
+					timer : 2000
+				});
+			}
+</script>
 <style>
 .center-block {
     float: none;
@@ -125,70 +137,6 @@
 
 
 
-<script>
-$(document).ready(function($) {
-	var today = new Date();
-	$("#PostProductForm").validate({
-	    rules: {
-	    	name: {
-		        required: true,
-		        minlength: 5
-		    },
-		    priceStart: {
-	            required: true,
-	           	min: 5,
-	           	max:1000
-	        },
-	        priceStep: {
-	            required: true,
-	        	min: 1,
-	            max:100
-	        },
-	        description: {
-	            required: true,
-	            minlength: 50
-	        }
-	      
-	    },
-	    messages: {
-	    	name: {
-		        required: "Please enter name",
-		        minlength: "Product name must be at least 5 characters long"
-		    },
-		    priceStart: {
-	            required: "Please enter a price start",
-	           	min: "Min is 5",
-	           	max: "Max is 1000"
-	        },
-	        priceStep: {
-	            required: "Please enter a price step",
-	        	min: "Min is 1",
-	            max: "Max is 100"
-	        },
-	      
-	        description: {
-	            required: "Please enter description",
-	            minlength: "Product name must be at least 50 characters long"
-	        }
-	   
-	    },
-	     errorPlacement: function(error, element) 
-		{
-	    	 if ( element.is(":radio") ) 
-	         {
-	             error.appendTo( element.parents('.form-group') );
-	         }
-	         else 
-	         { // This is the default behavior 
-	             error.insertAfter( element );
-	         }
-		},
-	    submitHandler: function(form) {
-	        form.submit();
-	    }
-	});
-});
-</script>
 
 	<div class="page section-header text-center">
 			<div class="page-title">
@@ -214,27 +162,27 @@ $(document).ready(function($) {
                       <h3 class="login-title mb-3">Please fill in the product information</h3>
                       <s:form method="post" modelAttribute="product"
 			enctype="multipart/form-data"
-			action="${pageContext.request.contextPath }/product/productpost" novalidate="novalidate" id="PostProductForm">
-			   <div id="form-content">
+			action="${pageContext.request.contextPath }/product/productpost" id="PostProductForm">
+			
                             <fieldset>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                        <label for="input-firstname">Product Name <span  class="required-f">*</span></label>
-                                        <s:input path="name"  type="text" id="name"/> 
+                                        <s:input required="required" path="name"  type="text" id="name"/> 
                                         
                                     </div>
                                     <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Start <span class="required-f">*</span></label>
                                        
                                          <div class="icon-addon addon-lg">
-						                    <s:input path="priceStart" type="number" min="1"  class="form-control" id="priceStart"/>
+						                    <s:input path="priceStart" type="number" min="1"  max="1000" class="form-control" id="priceStart"/>
 						                    <label  for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
                                     </div>
                                        <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Step <span class="required-f">*</span></label>
                                         <div class="icon-addon addon-lg">
-						                    <s:input path="priceStep" type="number" min="1" class="form-control" id="priceStep"/>
+						                    <s:input path="priceStep" type="number" min="1" max="100" class="form-control" id="priceStep" />
 						                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
                                     </div>
@@ -288,7 +236,7 @@ $(document).ready(function($) {
                                 <div class="row">
                                     <div class="form-group col-md-12 col-lg-12 col-xl-12">
                                         <label  for="input-company">Description <span class="required-f">*</span></label>
-                                        <s:textarea path="description" class="form-control resize-both" rows="5"  id="description"/>
+                                        <s:textarea path="description" class="form-control resize-both" rows="5"  id="description" required="required"/>
                                     </div>
                                 </div>
                                 
@@ -297,7 +245,7 @@ $(document).ready(function($) {
                                 <div class="row">
                                      <div class="form-group col-md-12 col-lg-12 col-xl-12">
                                         <label class="form-check-label padding-15px-left">
-                                            <input type="checkbox" class="form-check-input" value="" />&ensp;  &emsp;<strong>I have read and agreed <a href="${pageContext.request.contextPath }/other/UserAgreement"> the regulations</a></strong>
+                                            <input type="checkbox" class="form-check-input" value=""  required="required"/>&ensp;  &emsp;<strong>I have read and agreed <a href="${pageContext.request.contextPath }/other/UserAgreement"> the regulations</a></strong>
                                         </label>
                                   </div>
                                 </div>
@@ -307,25 +255,14 @@ $(document).ready(function($) {
                             		</div>
                             	 </div>
                             </fieldset> 
-                             </div>                          
+                                                   
                         </s:form>
                     </div>
                 </div>
             </div>
          </div>
 
-		<%-- <script>
-			$(function() {
-			  $('input[name="datetimes"]').daterangepicker({
-			    timePicker: true,
-			    startDate: moment().startOf('hour'),
-			    endDate: moment().startOf('hour').add(32, 'hour'),
-			    locale: {
-			      format: 'M/DD hh:mm A'
-			    }
-			  });
-			});
-		</script> --%>
+		
 		<script>
             /*jslint browser:true*/
             /*global jQuery, document*/

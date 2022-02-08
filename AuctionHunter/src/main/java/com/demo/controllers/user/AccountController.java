@@ -176,6 +176,10 @@ public class AccountController implements ServletContextAware {
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes,
 			HttpSession session) {
+		if(accountService.findByUsername(account.getUsername()) != null) {
+			redirectAttributes.addFlashAttribute("msg", "CheckUsername");
+			return "redirect:/account/register";
+		}
 		account.setAddress("");
 		account.setAvatar("");
 		account.setPhone("");

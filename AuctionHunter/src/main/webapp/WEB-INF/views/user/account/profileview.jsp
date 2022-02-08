@@ -41,7 +41,14 @@
 							<i class="fa fa-home text-center mr-1"></i> 
 							Account
 						</a>
+						<a class="nav-link" id="notification-tab" data-toggle="pill"
+								href="#notification" role="tab" aria-controls="notification"
+								aria-selected="false">
+							<i class="fa fa-bell text-center mr-1"></i> 
+							Notification
+						</a>
 					</div>
+					
 				</div>
 				
 									

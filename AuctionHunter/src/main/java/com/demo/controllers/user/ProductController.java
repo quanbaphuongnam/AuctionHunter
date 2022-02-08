@@ -77,7 +77,16 @@ public class ProductController {
 			@RequestParam("category") int category, @RequestParam("brand") int brand, Authentication authentication,
 			HttpServletRequest request,RedirectAttributes redirectAttributes) {
 		if (authentication != null) {
+			Date dateEnd = product.getEndDate();
+			Date dateStart = product.getStartDate();
 			Date created = new Date();
+		
+			if(created.after(dateStart) || created.after(dateEnd)) {
+				System.out.println("invalid");
+				redirectAttributes.addFlashAttribute("msg", "DateInvalid");
+				return "redirect:/product/productpost";
+			
+			}
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");

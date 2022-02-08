@@ -289,10 +289,7 @@
 
                                                         
 														
-														<li><a href="login.html"><span
-																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-
-                                                        </li>
+														
                                                     </ul>
                                                 </li>
                                                 <li
@@ -1427,6 +1424,7 @@
                                     <th>ID</th>
                                     <th>ProductImage</th>
                                     <th>NameProduct</th>
+                                   
                                     <th>PriceStart</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>

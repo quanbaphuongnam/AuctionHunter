@@ -32,8 +32,8 @@ public class ContactUsController {
 		String phone1 = String.valueOf(phone);
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		// TODO Auto-generated method stub
-		mailMessage.setFrom("bao0924327813@gmail.com");
-		mailMessage.setTo("bao0924327813@gmail.com");
+		mailMessage.setFrom("aution.hunter.123@gmail.com");
+		mailMessage.setTo("aution.hunter.123@gmail.com");
 		mailMessage.setText(message);
 		mailMessage.setSubject(subject);
 		mailMessage.setSubject(phone1);

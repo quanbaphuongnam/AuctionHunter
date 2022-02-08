@@ -93,10 +93,15 @@ public class ProductAdminController {
 	@RequestMapping(value = { "accept/{id}" }, method = RequestMethod.GET)
 	public String accept(@PathVariable("id") int id, @RequestParam("status") int status,
 			RedirectAttributes redirectAttributes) {
-		Product product = productService.find(id);
-			product.setStatus(1);
-			productService.save(product);
-			redirectAttributes.addFlashAttribute("msg", "Accept successful");
+			Product product = productService.find(id);
+			if (status == 1) {
+				product.setStatus(1);
+				productService.save(product);
+				redirectAttributes.addFlashAttribute("msg", "Accept successful");
+			} else if (status == 3) {
+
+				redirectAttributes.addFlashAttribute("msg", "Cancel");
+			}
 		return "redirect:/productadmin/index";
 	}
 
@@ -106,9 +111,8 @@ public class ProductAdminController {
 		Account account = accountService.find(id);
 		if (mailSenderService.sendEmailConfirm1( value,account.getEmail())) {
 			Product product = productService.find(idpro);
-			product.setStatus(3);
 			product.setIsDelete(false);
-			//product.setStatus(3);
+			product.setStatus(3);
 			productService.save(product);
 			redirectAttributes.addFlashAttribute("msg", "Cancel successful");		
 		}

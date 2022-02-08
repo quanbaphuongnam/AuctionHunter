@@ -6,8 +6,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <mt:layout_user title="productpost">
 	<jsp:attribute name="content">
- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <style>
 .center-block {
     float: none;
@@ -118,8 +117,14 @@
 .preview-img {
   max-width: 150px;margin: 0 1em 1em 0;padding: 0.5em;border: 1px solid #ccc; border-radius: 3px;display: inline-block;
 }
-
+.error{
+  color:red;
+}
 </style>
+
+
+
+
 <script>
 $(document).ready(function($) {
 	var today = new Date();
@@ -136,21 +141,12 @@ $(document).ready(function($) {
 	        },
 	        priceStep: {
 	            required: true,
+	        	min: 1,
 	            max:100
-	        },
-	        startdate: {
-	            required: true,
-	            maxDate : today,
-	            date : true
-	        },
-	        enddate: {
-	            required: true,
-	            maxDate : today,
-	            date : true
 	        },
 	        description: {
 	            required: true,
-	         	min: 50
+	            minlength: 50
 	        }
 	      
 	    },
@@ -161,20 +157,15 @@ $(document).ready(function($) {
 		    },
 		    priceStart: {
 	            required: "Please enter a price start",
-	           	min: "Min 5",
-	           	max: "Max 1000"
+	           	min: "Min is 5",
+	           	max: "Max is 1000"
 	        },
 	        priceStep: {
 	            required: "Please enter a price step",
-	            max: "Max 1000"
+	        	min: "Min is 1",
+	            max: "Max is 100"
 	        },
-	        startdate: {
-	            required: "Please enter start"
-	        },
-	        enddate: {
-	            required: "Please enter end"
-	           
-	        },
+	      
 	        description: {
 	            required: "Please enter description",
 	            minlength: "Product name must be at least 50 characters long"
@@ -198,18 +189,12 @@ $(document).ready(function($) {
 	});
 });
 </script>
-<style>
-.error{
-  color:red;
-}
-</style>
+
 	<div class="page section-header text-center">
 			<div class="page-title">
         		<div class="wrapper"><h1 class="page-width">Post Product</h1></div>
       		</div>
 		</div>
-        <!--End Page Title-->
-        
         <div class="container">
         	<div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
@@ -249,30 +234,24 @@ $(document).ready(function($) {
                                        <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Step <span class="required-f">*</span></label>
                                         <div class="icon-addon addon-lg">
-						                    <s:input path="priceStep" type="number" min="1" class="form-control" required="required" id="priceStep"/>
+						                    <s:input path="priceStep" type="number" min="1" class="form-control" id="priceStep"/>
 						                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
                                     </div>
                                 </div>
                                  <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                         
                        					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-                        				<s:input path="startDate"  name="filter-date"  id="startdate"  />
-               
+                        				<s:input path="startDate"  name="datetimes"  id="startDate" required="required" />
                                     </div>
                                       <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="filter-date">End Date <span  class="required-f">*</span></label>
-                        				<s:input path="endDate"  name="filter-date"  id="enddate" />
+                        				<s:input path="endDate"  name="endDate"  id="endDate" required="required" />
                                     </div>
                                 </div>
-                               
                             </fieldset>
-
                             <fieldset>
-                                
                                 <div class="row">
-                                    
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-country">Category  <span class="required-f">*</span></label>
                                         
@@ -332,18 +311,32 @@ $(document).ready(function($) {
                         </s:form>
                     </div>
                 </div>
-                    </div>
-                </div>
-	 <script>
+            </div>
+         </div>
+
+		<%-- <script>
+			$(function() {
+			  $('input[name="datetimes"]').daterangepicker({
+			    timePicker: true,
+			    startDate: moment().startOf('hour'),
+			    endDate: moment().startOf('hour').add(32, 'hour'),
+			    locale: {
+			      format: 'M/DD hh:mm A'
+			    }
+			  });
+			});
+		</script> --%>
+		<script>
             /*jslint browser:true*/
             /*global jQuery, document*/
             jQuery(document).ready(function () {
                 'use strict';
-                jQuery('#startdate, #enddate').datetimepicker();
+                jQuery('#startDate, #endDate').datetimepicker();
             });
         </script>
-	<script
+		
+		<script
 			src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
-        
+
 	</jsp:attribute>
 </mt:layout_user>

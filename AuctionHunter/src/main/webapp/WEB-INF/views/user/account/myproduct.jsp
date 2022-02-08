@@ -27,46 +27,46 @@
                             <thead class="cart__row cart__header">
                                 <tr>
                                 	<th class="text-right">Product Photo</th>
-                                    <th class="text-center">ProductName</th>                                   
+                                    <th class="text-right">ProductName</th>                                   
                                      <th class="text-right">PriceStart</th>
                                       <th class="text-right">PriceStep</th>
                                       <th class="text-right">StartDate</th>
                                        <th class="text-right">EndDate</th>
                                          <th class="text-right">Created</th>
                                          <th class="text-right">Status</th>
-                                         
-                                    <th class="action">&nbsp;</th>
+                                    <th class="text-right">&nbsp;</th>
                                 </tr>
                             </thead>
                     		<tbody>
                     		  <c:forEach var="AllProduct" items="${AllProducts }">
                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
-                                 	<td class="cart__image-wrapper cart-flex-item">
+                                 	<td class="text-center">
                                  		<c:forEach var="productPhoto" items="${AllProduct.productPhotos }" end="0">
-                                        <img class="cart__image" src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" alt="${AllProduct.name } ">
+                                        <img class="cart__image" width="200" height="150" src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" alt="${AllProduct.name } ">
                                     </c:forEach>
                                     </td>
-                                    <td class="cart__meta small--text-left cart-flex-item">${AllProduct.name }                                     
+                                    
+                                    <td class="text-center">${AllProduct.name }                                     
                                     </td>
-                                    <td class="cart__price-wrapper cart-flex-item">   ${AllProduct.priceStart } $                                    
+                                    <td class="text-center">   ${AllProduct.priceStart } $                                    
                                     </td>
-                                      <td class="cart__price-wrapper cart-flex-item">
+                                      <td class="text-center">
                                        ${AllProduct.priceStep } $
                                     </td>
-                                    <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day"
+                                    <td class="text-center"><fmt:formatDate var="day"
 								value="${AllProduct.startDate }"
 								pattern="dd/MM/yyyy"/>
 				                       ${day }</td>
-                                    <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day2"
+                                    <td class="text-center"><fmt:formatDate var="day2"
 								value="${AllProduct.endDate }"
 								pattern="dd/MM/yyyy"/>
 				                       ${day2 }</td>
                                   
-                                   <td class="cart__price-wrapper cart-flex-item"><fmt:formatDate var="day3"
+                                   <td class="text-center"><fmt:formatDate var="day3"
 								value="${AllProduct.created }"
 								pattern="dd/MM/yyyy"/>
 				                       ${day3 }</td> 
-				                   <td class="cart__price-wrapper cart-flex-item">        
+				                   <td class="text-center">        
 				                     <c:choose>
 											<c:when test="${AllProduct.status  == 0}">
 												  <span class="badge badge-secondary">unapproved</span>
@@ -108,6 +108,6 @@
                 
             </div>
         </div>
-       
+       <br><br><br><br><br><br><br><br><br><br>
 	</jsp:attribute>
 </mt:layout_user>

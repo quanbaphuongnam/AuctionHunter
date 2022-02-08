@@ -20,12 +20,11 @@ public class MailSenderServiceImpl implements MailSenderService {
 
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		// TODO Auto-generated method stub
-		mailMessage.setFrom("bao0924327813@gmail.com");
-		mailMessage.setTo("bao0924327813@gmail.com");
-		mailMessage.setText(message);
-		mailMessage.setSubject(subject);
-		mailMessage.setSubject(name);
-		mailMessage.setSubject(phone);
+		mailMessage.setFrom("aution.hunter.123@gmail.com");
+		mailMessage.setTo("aution.hunter.123@gmail.com");
+		mailMessage.setText(message + "\nPhone :" + phone);
+		mailMessage.setSubject(subject );
+		
 		 javaMailSender.send(mailMessage);
 	}
 	
@@ -37,6 +36,23 @@ public class MailSenderServiceImpl implements MailSenderService {
 			mailMessage.setFrom("daitran477@gmail.com");
 			mailMessage.setTo(email);
 			mailMessage.setText("Email confirmation code: " + code);
+			mailMessage.setSubject("AUCTION HUNTER®");
+			mailSender.send(mailMessage);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
+
+	@Override
+	public boolean sendEmailConfirm1(String text, String email) {
+		try {
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			
+			mailMessage.setFrom("daitran477@gmail.com");
+			mailMessage.setTo(email);
+			mailMessage.setText("The product has been rejected! \nReason: " + text );
 			mailMessage.setSubject("AUCTION HUNTER®");
 			mailSender.send(mailMessage);
 			return true;

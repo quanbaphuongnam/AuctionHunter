@@ -18,4 +18,6 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
 	
 	@Query(value = "select * from Account order by id asc limit 1,50", nativeQuery = true)
 	public List<Account> findAll();
+	
+	
 }

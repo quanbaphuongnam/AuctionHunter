@@ -7,16 +7,8 @@
 <mt:layout_admin title="productadmin">
 	<jsp:attribute name="content_admin">
 <script type="text/javascript">
-			var msg1 = '${msg}';
-			if (msg1 == 'Cancel Successfully') {
-				Swal.fire({
-					position : 'center',
-					icon : 'error',
-					title : 'Cancel Successfully',
-					showConfirmButton : false,
-					timer : 2000
-				});
-			} else if (msg1 == 'Accept successful') {
+			var msg1 = '${msg}';			
+			if (msg1 == 'Accept successful') {
 				Swal.fire({
 					position : 'center',
 					icon : 'success',
@@ -24,9 +16,18 @@
 					showConfirmButton : false,
 					timer : 2000
 				});
+			}else if (msg1 == 'Cancel successful') {
+				Swal.fire({
+					position : 'center',
+					icon : 'error',
+					title : 'Cancel successful',
+					showConfirmButton : false,
+					timer : 2000
+				});
 			} 
 			
-		</script>		
+		</script>
+		
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -281,16 +282,14 @@
 															href="#"><span
 																class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-<<<<<<< HEAD
+
                                                         <li><a
 															href="${pageContext.request.contextPath }/account/logout"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-=======
+
                                                         
-														<li><a href="login.html"><span
-																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
->>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
-                                                        </li>
+														
+														
                                                     </ul>
                                                 </li>
                                                 <li
@@ -1114,7 +1113,8 @@
 										href="#description"><i class="icon nalika-edit"
 											aria-hidden="true"></i> Product List</a></li>
                                     
-                                    <li><a href="#reviews"><i  class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
+                                    <li><a href="#reviews"><i
+											class="fa fa-bell-o" role="alert" aria-hidden="true"></i> Product Watting Accept : ${count }</a></li>
                                      <li><a href="#delete"><i
 											class="fa fa-trash" aria-hidden="true"></i> Product Deleted</a></li>
                                 </ul>
@@ -1136,7 +1136,7 @@
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Action</th>
                                 </tr>
                                <c:forEach var="allproductAdmins"
 													items="${ListProduct.content }">
@@ -1152,15 +1152,16 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																	test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+																	   <span class="label label-success">approved</span>
                                     </c:when>
                                     <c:when
 																	test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
+																	
+                                    <span class="ps-setting">unproven</span>
                                     </c:when>
                                     <c:when
-																	test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
+																	test="${allproductAdmins.status==2}">
+                                    <span class="pd-setting">finished</span>
                                     </c:when>
                                     </c:choose>
                                     </td>
@@ -1178,7 +1179,7 @@
                                     <a
 															href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																	title="Edit" class="pd-setting-ed">
+																	title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
@@ -1186,7 +1187,7 @@
 										<a
 															href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
                                         <button data-toggle="tooltip"
-																	title="Trash" class="pd-setting-ed">
+																	title="Show" class="pd-setting-ed">
 												<i class="fa fa-bar-chart text-warning" aria-hidden="true"></i>
 											</button>
 											</a>
@@ -1245,7 +1246,7 @@
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Action</th>
                                     <th></th>
                                 </tr>
                                  <tr>
@@ -1263,7 +1264,7 @@
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Detail</th>
+                                    <th>Action</th>
                                     <th></th>
                                     
                                 </tr>
@@ -1281,16 +1282,20 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																				test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+                                      <span class="label label-success">approved</span>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
-                                    <button class="btn btn-custon-rounded-two btn-warning">
-                                    <i class="fa fa-exclamation-triangle adminpro-warning-danger" aria-hidden="true"></i>Watting Accept</button>
+
+                                   
+
+                                    <span class="label label-warning">unproven</span>
+                                 
+
                                     </c:when>
                                     <c:when
-																				test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
+																				test="${allproductAdmins.isDelete == false  }">
+                                    <span class="label label-error">declined </span>
                                     </c:when>
                                     </c:choose>
                                     </td>
@@ -1306,9 +1311,9 @@
 																			pattern="dd/MM/yyyy" />${day2 }</td>
 									<td>
                                     <a
-															href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
+																		href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																	title="Edit" class="pd-setting-ed">
+																				title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
@@ -1316,14 +1321,54 @@
 										
                                     </td>										
                                     <td>
-                                    <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
-                                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                              <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">
-                              <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Accept</button>
-                              <button type="submit" class="btn btn-custon-rounded-two btn-danger" id="Deleted" name="status" value="3">
-                              <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel</button>
-                            </div>
-</form>
+                                      <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
+                                        <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                         
+                                          <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">
+                                           <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Approve</button>
+                                           
+                                             
+                                           <button  class="btn btn-custon-rounded-two btn-danger"  name="status" value="3">
+                                           <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel
+</button>
+                                           
+                                          
+                                       </div>
+                                        </form>
+                                        
+                                       <script>
+	
+                                       $(document).ready(function(){
+		
+                                    	   var msg2 = '${msg}';
+										   if (msg2 == 'Cancel') {
+									            var id =    ${allproductAdmins.account.id };
+												var idpro = ${allproductAdmins.id };
+												Swal.fire({
+													  title: 'Please enter the reason for not accepting the product: ',
+													  input: 'textarea',
+													  inputAttributes: {
+													    autocapitalize: 'off'													   
+													  },
+													  showCancelButton: false,
+													  confirmButtonText: 'Check',
+													  showLoaderOnConfirm: true,
+													  inputPlaceholder: '...', 
+													  inputValidator: (value) => {
+														 
+														    if (!value) {
+														      return 'Please do not leave it blank!'
+														    }else {
+															   window.location = '${pageContext.request.contextPath }/productadmin/sendfb/' + id + '/' + value + '/'+ idpro;
+																   	
+															}
+													  },
+												})
+											}
+										});
+	
+	                                   </script>		
+                                     
                                     </td>
                                       
                                 </tr>
@@ -1379,12 +1424,12 @@
                                     <th>ID</th>
                                     <th>ProductImage</th>
                                     <th>NameProduct</th>
-                                    <th>Status</th>
+                                   
                                     <th>PriceStart</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Action</th>
                                 </tr>
                                  <tr>
 																<td colspan="9" align="center" style="color: red;"> Empty</td> </tr>
@@ -1396,12 +1441,11 @@
                                     <th>ID</th>
                                     <th>ProductImage</th>
                                     <th>NameProduct</th>
-                                    <th>Status</th>
                                     <th>PriceStart</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Created</th>
-                                    <th>Setting</th>
+                                    <th>Action</th>
                                 </tr>
                                
                                <c:forEach var="allproductAdmins"
@@ -1416,20 +1460,7 @@
 									</c:forEach>
 									
                                     <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when
-																				test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
-                                    </c:when>
-                                    <c:when
-																				test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
-                                    </c:when>
-                                    <c:when
-																				test="${allproductAdmins.status==3 }">
-                                    <button class="btn btn-danger">Deleted</button>
-                                    </c:when>
-                                    </c:choose>
-                                    </td>
+                                  
                                     <td>${allproductAdmins.priceStart }</td>
                                     <td> <fmt:formatDate var="day"
 																			value="${allproductAdmins.startDate }"
@@ -1440,16 +1471,17 @@
 				                    <td> <fmt:formatDate var="day2"
 																			value="${allproductAdmins.created }"
 																			pattern="dd/MM/yyyy" />${day2 }</td>
-                                    <td>
+                                   <td>
+                                    <a
+																		href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-																			title="Edit" class="pd-setting-ed">
+																				title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
-                                        <button data-toggle="tooltip"
-																			title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
-                                    </td>
+											</a>
+											
+										
+                                    </td>		
                                 </tr>
                                </c:forEach>
                                
@@ -1457,35 +1489,7 @@
                                     </c:when>
                                     </c:choose>
                             
-                           <!--   <div class="custom-pagination">
-								<ul class="pagination">
-								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin/accept?p=0&status=1">First</a></li>
-								    <c:choose>
-								        <c:when test="${ListProduct.number == 0}">
-									
-								        </c:when>
-								            <c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number - 1}&status=1">Previous</a></li>
-								            </c:otherwise>
-							        </c:choose>
-							        <c:choose>
-								         <c:when
-											test="${ListProduct.number == (ListProduct.totalPages -1) }">
-									
-								        </c:when>
-							              	<c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number + 1}&status=1">Next</a></li>
-								            </c:otherwise>
-						        	</c:choose>
-									
-									
-									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
-								</ul>
-                            </div> -->
+                         
                         </div>
                                         </div>
                                     </div>

@@ -47,8 +47,8 @@
 				success: function(data){
 					Swal.fire({
 					  position: 'top',
-					  icon: 'success',
-					  title: 'You have just stained the price',
+					  icon: 'error',
+					  title: ' Username ',
 					  showConfirmButton: false,
 					  timer: 1000
 					})

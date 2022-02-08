@@ -17,17 +17,11 @@ import com.demo.models.Product;
 @Repository
 public interface ProductRepository  extends CrudRepository<Product, Integer>{
 
-//	@Query("select new com.demo.models.ProductInfo(id, name, description, price, priceStart, startDate, endDate, priceStep, created, status, isDelete, account) from Product")
-//	public List<ProductInfo> listProductInfo();
 
-//	@Query("select name from Product where name like %:term%")
-//	public List<String> searchByTerm(@Param("term")String term);
-	
-
-	@Query("from Product where is_delete = 1 and status = 1 and start_date <= :dateNow and end_date >= :dateNow")
+	@Query("from Product where is_delete = 1 and status = 1 and start_date <= :dateNow and end_date >= :dateNow order by id desc")
 	public List<Product> findAllProHappenning(@Param("dateNow") Date dateNow);
 	
-	@Query("from Product where is_delete = 1 and status = 1 and start_date > :dateNow")
+	@Query("from Product where is_delete = 1 and status = 1 and start_date > :dateNow order by id desc")
 	public List<Product> findAllProHasnotStarted(@Param("dateNow") Date dateNow);
 	
 	
@@ -35,32 +29,30 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	public List<Product> searchByKeyword(@Param("keyword") String keyword);
 
 
-	@Query(value =  "select name from product_photo where product_id = :product_id order by product_id desc limit 1", nativeQuery = true)
+	@Query(value = "select name from product_photo where product_id = :product_id order by product_id desc limit 1", nativeQuery = true)
 	public String namePhoto(@Param("product_id") int product_id);
-
 
 	@Query("from Product where account_id = :account_id  order by id desc")
 	public List<Product> findAllByIdAcc(@Param("account_id")int account_id);
 	
-	@Query("select e from Product e where status = :status")
+	@Query("select e from Product e where status = :status  order by id desc")
 	Page<Product> findpage(Pageable pageable,@Param("status") int status);
 
-	@Query("select count(id) from Product where status = :status")
-	public long count2(@Param("status") int status);
+	@Query("select count(id) from Product where status = 0")
+	public long count2();
 	
 	@Query(" from Product where is_delete = 1 and status = 0")
 	public List<Product> findAccept();
 	
-
 	@Query("select e from Product e where account_id = :account_id  order by id desc")
 	public Page<Product> findAllByIdAccPage(@Param("account_id")int account_id,Pageable pageable);
 	
-	@Query(" from Product where status = 3")
+	@Query("from Product where is_delete = 0")
 	public List<Product> findDeleted();
 	
-	@Query("select count(id) from Product where status = 3")
+	@Query("select count(id) from Product where is_delete = 0 order by id desc")
 	public long countdelete();
 	
-	@Query("from Product where account_id = :account_id  and name = :name and created = :created")
+	@Query("from Product where account_id = :account_id  and name = :name and created = :created order by id desc")
 	public Product findProduct(@Param("account_id")int account_id, @Param("name")String name, @Param("created")Date created);
 }

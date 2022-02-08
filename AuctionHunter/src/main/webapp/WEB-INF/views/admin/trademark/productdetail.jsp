@@ -204,123 +204,7 @@
                                                                     </div>
                                                                     <div class="notes-list-area notes-menu-scrollbar">
                                                                         <ul class="notes-menu-list">
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/4.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/1.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/2.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/3.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/4.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/1.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/2.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/1.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <div class="notes-list-flow">
-                                                                                        <div class="notes-img">
-                                                                                            <img src="img/contact/2.jpg" alt="" />
-                                                                                        </div>
-                                                                                        <div class="notes-content">
-                                                                                            <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                                                                            <span>Yesterday 2:45 pm</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
+                                                                            
                                                                             <li>
                                                                                 <a href="#">
                                                                                     <div class="notes-list-flow">
@@ -570,7 +454,6 @@
                                 </div>
                             </div>
                         </div>
-              
                     </div>
                 </div>
             </div>
@@ -728,8 +611,8 @@
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Account Details</h2>
-												<p>All about account </p>
+												<h2>Product Details</h2>
+												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
 											</div>
 										</div>
                                     </div>
@@ -745,7 +628,6 @@
                 </div>
             </div>
         </div>
-         
          <div class="basic-form-area mg-tb-15">
             <div class="container-fluid">
                 
@@ -754,116 +636,106 @@
                         <div class="sparkline12-list">
                             <div class="sparkline12-hd">
                                 <div class="main-sparkline12-hd">
-                                    <h1>Account Detail</h1>
+                                    <h1>All Form Element</h1>
                                 </div>
                             </div>
                             <div class="sparkline12-graph">
                                 <div class="basic-login-form-ad">
-                                    <div class="row">
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                    <div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <div class="all-form-element-inner">
                                                 <form action="#">
-                                                 <div   class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Avatar: </label>
-                                                            </div>
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                              	 <img src="${pageContext.request.contextPath }/assets/uploads/${account.avatar }" alt="" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Username: </label>
+                                                                <label class="login2 pull-right pull-right-pro">Name Product: </label>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                              <label  class="login2 ">${account.username}</label>
+                                                              <label  class="login2 ">${product.name}</label>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                        <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">FullName:</label>
+                                                                <label class="login2 pull-right pull-right-pro">Category:</label>
                                                             </div>
                                                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                                <label class="login2 ">${account.fullName}</label>
+                                                                <label class="login2 ">${product.category.name }</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                        <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">sex:</label>
+                                                                <label class="login2 pull-right pull-right-pro">Trademark:</label>
                                                             </div>
-                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 "> ${account.sex }</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group-inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">email: </label>
-                                                            </div>
-                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                              <label class="login2 ">${account.email } </label>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                                <label class="login2 "> ${product.brand.name }</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">phone:</label>
+                                                                <label class="login2 pull-right pull-right-pro">Create by: </label>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                              <label class="login2 ">${account.phone}</label>
+                                                              <label class="login2 ">${product.account.username } | on: <fmt:formatDate var="created" value="${product.created}" pattern="dd/MM/yyyy HH:mm"/>${created} </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-right pull-right-pro">Price Start:</label>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <label class="login2 ">${product.priceStart}</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                    <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">address:</label>
+                                                                <label class="login2 pull-right pull-right-pro">Price Step:</label>
                                                             </div>
                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 ">${account.address}</label>
+                                                                <label class="login2 ">${product.priceStep}</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Date of birth:</label>
+                                                                <label class="login2 pull-right pull-right-pro">Start date:</label>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 "><fmt:formatDate var="dob" value="${account.dob}" pattern="dd/MM/yyyy"/>${dob}</label>
+                                                                <label class="login2 "><fmt:formatDate var="startDate" value="${product.startDate}" pattern="dd/MM/yyyy HH:mm"/>${startDate}</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label class="login2 pull-right pull-right-pro">Role:</label>
+                                                                <label class="login2 pull-right pull-right-pro">End date:</label>
                                                             </div>
                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 ">${account.role}</label>
+                                                                <label class="login2 "><fmt:formatDate var="endDate" value="${product.endDate}" pattern="dd/MM/yyyy HH:mm"/>${endDate}</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                       <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                <label  class="login2 pull-right pull-right-pro">report:</label>
+                                                                <label  class="login2 pull-right pull-right-pro">Status:</label>
                                                             </div>
                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 "style="color:red">${account.report}</label>
+                                                                <label class="login2 "style="color:red">Happening</label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                 <%--    
+                                                    
                                     			 <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -873,330 +745,43 @@
 																  <p>${product.description}</p>
 		                                                     </div>
 		                                               </div>
-		                                         </div> --%>
+		                                         </div>
                                                 </form>
                                             </div>
                                         </div>
                                     
-                                       
-                                      
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="all-form-element-inner">
+                                                <form action="#">
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                        
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                                <label class="login2 pull-right pull-right-pro">Image Product:</label>
+                                                                
+                                                            </div>
+                                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+                                                            
+                                                                <div style="overflow: auto; height: 400px;">
+		                                                            <c:forEach var="productPhoto" items="${product.productPhotos }">
+																		 <img width="400" height="300" src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }" alt="" /><hr>
+																	</c:forEach>
+																</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
-             
             </div>
         </div>
        <hr>
-         <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   
-                        <div class="product-status-wrap">
-                            <h4>Products List</h4>
-                            <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
-                         
-                            </form>
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>ProductImage</th>
-                                    <th>NameProduct</th>
-                                    <th>Status</th>
-                                    <th>PriceStart</th>
-                                    <th>StartDate</th>
-                                    <th>EndDate</th>
-                                    <th>Created</th>
-                                    <th>Setting</th>
-                                </tr>
-                               <c:forEach var="allproductAdmins"
-									items="${ListProduct.content }">
-                                <tr>
-                                     <td>${allproductAdmins.id }</td>
-                                     
-                                      <c:forEach var="productPhoto"
-											items="${allproductAdmins.productPhotos }" end="0">
-                                   <td><img alt="image"
-												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
-									</c:forEach>
-									
-                                    <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when
-													test="${allproductAdmins.status==1 }">
-                                    <button class="label label-success">Active</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==0 }">
-                                    <button class="label label-warning">Watting Accept</button>
-                                    </c:when>
-                                    <c:when
-													test="${allproductAdmins.status==3 }">
-                                    <button class="label label-danger">Canceled</button>
-                                    </c:when>
-                                    </c:choose>
-                                    </td>
-                                    <td>${allproductAdmins.priceStart }</td>
-                                    <td> <fmt:formatDate var="day" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day }</td>
-                                    <td> <fmt:formatDate var="day1" value="${allproductAdmins.startDate }" pattern="dd/MM/yyyy" />${day1 }</td>
-				                    <td> <fmt:formatDate var="day2" value="${allproductAdmins.created }" pattern="dd/MM/yyyy" />${day2 }</td>
-                                    <td>
-                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
-                                        <button data-toggle="tooltip"
-												title="Detail" class="pd-setting-ed">
-												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-											</button>
-											</a>
-											
-										<a href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
-                                        <button data-toggle="tooltip"
-												title="Show" class="pd-setting-ed">
-												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
-											</button>
-											</a>
-                                    </td>
-                                </tr>
-                              
-                               </c:forEach>
-                            </table>
-                           
-                            <div class="custom-pagination">
-								<ul class="pagination">
-								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=0">First</a></li>
-								    <c:choose>
-								        <c:when test="${ListProduct.number == 0}">
-									
-								        </c:when>
-								            <c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.number - 1}">Previous</a></li>
-								            </c:otherwise>
-							        </c:choose>
-							        <c:choose>
-								         <c:when
-											test="${ListProduct.number == (ListProduct.totalPages -1) }">
-									
-								        </c:when>
-							              	<c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.number + 1}">Next</a></li>
-								            </c:otherwise>
-						        	</c:choose>
-									
-									
-									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?p=${ListProduct.totalPages - 1}">Last</a></li>
-								</ul>
-								
-                            </div>
-                           
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-         <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   
-                        <div class="product-status-wrap">
-                            <h4>Invoice List (hoa don mua/ ban)</h4>
-                            <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
-                         
-                            </form>
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Product</th>
-                                    <th>FullName</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                    <th>Payment</th>
-                                    <th>Total</th>
-                                    <th>Setting</th>
-                                </tr>
-                               <c:forEach var="Invoice"
-									items="${ListInvoice.content }">
-                                <tr>
-                                     <td>${Invoice.id }</td>
-                                     
-                                      
-									 <td>${Invoice.account.username }</td>
-                                    <td>${Invoice.product.name }</td>
-                                    <td>${Invoice.fullName }</td>
-                                    <td>${Invoice.email }</td>
-                                    <td>${Invoice.phone }</td>
-                                    <td>${Invoice.address }</td>
-                                    <td>${Invoice.payment }</td>
-                                    <td>${Invoice.total }</td>
-                                    
-                                    
-                                  
-                                    <td>
-                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${Invoice.product.id }">
-                                        <button data-toggle="tooltip"
-												title="Detail" class="pd-setting-ed">
-												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-											</button>
-											</a>
-											
-										<a href="${pageContext.request.contextPath }/product/productdetail/${Invoice.product.id }">	
-                                        <button data-toggle="tooltip"
-												title="Show" class="pd-setting-ed">
-												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
-											</button>
-											</a>
-                                    </td>
-                                </tr>
-                               </c:forEach>
-                               
-                            </table>
-                             <div class="custom-pagination">
-								<ul class="pagination">
-								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=0">First</a></li>
-								    <c:choose>
-								        <c:when test="${ListProduct.number == 0}">
-									
-								        </c:when>
-								            <c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.number - 1}">Previous</a></li>
-								            </c:otherwise>
-							        </c:choose>
-							        <c:choose>
-								         <c:when
-											test="${ListProduct.number == (ListProduct.totalPages -1) }">
-									
-								        </c:when>
-							              	<c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.number + 1}">Next</a></li>
-								            </c:otherwise>
-						        	</c:choose>
-									
-									
-									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?o=${ListProduct.totalPages - 1}">Last</a></li>
-								</ul>
-								
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-         <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   
-                        <div class="product-status-wrap">
-                            <h4>Auction List (cac hoat dong dau gia cua tai khoan này)</h4>
-                            <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
-                            </form>
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Image</th>
-                                    <th>NameProduct</th>
-                                    <th>EndDay</th>
-                                    <th>Highest Price</th>
-                                    <th>Status</th>                                  
-                                    <th>Setting</th>
-                                </tr>
-                               <c:forEach var="HistoryAuction"
-									items="${ListHistoryAuction.content }">
-                                <tr>
-                                     <td>${HistoryAuction.id }</td>
-                                     
-                                      <c:forEach var="productPhoto"
-											items="${HistoryAuction.product.productPhotos }" end="0">
-                                   <td><img alt="image"
-												src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"></td>
-									</c:forEach>
-									
-                                    <td>${HistoryAuction.product.name }</td>
-                                    <td class="product-name"><fmt:formatDate var="day" value="${HistoryAuction.product.endDate }" pattern="dd/MM/yyyy"/>${day }</td>
-                                    <td class="product-price text-center" valign="middle">${HistoryAuction.priceBid } </td>
-                                    <td class="text-center">
-                                        
-                                       		  <c:choose>
-												<c:when test="${HistoryAuction.product.startDate  <= dateNow && dateNow <=  HistoryAuction.product.endDate}">
-												  <span class="badge badge-secondary">happening</span>
-												</c:when>
-												<c:otherwise>
-											 	
-												       <span class="badge badge-danger">finished </span> 
-												     
-												</c:otherwise>
-											</c:choose>  
-										</td>
-                                    
-                                    <td>
-                                    <a href="${pageContext.request.contextPath }/productadmin/productdetail/${HistoryAuction.product.id }">
-                                        <button data-toggle="tooltip"
-												title="Detail" class="pd-setting-ed">
-												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-											</button>
-											</a>
-											
-										<a href="${pageContext.request.contextPath }/product/productdetail/${HistoryAuction.product.id }">	
-                                        <button data-toggle="tooltip"
-												title="Show" class="pd-setting-ed">
-												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
-											</button>
-											</a>
-                                    </td>
-                                </tr>
-                               </c:forEach>
-                               
-                            </table>
-                           <div class="custom-pagination">
-								<ul class="pagination">
-								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=0">First</a></li>
-								    <c:choose>
-								        <c:when test="${ListProduct.number == 0}">
-									
-								        </c:when>
-								            <c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.number - 1}">Previous</a></li>
-								            </c:otherwise>
-							        </c:choose>
-							        <c:choose>
-								         <c:when
-											test="${ListProduct.number == (ListProduct.totalPages -1) }">
-									
-								        </c:when>
-							              	<c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.number + 1}">Next</a></li>
-								            </c:otherwise>
-						        	</c:choose>
-									
-									
-									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/accountadmin/accountdetail/${account.id }?i=${ListProduct.totalPages - 1}">Last</a></li>
-								</ul>
-								
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">

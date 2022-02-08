@@ -7,4 +7,6 @@ public interface MailSenderService {
 	public void sendEmail( String phone,String name , String subject , String message );
 	
 	public boolean sendEmailConfirm( String email, int code );
+	
+	public boolean sendEmailConfirm1( String text,String email );
 }

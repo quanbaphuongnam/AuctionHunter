@@ -261,13 +261,13 @@
 															href="#"><span
 																class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-<<<<<<< HEAD
+
                                                         <li><a href="${pageContext.request.contextPath }/account/logout"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-=======
+
                                                         <li><a
 															href="login.html"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
->>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
+
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -1130,14 +1130,11 @@
                                     <td>
                                     <a href="${pageContext.request.contextPath }/accountadmin/accountdetail/${findAccount.id }" >
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+												title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
-                                        <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
+                                       
                                     </td>
                             
                                 </tr>
@@ -1178,18 +1175,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright © 2018 <a
-									href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     
        
 	</jsp:attribute>

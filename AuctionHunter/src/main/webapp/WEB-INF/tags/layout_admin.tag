@@ -140,9 +140,7 @@
 							<ul class="submenu-angle" aria-expanded="true">
 								<li><a title="Dashboard v.1" href=""><span
 										class="mini-sub-pro">Analytics </span></a></li>
-								<li><a title="Dashboard v.2"
-									href="${pageContext.request.contextPath }/accountadmin/add"><span
-										class="mini-sub-pro">Analytics </span></a></li>
+								
 							</ul></li>
 						<li><a class="has-arrow"
 							href="${pageContext.request.contextPath }/accountadmin"
@@ -162,8 +160,9 @@
 								<li><a title="Inbox"
 									href="${pageContext.request.contextPath }/productadmin"><span
 										class="mini-sub-pro">Product</span></a></li>
-								<li><a title="View Mail" href="mailbox-view.html"><span
-										class="mini-sub-pro">View Mail</span></a></li>
+								<li><a title="View Mail" href="${pageContext.request.contextPath }/category/index"><span
+										class="mini-sub-pro">Category/Trademark</span></a></li>
+							
 							</ul></li>
 						<li><a class="has-arrow"
 							href="https://dashboard.tawk.to/#/dashboard/61e54edab84f7301d32b6807"

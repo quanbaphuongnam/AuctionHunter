@@ -77,9 +77,9 @@ public  class ProductServiceImpl implements ProductService{
 		return productRepository.findAccept();
 	}
 	@Override
-	public long count2(int status) {
+	public long count2() {
 		// TODO Auto-generated method stub
-		return productRepository.count2(status);
+		return productRepository.count2();
 	}
 	@Override
 	public Page<Product> findAllByIdAccPage(int account_id, Pageable pageable) {

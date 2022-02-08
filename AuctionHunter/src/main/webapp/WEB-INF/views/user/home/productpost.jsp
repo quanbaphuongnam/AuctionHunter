@@ -121,9 +121,11 @@
   color:red;
 }
 </style>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-<script>
 
+
+
+
+<script>
 $(document).ready(function($) {
 	var today = new Date();
 	$("#PostProductForm").validate({
@@ -142,7 +144,6 @@ $(document).ready(function($) {
 	        	min: 1,
 	            max:100
 	        },
-	      
 	        description: {
 	            required: true,
 	            minlength: 50
@@ -194,8 +195,6 @@ $(document).ready(function($) {
         		<div class="wrapper"><h1 class="page-width">Post Product</h1></div>
       		</div>
 		</div>
-        <!--End Page Title-->
-        
         <div class="container">
         	<div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
@@ -314,10 +313,8 @@ $(document).ready(function($) {
                 </div>
             </div>
          </div>
-	
-	
 
-		<script>
+		<%-- <script>
 			$(function() {
 			  $('input[name="datetimes"]').daterangepicker({
 			    timePicker: true,
@@ -328,9 +325,18 @@ $(document).ready(function($) {
 			    }
 			  });
 			});
-		</script>
+		</script> --%>
+		<script>
+            /*jslint browser:true*/
+            /*global jQuery, document*/
+            jQuery(document).ready(function () {
+                'use strict';
+                jQuery('#startDate, #endDate').datetimepicker();
+            });
+        </script>
 		
-	
+		<script
+			src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
 
 	</jsp:attribute>
 </mt:layout_user>

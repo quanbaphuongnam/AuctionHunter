@@ -32,8 +32,6 @@
 								</a>
 						</div>
 				
-						<input id="imageFile" type="file" name="fileavatar"
-								class="text-center btnFile">
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab"
 							role="tablist" aria-orientation="vertical">
@@ -43,7 +41,6 @@
 							<i class="fa fa-home text-center mr-1"></i> 
 							Account
 						</a>
-					
 					</div>
 				</div>
 				

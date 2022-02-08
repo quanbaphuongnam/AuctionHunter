@@ -1155,16 +1155,16 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																	test="${allproductAdmins.status==1 }">
-																	   <span class="label label-success"> Accept</span>
+																	   <span class="label label-success">approved</span>
                                     </c:when>
                                     <c:when
 																	test="${allproductAdmins.status==0 }">
 																	
-                                    <button class="ps-setting">Watting Accept</button>
+                                    <span class="ps-setting">unproven</span>
                                     </c:when>
                                     <c:when
-																	test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
+																	test="${allproductAdmins.status==2}">
+                                    <span class="pd-setting">finished</span>
                                     </c:when>
                                     </c:choose>
                                     </td>
@@ -1285,24 +1285,20 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																				test="${allproductAdmins.status==1 }">
-                                      <span class="label label-success"> Accept</span>
+                                      <span class="label label-success">approved</span>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
 
-                                    <button
-																					class="label label-warning">
-                                    <i
-																						class="fa fa-exclamation-triangle adminpro-warning-danger"
-																						aria-hidden="true"></i>Watting Accept</button>
+                                   
 
-                                    <span class="label label-warning"> Not Accept</span>
+                                    <span class="label label-warning">unproven</span>
                                  
 
                                     </c:when>
                                     <c:when
-																				test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
+																				test="${allproductAdmins.isDelete == false  }">
+                                    <span class="label label-error">declined </span>
                                     </c:when>
                                     </c:choose>
                                     </td>
@@ -1332,11 +1328,12 @@
                                         <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                          
                                           <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">
-                                           <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Accept</button>
+                                           <i class="fa fa-check adminpro-checked-pro" aria-hidden="true"></i>Approve</button>
                                            
                                              
                                            <button  class="btn btn-custon-rounded-two btn-danger"  name="status" value="3">
-                                           <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel</button>
+                                           <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Dismiss
+</button>
                                            
                                           
                                        </div>
@@ -1430,7 +1427,6 @@
                                     <th>ID</th>
                                     <th>ProductImage</th>
                                     <th>NameProduct</th>
-                                    <th>Status</th>
                                     <th>PriceStart</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>
@@ -1447,7 +1443,6 @@
                                     <th>ID</th>
                                     <th>ProductImage</th>
                                     <th>NameProduct</th>
-                                    <th>Status</th>
                                     <th>PriceStart</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>
@@ -1467,20 +1462,7 @@
 									</c:forEach>
 									
                                     <td>${allproductAdmins.name }</td>
-                                    <td><c:choose> <c:when
-																				test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
-                                    </c:when>
-                                    <c:when
-																				test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
-                                    </c:when>
-                                    <c:when
-																				test="${allproductAdmins.status==3 }">
-                                    <button class="label label-danger">Deleted</button>
-                                    </c:when>
-                                    </c:choose>
-                                    </td>
+                                  
                                     <td>${allproductAdmins.priceStart }</td>
                                     <td> <fmt:formatDate var="day"
 																			value="${allproductAdmins.startDate }"
@@ -1509,35 +1491,7 @@
                                     </c:when>
                                     </c:choose>
                             
-                           <!--   <div class="custom-pagination">
-								<ul class="pagination">
-								    <li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin/accept?p=0&status=1">First</a></li>
-								    <c:choose>
-								        <c:when test="${ListProduct.number == 0}">
-									
-								        </c:when>
-								            <c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number - 1}&status=1">Previous</a></li>
-								            </c:otherwise>
-							        </c:choose>
-							        <c:choose>
-								         <c:when
-											test="${ListProduct.number == (ListProduct.totalPages -1) }">
-									
-								        </c:when>
-							              	<c:otherwise>
-									           <li class="page-item"><a class="page-link"
-												href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.number + 1}&status=1">Next</a></li>
-								            </c:otherwise>
-						        	</c:choose>
-									
-									
-									<li class="page-item"><a class="page-link"
-										href="${pageContext.request.contextPath }/productadmin/accept?p=${ListProduct.totalPages - 1}&status=1">Last</a></li>
-								</ul>
-                            </div> -->
+                         
                         </div>
                                         </div>
                                     </div>

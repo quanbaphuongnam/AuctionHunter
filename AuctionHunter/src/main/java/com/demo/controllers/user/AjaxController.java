@@ -70,14 +70,14 @@ public class AjaxController {
 		//long diffHours = diff / (60 * 60 * 1000);                      
 		//System.out.println("Time in minutes: " + diffMinutes + " minutes.");         
 		//System.out.println("Time in hours: " + diffHours + " hours."); 
-		System.out.println("Time now: " + dateNow);  
+		//System.out.println("Time now: " + dateNow);  
 		if(diffSeconds <= 20) {
-			System.out.println("Time con lai: " + diffSeconds + " s");  
+			//System.out.println("Time con lai: " + diffSeconds + " s");  
 	        Calendar c1 = Calendar.getInstance();
 	        // Định nghĩa mốc thời gian ban đầu 
 	        Date date = dateNow;
 	        c1.setTime(date);
-	        System.out.println("Time ban đầu : " + format.format(c1.getTime()));
+	        //System.out.println("Time ban đầu : " + format.format(c1.getTime()));
 	        // Tăng thêm 20s -- Sử dụng phương thức roll()
 	        if(c1.getTime().getSeconds() >= 40) {
 	        	 c1.roll(Calendar.SECOND, 20);
@@ -85,7 +85,7 @@ public class AjaxController {
 	        }else {
 	        	 c1.roll(Calendar.SECOND, 20);
 	        }
-	        System.out.println("Time mới : " + c1.getTime());
+	        //System.out.println("Time mới : " + c1.getTime());
 	    	product.setEndDate(c1.getTime());
 			productService.save(product);
 	       } 
@@ -100,8 +100,7 @@ public class AjaxController {
 		Date dateStart = product.getStartDate();
 		Date dateNow2 =  new Date();
 		String dateNew = format.format(dateEnd);
-		System.err.println(dateNew);
-		
+		//System.err.println(dateNew);
 	 	return dateNew;
 	}
 	@RequestMapping(value="findProductAjax", method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
@@ -119,7 +118,7 @@ public class AjaxController {
 				productService.save(product);
 				return "invalid";
 			}else {
-				System.err.println(dateNew);
+				//System.err.println(dateNew);
 	 			return dateNew;
 			}
 		} else {

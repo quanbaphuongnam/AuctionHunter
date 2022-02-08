@@ -38,7 +38,7 @@ public interface ProductService {
 	
 	 public List<Product> findAccept();
 	
-	public long count2(@Param("status") int status);
+	public long count2();
 	
 	public Page<Product> findAllByIdAccPage(int account_id,Pageable pageable);
 	

@@ -54,8 +54,8 @@ public class ProductAdminController {
 		Pageable pageable = PageRequest.of(p.orElse(0), 10);
 		Page<Product> page = productService.findpage(pageable, 1);
 		map.addAttribute("ListProduct", page);
-		int status2 = 0;
-		long count2 = productService.count2(status2);
+		
+		long count2 = productService.count2();
 		map.addAttribute("count", count2);
 		map.addAttribute("countDelete", productService.countdelete());
 		map.put("ListAccept", productService.findAccept());
@@ -94,16 +94,9 @@ public class ProductAdminController {
 	public String accept(@PathVariable("id") int id, @RequestParam("status") int status,
 			RedirectAttributes redirectAttributes) {
 		Product product = productService.find(id);
-		if (status == 1) {
 			product.setStatus(1);
 			productService.save(product);
 			redirectAttributes.addFlashAttribute("msg", "Accept successful");
-
-		} else if (status == 3) {
-
-			redirectAttributes.addFlashAttribute("msg", "Cancel");
-		}
-
 		return "redirect:/productadmin/index";
 	}
 
@@ -114,6 +107,8 @@ public class ProductAdminController {
 		if (mailSenderService.sendEmailConfirm1( value,account.getEmail())) {
 			Product product = productService.find(idpro);
 			product.setStatus(3);
+			product.setIsDelete(false);
+			//product.setStatus(3);
 			productService.save(product);
 			redirectAttributes.addFlashAttribute("msg", "Cancel successful");		
 		}

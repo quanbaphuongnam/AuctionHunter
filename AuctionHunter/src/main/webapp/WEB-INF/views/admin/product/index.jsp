@@ -282,16 +282,16 @@
 															href="#"><span
 																class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-<<<<<<< HEAD
+
                                                         <li><a
 															href="${pageContext.request.contextPath }/account/logout"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-=======
+
                                                         
 														
 														<li><a href="login.html"><span
 																class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
->>>>>>> branch 'main' of https://github.com/quanbaphuongnam/AuctionHunter.git
+
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -1155,10 +1155,11 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																	test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+																	   <span class="label label-success"> Accept</span>
                                     </c:when>
                                     <c:when
 																	test="${allproductAdmins.status==0 }">
+																	
                                     <button class="ps-setting">Watting Accept</button>
                                     </c:when>
                                     <c:when
@@ -1284,15 +1285,20 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																				test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+                                      <span class="label label-success"> Accept</span>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
+
                                     <button
-																					class="btn btn-custon-rounded-two btn-warning">
+																					class="label label-warning">
                                     <i
 																						class="fa fa-exclamation-triangle adminpro-warning-danger"
 																						aria-hidden="true"></i>Watting Accept</button>
+
+                                    <span class="label label-warning"> Not Accept</span>
+                                 
+
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==2 }">
@@ -1471,7 +1477,7 @@
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==3 }">
-                                    <button class="btn btn-danger">Deleted</button>
+                                    <button class="label label-danger">Deleted</button>
                                     </c:when>
                                     </c:choose>
                                     </td>

@@ -48,6 +48,7 @@ public class ProductAdminController {
 	private AccountService accountService;
 
 	@RequestMapping(value = { "", "index" }, method = RequestMethod.GET)
+
 	public String index(ModelMap map, @RequestParam("p") Optional<Integer> p) {
 //        map.put("AllproductAdmins", productService.findAll());
 		Pageable pageable = PageRequest.of(p.orElse(0), 10);
@@ -59,6 +60,9 @@ public class ProductAdminController {
 		map.addAttribute("countDelete", productService.countdelete());
 		map.put("ListAccept", productService.findAccept());
 		map.put("ListDelete", productService.findDeleted());
+
+	
+
 		return "admin/product/index";
 	}
 

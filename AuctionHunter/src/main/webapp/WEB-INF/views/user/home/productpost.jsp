@@ -120,7 +120,9 @@
 }
 
 </style>
+
 <script>
+
 $(document).ready(function($) {
 	var today = new Date();
 	$("#PostProductForm").validate({
@@ -136,21 +138,13 @@ $(document).ready(function($) {
 	        },
 	        priceStep: {
 	            required: true,
+	        	min: 1,
 	            max:100
 	        },
-	        startdate: {
-	            required: true,
-	            maxDate : today,
-	            date : true
-	        },
-	        enddate: {
-	            required: true,
-	            maxDate : today,
-	            date : true
-	        },
+	      
 	        description: {
 	            required: true,
-	         	min: 50
+	            minlength: 50
 	        }
 	      
 	    },
@@ -161,20 +155,15 @@ $(document).ready(function($) {
 		    },
 		    priceStart: {
 	            required: "Please enter a price start",
-	           	min: "Min 5",
-	           	max: "Max 1000"
+	           	min: "Min is 5",
+	           	max: "Max is 1000"
 	        },
 	        priceStep: {
 	            required: "Please enter a price step",
-	            max: "Max 1000"
+	        	min: "Min is 1",
+	            max: "Max is 100"
 	        },
-	        startdate: {
-	            required: "Please enter start"
-	        },
-	        enddate: {
-	            required: "Please enter end"
-	           
-	        },
+	      
 	        description: {
 	            required: "Please enter description",
 	            minlength: "Product name must be at least 50 characters long"
@@ -198,6 +187,7 @@ $(document).ready(function($) {
 	});
 });
 </script>
+
 <style>
 .error{
   color:red;
@@ -249,30 +239,24 @@ $(document).ready(function($) {
                                        <div class="form-group col-md-2 col-lg-2 col-xl-2 required">
                                         <label for="input-lastname">Price Step <span class="required-f">*</span></label>
                                         <div class="icon-addon addon-lg">
-						                    <s:input path="priceStep" type="number" min="1" class="form-control" required="required" id="priceStep"/>
+						                    <s:input path="priceStep" type="number" min="1" class="form-control" id="priceStep"/>
 						                    <label for="email" class="glyphicon glyphicon-usd" rel="tooltip" title="email"></label>
 						                </div>
                                     </div>
                                 </div>
                                  <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                                         
                        					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-                        				<s:input path="startDate"  name="filter-date"  id="startdate"  />
-               
+                        				<s:input path="startDate"  name="startDate"  id="startDate" required="required" />
                                     </div>
                                       <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="filter-date">End Date <span  class="required-f">*</span></label>
-                        				<s:input path="endDate"  name="filter-date"  id="enddate" />
+                        				<s:input path="endDate"  name="endDate"  id="endDate" required="required" />
                                     </div>
                                 </div>
-                               
                             </fieldset>
-
                             <fieldset>
-                                
                                 <div class="row">
-                                    
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="input-country">Category  <span class="required-f">*</span></label>
                                         
@@ -334,16 +318,28 @@ $(document).ready(function($) {
                 </div>
                     </div>
                 </div>
-	 <script>
-            /*jslint browser:true*/
-            /*global jQuery, document*/
-            jQuery(document).ready(function () {
-                'use strict';
-                jQuery('#startdate, #enddate').datetimepicker();
-            });
-        </script>
-	<script
-			src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
-        
+	
+		<script src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $("#startDate").datepicker({
+			        onSelect: function(selected) {
+			          $("#endDate").datepicker("option","minDate", selected)
+			        }
+			    });
+			    $("#endDate").datepicker({ 
+			       // numberOfMonths: 2,
+			        onSelect: function(selected) {
+			           $("#startDate").dateicker("option","maxDate", selected)
+			        }
+			    });  
+			});
+		</script>
+		<%-- <script >
+		jQuery(document).ready(function () {
+		    'use strict';
+		    jQuery('#startDate, #endDate').datetimepicker();
+		});
+		</script> --%>
 	</jsp:attribute>
 </mt:layout_user>

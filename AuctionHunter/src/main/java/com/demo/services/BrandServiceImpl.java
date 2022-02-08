@@ -1,5 +1,7 @@
 package com.demo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,23 @@ public  class BrandServiceImpl implements BrandService{
 	public Brand find(int id) {
 		
 		return brandRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Brand> findAllAvailability() {
+		
+		return brandRepository.findAllAvailability();
+	}
+
+	@Override
+	public Brand save(Brand brand) {
+		return brandRepository.save(brand);
+	}
+
+	@Override
+	public void delete(int id) {
+		brandRepository.deleteById(id);
+		
 	}
 
 }

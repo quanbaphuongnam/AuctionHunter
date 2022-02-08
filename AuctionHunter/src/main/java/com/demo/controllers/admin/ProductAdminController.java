@@ -40,7 +40,6 @@ public class ProductAdminController {
 	private HistoryAuctionService historyAuctionService;
 	@RequestMapping(value = { "", "index" }, method = RequestMethod.GET)
 	public String index(ModelMap map,@RequestParam("p") Optional<Integer> p) {
-//        map.put("AllproductAdmins", productService.findAll());
         Pageable pageable = PageRequest.of(p.orElse(0),10);
         Page<Product> page = productService.findpage(pageable,1);
         map.addAttribute("ListProduct",page);

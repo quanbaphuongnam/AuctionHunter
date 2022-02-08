@@ -63,8 +63,8 @@ public class ProductController {
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			modelMap.put("product", product);
-			modelMap.put("categorys", categoryService.findAll());
-			modelMap.put("brands", brandService.findAll());
+			modelMap.put("categorys", categoryService.findAllAvailability());
+			modelMap.put("brands", brandService.findAllAvailability());
 		} else {
 			return "user/account/login";
 		}

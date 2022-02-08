@@ -162,8 +162,9 @@
 								<li><a title="Inbox"
 									href="${pageContext.request.contextPath }/productadmin"><span
 										class="mini-sub-pro">Product</span></a></li>
-								<li><a title="View Mail" href="mailbox-view.html"><span
-										class="mini-sub-pro">View Mail</span></a></li>
+								<li><a title="View Mail" href="${pageContext.request.contextPath }/category/index"><span
+										class="mini-sub-pro">Category/Trademark</span></a></li>
+							
 							</ul></li>
 						<li><a class="has-arrow"
 							href="https://dashboard.tawk.to/#/dashboard/61e54edab84f7301d32b6807"

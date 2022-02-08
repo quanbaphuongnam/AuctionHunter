@@ -1152,10 +1152,11 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																	test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+																	   <span class="label label-success"> Accept</span>
                                     </c:when>
                                     <c:when
 																	test="${allproductAdmins.status==0 }">
+																	
                                     <button class="ps-setting">Watting Accept</button>
                                     </c:when>
                                     <c:when
@@ -1281,12 +1282,12 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 																				test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+                                      <span class="label label-success"> Accept</span>
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==0 }">
-                                    <button class="btn btn-custon-rounded-two btn-warning">
-                                    <i class="fa fa-exclamation-triangle adminpro-warning-danger" aria-hidden="true"></i>Watting Accept</button>
+                                    <span class="label label-warning"> Not Accept</span>
+                                 
                                     </c:when>
                                     <c:when
 																				test="${allproductAdmins.status==2 }">

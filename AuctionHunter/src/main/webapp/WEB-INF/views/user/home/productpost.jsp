@@ -6,8 +6,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <mt:layout_user title="productpost">
 	<jsp:attribute name="content">
- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <style>
 .center-block {
     float: none;
@@ -118,9 +117,11 @@
 .preview-img {
   max-width: 150px;margin: 0 1em 1em 0;padding: 0.5em;border: 1px solid #ccc; border-radius: 3px;display: inline-block;
 }
-
+.error{
+  color:red;
+}
 </style>
-
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script>
 
 $(document).ready(function($) {
@@ -188,11 +189,6 @@ $(document).ready(function($) {
 });
 </script>
 
-<style>
-.error{
-  color:red;
-}
-</style>
 	<div class="page section-header text-center">
 			<div class="page-title">
         		<div class="wrapper"><h1 class="page-width">Post Product</h1></div>
@@ -247,7 +243,7 @@ $(document).ready(function($) {
                                  <div class="row">
                                     <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                        					 <label for="filter-date">Start Date <span  class="required-f">*</span></label>
-                        				<s:input path="startDate"  name="startDate"  id="startDate" required="required" />
+                        				<s:input path="startDate"  name="datetimes"  id="startDate" required="required" />
                                     </div>
                                       <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                                         <label for="filter-date">End Date <span  class="required-f">*</span></label>
@@ -316,30 +312,25 @@ $(document).ready(function($) {
                         </s:form>
                     </div>
                 </div>
-                    </div>
-                </div>
+            </div>
+         </div>
 	
-		<script src="${pageContext.request.contextPath }/resources/user/assets/js/drop-zone.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-			    $("#startDate").datepicker({
-			        onSelect: function(selected) {
-			          $("#endDate").datepicker("option","minDate", selected)
-			        }
-			    });
-			    $("#endDate").datepicker({ 
-			       // numberOfMonths: 2,
-			        onSelect: function(selected) {
-			           $("#startDate").dateicker("option","maxDate", selected)
-			        }
-			    });  
+	
+
+		<script>
+			$(function() {
+			  $('input[name="datetimes"]').daterangepicker({
+			    timePicker: true,
+			    startDate: moment().startOf('hour'),
+			    endDate: moment().startOf('hour').add(32, 'hour'),
+			    locale: {
+			      format: 'M/DD hh:mm A'
+			    }
+			  });
 			});
 		</script>
-		<%-- <script >
-		jQuery(document).ready(function () {
-		    'use strict';
-		    jQuery('#startDate, #endDate').datetimepicker();
-		});
-		</script> --%>
+		
+	
+
 	</jsp:attribute>
 </mt:layout_user>

@@ -140,9 +140,7 @@
 							<ul class="submenu-angle" aria-expanded="true">
 								<li><a title="Dashboard v.1" href=""><span
 										class="mini-sub-pro">Analytics </span></a></li>
-								<li><a title="Dashboard v.2"
-									href="${pageContext.request.contextPath }/accountadmin/add"><span
-										class="mini-sub-pro">Analytics </span></a></li>
+								
 							</ul></li>
 						<li><a class="has-arrow"
 							href="${pageContext.request.contextPath }/accountadmin"

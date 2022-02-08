@@ -925,15 +925,15 @@
                                     <td>${allproductAdmins.name }</td>
                                     <td><c:choose> <c:when
 													test="${allproductAdmins.status==1 }">
-                                    <button class="pd-setting">Active</button>
+                                    <button class="label label-success">Active</button>
                                     </c:when>
                                     <c:when
 													test="${allproductAdmins.status==0 }">
-                                    <button class="ps-setting">Watting Accept</button>
+                                    <button class="label label-warning">Watting Accept</button>
                                     </c:when>
                                     <c:when
-													test="${allproductAdmins.status==2 }">
-                                    <button class="pd-setting">Disable</button>
+													test="${allproductAdmins.status==3 }">
+                                    <button class="label label-danger">Canceled</button>
                                     </c:when>
                                     </c:choose>
                                     </td>
@@ -944,15 +944,15 @@
                                     <td>
                                     <a href="${pageContext.request.contextPath }/productadmin/productdetail/${allproductAdmins.id }">
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+												title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
 											
 										<a href="${pageContext.request.contextPath }/product/productdetail/${allproductAdmins.id }">	
                                         <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+												title="Show" class="pd-setting-ed">
+												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
 											</button>
 											</a>
                                     </td>
@@ -1042,15 +1042,15 @@
                                     <td>
                                     <a href="${pageContext.request.contextPath }/productadmin/productdetail/${Invoice.product.id }">
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+												title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
 											
 										<a href="${pageContext.request.contextPath }/product/productdetail/${Invoice.product.id }">	
                                         <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+												title="Show" class="pd-setting-ed">
+												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
 											</button>
 											</a>
                                     </td>
@@ -1145,15 +1145,15 @@
                                     <td>
                                     <a href="${pageContext.request.contextPath }/productadmin/productdetail/${HistoryAuction.product.id }">
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+												title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
 											
 										<a href="${pageContext.request.contextPath }/product/productdetail/${HistoryAuction.product.id }">	
                                         <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+												title="Show" class="pd-setting-ed">
+												<i class="fa fa-home adminpro-home-admin" aria-hidden="true"></i>
 											</button>
 											</a>
                                     </td>

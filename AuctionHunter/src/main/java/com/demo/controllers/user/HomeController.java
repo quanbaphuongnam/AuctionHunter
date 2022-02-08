@@ -56,9 +56,7 @@ public class HomeController implements ServletContextAware {
 		for (Product product : listProducts) {
 			List<HistoryAuctionAjax> historyAuctions = new ArrayList<HistoryAuctionAjax>();
 			historyAuctions = historyAuctionService.findWinnerAjax(product.getId());
-			if (historyAuctions.isEmpty()) {
-
-			} else {
+			if (!historyAuctions.isEmpty()) {
 				Double priceBid = (double) 0;
 				for (HistoryAuctionAjax historyAuctionAjax : historyAuctions) {
 					if (historyAuctionAjax.getPriceBid() > priceBid) {
@@ -90,11 +88,12 @@ public class HomeController implements ServletContextAware {
 	@RequestMapping(value = { "search" }, method = RequestMethod.GET)
 	public String search(@RequestParam("keyword") String keyword, ModelMap modelMap) {
 		if (keyword == null) {
-			modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
+			//modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
 			return "redirect:/home/index";
 		} else {
-			modelMap.put("searchProducts", productService.searchByKeyword(keyword));
-			return "user/home/search";
+			//modelMap.put("searchProducts", productService.searchByKeyword(keyword));
+			modelMap.put("listProducts", productService.searchByKeyword(keyword));
+			return "user/home/index";
 		}
 	}
 

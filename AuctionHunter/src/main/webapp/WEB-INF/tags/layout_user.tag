@@ -103,8 +103,6 @@
 										href="${pageContext.request.contextPath }/account/register">Register</a></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="${pageContext.request.contextPath }/admin">Admin
-							</a></li>
 						</ul>
 					</div>
 				</div>
@@ -181,25 +179,10 @@
 					
 					<div class="col-4 col-sm-3 col-md-3 col-lg-2">
 						<div class="site-cart">
-							<a href="#;" class="site-header__cart" title="Cart"> <i
-								class="icon anm anm-bag-l"></i>
+							<a href="${pageContext.request.contextPath }/cart/index" class="site-header__cart" title="Cart"> <i	class="icon anm anm-bag-l"></i>
 							</a>
 							<!--Minicart Popup-->
-							<div id="header-cart" class="block block-cart">
-								<div id="listNoti" style="overflow: auto;">
-									<ul class="mini-products-list">
-										<li class="item">
-											<div class="product-details">
-												<a id="title" class="pName" href="cart.html"></a>
-												<div id="description" class="variant-cart"></div>
-												<span id="created"
-													style="margin-left: 100px; font-size: 12px"></span>
-											</div>
-										</li>
-
-									</ul>
-								</div>
-							</div>
+							
 							<!--End Minicart Popup-->
 						</div>
 						<div class="site-header__search">

@@ -22,10 +22,9 @@ public class MailSenderServiceImpl implements MailSenderService {
 		// TODO Auto-generated method stub
 		mailMessage.setFrom("aution.hunter.123@gmail.com");
 		mailMessage.setTo("aution.hunter.123@gmail.com");
-		mailMessage.setText(message);
-		mailMessage.setSubject(subject);
-		mailMessage.setSubject(name);
-		mailMessage.setSubject(phone);
+		mailMessage.setText(message + "\nPhone :" + phone);
+		mailMessage.setSubject(subject );
+		
 		 javaMailSender.send(mailMessage);
 	}
 	

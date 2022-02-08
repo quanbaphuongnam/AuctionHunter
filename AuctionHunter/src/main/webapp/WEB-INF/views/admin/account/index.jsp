@@ -1130,14 +1130,11 @@
                                     <td>
                                     <a href="${pageContext.request.contextPath }/accountadmin/accountdetail/${findAccount.id }" >
                                         <button data-toggle="tooltip"
-												title="Edit" class="pd-setting-ed">
+												title="Detail" class="pd-setting-ed">
 												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 											</button>
 											</a>
-                                        <button data-toggle="tooltip"
-												title="Trash" class="pd-setting-ed">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
-											</button>
+                                       
                                     </td>
                             
                                 </tr>

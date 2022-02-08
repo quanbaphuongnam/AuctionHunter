@@ -7,7 +7,7 @@
 		 	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">My Invoice (Don Mua/ban)</h1></div>
+        		<div class="wrapper"><h1 class="page-width">Confirm Invoice</h1></div>
       		</div>
 		</div>
         <!--End Page Title-->
@@ -29,6 +29,7 @@
                                         <th class="stock-status text-center alt-font">Address</th>
                                         <th class="stock-status text-center alt-font">Payment</th>
                                         <th class="stock-status text-center alt-font">Total</th>
+                                        <th class="stock-status text-center alt-font"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,6 +48,9 @@
                                         <td class="stock text-center">
                                            ${Invoice.total } 
                                         </td>
+                                           <td class="text-center small--hide"><a
+												href="${pageContext.request.contextPath }/cart/confirm/${Invoice.id }"
+												class="btn btn--secondary cart__remove">Confirm</a></td>
                                     </tr>
                                     
                                    </c:forEach>

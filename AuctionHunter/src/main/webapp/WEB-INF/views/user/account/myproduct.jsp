@@ -20,6 +20,7 @@
                          <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="Post new" >
                       </a>
                     </div>
+                             <div style="float: right"><a href="${pageContext.request.contextPath }/account/confirminvoice"> <button type="submit" name="update" class="btn--link cart-update">Confirm Invoice</button></a></div>    
                              <div style="float: right"><a href="${pageContext.request.contextPath }/account/myproduct"> <button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update</button></a></div>    
                 	<form action="#" method="post" class="cart style2">
                 		<table>

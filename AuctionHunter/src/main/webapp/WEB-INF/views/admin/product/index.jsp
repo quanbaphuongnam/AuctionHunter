@@ -1329,7 +1329,7 @@
                                            
                                              
                                            <button  class="btn btn-custon-rounded-two btn-danger"  name="status" value="3">
-                                           <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Dismiss
+                                           <i class="fa fa-times adminpro-danger-error" aria-hidden="true"></i>Cancel
 </button>
                                            
                                           

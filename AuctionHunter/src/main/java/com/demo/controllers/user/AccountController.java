@@ -213,6 +213,21 @@ public class AccountController implements ServletContextAware {
 			return "user/account/login";
 		}
 	}
+	
+	@RequestMapping(value = "confirminvoice", method = RequestMethod.GET)
+	public String ConfirmInvoice(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
+			Account account, RedirectAttributes redirectAttributes, Model model) {
+		if (authentication != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
+			id = (int) session.getAttribute("idAcc");
+			modelMap.put("Invoices", invoiceService.findAllByIdAcc2(id));
+			
+			return "user/account/confirminvoice";
+		} else {
+			return "user/account/login";
+		}
+	}
 
 	@RequestMapping(value = "myinvoice", method = RequestMethod.GET)
 	public String myinvoice(Authentication authentication, HttpServletRequest request, ModelMap modelMap,

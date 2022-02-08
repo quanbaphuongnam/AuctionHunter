@@ -119,7 +119,7 @@
 	 /*-----------------------------------------
 	  6. Minicart Dropdown ---------------------
 	  ------------------------------------------ */
-	  function minicart_dropdown(){
+	/*  function minicart_dropdown(){
 		$(".site-header__cart").on("click", function(i) {
 			i.preventDefault();
 			$("#header-cart").slideToggle();
@@ -132,7 +132,7 @@
 		  }
 		});
 	  }
-	 minicart_dropdown();
+	 minicart_dropdown();*/
 	
 	/*-----------------------------------------
 	  7. Sticky Header ------------------------

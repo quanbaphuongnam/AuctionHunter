@@ -142,12 +142,14 @@ public class AjaxController {
 				
 				productService.save(product);
 				
-				Cart cart = new Cart();
-				cart.setAccount(account);
-				cart.setProduct(product);
-				cart.setCreated(dateNow);
-//				cart.setStatus(1);
-				cartService.save(cart);
+				if(!cartService.findById(product_id)){
+					Cart cart = new Cart();
+					cart.setAccount(account);
+					cart.setProduct(product);
+					cart.setCreated(dateNow);
+					cart.setStatus(1);
+					cartService.save(cart);
+				}
 				
 				return "invalid";
 			}else {

@@ -16,8 +16,11 @@ import com.demo.models.Invoice;
 @Repository
 public interface InvoiceRepository extends CrudRepository<Invoice, Integer> {
 	
-	@Query("from Invoice where account_id = :account_id  order by id desc")
+	@Query("from Invoice where account_id = :account_id and status = 1  order by id desc")
 	public List<Invoice> findAllByIdAcc(@Param("account_id") int account_id);
+	
+	@Query("from Invoice where product.account.id = :id and status = 0 order by id desc")
+	public List<Invoice> findAllByIdAcc2(@Param("id") int id);
 	
 	@Query("select e from Invoice e where account_id = :account_id  order by id desc")
 	public Page<Invoice> findAllInvoiceByIdAccPage(@Param("account_id") int account_id,Pageable pageable);

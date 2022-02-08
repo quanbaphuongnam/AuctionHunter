@@ -10,4 +10,12 @@ public interface CartService{
 	
 	public List<Cart> findByIdAcc(int idAcc);
 	
+	public Boolean findById(int id);
+	
+	public Cart findId(int id);
+	
+	public Boolean findCountId(int id);
+	
+	public Cart findIdPro(int id);
+	
 }

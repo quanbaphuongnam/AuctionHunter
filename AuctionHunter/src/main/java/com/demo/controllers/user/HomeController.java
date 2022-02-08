@@ -56,9 +56,7 @@ public class HomeController implements ServletContextAware {
 		for (Product product : listProducts) {
 			List<HistoryAuctionAjax> historyAuctions = new ArrayList<HistoryAuctionAjax>();
 			historyAuctions = historyAuctionService.findWinnerAjax(product.getId());
-			if (historyAuctions.isEmpty()) {
-
-			} else {
+			if (!historyAuctions.isEmpty()) {
 				Double priceBid = (double) 0;
 				for (HistoryAuctionAjax historyAuctionAjax : historyAuctions) {
 					if (historyAuctionAjax.getPriceBid() > priceBid) {

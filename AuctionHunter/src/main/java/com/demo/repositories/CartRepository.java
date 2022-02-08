@@ -15,7 +15,16 @@ import com.demo.models.Product;
 @Repository
 public interface CartRepository extends CrudRepository<Cart, Integer> {
 	
-	@Query("from Cart where account.id = :idAcc")
+	@Query("from Cart where account.id = :idAcc and status != 0")
 	public List<Cart> findByIdAcc(@Param("idAcc") int idAcc);
+	
+	@Query("from Cart where product.id = :id")
+	public Cart findId(@Param("id") int id);
+	
+	@Query("select count(id) from Cart where product.id = :id")
+	public long count(@Param("id") int id);
+	
+	@Query("select count(id) from Cart where id = :id")
+	public long countId(@Param("id") int id);
 	
 }

@@ -29,7 +29,7 @@ if (msg == 'Postsuccessful') {
                                     <div class="wrap-caption right">
                                         <h2 style="color:black" class="h1 mega-title slideshow__title">Welcome to Auction Hunter</h2>
                                         <span style="color:black" class="mega-subtitle slideshow__subtitle">Wedding bands will be one of the most tangible elements of your wedding<br> day, and a lasting symbol of your love.</span>
-                                        <span  class="btn">Register now</span>
+                                        <a href="${pageContext.request.contextPath }/account/register"><span  class="btn"> Register now </span></a>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ if (msg == 'Postsuccessful') {
                                     <div  class="wrap-caption left">
                                         <h2 style="color:black" class="h1 mega-title slideshow__title">Shop New Collection</h2>
                                         <span style="color:black" class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you<br>covered</span>
-                                        <span  class="btn">Register now</span>
+                                        <a href="${pageContext.request.contextPath }/account/register"><span  class="btn"> Register now </span></a>
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@ if (msg == 'Postsuccessful') {
 								                                            <!-- image -->
 								                                            <c:forEach
 																			var="productPhoto"
-																			items="${listProduct.productPhotos }">
+																			items="${listProduct.productPhotos }" end="0">
 								                                            <img
 																				class="primary blur-up lazyload"
 																				data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"
@@ -429,7 +429,7 @@ if (msg == 'Postsuccessful') {
 								                                            <!-- image -->
 								                                            <c:forEach
 																			var="productPhoto"
-																			items="${listProduct.productPhotos }">
+																			items="${listProduct.productPhotos }" end="0">
 								                                            <img
 																				class="primary blur-up lazyload"
 																				data-src="${pageContext.request.contextPath }/assets/uploads/${productPhoto.name }"

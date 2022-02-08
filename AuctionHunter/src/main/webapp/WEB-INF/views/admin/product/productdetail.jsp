@@ -731,7 +731,7 @@
                                                                 <label  class="login2 pull-right pull-right-pro">Status:</label>
                                                             </div>
                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="login2 "style="color:red">Happening</label>
+                                                                <label class="login2 "style="color:red" >Happening</label>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -53,4 +53,9 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return accountRepository.findAll();
 	}
+	@Override
+	public Account FindById(int id) {
+		// TODO Auto-generated method stub
+		return accountRepository.findById(id).get();
+	}
 }

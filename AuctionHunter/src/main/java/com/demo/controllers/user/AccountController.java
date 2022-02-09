@@ -100,6 +100,7 @@ public class AccountController implements ServletContextAware {
 			System.out.println("file name up" + fileNameUpload);
 			account.setAvatar(fileNameUpload);
 		}
+		
 		accountService.save(account);
 		redirectAttributes.addFlashAttribute("UpdateSuccessful", "Update successful");
 		return "redirect:/account/index";

@@ -72,11 +72,11 @@ $(document).ready(function($) {
 	    rules: {
 	    	username: {
 		        required: true,
-		        minlength: 3
+		        minlength: 5
 		    },
 	        password: {
 	            required: true,
-	            minlength: 3
+	            minlength: 5
 	        },
 	        fullName: {
 	            required: true,
@@ -91,11 +91,11 @@ $(document).ready(function($) {
 	    messages: {
 	    	username: {
 		        required: "Please enter Username",  
-		        minlength: "Your Username must be at least 3 characters long"
+		        minlength: "Your Username must be at least 5 characters long"
 		    },
 	        password: {
 	            required: "Please enter a password",
-	            minlength: "Your password must be at least 3 characters long"
+	            minlength: "Your password must be at least 5 characters long"
 	        },
 	        fullName: {
 	            required: "Please enter a Full Name",

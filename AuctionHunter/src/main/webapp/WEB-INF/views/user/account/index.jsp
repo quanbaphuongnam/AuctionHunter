@@ -38,7 +38,7 @@
 			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath }/resources/user/profile/css/style.css">
-		
+
 	
 	<s:form method="post" modelAttribute="account"
 			enctype="multipart/form-data"
@@ -74,12 +74,7 @@
 							Password
 						</a>
 					
-						<a class="nav-link" id="notification-tab" data-toggle="pill"
-								href="#notification" role="tab" aria-controls="notification"
-								aria-selected="false">
-							<i class="fa fa-bell text-center mr-1"></i> 
-							Notification
-						</a>
+					
 					</div>
 				</div>
 				
@@ -120,29 +115,23 @@
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>Birthday</label>
-								  	<s:input id="datepicker" path="dob" class="form-control" />
+								  	<s:input path="dob" class="form-control" />
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								  	<label>sex</label>
-								<s:select path="sex">
-								<s:option value="male">Male</s:option>
-								<s:option value="female">Female</s:option>
+										<s:select path="sex">
+										<s:option value="male">Male</s:option>
+										<s:option value="female">Female</s:option>
 								  </s:select>
 								</div>
 							</div>
 							
 						</div>
 						<div>
-						
 							<button type="submit" class="btn btn-primary">Update</button>
-				
-				
 						</div>
-						
-						
-						
 					</div>
 					<div class="tab-pane fade" id="password" role="tabpanel"
 							aria-labelledby="password-tab">

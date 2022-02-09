@@ -89,6 +89,12 @@ public class CartController {
 					e.printStackTrace();
 				}
 				cal.add( Calendar.DATE, 3 );
+				/*
+				 * Date date1 = new Date(); if(cart.getStatus() == 1) {
+				 * if(date1.after(cal.getTime())) { Account account = accountService.find(id);
+				 * int rp = account.getReport(); account.setReport(rp+1);
+				 * accountService.save(account); } }
+				 */
 				cart.setCreated(cal.getTime());
 			}
 			
@@ -156,7 +162,7 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "confirm/{id}", method = RequestMethod.GET)
-	public String confirm(@PathVariable("id") int id) {
+	public String confirm(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
         Invoice invoice1 = invoiceService.find(id);
         invoice1.setStatus((byte) 1);
         invoiceService.save(invoice1);
@@ -164,6 +170,8 @@ public class CartController {
         Cart cart1 = cartService.findIdPro(invoice1.getProduct().getId());
         cart1.setStatus(0);
 		cartService.save(cart1);
+		
+		redirectAttributes.addFlashAttribute("msg", "Confirm successful");
         return "redirect:/account/confirminvoice";
 	}
 }

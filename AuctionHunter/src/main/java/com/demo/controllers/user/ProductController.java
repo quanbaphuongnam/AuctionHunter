@@ -81,7 +81,7 @@ public class ProductController {
 			Date dateStart = product.getStartDate();
 			Date created = new Date();
 		
-			if(created.after(dateStart) || created.after(dateEnd)) {
+			if(created.after(dateStart) || created.after(dateEnd) || dateStart.after(dateEnd)) {
 				System.out.println("invalid");
 				redirectAttributes.addFlashAttribute("msg", "DateInvalid");
 				return "redirect:/product/productpost";

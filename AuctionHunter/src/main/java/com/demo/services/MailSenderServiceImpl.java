@@ -61,4 +61,20 @@ public class MailSenderServiceImpl implements MailSenderService {
 		}
 		
 	}
+
+	@Override
+	public boolean sendEmailConfirm2(String email) {
+		try {
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			
+			mailMessage.setFrom("daitran477@gmail.com");
+			mailMessage.setTo(email);
+			mailMessage.setText("The product has been approved for auction ✅");
+			mailMessage.setSubject("AUCTION HUNTER®");
+			mailSender.send(mailMessage);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+}
 }

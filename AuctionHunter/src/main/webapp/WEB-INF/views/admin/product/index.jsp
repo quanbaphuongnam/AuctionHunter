@@ -1321,7 +1321,7 @@
 										
                                     </td>										
                                     <td>
-                                      <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }">
+                                      <form method="get" action="${pageContext.request.contextPath }/productadmin/accept/${allproductAdmins.id }/${allproductAdmins.account.id }">
                                         <div class="custom-control custom-toggle custom-toggle-sm mb-1">
                                          
                                           <button type="submit" class="btn btn-custon-rounded-two btn-success" id="successAlert" name="status" value="1">

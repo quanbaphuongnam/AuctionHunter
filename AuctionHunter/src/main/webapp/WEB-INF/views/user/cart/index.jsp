@@ -47,7 +47,7 @@
                                 <tr>
                                     <th colspan="2" class="text-center">Product</th>
                                     <th class="text-center">Price</th>
-                                    <th class="text-right">Created</th>
+                                    <th class="text-right">Expiration date</th>
                                     <th class="action">&nbsp;</th>
                                 </tr>
                             </thead>

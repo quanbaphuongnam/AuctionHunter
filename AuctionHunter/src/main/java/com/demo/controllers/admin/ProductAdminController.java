@@ -90,14 +90,19 @@ public class ProductAdminController {
 //		return "admin/product/index";
 //	}
 
-	@RequestMapping(value = { "accept/{id}" }, method = RequestMethod.GET)
-	public String accept(@PathVariable("id") int id, @RequestParam("status") int status,
+	@RequestMapping(value = { "accept/{id}/{idAcc}" }, method = RequestMethod.GET)
+	public String accept(@PathVariable("id") int id, @RequestParam("status") int status,@PathVariable("idAcc") int idAcc,
 			RedirectAttributes redirectAttributes) {
-			Product product = productService.find(id);
+		    Account account = accountService.find(idAcc);
+			
 			if (status == 1) {
-				product.setStatus(1);
-				productService.save(product);
-				redirectAttributes.addFlashAttribute("msg", "Accept successful");
+				if (mailSenderService.sendEmailConfirm2(account.getEmail())) {
+					Product product = productService.find(id);
+					product.setStatus(1);
+					productService.save(product);
+					redirectAttributes.addFlashAttribute("msg", "Accept successful");
+				}
+				
 			} else if (status == 3) {
 
 				redirectAttributes.addFlashAttribute("msg", "Cancel");

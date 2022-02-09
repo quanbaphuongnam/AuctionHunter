@@ -9,4 +9,6 @@ public interface MailSenderService {
 	public boolean sendEmailConfirm( String email, int code );
 	
 	public boolean sendEmailConfirm1( String text,String email );
+	
+	public boolean sendEmailConfirm2(String email );
 }

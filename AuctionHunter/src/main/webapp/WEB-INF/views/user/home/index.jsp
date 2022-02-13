@@ -43,7 +43,7 @@ if (msg == 'Postsuccessful') {
                             <div class="slideshow__text-content middle">
                             	<div class="container">
                                     <div  class="wrap-caption left">
-                                        <h2 style="color:black" class="h1 mega-title slideshow__title">Shop New Collection</h2>
+                                        <h2 style="color:black" class="h1 mega-title slideshow__title">Find brand you need</h2>
                                         <span style="color:black" class="mega-subtitle slideshow__subtitle">From Hight to low, classic or modern. We have you<br>covered</span>
                                         <a href="${pageContext.request.contextPath }/account/register"><span  class="btn"> Register now </span></a>
                                     </div>

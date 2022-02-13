@@ -47,7 +47,6 @@ public class HistoryAuctionServiceImpl implements HistoryAuctionService{
 	}
 	@Override
 	public Page<HistoryAuction> findAllHistoryAuctionByIdAcc(int account_id, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return historyAuctionRepository.findAllHistoryAuctionByIdAcc(account_id, pageable);
 	}
 	@Override

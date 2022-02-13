@@ -51,8 +51,10 @@ public class AccountController implements ServletContextAware {
 
 	@Autowired
 	private MailSenderService mailSenderService;
+	
 	@Autowired
 	private ProductService productService;
+	
 	@Autowired
 	private InvoiceService invoiceService;
 
@@ -64,13 +66,10 @@ public class AccountController implements ServletContextAware {
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");
 			modelMap.put("account", accountService.find(id));
-			// model.addAttribute("id", session.getAttribute("id"));
-			// session.removeAttribute("msg");
 			return "user/account/index";
 		} else {
 			return "user/account/login";
 		}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 	}
 	@RequestMapping(value = "profileview/{id}", method = RequestMethod.GET)
 	public String index(@PathVariable("id") int id, Authentication authentication,  ModelMap modelMap, Model model,
@@ -100,7 +99,6 @@ public class AccountController implements ServletContextAware {
 			System.out.println("file name up" + fileNameUpload);
 			account.setAvatar(fileNameUpload);
 		}
-		
 		accountService.save(account);
 		redirectAttributes.addFlashAttribute("UpdateSuccessful", "Update successful");
 		return "redirect:/account/index";
@@ -125,7 +123,6 @@ public class AccountController implements ServletContextAware {
 	public String myauctions(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
 			Account account, RedirectAttributes redirectAttributes) {
 		if (authentication != null) {
-
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");
@@ -148,8 +145,6 @@ public class AccountController implements ServletContextAware {
 				}
 			}
 			modelMap.put("historyAuctions", historyAuctions);
-			// model.addAttribute("id", session.getAttribute("id"));
-			// session.removeAttribute("msg");
 			modelMap.addAttribute("dateNow", new Date());
 			return "user/account/myauctions";
 		} else {
@@ -158,7 +153,6 @@ public class AccountController implements ServletContextAware {
 
 	}
 
-	// ------------------register----------------------------------
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(ModelMap modelMap, @RequestParam(value = "checkEmail", required = false) String checkEmail,
 			HttpSession session, RedirectAttributes redirectAttributes) {
@@ -197,11 +191,8 @@ public class AccountController implements ServletContextAware {
 			redirectAttributes.addFlashAttribute("msg", "Check email");
 			redirectAttributes.addFlashAttribute("code", code);
 			session.setAttribute("account", account);
-			
 		}
 		return "redirect:/account/register";
-		
-		// return "redirect:/account/login";
 	}
 
 	@RequestMapping(value = "myproduct", method = RequestMethod.GET)
@@ -227,7 +218,6 @@ public class AccountController implements ServletContextAware {
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");
 			modelMap.put("Invoices", invoiceService.findAllByIdAcc2(id));
-			
 			return "user/account/confirminvoice";
 		} else {
 			return "user/account/login";
@@ -238,23 +228,18 @@ public class AccountController implements ServletContextAware {
 	public String myinvoice(Authentication authentication, HttpServletRequest request, ModelMap modelMap,
 			Account account, RedirectAttributes redirectAttributes) {
 		if (authentication != null) {
-
 			HttpSession session = request.getSession();
 			session.setAttribute("idAcc", accountService.findByUsername(authentication.getName()).getId());
 			id = (int) session.getAttribute("idAcc");
 			modelMap.put("Invoices", invoiceService.findAllByIdAcc(id));
-			// model.addAttribute("id", session.getAttribute("id"));
-			// session.removeAttribute("msg");
 			return "user/account/myinvoice";
 		} else {
 			return "user/account/login";
 		}
-
 	}
 
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
-
 	}
 }

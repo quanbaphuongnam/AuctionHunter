@@ -55,7 +55,6 @@ public class AjaxController {
 		if(account != null){
 			return response = " <label >Not Available</label>";
 		}
-	
 		return response="";
 	}
 	
@@ -86,26 +85,16 @@ public class AjaxController {
 		Date dateNow =  new Date();
 		long diff = dateEnd.getTime() - dateNow.getTime();
 		long diffSeconds = diff / 1000;         
-		//long diffMinutes = diff / (60 * 1000);         
-		//long diffHours = diff / (60 * 60 * 1000);                      
-		//System.out.println("Time in minutes: " + diffMinutes + " minutes.");         
-		//System.out.println("Time in hours: " + diffHours + " hours."); 
-		//System.out.println("Time now: " + dateNow);  
 		if(diffSeconds <= 20) {
-			//System.out.println("Time con lai: " + diffSeconds + " s");  
 	        Calendar c1 = Calendar.getInstance();
-	        // Định nghĩa mốc thời gian ban đầu 
 	        Date date = dateNow;
 	        c1.setTime(date);
-	        //System.out.println("Time ban đầu : " + format.format(c1.getTime()));
-	        // Tăng thêm 20s -- Sử dụng phương thức roll()
 	        if(c1.getTime().getSeconds() >= 40) {
 	        	 c1.roll(Calendar.SECOND, 20);
 	        	 c1.roll(Calendar.MINUTE, 1);
 	        }else {
 	        	 c1.roll(Calendar.SECOND, 20);
 	        }
-	        //System.out.println("Time mới : " + c1.getTime());
 	    	product.setEndDate(c1.getTime());
 			productService.save(product);
 	       } 
@@ -116,11 +105,7 @@ public class AjaxController {
 		historyAuction.setPriceBid(Double.parseDouble(priceBid));
 		historyAuction.setDateBid(new Date());
 		historyAuctionService.save(historyAuction);
-		// select new date
-		Date dateStart = product.getStartDate();
-		Date dateNow2 =  new Date();
 		String dateNew = format.format(dateEnd);
-		//System.err.println(dateNew);
 	 	return dateNew;
 	}
 	@RequestMapping(value="findProductAjax", method = RequestMethod.GET,produces = MimeTypeUtils.TEXT_PLAIN_VALUE)
@@ -138,9 +123,7 @@ public class AjaxController {
 				List<HistoryAuctionAjax> historyAuctions = historyAuctionService.findWinnerAjax(product.getId());
 				HistoryAuctionAjax historyAuctionAjax = historyAuctions.get(0);
 				Account account = accountService.find(historyAuctionAjax.getAccid());
-				
 				productService.save(product);
-				
 				if(!cartService.findById(product_id)){
 					Cart cart = new Cart();
 					cart.setAccount(account);
@@ -149,10 +132,8 @@ public class AjaxController {
 					cart.setStatus(1);
 					cartService.save(cart);
 				}
-				
 				return "invalid";
 			}else {
-				//System.err.println(dateNew);
 	 			return dateNew;
 			}
 		} else {

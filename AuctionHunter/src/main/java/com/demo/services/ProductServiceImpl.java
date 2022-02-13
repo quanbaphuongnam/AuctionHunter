@@ -16,8 +16,6 @@ import com.demo.repositories.ProductRepository;
 public  class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductRepository productRepository;
-	
-	
 
 	@Override
 	public List<Product> searchByKeyword(String keyword) {
@@ -33,12 +31,6 @@ public  class ProductServiceImpl implements ProductService{
 		return productRepository.namePhoto(product_id);
 	}
 
-
-	/*
-	 * @Override public List<String> searchByTerm(String term) { return
-	 * productRepository.searchByTerm(term); }
-	 */
-
 	@Override
 	public Product save(Product product) {
 		return productRepository.save(product);
@@ -46,7 +38,6 @@ public  class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> findAllByIdAcc(int account_id) {
-		// TODO Auto-generated method stub
 		return productRepository.findAllByIdAcc(account_id);
 	}
 
@@ -62,57 +53,36 @@ public  class ProductServiceImpl implements ProductService{
 	}
 	@Override
 	public Iterable<Product> findAll() {
-		// TODO Auto-generated method stub
 		return productRepository.findAll();
 	}
 	
 	@Override
 	public Page<Product> findpage(Pageable pageable,int status) {
-		// TODO Auto-generated method stub
 		return productRepository.findpage(pageable,status);
 	}
 	@Override
 	public List<Product> findAccept( ) {
-		// TODO Auto-generated method stub
 		return productRepository.findAccept();
 	}
 	@Override
 	public long count2() {
-		// TODO Auto-generated method stub
 		return productRepository.count2();
 	}
 	@Override
 	public Page<Product> findAllByIdAccPage(int account_id, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return productRepository.findAllByIdAccPage(account_id, pageable);
 	}
 	@Override
 	public List<Product> findDeleted() {
-		// TODO Auto-generated method stub
 		return productRepository.findDeleted();
 	}
 	@Override
 	public long countdelete() {
-		// TODO Auto-generated method stub
 		return productRepository.countdelete();
 	}
 	@Override
 	public Product findProduct(int account_id, String name, Date created) {
 		return productRepository.findProduct(account_id, name, created);
 	}
-
-
-
-
-
-//	@Override
-//	public List<String> searchByTerm(String term) {
-//		// TODO Auto-generated method stub
-//		return productRepository.searchByTerm(term);
-//	}
-
-	
-
-	
 
 }

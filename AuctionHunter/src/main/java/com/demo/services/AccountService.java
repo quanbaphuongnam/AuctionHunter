@@ -14,8 +14,5 @@ public interface AccountService extends UserDetailsService{
 	public Account findByUsername(String username);
 	public Account find(int id);
 	public List<Account> findAll();
-	
 	public Account FindById(int id);
-	
-	
 }

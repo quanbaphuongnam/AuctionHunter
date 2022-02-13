@@ -43,11 +43,6 @@ public class CategoryController {
 	
 	@RequestMapping(value ={"","index"}, method = RequestMethod.GET)
 	public String index(ModelMap modelMap,Category category,Brand brand) {
-//        Pageable pageable = PageRequest.of(p.orElse(0),10);
-//        Page<Product> page = productService.findpage(pageable,1);
-//        map.addAttribute("ListProduct",page);
-//        int status2 = 0;
-//        long count2 = productService.count2(status2);
 		modelMap.put("ListCategory", categoryService.findAllAvailability());
 		modelMap.put("ListBrand", brandService.findAllAvailability());
 		return "admin/category/index";

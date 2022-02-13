@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeAdminController {
 	@RequestMapping(value={"","index"}, method = RequestMethod.GET)
 	public String index() {	
-	
 		return "admin/home/index";
 	}
 }

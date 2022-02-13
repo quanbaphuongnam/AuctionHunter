@@ -89,12 +89,6 @@ public class CartController {
 					e.printStackTrace();
 				}
 				cal.add( Calendar.DATE, 3 );
-				/*
-				 * Date date1 = new Date(); if(cart.getStatus() == 1) {
-				 * if(date1.after(cal.getTime())) { Account account = accountService.find(id);
-				 * int rp = account.getReport(); account.setReport(rp+1);
-				 * accountService.save(account); } }
-				 */
 				cart.setCreated(cal.getTime());
 			}
 			

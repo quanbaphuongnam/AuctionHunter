@@ -1005,7 +1005,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                    
                         <div class="product-status-wrap">
-                            <h4>Invoice List (hoa don mua/ ban)</h4>
+                            <h4>Invoice List</h4>
                             <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
                          
                             </form>
@@ -1101,7 +1101,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                    
                         <div class="product-status-wrap">
-                            <h4>Auction List (cac hoat dong dau gia cua tai khoan này)</h4>
+                            <h4>Auction List</h4>
                             <form method="get" action="${pageContext.request.contextPath }/productadmin/accept">
                             </form>
                             <table>

@@ -32,8 +32,6 @@ public class AccountAdminController {
 	@Autowired
 	private AccountService accountService;
 
-
-	private ServletContext servletContext;
 	@Autowired
 	private HistoryAuctionService historyAuctionService;
 	
@@ -47,7 +45,6 @@ public class AccountAdminController {
 	@RequestMapping(value = {"index" }, method = RequestMethod.GET)
 	public String index(ModelMap map) {
         map.put("findAccounts", accountService.findAll());
-       
 		return "admin/account/index";
 	}
 	@RequestMapping(value = "accountdetail/{id}", method = RequestMethod.GET)
@@ -62,9 +59,8 @@ public class AccountAdminController {
         Page<HistoryAuction> page3 = historyAuctionService.findAllHistoryAuctionByIdAcc(id, pageable3);
         modelMap.addAttribute("ListHistoryAuction",page3);
 		modelMap.put("account", accountService.find(id));
-			modelMap.put("product", productService.findAllByIdAcc(id));
-			modelMap.put("historyAuctions", historyAuctionService.findAllById(id));
-		    
+		modelMap.put("product", productService.findAllByIdAcc(id));
+		modelMap.put("historyAuctions", historyAuctionService.findAllById(id));
 		return "admin/account/accountdetail";
 	}
 }

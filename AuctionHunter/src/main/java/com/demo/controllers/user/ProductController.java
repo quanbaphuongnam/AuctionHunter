@@ -130,12 +130,6 @@ public class ProductController {
 		return "user/home/productdetail";
 	}
 
-	@RequestMapping(value = "productdetail", method = RequestMethod.POST)
-	public String productdetail(ModelMap modelMap) {
-		// modelMap.put("product", productService.find(id));
-		return "user/home/productdetail";
-	}
-
 	@Autowired
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;

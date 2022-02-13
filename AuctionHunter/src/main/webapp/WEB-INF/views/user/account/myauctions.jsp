@@ -35,8 +35,6 @@
                                          <th class="product-price text-center alt-font">End day</th>
                                          <th class="product-price text-center alt-font"> Highest price</th>
                                         <th class="stock-status text-center alt-font">Status</th>
-                                           
-                                        <th class="product-subtotal text-center alt-font">Add to Cart</th>
                                          <th class="action">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -55,7 +53,7 @@
                                         
                                        		  <c:choose>
 												<c:when test="${historyAuction.product.startDate  <= dateNow && dateNow <=  historyAuction.product.endDate}">
-												  <span class="badge badge-secondary">happening</span>
+												  <span class="badge badge-success">happening</span>
 												</c:when>
 												<c:otherwise>
 											 	

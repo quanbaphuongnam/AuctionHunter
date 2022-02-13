@@ -7,7 +7,7 @@
 		 	<!--Page Title-->
     	<div class="page section-header text-center">
 			<div class="page-title">
-        		<div class="wrapper"><h1 class="page-width">My Invoice (Don Mua/ban)</h1></div>
+        		<div class="wrapper"><h1 class="page-width">My Invoice</h1></div>
       		</div>
 		</div>
         <!--End Page Title-->
@@ -58,9 +58,7 @@
             </div>
         </div>
         
-    </div>
-    <!--End Body Content-->
-    		        <br><br><br><br><br><br><br>
+    		        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
        
 	</jsp:attribute>
 </mt:layout_user>

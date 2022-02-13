@@ -28,23 +28,18 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
 	public List<Invoice> findAllByIdAcc(int account_id) {
-		// TODO Auto-generated method stub
 		return invoiceRepository.findAllByIdAcc(account_id);
 	}
 
 	@Override
 	public List<Invoice> findAllByIdAcc2(int id) {
-		// TODO Auto-generated method stub
 		return invoiceRepository.findAllByIdAcc2(id);
 	}
 
 	@Override
 	public Page<Invoice> findAllInvoiceByIdAccPage(int account_id, Pageable pageable) {
-		// TODO Auto-generated method stub
 		return invoiceRepository.findAllInvoiceByIdAccPage(account_id, pageable);
 	}
-
-
 
 	@Override
 	public Invoice save(Invoice invoice) {

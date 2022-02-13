@@ -88,10 +88,8 @@ public class HomeController implements ServletContextAware {
 	@RequestMapping(value = { "search" }, method = RequestMethod.GET)
 	public String search(@RequestParam("keyword") String keyword, ModelMap modelMap) {
 		if (keyword == null) {
-			//modelMap.put("listProducts", productService.findAllProHappenning(new Date()));
 			return "redirect:/home/index";
 		} else {
-			//modelMap.put("searchProducts", productService.searchByKeyword(keyword));
 			modelMap.put("listProducts", productService.searchByKeyword(keyword));
 			return "user/home/index";
 		}
@@ -103,21 +101,11 @@ public class HomeController implements ServletContextAware {
 		List<Product> listProductCategorys = new ArrayList<Product>();
 		List<Product> listProductCategoryHSs = new ArrayList<Product>();
 		for (Product product : listProducts) {
-//			for (CategoryProduct categoryProduct : product.getCategoryProducts()) {
-//				if (categoryProduct.getCategory().getId().equals(id)) {
-//					listProductCategorys.add(product);
-//				}
-//			}
 			if (product.getCategory().getId().equals(id)) {
 				listProductCategorys.add(product);
 			}
 		}
 		for (Product product : listProductHSs) {
-//			for (CategoryProduct categoryProduct : product.getCategoryProducts()) {
-//				if (categoryProduct.getCategory().getId().equals(id)) {
-//					listProductCategoryHSs.add(product);
-//				}
-//			}
 			if (product.getCategory().getId().equals(id)) {
 				listProductCategoryHSs.add(product);
 			}
@@ -135,21 +123,11 @@ public class HomeController implements ServletContextAware {
 		List<Product> listProductBrands = new ArrayList<Product>();
 		List<Product> listProductBrandHSs = new ArrayList<Product>();
 		for (Product product : listProducts) {
-//			for (BrandProduct brandProduct : product.getBrandProducts()) {
-//				if (brandProduct.getBrand().getId().equals(id)) {
-//					listProductBrands.add(product);
-//				}
-//			}
 			if (product.getBrand().getId().equals(id)) {
 				listProductBrands.add(product);
 			}
 		}
 		for (Product product : listProductHSs) {
-//			for (BrandProduct brandProduct : product.getBrandProducts()) {
-//				if (brandProduct.getBrand().getId().equals(id)) {
-//					listProductBrandHSs.add(product);
-//				}
-//			}
 			if (product.getBrand().getId().equals(id)) {
 				listProductBrandHSs.add(product);
 			}

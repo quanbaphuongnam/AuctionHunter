@@ -31,13 +31,11 @@ public class ContactUsController {
 		
 		String phone1 = String.valueOf(phone);
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		// TODO Auto-generated method stub
 		mailMessage.setFrom("aution.hunter.123@gmail.com");
 		mailMessage.setTo("aution.hunter.123@gmail.com");
 		mailMessage.setText(message + "\nPhone :" + phone);
 		mailMessage.setSubject(subject );
 		mailSender.send(mailMessage);
-//		mailSenderService.sendEmail(name,phone1, subject, message);
 		redirectAttributes.addFlashAttribute("msg", "Feedback successful");
 		return "redirect:/contactus/index";
 	}

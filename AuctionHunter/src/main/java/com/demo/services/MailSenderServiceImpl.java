@@ -16,10 +16,8 @@ public class MailSenderServiceImpl implements MailSenderService {
 
 	@Override
 	public void sendEmail(String phone, String name, String subject, String message) {
-		// TODO Auto-generated method stub
 
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		// TODO Auto-generated method stub
 		mailMessage.setFrom("aution.hunter.123@gmail.com");
 		mailMessage.setTo("aution.hunter.123@gmail.com");
 		mailMessage.setText(message + "\nPhone :" + phone);
@@ -46,7 +44,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 	}
 
 	@Override
-	public boolean sendEmailConfirm1(String text, String email) {
+	public boolean sendEmailEefuse(String text, String email) {
 		try {
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
 			
@@ -63,7 +61,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 	}
 
 	@Override
-	public boolean sendEmailConfirm2(String email) {
+	public boolean sendEmailAccept(String email) {
 		try {
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
 			

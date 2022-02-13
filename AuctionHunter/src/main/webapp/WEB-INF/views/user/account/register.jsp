@@ -182,13 +182,7 @@ $(document).ready(function($) {
 											placeholder="" id="password" class="" />                        	
                                 </div>
                             </div>
-                             <div
-									class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group">
-                                    <label for="CustomerPassword"> Re-Password</label>
-                                    <input type="password"  id="repassword"  />                        	
-                                </div>
-                            </div>
+                            
                           </div>
                           <div class="row">
                             <div

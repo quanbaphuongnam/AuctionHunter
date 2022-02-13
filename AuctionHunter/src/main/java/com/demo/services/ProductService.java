@@ -18,11 +18,8 @@ public interface ProductService {
 	public List<Product> findAllProHappenning(Date dateNow);
 	
 	public List<Product> findAllProHasnotStarted(Date dateNow);
-//	public List<ProductInfo> listProductInfo();
-//	public List<String> searchByTerm(String term);
 
 	public Product find(int id);
-
 
 	public List<Product> searchByKeyword(String keyword);
 
@@ -43,6 +40,7 @@ public interface ProductService {
 	public Page<Product> findAllByIdAccPage(int account_id,Pageable pageable);
 	
 	public List<Product> findDeleted();
+	
 	public long countdelete();
 	
 	public Product findProduct(int account_id, String name, Date created);

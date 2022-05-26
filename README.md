@@ -24,3 +24,4 @@ Manage active accounts
 Manage categories and brands
 Online story with users
 
+Video demo:https://youtu.be/qW49VuQWCCA
